@@ -1,0 +1,471 @@
+---
+title: "<span style='font-size:.9em; font-family: Iosevka;'><br> Data Science @ UoL</span>"
+subtitle: "<span style='font-size:1.5em;'>An introduction to LIDA and ATI</span>"
+#author: "<span style='color:#d03231;'><a href='https://roger-beecham.com'>Roger Beecham</a></span>"
+format: 
+   revealjs:
+     transition: fade
+     theme: theme/slides-theme.scss
+     css: theme/style.css
+     footer: '[Roger Beecham](https://roger-beecham.com) | School of Geography | Leeds Institute for Data Analytics'
+     mainfont: Jost
+     logo: "https://comms.leeds.ac.uk/wp-content/uploads/sites/51/2021/04/Visual-identity-section-images--e1618925864440.png"
+---
+
+## Leeds Institute for Data Analytics
+
+<br> 
+
+> *The home of Data Science and AI at University of Leeds*
+
+
+::: {.columns}
+
+::: {.column width="49%"}
+
+<span style='font-size:0.8em;'> -- **Vision** </span>
+
+ <span style='font-size:0.8em;'> To enhance knowledge and improve well-being and prosperity through internationally outstanding research and education in interdisciplinary data science and artificial intelligence. </span>
+
+
+
+:::
+
+::: {.column width="49%"}
+
+<span style='font-size:0.8em;'> -- **Mission** </span>
+
+<span style="font-size:0.8em; text-align=center">
+The purpose of LIDA is to leverage and develop local, national, and international talent to enable high impact data science research.</span>
+
+
+
+:::
+
+:::
+
+::: footer
+
+
+:::
+
+::: {.notes}
+
+Started up in 2014 by RCUK and UoL.
+Links **coordinating** activity disparate parts of the University.
+Application of ML or AI (computing) in healthcare/environment and/or societies
+Extension of stuff that happens in Faculties (hence we are Faculty funded)
+:::
+
+---
+
+
+## Leeds Institute for Data Analytics
+
+<br> 
+
+> ...*Where computer scientists, mathematicians and statisticians work with application scientists*
+
+
+::: {.columns}
+
+::: {.column width="49%"}
+
+<span style='font-size:0.8em;'> -- **Communities (Application)** </span>
+
+ * <span style='font-size:0.7em;'> Health </span>
+ * <span style='font-size:0.7em;'> Societies </span> 
+* <span style='font-size:0.7em;'> **Environment** | </span> <span style='font-size:0.5em; font-family: Iosevka;'> https://sciml-leeds.github.io/ </span>
+
+
+
+
+:::
+
+::: {.column width="49%"}
+
+<span style='font-size:0.8em;'> -- **Programmes (Methods)** </span>
+
+ * <span style='font-size:0.7em;'> AI </span>
+ * <span style='font-size:0.7em;'> Immersive Tech </span> 
+* <span style='font-size:0.7em;'> Data Sciece Infrastructure </span> 
+* <span style='font-size:0.7em;'> The *Science* of Data Science</span> 
+* <span style='font-size:0.7em;'> Visualization</span> 
+
+
+:::
+
+:::
+
+::: footer
+
+
+:::
+
+::: {.notes}
+
+That through Programmes and Communities, aims to define/ set/ address future research agenda.
+
+Communities -- Env. 
+Programmes -- methods development activity in academia around DS & AI challenges – particularly AI/ML methods  inc. Algorithm Transparency, Responsible AI etc
+Data research infrastructures (cloud, data/AI platforms and pipelines, tools) and data visualisation
+
+:::
+
+---
+
+
+## What does LIDA do?
+<br>
+
+::: {.column width="80%"}
+![](img/lida_structure.png){fig-align="center"}
+:::
+
+
+::: {.notes}
+
+We bring together researchers and students in data analytics, from a broad range of disciplinary backgrounds, to advance knowledge and improve well-being and prosperity through internationally outstanding research and education in interdisciplinary data science and artificial intelligence.
+
+External partners are many: 
+
+
+:::
+
+---
+
+
+
+
+## LIDA Data Analytics Team
+
+
+::: {.column width="80%"}
+![](img/dat.jpg){fig-align="center"}
+:::
+
+::: {.notes}
+
+A collaborative physical space and hub
+Professional services staff in operations and communications
+Regular data science seminars on a wide variety of methods and topics
+The Data Analytics Team (DAT) are our team of specialists in data management, data analysis, software engineering and information security.
+Secure processes to support your data analytics research throughout the project lifecycle. 
+Secure physical data environment and IT infrastructure for the storage and processing of pseudonymised and personally identifiable data. 
+6x safe rooms to enable the secure processing of PII and ONS SRS data. 
+
+:::
+
+---
+
+## Leeds Analytic Secure Environment for Research (LASER)
+
+
+::: {.columns}
+
+::: {.column width="50%"}
+<br>
+![](img/laser.png){fig-align="center"}
+:::
+
+::: {.column width="50%"}
+
+<span style='font-size:0.8em;'> *Cloud based (Microsoft Azure) platform hosted in LIDA  hosting data that are highly sensitive, personally identifiable or commercially sensitive. <br><br>Follows high security standards -- ISO27001 and The NHS Data Protection Toolkit*</span>
+
+
+:::
+
+:::
+
+::: {.notes}
+LIDA provides expertise in data analytics to help colleagues from all faculties to advance knowledge through internationally outstanding research and education in interdisciplinary data science and artificial intelligence.
+
+The Leeds Analytics Secure Environment for Research (LASER) is a cutting edge cloud based (Microsoft Azure) platform hosted in LIDA, designed to empower researchers and students to drive data analytics excellence at the University.
+
+LIDA’s research environment – including both secure offices and LASER platform – securely hosts data that are highly sensitive, personally identifiable or commercially sensitive. This capability aids the development of research that can make a difference to our local communities and the world around us.
+:::
+
+---
+
+## LIDA Team
+
+<br>
+
+::: {.column width="80%"}
+![](img/team.png){fig-align="center"}
+:::
+
+
+::: {.notes}
+Professional Services
+
+LIDA provides expertise in data analytics to help colleagues from all faculties to advance knowledge through internationally outstanding research and education in interdisciplinary data science and artificial intelligence.
+
+The Leeds Analytics Secure Environment for Research (LASER) is a cutting edge cloud based (Microsoft Azure) platform hosted in LIDA, designed to empower researchers and students to drive data analytics excellence at the University.
+
+LIDA’s research environment – including both secure offices and LASER platform – securely hosts data that are highly sensitive, personally identifiable or commercially sensitive. This capability aids the development of research that can make a difference to our local communities and the world around us.
+:::
+
+---
+
+## LIDA Team
+
+<br>
+
+::: {.column width="80%"}
+![](img/leaders.png){fig-align="center"}
+:::
+
+
+::: {.notes}
+LIDA provides expertise in data analytics to help colleagues from all faculties to advance knowledge through internationally outstanding research and education in interdisciplinary data science and artificial intelligence.
+
+The Leeds Analytics Secure Environment for Research (LASER) is a cutting edge cloud based (Microsoft Azure) platform hosted in LIDA, designed to empower researchers and students to drive data analytics excellence at the University.
+
+LIDA’s research environment – including both secure offices and LASER platform – securely hosts data that are highly sensitive, personally identifiable or commercially sensitive. This capability aids the development of research that can make a difference to our local communities and the world around us.
+:::
+
+---
+
+
+## How can LIDA help you?
+
+<br><br><br>
+
+> *But I already have a research group in my school that I work with on papers and grants and other R&I activity* ...
+
+<!-- --- -->
+
+<!-- ## How can LIDA help you? -->
+
+<!-- ::: {style="font-size: 80%;"} -->
+
+<!-- > *But I already have a research group in my school that I work with on papers and grants and other R&I activity* ... -->
+
+<!-- ::: -->
+
+<!-- ::: {style="font-size: 80%;"} -->
+
+<!-- ::: {.fragment .fade-in transition-speed="slow"} -->
+
+<!-- * Physical space and hub -->
+
+<!-- ::: -->
+
+<!-- ::: {.fragment .fade-in transition-speed="slow"} -->
+
+<!-- * Professional services staff -->
+<!--   + Data Analytics Team (DAT) -->
+<!--   + Research & Innovation Development -->
+<!--   + Communications -->
+
+<!-- :::  -->
+
+<!-- ::: {.fragment .fade-in transition-speed="slow"} -->
+
+<!-- * Secure data processes & IG support -->
+<!-- * Secure physical data environment and IT infrastructure -->
+<!-- * 6x safe rooms -->
+<!-- ::: -->
+
+<!-- * Events : regular data science seminars -->
+<!-- * Alan Turing & Industry partnerships -->
+
+<!-- ::: -->
+<!-- ::: {.notes} -->
+<!-- A collaborative physical space and hub -->
+<!-- Professional services staff in operations and communications -->
+<!-- Regular data science seminars on a wide variety of methods and topics -->
+<!-- The Data Analytics Team (DAT) are our team of specialists in data management, data analysis, software engineering and information security. -->
+<!-- Secure processes to support your data analytics research throughout the project lifecycle.  -->
+<!-- Secure physical data environment and IT infrastructure for the storage and processing of pseudonymised and personally identifiable data.  -->
+<!-- 6x safe rooms to enable the secure processing of PII and ONS SRS data.  -->
+
+<!-- ::: -->
+
+
+---
+
+## How can LIDA help you?
+
+::: {style="font-size: 80%;"}
+:::
+
+::: {style="font-size: 80%;"}
+
+::: {.fragment .fade-in transition-speed="slow"}
+* Physical space and hub
+:::
+
+::: {.fragment .fade-in transition-speed="slow"}
+* Professional services staff
+  + Data Analytics Team (DAT)
+  + Research & Innovation Development
+  + Communications
+::: 
+
+::: {.fragment .fade-in transition-speed="slow"}
+* Secure data processes, IT infrastructure  & IG support
+:::
+
+::: {.fragment .fade-in transition-speed="slow"}
+* Events: regular data science seminars
+:::
+
+::: {.fragment .fade-in transition-speed="slow"}
+* Pump priming: LIDA Academic Fellows, Laser/DAT bursaries
+:::
+
+
+::: {.fragment .fade-in transition-speed="slow"}
+* Alan Turing & Industry partnerships
+:::
+
+:::
+::: {.notes}
+A collaborative physical space and hub
+Professional services staff in operations and communications
+Regular data science seminars on a wide variety of methods and topics
+The Data Analytics Team (DAT) are our team of specialists in data management, data analysis, software engineering and information security.
+Secure processes to support your data analytics research throughout the project lifecycle. 
+Secure physical data environment and IT infrastructure for the storage and processing of pseudonymised and personally identifiable data. 
+6x safe rooms to enable the secure processing of PII and ONS SRS data. 
+
+:::
+
+---
+
+## How can LIDA help you?
+
+::: {style="font-size: 80%;"}
+
+
+* Physical space and hub
+
+
+* Professional services staff
+  + Data Analytics Team (DAT)
+  + Research & Innovation Development
+  + Communications
+  
+
+
+* Secure data processes, IT infrastructure  & IG support
+
+
+* Events: regular data science seminars
+
+
+* Pump priming: LIDA Academic Fellows, Laser/DAT bursaries
+
+
+* **Alan Turing & Industry partnerships**
+
+
+
+:::
+
+::: {.notes}
+
+:::
+
+<!-- --- -->
+
+<!-- ## ATI and PhD Study  -->
+
+
+<!-- ::: {.columns} -->
+
+<!-- ::: {.column width="45%"} -->
+<!-- <br><br> -->
+<!-- ![](img/logo_ati.png){fig-align="center"} -->
+<!-- ::: -->
+
+<!-- ::: {.column width="55%"} -->
+
+<!-- <br><br> -->
+
+<!-- ::: {style="font-size: 120%;"} -->
+
+
+<!-- 1. ATI Enrichment Scheme -->
+<!-- 2. ATI Data Study Groups -->
+<!-- ::: -->
+
+
+<!-- ::: -->
+
+<!-- ::: -->
+
+<!-- --- -->
+
+<!-- ## Enrichment Scheme -->
+
+
+<!-- ::: {.columns} -->
+
+<!-- ::: {.column width="40%"} -->
+<!-- <br><br> -->
+<!-- ![](img/logo_ati.png){fig-align="center"} -->
+<!-- ::: -->
+
+<!-- ::: {.column width="60%"} -->
+
+<!-- <br><br> -->
+
+<!-- ::: {style="font-size: 80%;"} -->
+
+<!-- * Active Research Phase of PhD -->
+<!-- * 6--9 month placement -->
+<!-- * Call opens November--Jan for Oct through Jan Start (following AY) -->
+<!-- * 56 PhD students in 23/24 -->
+<!-- * £1k expenses + £472.50/month relocation/commuting to British Library -->
+
+<!-- ::: -->
+
+
+<!-- ::: -->
+
+<!-- ::: -->
+
+<!-- --- -->
+
+<!-- ## Data Study Groups -->
+
+
+<!-- ::: {.columns} -->
+
+<!-- ::: {.column width="40%"} -->
+<!-- <br><br> -->
+<!-- ![](img/logo_ati.png){fig-align="center"} -->
+<!-- ::: -->
+
+<!-- ::: {.column width="60%"} -->
+
+<!-- <br><br> -->
+
+<!-- ::: {style="font-size: 80%;"} -->
+
+<!-- * PhDs + ECRs as participants -->
+<!-- * Industry-Academic links | Cross-discipline links -->
+<!-- * Challenge-focussed -->
+<!-- * Cost-neutral: travel, accommodation, expenses -->
+
+<!-- ::: -->
+
+
+<!-- ::: -->
+
+<!-- ::: -->
+
+---
+
+
+<br><br><br><br><br><br><br>
+
+::: {style="font-size: 80%; text-align: right;"}
+
+<span style='font-size:1.8em; font-family: Iosevka;'>**Data Science @ UoL**</span><br>
+<span style='font-size:1.5em;'>**An introduction to LIDA and ATI**</span>
+
+:::

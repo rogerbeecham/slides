@@ -1,0 +1,7 @@
+h1.title {
+  margin-bottom: 0;
+  background-image: url(../img/logo.png);
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 400px, 200px;
+}
