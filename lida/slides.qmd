@@ -57,7 +57,7 @@ Application of ML or AI (computing) in healthcare/environment and/or societies
 Extension of stuff that happens in Faculties (hence we are Faculty funded)
 :::
 
----
+---   
 
 
 ## Leeds Institute for Data Analytics
@@ -106,9 +106,17 @@ Extension of stuff that happens in Faculties (hence we are Faculty funded)
 
 That through Programmes and Communities, aims to define/ set/ address future research agenda.
 
-Communities -- Env. 
-Programmes -- methods development activity in academia around DS & AI challenges – particularly AI/ML methods  inc. Algorithm Transparency, Responsible AI etc
-Data research infrastructures (cloud, data/AI platforms and pipelines, tools) and data visualisation
+Communities : Env that Phil Livermore leads. Meteorology, glaciology, Satellite Data
+
+Programmes : 
+
+* methods development activity in academia around DS & AI challenges – particularly AI/ML methods  
+* Algorithm Transparency, Responsible AI etc.
+* Data research infrastructures (cloud, data/AI platforms and pipelines, tools) and data visualisation
+
+* Events : seminars, workshops and hackathons 
+* Spillovers : cross-council grants etc.
+* But really : set agenda, deep dives into new important datasets, methods dev that changing discipline
 
 :::
 
@@ -125,10 +133,14 @@ Data research infrastructures (cloud, data/AI platforms and pipelines, tools) an
 
 ::: {.notes}
 
-We bring together researchers and students in data analytics, from a broad range of disciplinary backgrounds, to advance knowledge and improve well-being and prosperity through internationally outstanding research and education in interdisciplinary data science and artificial intelligence.
+E&T important component. DSDP, CPD short courses, Data Science Programmes that LIDA supports.
 
-External partners are many: 
 
+DSDP : 
+
+* ECR data scientists on 6-month, proof-of-concept research projects
+* With partners : academics, private/public sector
+* Quicker, leaner than appointing RAs. 
 
 :::
 
@@ -145,6 +157,15 @@ External partners are many:
 :::
 
 ::: {.notes}
+
+DAT : 
+
+* shifting to modern, reproducible workflows 
+* version control with GIT, advice and work on curating datasets as data products 
+* Experts in data governance : can wite DAT time into grants
+* RSE time 
+
+
 
 A collaborative physical space and hub
 Professional services staff in operations and communications
@@ -283,6 +304,16 @@ LIDA’s research environment – including both secure offices and LASER platfo
 
 <!-- ::: -->
 
+::: {.notes}
+
+LIDA absolutely not meant to compete with, or detract from R&I that happens within schools.
+
+Instead to support and enhance it. 
+
+Generating excitement, new connections across UoL -- so that migth be able to "go for"
+grants / other things that wouldn't normally consider ....
+:::
+
 
 ---
 
@@ -330,6 +361,14 @@ The Data Analytics Team (DAT) are our team of specialists in data management, da
 Secure processes to support your data analytics research throughout the project lifecycle. 
 Secure physical data environment and IT infrastructure for the storage and processing of pseudonymised and personally identifiable data. 
 6x safe rooms to enable the secure processing of PII and ONS SRS data. 
+
+As well as Communities and Programmes, could think about more dedicated SEE-related activities:
+
+
+Selfish interest in more SEE collaboratiob, via Environment community
+
+* Rothamsted Research North Wyke Farm Data Platform
+* UoL Research Farm -- Data Platform / sharing
 
 :::
 
