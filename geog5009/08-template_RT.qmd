@@ -1,0 +1,268 @@
+---
+title: "Chapter 09 Template"
+author: "Roger Beecham"
+format: html
+editor_options: 
+  chunk_output_type: console
+---
+
+## Introduction
+
+Reopen your project and save this `.qmd` file in the top-level folder. When working through the materials from this chapter run each code chunk separately by clicking the small green arrow beside each code chunk. By default I have set `eval: false` on most code chunks, so when you knit the code chunk will not execute.
+
+
+## Setup
+
+The code block below points to the packages you need. 
+
+```{r}
+#| echo: true
+#| eval: false
+library(tidyverse) 
+library(sf)
+library(here)
+```
+
+Bring in the staged Covid-19 case data by US county, as well as the `.geojson` files for US states and counties. Note that the Covid-19 case data were originally collected via the [`covdata`](https://kjhealy.github.io/covdata/) R package.
+
+```{r}
+#| echo: true
+#| eval: false
+url <- "https://vis4sds.github.io/data/ch8/county_data_covid.csv"
+download.file(url, here("data", "county_data_covid.csv"))
+county_data <- read_csv(here("data", "county_data_covid.csv")) |> 
+  mutate(binned_growth_rate = factor(binned_growth_rate))
+
+url <- "https://vis4sds.github.io/data/ch8/county_boundaries.geojson"
+download.file(url, here("data", "county_boundaries.geojson"))
+county_boundaries <- st_read(here("data", "county_boundaries.geojson"))  
+
+url <- "https://vis4sds.github.io/data/ch8/state_boundaries.geojson" 
+download.file(url, here("data", "state_boundaries.geojson"))              
+state_boundaries <- st_read(here("data", "state_boundaries.geojson"))  
+```
+
+
+```{r}
+p <- county_data |> 
+  ggplot()+
+  geom_sf(
+    data=state_boundaries, 
+    fill="#eeeeee", colour="#ffffff", linewidth=0.4
+  )+ 
+  coord_sf(crs = 5070, datum=NA, clip="off") +
+  geom_point(
+    data=.%>% filter(date=="2020-05-03"), 
+    aes(x=x, y=y, size=case_rate, alpha=binned_growth_rate, colour=binned_growth_rate)
+  ) +
+  # Plot case data.
+  geom_path(
+    aes(x=x+((day_num-1)*6000), y=y+((growth_rate-1)*50000), 
+        group=fips, linewidth=case_rate, alpha=binned_growth_rate, colour=binned_growth_rate
+    ),
+    lineend="round"
+  ) +
+  scale_colour_manual(values=c("#fa9fb5", "#dd3497", "#7a0177", "#49006a")) +
+  scale_size(range=c(.1,1.5))+
+  scale_linewidth(range=c(.3,3))+
+  scale_alpha_ordinal(range=c(.2,1)) +
+  guides(colour="none", size="none", alpha="none", linewidth = "none") +
+  theme_void()
+
+
+
+
+  # 5070 flattens out the US
+  coord_sf(crs = 5070, datum=NA, clip="off") +
+  geom_point(
+    data=.%>% filter(date=="2020-05-03"), 
+    aes(x=x, y=y, size=case_rate, alpha=binned_growth_rate, colour = binned_growth_rate)
+  ) +
+  # Plot case data.
+  geom_path(
+    aes(x=x+((day_num-1)*6000), y=y+((growth_rate-1)*50000), 
+        # fips is a country code, ensures that there will be separate lines ->
+        # group lines by country, so it does not get plotted as one line
+        group=fips, linewidth=case_rate, alpha=binned_growth_rate
+    ),
+    lineend="round"
+  ) +
+  
+  scale_colour_manual(values=c("#fa9fb5", "#dd3497", "#7a0177", "#49006a")) +
+  scale_size(range=c(.1,1.5))+
+  scale_linewidth(range=c(.3,3))+
+  scale_alpha_ordinal(range=c(.2,1)) +
+  # removing parts of legend
+  guides(colour="none", size="none", alpha="none", linewidth="none") +
+  theme_void()
+```
+
+```{r}
+# Counties to annotate.
+annotate <- county_data |>  
+  filter(
+    date=="2020-05-03",
+    county==c("Huntingdon") & state=="Pennsylvania" |
+    county==c("Lenawee") & state=="Michigan" |
+    county==c("Crawford") & state=="Iowa" |
+    county==c("Wapello") & state=="Iowa" |
+    county==c("Lake") & state=="Tennessee" |
+    county=="Texas" & state == c("Oklahoma") |
+    county==c("Duplin") & state=="North Carolina" |
+    county==c("Santa Cruz") & state=="Arizona"|
+    county==c("Titus") & state=="Texas"|
+    county==c("Yakima") & state=="Washington"
+    ) |> 
+  mutate(
+    state_abbr=case_when(
+      state=="Pennsylvania" ~ "Penn.",
+      state=="Iowa" ~ "Iowa",
+      state=="Tennessee" ~ "Tenn.",
+      state=="Oklahoma" ~ "Okla.",
+      state=="Texas" ~ "Texas",
+      state=="North Carolina" ~ "N.C.",
+      state=="Washington" ~ "Wash.",
+      state=="Michigan" ~ "Mich.",
+      state=="Arizona" ~ "Arizona",
+      TRUE ~ ""),
+    end_rate_round = round(end_rate,0)
+  )
+```
+
+
+```{r}
+
+  
+p +   
+  # adds state abbreviation to the map (center of state)
+  geom_text(data = state_boundaries, aes(x = x, y = y, label = STUSPS), alpha = .8) +
+  # adds the county, state label to selected states (highlighting parts of the map)
+  # specified in annotate object
+  # offsetting y ?? +
+  geom_text(
+    data=annotate, 
+    aes(x=x,y=y-20000,label=paste0(county,", ",state_abbr)), 
+    size=3, fontface="bold"
+    )+
+  geom_text(
+    data=annotate, 
+    aes(x=x,y=y-65000,label=paste0(end_rate_round,"X more cases")), 
+    size=2.5
+    )
+
+
+```
+
+```{r}
+# Bounding box for mainland US.
+bbox <- st_bbox(state_boundaries)
+width <- bbox$xmax-bbox$xmin
+height <- bbox$ymax-bbox$ymin
+```
+
+
+
+```{r}
+growth_text <- "Line height and colour show change in reported cases 
+relative to May 3"
+case_text <- "Line thickness shows current number relative to 
+county population"
+title_text <- "Change in reported cases since May 3"
+
+
+# Legend : case
+legend_case <- county_data |>
+  # finding one county shape for growth that I like
+  filter(
+    county == "Kings" & state=="California" ) |>
+  mutate(
+    x=bbox$xmax-.88*width,y=bbox$ymax+.05*height,
+    binned_growth_rate=factor(binned_growth_rate)
+  ) %>%
+  select(x, y, day_num, growth_rate, binned_growth_rate, fips) |>
+  mutate(
+    low=.001, mid=.009, high=.015,
+  ) |>
+  # same data repeated for low, mid, high, with changed growth_rate var
+  pivot_longer(cols=c(low, mid, high), names_to="offset", values_to="offset_rate") |>
+  # moving in geographic space, so there is space between lines for (less, more cases)
+  mutate(
+    offset_day= case_when(
+      offset == "low" ~ 0,
+      offset == "mid" ~ .04,
+      offset == "high" ~ .08
+    )
+  )
+
+```
+
+
+
+```{r}
+p +
+  geom_text(data = state_boundaries, aes(x = x, y = y, label = STUSPS), alpha = .8) +
+  geom_text(
+    data = annotate,
+    aes(x = x, y = y - 20000, label = paste0(county, ", ", state_abbr)),
+    size = 3, fontface = "bold"
+  ) +
+  ## Adding a second line to highlight, adding 
+  geom_text(
+    data = annotate,
+    aes(x = x, y = y - 65000, label = paste0(end_rate_round, "X more cases")),
+    size = 2.5
+  ) +
+  theme_void() +
+  geom_path(
+    data = legend_growth,
+    aes(
+      x = x + ((day_num - 1) * 6000), y = y + ((growth_rate - 1) * 50000),
+      group = fips, linewidth = case_rate,
+      colour = binned_growth_rate # throws error continuous value supplied to discrete
+    ),
+    lineend = "round"
+  ) +
+  # Text label for growth legend lines.
+  geom_text(
+    # For positioning manually edit growth_rate of Bledsoe.
+    data = legend_growth %>% filter(day_num == max(county_data$day_num)) %>%
+      mutate(growth_rate = if_else(county == "Bledsoe", -1, growth_rate)),
+    aes(
+      x = x + (day_num * 6000) + 10000, y = y + ((growth_rate - 1) * 50000),
+      label = str_wrap(label, 15)
+    ),
+    size = 2.5
+  ) +
+  annotate("text",
+    x = bbox$xmax - .25 * width, y = bbox$ymax + .08 * height,
+    label = str_wrap(growth_text, 35), size = 3.5, hjust = 1
+  ) +
+
+  # Plot case legend lines.
+  geom_path(
+    data = legend_case,
+    aes(
+      x = x + ((day_num - 1) * 6000) + offset_day * width, y = y + ((growth_rate - 1) * 50000),
+      group = paste0(fips, offset), linewidth = offset_rate, 
+      color = binned_growth_rate, 
+      lineend = "round"
+    )
+  ) +
+  # Text label for case legend lines.
+  annotate("text",
+    x = bbox$xmax - .88 * width, y = bbox$ymax + .04 * height, label = "Less", size = 2.5
+  ) +
+  annotate("text",
+    x = bbox$xmax - .8 * width, y = bbox$ymax + .04 * height, label = "More", size = 2.5
+  ) +
+  annotate("text",
+    x = bbox$xmax - .75 * width, y = bbox$ymax + .08 * height, label = str_wrap(case_text, 35),
+    size = 3.5, hjust = 0
+  ) +
+
+  # Title.
+  annotate("text",
+    x = bbox$xmax - .5 * width, y = bbox$ymax + .15 * height, label = title_text, size = 5
+  ) 
+```
+

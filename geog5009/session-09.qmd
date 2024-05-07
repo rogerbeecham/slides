@@ -1,0 +1,692 @@
+---
+title: "GEOG5009 <br> <span style='font-size:.8em; font-weight: 500'>Visualization for</span> <br> <span style='font-size:.8em; font-weight: 500'>Geographic Data Science</span>"
+subtitle: "<br><span style='color:#525252; font-size:1.0em;'>-- Spring/Summer 2024</span>"
+format: 
+   revealjs:
+     transition: fade
+     theme: theme/slides-theme.scss
+     css: theme/style.css
+     footer: '[Roger Beecham](https://roger-beecham.com)'
+     mainfont: Avenir Book
+---
+
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+library(knitr)
+library(kableExtra)
+library(tidyverse)
+```
+
+---
+
+# Session 9 : Data Storytelling
+
+::: {.notes}
+* Evidence-based society
+* Open Science -- massively freed up process of working with data
+* Pandemic example -- Exciting, but responsibility on communicating with integrity, reliably and effectively
+* Recently InfoVis much concerned with data storytelling -- so too popular science.
+* In this session ...
+:::
+
+
+---
+
+## Characteristics of data-driven stories
+
+<div style="font-size:0.65em;">
+
+::: {.fragment}
+
+* **Designed**: The analyst makes very deliberate decisions in light of audience and purpose.
+
+:::
+
+
+::: {.fragment}
+
+* **Partial**: Essential information is prioritised and made salient, with abstraction and brevity preferred over complexity and completeness.
+
+:::
+
+::: {.fragment}
+
+* **Intuitive**: Visual narratives take advantage of our natural tendency to communicate via metaphor and story, with a clear "entry point" and clear progression.
+
+:::
+
+::: {.fragment}
+
+* **Compelling**: Visual stories often capture attention through an array of graphical devices -- sequence, animation and interaction. They generate an aesthetic response.
+
+:::
+
+::: {.fragment}
+
+* **Relatable and situated**: Visual stories promote empathy, using devices that place the audience in the story setting.
+
+:::
+
+::: {.fragment}
+
+* **Political**: Visual data stories often promote with clarity particular voices, interpretations or positions.
+
+:::
+
+</div>
+
+---
+
+
+---
+
+<br>
+
+::: {.column width="80%"}
+
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/wp.png", error = FALSE)
+```
+
+:::
+
+![](img/wp.png)
+
+---
+
+
+<br>
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.45em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+county_data |> 
+  ggplot(aes(colour=binned_growth_rate, alpha=binned_growth_rate))+
+  geom_sf(
+    data=state_boundaries, 
+    fill="#eeeeee", colour="#ffffff", linewidth=0.4
+  )+ 
+  coord_sf(crs = 5070, datum=NA, clip="off") +
+  geom_point(
+    data=.%>% filter(date=="2020-05-03"), 
+    aes(x=x, y=y, size=case_rate)
+  ) +
+  # Plot case data.
+  geom_path(
+    aes(x=x+((day_num-1)*6000), y=y+((growth_rate-1)*50000), 
+        group=fips, linewidth=case_rate
+    ),
+    lineend="round"
+  ) +
+  scale_colour_manual(values=c("#fa9fb5", "#dd3497", "#7a0177", "#49006a")) +
+  scale_size(range=c(.1,1.5))+
+  scale_linewidth(range=c(.3,3))+
+  scale_alpha_ordinal(range=c(.2,1)) +
+  guides(colour="none", size="none", alpha="none") +
+  theme_void()
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/wp-basic.png", error = FALSE)
+```
+
+:::
+
+:::
+
+
+---
+
+
+<br>
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.45em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "3,4,5,6"
+county_data |> 
+  ggplot(aes(colour=binned_growth_rate, alpha=binned_growth_rate))+
+  geom_sf(
+    data=state_boundaries, 
+    fill="#eeeeee", colour="#ffffff", linewidth=0.4
+  )+ 
+  coord_sf(crs = 5070, datum=NA, clip="off") +
+  geom_point(
+    data=.%>% filter(date=="2020-05-03"), 
+    aes(x=x, y=y, size=case_rate)
+  ) +
+  # Plot case data.
+  geom_path(
+    aes(x=x+((day_num-1)*6000), y=y+((growth_rate-1)*50000), 
+        group=fips, linewidth=case_rate
+    ),
+    lineend="round"
+  ) +
+  scale_colour_manual(values=c("#fa9fb5", "#dd3497", "#7a0177", "#49006a")) +
+  scale_size(range=c(.1,1.5))+
+  scale_linewidth(range=c(.3,3))+
+  scale_alpha_ordinal(range=c(.2,1)) +
+  guides(colour="none", size="none", alpha="none") +
+  theme_void()
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/wp-basic.png", error = FALSE)
+```
+
+:::
+
+:::
+
+---
+
+<br>
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.45em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "7"
+county_data |> 
+  ggplot(aes(colour=binned_growth_rate, alpha=binned_growth_rate))+
+  geom_sf(
+    data=state_boundaries, 
+    fill="#eeeeee", colour="#ffffff", linewidth=0.4
+  )+ 
+  coord_sf(crs = 5070, datum=NA, clip="off") +
+  geom_point(
+    data=.%>% filter(date=="2020-05-03"), 
+    aes(x=x, y=y, size=case_rate)
+  ) +
+  # Plot case data.
+  geom_path(
+    aes(x=x+((day_num-1)*6000), y=y+((growth_rate-1)*50000), 
+        group=fips, linewidth=case_rate
+    ),
+    lineend="round"
+  ) +
+  scale_colour_manual(values=c("#fa9fb5", "#dd3497", "#7a0177", "#49006a")) +
+  scale_size(range=c(.1,1.5))+
+  scale_linewidth(range=c(.3,3))+
+  scale_alpha_ordinal(range=c(.2,1)) +
+  guides(colour="none", size="none", alpha="none") +
+  theme_void()
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/wp-basic.png", error = FALSE)
+```
+
+:::
+
+:::
+
+---
+
+<br>
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.45em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "8,9,10,11,12,21,22,23"
+county_data |> 
+  ggplot(aes(colour=binned_growth_rate, alpha=binned_growth_rate))+
+  geom_sf(
+    data=state_boundaries, 
+    fill="#eeeeee", colour="#ffffff", linewidth=0.4
+  )+ 
+  coord_sf(crs = 5070, datum=NA, clip="off") +
+  geom_point(
+    data=.%>% filter(date=="2020-05-03"), 
+    aes(x=x, y=y, size=case_rate)
+  ) +
+  # Plot case data.
+  geom_path(
+    aes(x=x+((day_num-1)*6000), y=y+((growth_rate-1)*50000), 
+        group=fips, linewidth=case_rate
+    ),
+    lineend="round"
+  ) +
+  scale_colour_manual(values=c("#fa9fb5", "#dd3497", "#7a0177", "#49006a")) +
+  scale_size(range=c(.1,1.5))+
+  scale_linewidth(range=c(.3,3))+
+  scale_alpha_ordinal(range=c(.2,1)) +
+  guides(colour="none", size="none", alpha="none") +
+  theme_void()
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/wp-basic.png", error = FALSE)
+```
+
+:::
+
+:::
+
+---
+
+<br>
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.45em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "14,15,16,17,18,19,20"
+county_data |> 
+  ggplot(aes(colour=binned_growth_rate, alpha=binned_growth_rate))+
+  geom_sf(
+    data=state_boundaries, 
+    fill="#eeeeee", colour="#ffffff", linewidth=0.4
+  )+ 
+  coord_sf(crs = 5070, datum=NA, clip="off") +
+  geom_point(
+    data=.%>% filter(date=="2020-05-03"), 
+    aes(x=x, y=y, size=case_rate)
+  ) +
+  # Plot case data.
+  geom_path(
+    aes(x=x+((day_num-1)*6000), y=y+((growth_rate-1)*50000), 
+        group=fips, linewidth=case_rate
+    ),
+    lineend="round"
+  ) +
+  scale_colour_manual(values=c("#fa9fb5", "#dd3497", "#7a0177", "#49006a")) +
+  scale_size(range=c(.1,1.5))+
+  scale_linewidth(range=c(.3,3))+
+  scale_alpha_ordinal(range=c(.2,1)) +
+  guides(colour="none", size="none", alpha="none") +
+  theme_void()
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/wp-basic.png", error = FALSE)
+```
+
+:::
+
+:::
+
+---
+
+
+<br>
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.45em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: ""
+county_data |>
+  gplot(aes(colour=binned_growth_rate, alpha=binned_growth_rate))+
+  geom_sf(
+    data=state_boundaries, 
+    fill="#eeeeee", 
+    colour="#ffffff", 
+    linewidth=0.4
+    )+
+  geom_text(
+    data=state_boundaries, 
+    aes(x=x,y=y,label=STUSPS), 
+    alpha=.8
+    )+
+  ...
+  ...
+  ...
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/wp.png", error = FALSE)
+```
+
+:::
+
+:::
+
+---
+
+
+
+<br>
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.45em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: ""
+county_data |> 
+  gplot(aes(colour=binned_growth_rate, alpha=binned_growth_rate))+
+  geom_sf(
+    data=state_boundaries, 
+    fill="#eeeeee", 
+    colour="#ffffff", 
+    linewidth=0.4
+    )+ 
+  ...
+  ...
+  geom_text(
+    data=annotate, 
+    aes(
+      x=x,y=y-20000,label=paste0(county,", ",state_abbr)
+      ), 
+    size=3, fontface="bold"
+    )+
+  geom_text(
+    data=annotate, 
+    aes(
+      x=x,y=y-65000,label=paste0(end_rate_round,"X more cases")
+      ), 
+    size=2.5
+    )+
+  ...
+  ...
+  ...
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/wp.png", error = FALSE)
+```
+
+:::
+
+:::
+
+---
+
+
+<br>
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.45em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: ""
+# Bounding box for mainland US.
+bbox <- st_bbox(state_boundaries)
+width <- bbox$xmax-bbox$xmin
+height <- bbox$ymax-bbox$ymin
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+![](img/wp-legend-growth.png)
+![](img/wp-legend-case.png)
+:::
+
+:::
+
+---
+
+
+<br>
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.45em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: ""
+# Legend : growth
+legend_growth <- county_data |>
+  filter(
+    county=="Dubois" & state=="Indiana" |
+    county=="Androscoggin" & state=="Maine" |
+    county=="Fairfax" & state=="Virginia" |
+    county=="Bledsoe" & state=="Tennessee"
+  ) |>
+  mutate(
+    x=bbox$xmax-.25*width, y=bbox$ymax+.05*height,
+    case_rate=.01,
+    label=case_when(
+      county == "Dubois" ~ "7x more cases than on May 3",
+      county == "Androscoggin" ~ "4x",
+      county == "Fairfax" ~ "2x",
+      county == "Bledsoe" ~ "About the same as on May 3"
+    )
+  )
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+![](img/wp-legend-growth.png)
+![](img/wp-legend-case.png)
+:::
+
+:::
+
+---
+
+
+<br>
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.45em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: ""
+# Legend : case
+legend_case <- county_data |>
+  filter(
+    county == "Kings" & state=="California" ) |>
+  mutate(
+    x=bbox$xmax-.88*width,y=bbox$ymax+.05*height,
+    binned_growth_rate=factor(binned_growth_rate)
+  ) %>%
+  select(x, y, day_num, growth_rate, binned_growth_rate, fips) |>
+  mutate(
+    low=.001, mid=.009, high=.015,
+  ) |>
+  pivot_longer(
+    cols=c(low, mid, high), 
+    names_to="offset", values_to="offset_rate"
+    ) |>
+  mutate(
+    offset_day= case_when(
+      offset == "low" ~ 0,
+      offset == "mid" ~ .04,
+      offset == "high" ~ .08
+    )
+  )
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+![](img/wp-legend-growth.png)
+![](img/wp-legend-case.png)
+:::
+
+:::
+
+---
+
+
+<br>
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.45em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: ""
+# Legend : case
+# Text for annotations and titles.
+growth_text <- "Line height and colour show change in reported cases 
+relative to May 3"
+case_text <- "Line thickness shows current number relative to 
+county population"
+title_text <- "Change in reported cases since May 3"
+
+county_data |>
+  gplot(aes(colour=binned_growth_rate, alpha=binned_growth_rate))+
+  geom_sf(data=state_boundaries, fill="#eeeeee", colour="#bcbcbc", size=0.2)+
+  ...
+  ...
+  ...
+  # Plot growth legend lines.
+  geom_path(
+    data=legend_growth,
+    aes(x=x+((day_num-1)*6000), y=y+((growth_rate-1)*50000),
+      group=fips, linewidth=case_rate), 
+      lineend="round"
+  ) +
+  
+  # Plot case legend lines.
+  geom_path(
+    data=legend_case,
+    aes(x=x+((day_num-1)*6000)+offset_day*width, y=y+((growth_rate-1)*50000),
+      group=paste0(fips,offset), linewidth=offset_rate, 
+      lineend="round"
+    ) +
+  
+  # Title.
+  annotate("text", 
+    x=bbox$xmax-.5*width, y=bbox$ymax+.15*height, label=title_text, size=5
+    )+
+  ...
+  ...
+  ...
+
+
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/wp.png", error = FALSE)
+```
+
+:::
+
+:::

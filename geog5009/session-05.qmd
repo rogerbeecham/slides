@@ -1,0 +1,224 @@
+---
+title: "GEOG5009 <br> <span style='font-size:.8em; font-weight: 500'>Visualization for</span> <br> <span style='font-size:.8em; font-weight: 500'>Geographic Data Science</span>"
+subtitle: "<br><span style='color:#525252; font-size:1.0em;'>-- Spring/Summer 2024</span>"
+format: 
+   revealjs:
+     transition: fade
+     theme: theme/slides-theme.scss
+     css: theme/style.css
+     footer: '[Roger Beecham](https://roger-beecham.com)'
+     mainfont: Avenir Book
+---
+
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+library(knitr)
+library(kableExtra)
+library(tidyverse)
+```
+
+
+# Session 5 : Networks
+
+::: {.notes}
+
+Special class of data used to represent things (entities) and how they relate to one another.
+
+Nodes -- entities -- bikeshare stations, airports, authors
+
+:::
+
+---
+
+### Network data : nodes
+
+::: {.column width="70%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/node.png", error = FALSE)
+```
+:::
+
+::: {.notes}
+
+Special class of data used to represent things (entities) and how they relate to one another.
+
+Nodes -- entities -- bikeshare stations, airports, authors
+
+:::
+
+---
+
+### Network data : nodes
+
+
+::: {.column width="70%"}
+
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/node-size.png", error = FALSE)
+```
+:::
+
+::: {.notes}
+
+Here's a layout of nodes in 2D, sized according number of connections.
+
+:::
+
+
+___
+
+
+### Network data : edges
+
+
+::: {.column width="70%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/node-edge.png", error = FALSE)
+```
+:::
+
+::: {.notes}
+
+* Edges -- connections -- bikeshare trips, flights, (co)authorship
+* This is graph layout in two dimensions -- Nodes are positioned such that those sharing greater connection – edges with greater weights (frequencies) – are closer than those that are less well-connected – that do not share edges with such large weights. Edges are drawn as lines connecting nodes.
+
+
+:::
+
+---
+
+### OD data : nodes
+
+
+::: {.column width="70%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/node-spatial.png", error = FALSE)
+```
+:::
+
+
+::: {.notes}
+
+Origin-Destination network data:
+* Nodes -- entities -- origin (O) and destination (D) locations -- they have an inherent 2D position
+
+:::
+
+
+---
+
+### OD data : edges (flows)
+
+
+::: {.column width="70%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/node-spatial-map.png", error = FALSE)
+```
+:::
+
+---
+
+### OD data : edges (flows)
+
+:::{columns}
+
+::: {.column width="60%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/node-edge-spatial-map-bezier.png", error = FALSE)
+```
+:::
+
+
+::: {.column width="20%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/bezier-legend.png", error = FALSE)
+```
+:::
+
+:::
+
+::: {.notes}
+
+* Edges -- are directed.
+* Problems with design -- layout fine, but occlusion/hairball effect.
+* Salience bias of longer flows hides interesting local structure
+* Can we conclude much about the geog of travel to work from this.
+
+:::
+
+---
+
+### OD data : edges (flows)
+
+<br>
+
+::: {.column width="100%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/flowlines.png", error = FALSE)
+```
+:::
+
+
+---
+
+### OD matrix
+
+<br>
+
+::: {.column width="100%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/matrices.png", error = FALSE)
+```
+:::
+
+---
+
+### OD matrix : layout
+
+<br>
+
+::: {.column width="100%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/reordered_matrix.png", error = FALSE)
+```
+:::
+
+---
+
+### OD map
+
+::: {.column width="80%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/od_map.png", error = FALSE)
+```
+:::
+
+---
+
+## Technical Element

@@ -1,0 +1,472 @@
+---
+title: "GEOG5009 <br> <span style='font-size:.8em; font-weight: 500'>Visualization for</span> <br> <span style='font-size:.8em; font-weight: 500'>Geographic Data Science</span>"
+subtitle: "<br><span style='color:#525252; font-size:1.0em;'>-- Spring/Summer 2024</span>"
+format: 
+   revealjs:
+     transition: fade
+     theme: theme/slides-theme.scss
+     css: theme/style.css
+     footer: '[Roger Beecham](https://roger-beecham.com)'
+     mainfont: Avenir Book
+---
+
+
+<script defer src="/fontawesome.min.js"></script>
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+library(knitr)
+library(kableExtra)
+library(tidyverse)
+```
+
+
+# Session 3 : Visualization Fundamentals
+
+::: {.notes}
+
+Objectives | Datasets -- Contituency-level Leave voting
+:::
+
+---
+
+## Introducing Fundamentals
+
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Sua0xDCf8MA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+::: {.notes}
+
+Fundamentals :
+
+* position on what vis is and should do
+
+* processes of creating and evaluating data graphics
+
+* vocabulary for this
+
+* using 2019 General Election
+
+:::
+
+---
+
+## Effective data graphics
+
+
+<div style="font-size:0.8em;">
+::: {.fragment}
+* Represent **complex datasets** graphically to **expose structure, connections and comparisons** that could not be achieved easily via other means.
+
+:::
+
+
+::: {.fragment}
+
+* Are data rich: present **many numbers in a small space**.
+
+:::
+
+::: {.fragment}
+
+* Reveal **patterns** at **several levels of detail**: from broad overview to fine structure.
+
+:::
+
+::: {.fragment}
+
+* Have elegance : emphasise dimensions of a dataset **without extraneous detail**.
+
+:::
+
+::: {.fragment}
+
+* Generate an **aesthetic response** that encourages people to **engage** with the data or question.
+
+
+:::
+
+
+</div> 
+::: {.notes}
+
+Data vis is a varied field but effective data graphics ...
+
+:::
+
+---
+
+## Effective data graphics
+
+<br>
+
+::: {.fragment}
+> Data graphics visually display measured quantities by means of the **combined use of points, lines, a coordinate system, numbers, symbols, words, shading, and color**.
+>
+  > Tufte 1983
+
+:::
+  
+::: {.notes}
+Data vis is a careful thinking through of data you have -- its type -- how it ican be represented using the visual system -- and to support particular analysis tasks.
+
+Data - Visuals -- Tasks
+:::
+  
+---
+  
+::: columns
+
+::: {.column width="65%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/wp_spoke.png", error = FALSE)
+```
+:::
+
+::: {.column width="35%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/wp_long.png", error = FALSE)
+```
+:::
+
+:::
+
+---
+
+## Grammar of Graphics
+
+
+::: {.notes}
+Already you will notice that I am describing graphics in a consistent way.
+
+There are advantages of doing this.
+
+GoG -- written by Wilkinson in late 1990s -- captures process of turning data into visuals.
+
+Graphics have this underlying structure -- levels.
+:::
+---
+
+
+## Grammar of Graphics
+
+<br>   
+
+```{r}
+#| out.width: 80%
+#| echo: false
+
+include_graphics("img/gog.png", error = FALSE)
+```
+
+---
+
+```{r}
+#| out.width: 100%
+#| echo: false
+
+include_graphics("img/gog_demo_redesign.png", error = FALSE)
+```
+
+
+---
+
+<br>  <br>  
+
+```{r}
+#| out.width: 100%
+#| echo: false
+
+include_graphics("img/gog_demo_1.png", error = FALSE)
+```
+
+
+---
+
+<br> <br>  
+
+```{r}
+#| out.width: 100%
+#| echo: false
+
+include_graphics("img/gog_demo_2.png", error = FALSE)
+```
+
+
+---
+
+<br>  <br> 
+
+```{r}
+#| out.width: 100%
+#| echo: false
+
+include_graphics("img/gog_demo_3.png", error = FALSE)
+```
+
+
+---
+
+
+## Marks and visual channels
+
+<br>
+
+  
+> Effective data visualization design is concerned with representing data through **marks** and **visual channels** in a way that best conveys the properties of the data that are to be depicted.
+>
+
+> via Jo Wood
+  
+  
+---
+
+## Marks and visual channels
+
+<br>
+
+```{r}
+#| out.width: 80%
+#| echo: false
+
+include_graphics("img/munzner.png", error = FALSE)
+```
+
+
+::: {.notes}
+
+Marks > geom
+Channels > aes
+Tableau and vega-lite
+Munzner
+
+
+Two categories > data type
+Some more effective than others
+
+:::
+
+
+
+
+---
+  
+::: columns
+
+::: {.column width="65%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/wp_spoke.png", error = FALSE)
+```
+:::
+
+::: {.column width="35%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/wp_long.png", error = FALSE)
+```
+:::
+
+:::
+
+::: {.notes}
+
+We can use this to evaluate designs on their encoding effectiveness
+Table 2 of notes
+Also mention symbolisation
+
+:::
+
+---
+
+## Checking perceptual rankings
+  
+---
+
+  
+::: {.callout-tip icon=false collapse=true}
+## Task: count number of occurrences of #3
+```{r}
+#| label: no-encoding
+#| fig-cap: "Encoding: *none*."
+#| echo: false
+knitr::include_graphics("img/no-encoding.png", error = FALSE)
+```
+
+:::
+
+::: {.notes}
+Answer : 6
+:::
+
+---
+
+
+::: {.callout-tip icon=false collapse=true}
+## Task: count number of occurrences of #3
+```{r}
+#| label: area-encoding
+#| fig-cap: "Encoding: *area*."
+#| echo: false
+knitr::include_graphics("img/area-encoding.png", error = FALSE)
+```
+
+:::
+
+::: {.notes}
+Answer : 9
+:::
+
+---
+
+
+::: {.callout-tip icon=false collapse=true}
+## Task: count number of occurrences of #3
+```{r}
+#| label: angle-encoding
+#| fig-cap: "Encoding: *tilt/angle*."
+#| echo: false
+knitr::include_graphics("img/angle-encoding.png", error = FALSE)
+```
+
+:::
+
+::: {.notes}
+Answer : 5
+:::
+
+---
+
+
+::: {.callout-tip icon=false collapse=true}
+## Task: count number of occurrences of #3
+```{r}
+#| label: hue-encoding
+#| fig-cap: "Encoding: *colour hue*."
+#| echo: false
+knitr::include_graphics("img/hue-encoding.png", error = FALSE)
+```
+
+:::
+
+::: {.notes}
+Answer : 2
+:::
+
+---
+
+
+::: {.callout-tip icon=false collapse=true}
+## Task: count number of occurrences of #3
+```{r}
+#| label: spatial-encoding
+#| fig-cap: "Encoding: *spatial region*."
+#| echo: false
+knitr::include_graphics("img/spatial-encoding.png", error = FALSE)
+```
+
+:::
+
+::: {.notes}
+Answer : 5
+:::
+
+---
+
+## Stevens' power law
+
+<div style="font-size:0.8em;">
+$R=kS^n$
+</div>
+
+<div style="font-size:0.4em;">
+* $S$ : stimulus magnitude 
+* $R$ : response (perceived length, area)
+* $^n$ : power law exponent, varies with stimulus type. $n$ is 1 where perfect mapping.
+</div>
+
+::: {.fragment}
+```{r}
+#| label: perception
+#| fig-cap: ""
+#| out.width: 80%
+#| echo: false
+knitr::include_graphics("img/perception.svg", error = FALSE)
+```
+:::
+
+::: {.notes}
+
+The ranking of *magnitude:order* channels is also informed by established theory and evidence.
+
+When using data graphics to communicate quantities, certain visual channels are known to induce biases. [Psychophysics](https://en.wikipedia.org/wiki/Psychophysics) is a branch of psychology that develops methods aimed at capturing the often non-linear relationship between the properties of a *stimuli* such as symbol length, area or colour value, and their *perceived response*. Stevens' power law is an empirically-derived relationship that models this effect.
+
+
+@stevens_subjective_1963' experimental work involved varying the length of lines and areas of squares and deriving power functions for their perception. For length, an exponent of ~1.0 was estimated; for area an exponent of 0.7. So whilst variation in length is accurately perceived, we *underestimate* the size of areas as they increase. @flannery_relative_1971's work, which was concerned with the perception of quantities in graduated point maps, estimated an exponent of 0.87 for the perception of circle size.
+
+Experimental findings vary and so these models of human perception are also subject to variation. Nevertheless, corrections can be applied. In cartography a [Flannery compensation](https://makingmaps.net/2007/08/28/perceptual-scaling-of-map-symbols/) is used when representing quantities with area.
+
+
+:::
+
+---
+
+## Perceiving statistical features 
+
+<br>
+
+::: columns
+
+::: {.column width="35%"}
+  
+```{r}
+#| out.width: 100%
+#| echo: false
+knitr::include_graphics("img/guess_correl1.png", error = FALSE)
+```
+:::
+
+::: {.column width="65%"}
+  
+```{r}
+#| out.width: 100%
+#| echo: false
+knitr::include_graphics("img/guess_correl2.png", error = FALSE)
+```
+:::
+
+:::
+
+---
+
+## Colour 
+
+::: {.fragment}
+
+```{r}
+#| out.width: 100%
+#| echo: false
+knitr::include_graphics("img/colour_type.png", error = FALSE)
+```
+
+:::
+
+::: {.notes}
+https://blog.datawrapper.de/which-color-scale-to-use-in-data-vis/
+:::
+
+
+---
+
+## Techniques
+

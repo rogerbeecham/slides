@@ -1,0 +1,683 @@
+---
+title: "GEOG5009 <br> <span style='font-size:.8em; font-weight: 500'>Visualization for</span> <br> <span style='font-size:.8em; font-weight: 500'>Geographic Data Science</span>"
+subtitle: "<br><span style='color:#525252; font-size:1.0em;'>-- Spring/Summer 2024</span>"
+format: 
+   revealjs:
+     transition: fade
+     theme: theme/slides-theme.scss
+     css: theme/style.css
+     footer: '[Roger Beecham](https://roger-beecham.com)'
+     mainfont: Avenir Book
+---
+
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+library(knitr)
+library(kableExtra)
+library(tidyverse)
+```
+
+---
+
+# Session 10 : Xenographics
+
+::: {.notes}
+* Evidence-based society
+* Open Science -- massively freed up process of working with data
+* Pandemic example -- Exciting, but responsibility on communicating with integrity, reliably and effectively
+* Recently InfoVis much concerned with data storytelling -- so too popular science.
+* In this session ...
+:::
+
+
+---
+
+::: {.column width="50%"}
+
+```{r}
+#| out.width: 100%
+#| echo: false
+
+include_graphics("img/dot_density.png", error = FALSE)
+```
+
+:::
+
+
+---
+
+<br>
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+vote_data <- bes_2019 |>   
+  mutate(
+    other_vote_19=total_vote_19-(con_vote_19 + lab_vote_19)
+    ) |> 
+  select(
+    ons_const_id, constituency_name, region, 
+    con_vote_19, lab_vote_19, other_vote_19
+    ) |> 
+  pivot_longer(
+    cols=con_vote_19:other_vote_19, 
+    names_to="party", values_to="votes"
+    ) |> 
+  mutate(
+    party=str_extract(party, "[^_]+"),
+    votes_dot=round(votes/1000,0)
+  ) |>  
+  filter(!is.na(votes_dot)) 
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+> vote_data
+# A tibble: 1,897 × 6
+   ons_const_id constituency_name region   party votes votes_dot
+   <chr>        <chr>             <chr>    <chr> <dbl>     <dbl>
+ 1 W07000049    Aberavon          Wales    con    6518         7
+ 2 W07000049    Aberavon          Wales    lab   17008        17
+ 3 W07000049    Aberavon          Wales    other  8072         8
+ 4 W07000058    Aberconwy         Wales    con   14687        15
+ 5 W07000058    Aberconwy         Wales    lab   12653        13
+ 6 W07000058    Aberconwy         Wales    other  4525         5
+ 7 S14000001    Aberdeen North    Scotland con    7535         8
+ 8 S14000001    Aberdeen North    Scotland lab    4939         5
+ 9 S14000001    Aberdeen North    Scotland other 24939        25
+10 S14000002    Aberdeen South    Scotland con   16398        16
+# ℹ 1,887 more rows
+# ℹ Use `print(n = ...)` to see more rows
+```
+
+</div>
+
+:::
+
+:::
+
+---
+
+<br>
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "1,2,3,4,5,6,7,8"
+vote_data <- bes_2019 |>   
+  mutate(
+    other_vote_19=total_vote_19-(con_vote_19 + lab_vote_19)
+    ) |> 
+  select(
+    ons_const_id, constituency_name, region, 
+    con_vote_19, lab_vote_19, other_vote_19
+    ) |> 
+  pivot_longer(
+    cols=con_vote_19:other_vote_19, 
+    names_to="party", values_to="votes"
+    ) |> 
+  mutate(
+    party=str_extract(party, "[^_]+"),
+    votes_dot=round(votes/1000,0)
+  ) |>  
+  filter(!is.na(votes_dot)) 
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+> vote_data
+# A tibble: 650 × 6
+   ons_const_id constituency_name    region con_vote_19 lab_vote_19 other_vote_19
+   <chr>        <chr>                <chr>        <dbl>       <dbl>         <dbl>
+ 1 W07000049    Aberavon             Wales         6518       17008          8072
+ 2 W07000058    Aberconwy            Wales        14687       12653          4525
+ 3 S14000001    Aberdeen North       Scotl…        7535        4939         24939
+ 4 S14000002    Aberdeen South       Scotl…       16398        3834         25406
+ 5 S14000003    Airdrie and Shotts   Scotl…        7011       12728         20033
+ 6 E14000530    Aldershot            South…       27980       11282          8670
+ 7 E14000531    Aldridge-Brownhills  West …       27850        8014          3478
+ 8 E14000532    Altrincham and Sale… North…       26311       20172          8280
+ 9 W07000043    Alyn and Deeside     Wales        18058       18271          6679
+10 E14000533    Amber Valley         East …       29096       12210          4261
+# ℹ 640 more rows
+# ℹ Use `print(n = ...)` to see more rows
+```
+
+</div>
+
+:::
+
+:::
+
+
+---
+
+<br>
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "9,10,11,12,13,14,15"
+vote_data <- bes_2019 |>   
+  mutate(
+    other_vote_19=total_vote_19-(con_vote_19 + lab_vote_19)
+    ) |> 
+  select(
+    ons_const_id, constituency_name, region, 
+    con_vote_19, lab_vote_19, other_vote_19
+    ) |> 
+  pivot_longer(
+    cols=con_vote_19:other_vote_19, 
+    names_to="party", values_to="votes"
+    ) |> 
+  mutate(
+    party=str_extract(party, "[^_]+"),
+    votes_dot=round(votes/1000,0)
+  ) |>  
+  filter(!is.na(votes_dot)) 
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+# A tibble: 1,897 × 6
+   ons_const_id constituency_name region   party votes votes_dot
+   <chr>        <chr>             <chr>    <chr> <dbl>     <dbl>
+ 1 W07000049    Aberavon          Wales    con    6518         7
+ 2 W07000049    Aberavon          Wales    lab   17008        17
+ 3 W07000049    Aberavon          Wales    other  8072         8
+ 4 W07000058    Aberconwy         Wales    con   14687        15
+ 5 W07000058    Aberconwy         Wales    lab   12653        13
+ 6 W07000058    Aberconwy         Wales    other  4525         5
+ 7 S14000001    Aberdeen North    Scotland con    7535         8
+ 8 S14000001    Aberdeen North    Scotland lab    4939         5
+ 9 S14000001    Aberdeen North    Scotland other 24939        25
+10 S14000002    Aberdeen South    Scotland con   16398        16
+# ℹ 1,887 more rows
+# ℹ Use `print(n = ...)` to see more rows
+```
+
+</div>
+
+:::
+
+:::
+
+---
+
+<br>
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.45em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: ""
+temp_points <- 
+  cons_outline |>   select(geometry, pcon21cd) |>  
+  inner_join(
+    vote_data |> 
+    group_by(ons_const_id) |>  
+      summarise(votes_dot=sum(votes_dot)) |>  ungroup(), 
+    by=c("pcon21cd"="ons_const_id")
+    ) |> 
+  nest(data=everything()) |> 
+  mutate(
+    sampled_points=
+    map(
+      data,
+      ~sf::st_sample(
+        x=.x,
+        size=.x$votes_dot, exact=TRUE, type="random"
+        ) |> 
+        st_coordinates() |> 
+        as_tibble(.name_repair=~c("east", "north"))
+        ),
+     const_id=map(data, ~.x |>  
+                    st_drop_geometry() |> 
+                    select(pcon21cd, votes_dot) |>   
+                  uncount(votes_dot))
+    ) |> 
+  unnest(-data) |> 
+  select(-data)
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+> temp_points
+# A tibble: 31,170 × 3
+      east   north pcon21cd 
+     <dbl>   <dbl> <chr>    
+ 1 482226. 156025. E14000530
+ 2 486109. 157244. E14000530
+ 3 483836. 151820. E14000530
+ 4 484907. 151682. E14000530
+ 5 488237. 150597. E14000530
+ 6 482613. 157190. E14000530
+ 7 484251. 155652. E14000530
+ 8 485062. 158037. E14000530
+ 9 486879. 155545. E14000530
+10 483181. 157045. E14000530
+# ℹ 31,160 more rows
+# ℹ Use `print(n = ...)` to see more rows
+```
+
+</div>
+
+:::
+
+:::
+
+---
+
+<br>
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.45em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "1,2,3,4,5,6,7,8"
+temp_points <- 
+  cons_outline |> select(geometry, pcon21cd) |>  
+  inner_join(
+    vote_data |> 
+    group_by(ons_const_id) |>  
+      summarise(votes_dot=sum(votes_dot)) |>  ungroup(), 
+    by=c("pcon21cd"="ons_const_id")
+    ) |> 
+  nest(data=everything()) |> 
+  mutate(
+    sampled_points=
+    map(
+      data,
+      ~sf::st_sample(
+        x=.x,
+        size=.x$votes_dot, exact=TRUE, type="random"
+        ) |> 
+        st_coordinates() |> 
+        as_tibble(.name_repair=~c("east", "north"))
+        ),
+     const_id=map(data, ~.x |>  
+                    st_drop_geometry() |> 
+                    select(pcon21cd, votes_dot) |>   
+                  uncount(votes_dot))
+    ) |> 
+  unnest(-data) |> 
+  select(-data)
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+Simple feature collection with 635 features and 2 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: 63824.71 ymin: 11511.26 xmax: 655646.4 ymax: 1217034
+Projected CRS: OSGB36 / British National Grid
+First 10 features:
+    pcon21cd votes_dot                       geometry
+1  E14000530        48 MULTIPOLYGON (((485408.1 15...
+2  E14000531        39 MULTIPOLYGON (((406519.5 30...
+3  E14000532        54 MULTIPOLYGON (((379104.1 39...
+4  E14000533        45 MULTIPOLYGON (((444868.5 35...
+5  E14000534        62 MULTIPOLYGON (((506643.3 12...
+6  E14000535        49 MULTIPOLYGON (((449576.1 36...
+7  E14000536        60 MULTIPOLYGON (((607509.4 15...
+8  E14000537        39 MULTIPOLYGON (((395126.5 39...
+9  E14000538        60 MULTIPOLYGON (((486976.7 21...
+10 E14000539        62 MULTIPOLYGON (((460621.1 23...
+```
+
+</div>
+
+:::
+
+:::
+
+
+---
+
+<br>
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.45em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "9"
+temp_points <- 
+  cons_outline |> select(geometry, pcon21cd) |>  
+  inner_join(
+    vote_data |> 
+    group_by(ons_const_id) |>  
+      summarise(votes_dot=sum(votes_dot)) |>  ungroup(), 
+    by=c("pcon21cd"="ons_const_id")
+    ) |> 
+  nest(data=everything()) |> 
+  mutate(
+    sampled_points=
+    map(
+      data,
+      ~sf::st_sample(
+        x=.x,
+        size=.x$votes_dot, exact=TRUE, type="random"
+        ) |> 
+        st_coordinates() |> 
+        as_tibble(.name_repair=~c("east", "north"))
+        ),
+     const_id=map(data, ~.x |>  
+                    st_drop_geometry() |> 
+                    select(pcon21cd, votes_dot) |>   
+                  uncount(votes_dot))
+    ) |> 
+  unnest(-data) |> 
+  select(-data)
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+# A tibble: 1 × 1
+  data          
+  <list>        
+1 <sf [635 × 3]>
+```
+
+</div>
+
+:::
+
+:::
+
+---
+
+
+<br>
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.45em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "10,11,12,13,14,15,16,17,18,19,20"
+temp_points <- 
+  cons_outline |> select(geometry, pcon21cd) |>  
+  inner_join(
+    vote_data |> 
+    group_by(ons_const_id) |>  
+      summarise(votes_dot=sum(votes_dot)) |>  ungroup(), 
+    by=c("pcon21cd"="ons_const_id")
+    ) |> 
+  nest(data=everything()) |> 
+  mutate(
+    sampled_points=
+    map(
+      data,
+      ~sf::st_sample(
+        x=.x,
+        size=.x$votes_dot, exact=TRUE, type="random"
+        ) |> 
+        st_coordinates() |> 
+        as_tibble(.name_repair=~c("east", "north"))
+        ),
+     const_id=map(data, ~.x |>  
+                    st_drop_geometry() |> 
+                    select(pcon21cd, votes_dot) |>   
+                  uncount(votes_dot))
+    ) |> 
+  unnest(-data) |> 
+  select(-data)
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+# A tibble: 1 × 1
+  data          
+  <list>        
+1 <sf [635 × 3]>
+```
+
+</div>
+
+:::
+
+:::
+
+---
+
+
+<br>
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.45em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: ""
+temp_points <- 
+  cons_outline |> select(geometry, pcon21cd) |>  
+  inner_join(
+    vote_data |> 
+    group_by(ons_const_id) |>  
+      summarise(votes_dot=sum(votes_dot)) |>  ungroup(), 
+    by=c("pcon21cd"="ons_const_id")
+    ) |> 
+  nest(data=everything()) |> 
+  mutate(
+    sampled_points=
+    map(
+      data,
+      ~sf::st_sample(
+        x=.x,
+        size=.x$votes_dot, exact=TRUE, type="random"
+        ) |> 
+        st_coordinates() |> 
+        as_tibble(.name_repair=~c("east", "north"))
+        ),
+     const_id=map(data, ~.x |>  
+                    st_drop_geometry() |> 
+                    select(pcon21cd, votes_dot) |>   
+                  uncount(votes_dot))
+    ) |> 
+  unnest(-data) |> 
+  select(-data)
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+# A tibble: 31,170 × 3
+      east   north pcon21cd 
+     <dbl>   <dbl> <chr>    
+ 1 482226. 156025. E14000530
+ 2 486109. 157244. E14000530
+ 3 483836. 151820. E14000530
+ 4 484907. 151682. E14000530
+ 5 488237. 150597. E14000530
+ 6 482613. 157190. E14000530
+ 7 484251. 155652. E14000530
+ 8 485062. 158037. E14000530
+ 9 486879. 155545. E14000530
+10 483181. 157045. E14000530
+# ℹ 31,160 more rows
+# ℹ Use `print(n = ...)` to see more rows
+```
+
+</div>
+
+:::
+
+:::
+
+---
+
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<br>
+
+<div style="font-size:0.4em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+sysfonts::font_add(family = "Cinzel",
+                  regular ="/Users/rogerbeecham/Library/Fonts/Cinzel-Regular.otf")
+
+temp_points |> 
+  ggplot() +
+  geom_sf(
+    data=cons_outline,fill="transparent", 
+    colour="#636363", linewidth=.03
+    ) +
+  geom_sf(data=
+            cons_outline |>  inner_join(vote_data,
+                                        by=c("pcon21cd"="ons_const_id")) |>   
+            group_by(region) |>  summarise(),
+          fill="transparent", colour="#636363", linewidth=.1
+          ) +
+  geom_point(
+    aes(x=east, y=north, fill=party, colour=party), 
+    shape=21, alpha=.6, size=.6, stroke=.03
+    )+
+  scale_fill_manual(values=party_colours)+
+  scale_colour_manual(values=party_colours)+
+  guides(colour = guide_legend(override.aes = list(size=3)))+
+  labs(
+    title="Dot-density map of voting in 2019 UK General Election",
+    subtitle="-- 1 dot = 1,000 votes"
+    )+
+  theme_void(base_family = "Cinzel") 
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| out.width: 100%
+#| echo: false
+
+include_graphics("img/dot_density.png", error = FALSE)
+```
+
+:::
+
+:::
+
+

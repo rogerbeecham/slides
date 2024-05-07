@@ -1,0 +1,1120 @@
+---
+title: "GEOG5009 <br> <span style='font-size:.8em; font-weight: 500'>Visualization for</span> <br> <span style='font-size:.8em; font-weight: 500'>Geographic Data Science</span>"
+subtitle: "<br><span style='color:#525252; font-size:1.0em;'>-- Spring/Summer 2024</span>"
+format: 
+   revealjs:
+     transition: fade
+     theme: theme/slides-theme.scss
+     css: theme/style.css
+     footer: '[Roger Beecham](https://roger-beecham.com)'
+     mainfont: Avenir Book
+---
+
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+library(knitr)
+library(kableExtra)
+library(tidyverse)
+```
+
+::: {.notes}
+
+* Core to data analysis
+* Many ways in which it can be understood and represented
+* This session -- parameter uncertainty -- representing the different possible values that a parameter might take
+* Using visualization to imply levels of uncertainty
+* Doing so in a reliable way is challenging
+
+:::
+
+
+# Session 7 : Uncertainty 
+
+---
+
+<br>
+
+::: {.column width="65%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/uncertainty_vars.png", error = FALSE)
+```
+:::
+
+::: {.notes}
+
+Vis research concerned with visual variables / visual channels used to represent uncertainty.
+Ideally:
+* intuitive -- related to precision/accuracy
+* discriminative -- levels can be discriminated
+* exmaples : fuzziness -- effective (semantically related)
+* size/transparency/colour values -- though less logically related to uncertainty
+* * sketchiness
+
+:::
+
+---
+
+## Uncertainty visualization mantra
+
+<br><br>
+
+> *Things that are not precise should not be encoded with symbols that look precise*
+
+---
+
+<br>
+
+::: {.column width="65%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/uncertainty_vars.png", error = FALSE)
+```
+:::
+
+---
+
+<br>
+
+::: {.column width="65%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/cone_uncertainty.png", error = FALSE)
+```
+:::
+
+---
+
+<br>
+
+::: {.column width="65%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/cone_redesign.png", error = FALSE)
+```
+:::
+
+---
+
+## Representing risk : frequency framing
+
+::: {.notes}
+
+* parameter uncertainty: estimated injury severity rates for pedestrian-vehicle crashes in our STATS19 road crash dataset.
+* relative frequencies, risk ratios -- notoriously difficult to generate inuition on these
+* KSI rate of ped-vehicle crashes comparing two areas. Bristol and Sheffield. Similarly sozed but different KSIs -- 15% Bristol; 50% Sheffield
+* Icon arrays -- effective at communicating probabolities of event outcomes -- alternative might be to show lenght in bars. But the random element of arrangement helps intuition around probabilities
+
+:::
+
+
+---
+
+<br>
+
+::: {.column width="65%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/icon_arrays.png", error = FALSE)
+```
+:::
+
+
+---
+
+<br>
+
+::: {.column width="65%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/icon_arrays.png", error = FALSE)
+```
+:::
+
+---
+
+<br>
+
+::: {.column width="90%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/risk_theatre.png", error = FALSE)
+```
+:::
+
+::: {.notes}
+
+:::
+
+
+---
+
+## Quantifying parameter uncertainty: bootstrapping
+
+::: {.notes}
+
+* comparing single parameter values
+* but problem with ratios is they are insensitive to sample size -- in notes we compare two other areas that contain radically different rates but based on small numbers
+* We can derive a range of possible values that a parameter might take.
+* Do this by generating empirically a sampling distribution.
+
+:::
+
+---
+
+<br>
+
+::: {.column width="75%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/bootstrap_selected.png", error = FALSE)
+```
+:::
+
+---
+
+## Uncertainty visualization mantra
+
+<br><br>
+
+> *Things that are not precise should not be encoded with symbols that look precise*
+
+
+
+---
+
+<br><br>
+
+::: {.column width="90%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/selected_uncertainty.png", error = FALSE)
+```
+:::
+
+---
+
+## Hypothetical outcome plots
+
+::: {.notes}
+
+https://www.nytimes.com/2014/05/02/upshot/how-not-to-be-misled-by-the-jobs-report.html
+
+:::
+
+---
+
+## Code demo
+
+---
+
+
+## Frequency framing
+
+---
+
+
+---
+
+<br><br>
+
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "7,8,9,10,11,12,13"
+array_data |> 
+  pivot_longer(
+    cols=c(Oxford,Fareham), 
+    names_to="la", 
+    values_to="is_ksi"
+    ) |> 
+  ggplot(aes(x=row,y=col, fill=is_ksi)) +
+  geom_tile(colour="#ffffff", size=1) +
+  scale_fill_manual(
+    values=c("#fee0d2","#de2d26"), 
+    guide=FALSE
+    )+
+  facet_wrap(~la)
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+
+```{r}
+#| out.width: 100%
+#| echo: false
+
+include_graphics("img/icon-technical.png", error = FALSE)
+```
+
+:::
+
+:::
+
+---
+
+<br><br>
+
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+array_data <- tibble(
+  row=rep(1:10, times=1, each=10),
+  col=rep(1:10, times=10, each=1),
+  Oxford=
+    sample(
+      c(
+        rep(TRUE, times=1, each=17), 
+        rep(FALSE, times=1, each=83)
+        ),
+      size=100, replace=FALSE),
+  Fareham=
+    sample(
+      c(
+        rep(TRUE, times=1, each=41), 
+        rep(FALSE, times=1, each=59)
+        ),
+      size=100, replace=FALSE)
+)
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+
+array_data
+
+# A tibble: 100 × 4
+     row   col Oxford Fareham
+   <int> <int> <lgl>  <lgl>  
+ 1     1     1 TRUE   FALSE  
+ 2     1     2 TRUE   TRUE   
+ 3     1     3 FALSE  FALSE  
+ 4     1     4 TRUE   FALSE  
+ 5     1     5 TRUE   FALSE  
+ 6     1     6 FALSE  FALSE  
+ 7     1     7 FALSE  FALSE  
+ 8     1     8 FALSE  FALSE  
+ 9     1     9 FALSE  TRUE   
+10     1    10 FALSE  TRUE
+# ℹ 90 more rows
+# ℹ Use `print(n = ...)` to see more rows
+```
+
+</div>
+
+:::
+
+:::
+
+---
+
+
+<br><br>
+
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "2,3,4,5,6,13"
+array_data |> 
+  pivot_longer(
+    cols=c(Oxford,Fareham), 
+    names_to="la", 
+    values_to="is_ksi"
+    ) |> 
+  ggplot(aes(x=row,y=col, fill=is_ksi)) +
+  geom_tile(colour="#ffffff", size=1) +
+  scale_fill_manual(
+    values=c("#fee0d2","#de2d26"), 
+    guide=FALSE
+    )+
+  facet_wrap(~la)
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+
+```{r}
+#| out.width: 100%
+#| echo: false
+
+include_graphics("img/icon-technical.png", error = FALSE)
+```
+
+:::
+
+:::
+
+---
+
+
+<br><br>
+
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+theatre_cells |>
+  ggplot() +
+  geom_sf() +
+  geom_sf(
+    data=ksi_data,
+    fill="#000000"
+  ) +
+  annotate("text", x=23, y=1, label="Stage", alpha=.5) +
+  annotate("text", x=23, y=21, label="Orchestra", alpha=.5) +
+  annotate("text", x=23, y=31, label="Front mezzanine", alpha=.5) +
+  annotate("text", x=23, y=42, label="Rear mezzanine", alpha=.5) +
+  facet_wrap(~la)
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+
+```{r}
+#| out.width: 100%
+#| echo: false
+
+include_graphics("img/risk_theatre_crash.png", error = FALSE)
+```
+
+:::
+
+:::
+
+---
+
+
+<br><br>
+
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+theatre_cells
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+Simple feature collection with 1000 features and 3 fields
+Geometry type: POLYGON
+Dimension:     XY
+Bounding box:  xmin: 1 ymin: 1 xmax: 47 ymax: 40
+Geodetic CRS:  WGS 84
+First 10 features:
+   id col row                       geometry
+1   7   7   1 POLYGON ((7 1, 8 1, 8 2, 7 ...
+2   8   8   1 POLYGON ((8 1, 9 1, 9 2, 8 ...
+3   9   9   1 POLYGON ((9 1, 10 1, 10 2, ...
+4  38  38   1 POLYGON ((38 1, 39 1, 39 2,...
+5  39  39   1 POLYGON ((39 1, 40 1, 40 2,...
+6  40  40   1 POLYGON ((40 1, 41 1, 41 2,...
+7  53   7   2 POLYGON ((7 2, 8 2, 8 3, 7 ...
+8  54   8   2 POLYGON ((8 2, 9 2, 9 3, 8 ...
+9  55   9   2 POLYGON ((9 2, 10 2, 10 3, ...
+10 56  10   2 POLYGON ((10 2, 11 2, 11 3,...
+```
+
+</div>
+
+:::
+
+:::
+
+---
+
+
+<br><br>
+
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+theatre_cells |>
+  ggplot() +
+  geom_sf() +
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+
+```{r}
+#| out.width: 100%
+#| echo: false
+
+include_graphics("img/theatre-technical-seats.png", error = FALSE)
+```
+
+:::
+
+:::
+
+---
+
+
+
+<br><br>
+
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+ksi_data <- bind_rows(
+  theatre_cells |> 
+    slice_sample(n=170) |> 
+    add_column(la="Oxford\n170 KSI in 1,000 crashes"),
+  theatre_cells |> 
+    slice_sample(n=410) |> 
+    add_column(la="Fareham\n410 KSI in 1,000 crashes")
+)
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+> ksi_data
+Simple feature collection with 580 features and 4 fields
+Geometry type: POLYGON
+Dimension:     XY
+Bounding box:  xmin: 1 ymin: 1 xmax: 47 ymax: 40
+Geodetic CRS:  WGS 84
+First 10 features:
+     id col row                               la                       geometry
+1   807  25  18 Oxford\n170 KSI in 1,000 crashes POLYGON ((25 18, 26 18, 26 ...
+2  1054  42  23 Oxford\n170 KSI in 1,000 crashes POLYGON ((42 23, 43 23, 43 ...
+3   145   7   4 Oxford\n170 KSI in 1,000 crashes POLYGON ((7 4, 8 4, 8 5, 7 ...
+4   317  41   7 Oxford\n170 KSI in 1,000 crashes POLYGON ((41 7, 42 7, 42 8,...
+5  1679  23  37 Oxford\n170 KSI in 1,000 crashes POLYGON ((23 37, 24 37, 24 ...
+6  1101  43  24 Oxford\n170 KSI in 1,000 crashes POLYGON ((43 24, 44 24, 44 ...
+7   564  12  13 Oxford\n170 KSI in 1,000 crashes POLYGON ((12 13, 13 13, 13 ...
+8  1675  19  37 Oxford\n170 KSI in 1,000 crashes POLYGON ((19 37, 20 37, 20 ...
+9  1653  43  36 Oxford\n170 KSI in 1,000 crashes POLYGON ((43 36, 44 36, 44 ...
+10 1591  27  35 Oxford\n170 KSI in 1,000 crashes POLYGON ((27 35, 28 35, 28 ...
+```
+
+</div>
+
+:::
+
+:::
+
+---
+
+
+<br><br>
+
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "4,5,6,7"
+theatre_cells |>
+  ggplot() +
+  geom_sf() +
+  geom_sf(
+    data=ksi_data,
+    fill="#000000"
+  ) +
+  annotate("text", x=23, y=1, label="Stage", alpha=.5) +
+  annotate("text", x=23, y=21, label="Orchestra", alpha=.5) +
+  annotate("text", x=23, y=31, label="Front mezzanine", alpha=.5) +
+  annotate("text", x=23, y=42, label="Rear mezzanine", alpha=.5) +
+  facet_wrap(~la)
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+
+```{r}
+#| out.width: 100%
+#| echo: false
+
+include_graphics("img/risk_theatre_crash.png", error = FALSE)
+```
+
+:::
+
+:::
+
+---
+
+## Bootstraps
+
+---
+
+
+
+<br><br>
+
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+rate_boots <- ped_veh |> 
+  mutate(
+    is_ksi=accident_severity!="Slight",
+    year=lubridate::year(date)
+  ) |> 
+  filter(year==2019,
+         local_authority_district %in% c("Bristol, City of",
+                                         "Sheffield", "Bromsgrove", "Cotswold")
+  ) |>
+  select(local_authority_district, is_ksi) |> 
+  nest(data=-local_authority_district) |> 
+  mutate(la_boot=map(data, bootstraps, times=1000, apparent=TRUE)) |> 
+  select(-data) |> 
+  unnest(la_boot) |> 
+  mutate(
+    is_ksi=map(splits, ~ analysis(.) |>  pull(is_ksi)),
+    ksi_rate=map_dbl(is_ksi, ~mean(.x)),
+    sample_size=map_dbl(is_ksi, ~length(.x))
+  ) |> 
+  select(-c(splits, is_ksi))
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+> rate_boots
+# A tibble: 4,004 × 4
+   local_authority_district id            ksi_rate sample_size
+   <chr>                    <chr>            <dbl>       <dbl>
+ 1 Sheffield                Bootstrap0001    0.504         248
+ 2 Sheffield                Bootstrap0002    0.536         248
+ 3 Sheffield                Bootstrap0003    0.512         248
+ 4 Sheffield                Bootstrap0004    0.472         248
+ 5 Sheffield                Bootstrap0005    0.435         248
+ 6 Sheffield                Bootstrap0006    0.472         248
+ 7 Sheffield                Bootstrap0007    0.492         248
+ 8 Sheffield                Bootstrap0008    0.5           248
+ 9 Sheffield                Bootstrap0009    0.496         248
+10 Sheffield                Bootstrap0010    0.488         248
+# ℹ 3,994 more rows
+# ℹ Use `print(n = ...)` to see more rows
+```
+
+</div>
+
+:::
+
+:::
+
+---
+
+
+
+<br><br>
+
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "1,2,3,4,5,6,7,8,9,10"
+rate_boots <- ped_veh |> 
+  mutate(
+    is_ksi=accident_severity!="Slight",
+    year=lubridate::year(date)
+  ) |> 
+  filter(year==2019,
+         local_authority_district %in% c("Bristol, City of",
+                                         "Sheffield", "Bromsgrove", "Cotswold")
+  ) |>
+  select(local_authority_district, is_ksi) |> 
+  nest(data=-local_authority_district) |> 
+  mutate(la_boot=map(data, bootstraps, times=1000, apparent=TRUE)) |> 
+  select(-data) |> 
+  unnest(la_boot) |> 
+  mutate(
+    is_ksi=map(splits, ~ analysis(.) |>  pull(is_ksi)),
+    ksi_rate=map_dbl(is_ksi, ~mean(.x)),
+    sample_size=map_dbl(is_ksi, ~length(.x))
+  ) |> 
+  select(-c(splits, is_ksi))
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+> rate_boots
+    local_authority_district is_ksi
+1                  Sheffield   TRUE
+2                  Sheffield   TRUE
+3                  Sheffield  FALSE
+4                  Sheffield  FALSE
+5                  Sheffield  FALSE
+6                  Sheffield  FALSE
+7                  Sheffield   TRUE
+8                  Sheffield   TRUE
+9                  Sheffield   TRUE
+10                 Sheffield   TRUE
+11                 Sheffield  FALSE
+12                 Sheffield  FALSE
+```
+
+</div>
+
+:::
+
+:::
+
+---
+
+<br><br>
+
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "11"
+rate_boots <- ped_veh |> 
+  mutate(
+    is_ksi=accident_severity!="Slight",
+    year=lubridate::year(date)
+  ) |> 
+  filter(year==2019,
+         local_authority_district %in% c("Bristol, City of",
+                                         "Sheffield", "Bromsgrove", "Cotswold")
+  ) |>
+  select(local_authority_district, is_ksi) |> 
+  nest(data=-local_authority_district) |> 
+  mutate(la_boot=map(data, bootstraps, times=1000, apparent=TRUE)) |> 
+  select(-data) |> 
+  unnest(la_boot) |> 
+  mutate(
+    is_ksi=map(splits, ~ analysis(.) |>  pull(is_ksi)),
+    ksi_rate=map_dbl(is_ksi, ~mean(.x)),
+    sample_size=map_dbl(is_ksi, ~length(.x))
+  ) |> 
+  select(-c(splits, is_ksi))
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+> rate_boots
+# A tibble: 4 × 2
+  local_authority_district data              
+  <chr>                    <list>            
+1 Sheffield                <tibble [248 × 1]>
+2 Bromsgrove               <tibble [27 × 1]> 
+3 Bristol, City of         <tibble [228 × 1]>
+4 Cotswold                 <tibble [19 × 1]> 
+```
+
+</div>
+
+:::
+
+:::
+
+---
+
+<br><br>
+
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "12"
+rate_boots <- ped_veh |> 
+  mutate(
+    is_ksi=accident_severity!="Slight",
+    year=lubridate::year(date)
+  ) |> 
+  filter(year==2019,
+         local_authority_district %in% c("Bristol, City of",
+                                         "Sheffield", "Bromsgrove", "Cotswold")
+  ) |>
+  select(local_authority_district, is_ksi) |> 
+  nest(data=-local_authority_district) |> 
+  mutate(la_boot=map(data, bootstraps, times=1000, apparent=TRUE)) |> 
+  select(-data) |> 
+  unnest(la_boot) |> 
+  mutate(
+    is_ksi=map(splits, ~ analysis(.) |>  pull(is_ksi)),
+    ksi_rate=map_dbl(is_ksi, ~mean(.x)),
+    sample_size=map_dbl(is_ksi, ~length(.x))
+  ) |> 
+  select(-c(splits, is_ksi))
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+> rate_boots
+# A tibble: 4 × 3
+  local_authority_district data               la_boot           
+  <chr>                    <list>             <list>            
+1 Sheffield                <tibble [248 × 1]> <boot [1,001 × 2]>
+2 Bromsgrove               <tibble [27 × 1]>  <boot [1,001 × 2]>
+3 Bristol, City of         <tibble [228 × 1]> <boot [1,001 × 2]>
+4 Cotswold                 <tibble [19 × 1]>  <boot [1,001 × 2]>
+```
+
+</div>
+
+:::
+
+:::
+
+---
+
+
+<br><br>
+
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "13,14"
+rate_boots <- ped_veh |> 
+  mutate(
+    is_ksi=accident_severity!="Slight",
+    year=lubridate::year(date)
+  ) |> 
+  filter(year==2019,
+         local_authority_district %in% c("Bristol, City of",
+                                         "Sheffield", "Bromsgrove", "Cotswold")
+  ) |>
+  select(local_authority_district, is_ksi) |> 
+  nest(data=-local_authority_district) |> 
+  mutate(la_boot=map(data, bootstraps, times=1000, apparent=TRUE)) |> 
+  select(-data) |> 
+  unnest(la_boot) |> 
+  mutate(
+    is_ksi=map(splits, ~ analysis(.) |>  pull(is_ksi)),
+    ksi_rate=map_dbl(is_ksi, ~mean(.x)),
+    sample_size=map_dbl(is_ksi, ~length(.x))
+  ) |> 
+  select(-c(splits, is_ksi))
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+> rate_boots
+# A tibble: 4,004 × 3
+   local_authority_district splits           id           
+   <chr>                    <list>           <chr>        
+ 1 Sheffield                <split [248/89]> Bootstrap0001
+ 2 Sheffield                <split [248/93]> Bootstrap0002
+ 3 Sheffield                <split [248/91]> Bootstrap0003
+ 4 Sheffield                <split [248/92]> Bootstrap0004
+ 5 Sheffield                <split [248/92]> Bootstrap0005
+ 6 Sheffield                <split [248/92]> Bootstrap0006
+ 7 Sheffield                <split [248/90]> Bootstrap0007
+ 8 Sheffield                <split [248/92]> Bootstrap0008
+ 9 Sheffield                <split [248/83]> Bootstrap0009
+10 Sheffield                <split [248/97]> Bootstrap0010
+# ℹ 3,994 more rows
+# ℹ Use `print(n = ...)` to see more rows
+```
+
+</div>
+
+:::
+
+:::
+
+---
+
+
+<br><br>
+
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "15,16,17,18,19,20"
+rate_boots <- ped_veh |> 
+  mutate(
+    is_ksi=accident_severity!="Slight",
+    year=lubridate::year(date)
+  ) |> 
+  filter(year==2019,
+         local_authority_district %in% c("Bristol, City of",
+                                         "Sheffield", "Bromsgrove", "Cotswold")
+  ) |>
+  select(local_authority_district, is_ksi) |> 
+  nest(data=-local_authority_district) |> 
+  mutate(la_boot=map(data, bootstraps, times=1000, apparent=TRUE)) |> 
+  select(-data) |> 
+  unnest(la_boot) |> 
+  mutate(
+    is_ksi=map(splits, ~ analysis(.) |>  pull(is_ksi)),
+    ksi_rate=map_dbl(is_ksi, ~mean(.x)),
+    sample_size=map_dbl(is_ksi, ~length(.x))
+  ) |> 
+  select(-c(splits, is_ksi))
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+> rate_boots
+# A tibble: 4,004 × 4
+   local_authority_district id            ksi_rate sample_size
+   <chr>                    <chr>            <dbl>       <dbl>
+ 1 Sheffield                Bootstrap0001    0.528         248
+ 2 Sheffield                Bootstrap0002    0.448         248
+ 3 Sheffield                Bootstrap0003    0.484         248
+ 4 Sheffield                Bootstrap0004    0.524         248
+ 5 Sheffield                Bootstrap0005    0.464         248
+ 6 Sheffield                Bootstrap0006    0.484         248
+ 7 Sheffield                Bootstrap0007    0.512         248
+ 8 Sheffield                Bootstrap0008    0.552         248
+ 9 Sheffield                Bootstrap0009    0.472         248
+10 Sheffield                Bootstrap0010    0.484         248
+# ℹ 3,994 more rows
+# ℹ Use `print(n = ...)` to see more rows
+```
+
+</div>
+
+:::
+
+:::
+
+
+---
+
+
+
+<br><br>
+
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+rate_boots |>
+  group_by(local_authority_district) |>
+  mutate(std.error=sd(ksi_rate)) |>
+  filter(id=="Apparent") |>
+  ggplot(
+    aes(x=reorder(local_authority_district, ksi_rate), 
+        y=ksi_rate)
+    ) +
+  stat_gradientinterval(
+    aes(dist = dist_normal(mu=ksi_rate, sigma=std.error)),
+    point_size = 1.5
+  ) +
+  labs(x="local authority", y="ksi rate") +
+  coord_flip()
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+
+```{r}
+#| out.width: 100%
+#| echo: false
+
+include_graphics("img/selected_uncertainty_slides.png", error = FALSE)
+```
+
+:::
+
+:::

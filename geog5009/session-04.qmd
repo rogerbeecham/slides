@@ -1,0 +1,301 @@
+---
+title: "GEOG5009 <br> <span style='font-size:.8em; font-weight: 500'>Visualization for</span> <br> <span style='font-size:.8em; font-weight: 500'>Geographic Data Science</span>"
+subtitle: "<br><span style='color:#525252; font-size:1.0em;'>-- Spring/Summer 2024</span>"
+format: 
+   revealjs:
+     transition: fade
+     theme: theme/slides-theme.scss
+     css: theme/style.css
+     footer: '[Roger Beecham](https://roger-beecham.com)'
+     mainfont: Avenir Book
+---
+
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+library(knitr)
+library(kableExtra)
+library(tidyverse)
+```
+
+
+# Session 4 : Exploratory Data Analysis
+
+::: {.notes}
+
+Last session : heavy conceptual content
+
+EDA : more practical
+
+EDA : expose properties and structure of a dataset, and from here suggest directions for analytic inquiry.
+
+In an EDA, relationships are quickly inferred, anomalies labelled, assumptions tested and new hypotheses and ideas are formulated
+
+Do so with Stats19 -- how detailed comparison across many categorical variables can be effected using colour, layout and statistical computation
+:::
+
+---
+
+### EDA and statistical graphics
+
+<br>
+
+<div style="font-size:0.8em;"> 
+
+> The simple graph has brought more information to the data analyst’s mind than any other device.
+>
+
+> John Tukey
+
+</div>
+
+::: {.notes}
+
+Anything on EDA > Tukey > statistical graphics
+
+:::
+
+---
+
+### EDA and statistical graphics
+
+<br>
+
+<div style="font-size:0.85em;"> 
+
+Two early goals that EDA should address:
+
+1. What type of **variation** occurs **within** variables of a dataset?
+2. What type of **covariation** occurs **between** variables of a dataset?
+
+</div>
+
+::: {.notes}
+
+Exploring structure and relationships
+
+:::
+
+---
+
+### EDA and statistical graphics
+
+<br>
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| label: tbl-variable-types-explore
+#| tbl-cap: Statistical and graphical summaries by measurement type
+#| echo: false
+#| eval: true
+
+variable_types <- tibble::tibble(
+  "Measurement type" = c("Nominal", "Ordinal", "Continuous", "Nominal", "Ordinal", "Continuous"),
+    "Statistic" = c(
+      "mode &#124 entropy",
+      "median &#124 percentile",
+      "mean &#124 variance",
+      "contingency tables",
+      "rank correlation",
+      "correlation"
+      ),
+     "Chart type" = c(
+       "bar charts, dot plots ...",
+       "bar charts, dot plots ...",
+       "histograms, box plots, density plots ...",
+       "mosaic/spine plots ...",
+       "slope/bump charts ...",
+       "scatterplots, parallel coordinate plots ..."
+       )
+)
+
+kbl(variable_types, protect_latex = TRUE, escape=FALSE) |>
+ pack_rows("Within-variable variation", 1, 3, bold=FALSE, label_row_css = "border-bottom: 0px solid;") |>
+ pack_rows("Between-variable variation", 4, 6, bold=FALSE, label_row_css = "border-bottom: 0px solid;") |>
+ column_spec(1, width = "8em") |> column_spec(1, extra_css = "font-family:  Monospace", width = "30%") |> column_spec(2, width="30%") |> row_spec(0, extra_css = "border-bottom: 1px solid;")
+```
+
+</div>
+
+
+  
+---
+
+### Variation within continuous variables
+
+::: {.column width="80%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/univariate-plots.png", error = FALSE)
+```
+:::
+
+::: {.notes}
+
+Comparison plot :
+
+Pedestrians younger than the drivers hitting them, except for bikes. But notice differences in spread between drivers and pedestrians/
+
+:::
+
+---
+
+### Variation within categorical variables
+
+<br>
+
+::: {.column width="100%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/bars.png", error = FALSE)
+```
+:::
+
+
+---
+
+### Variation within + between variables
+
+
+<br>
+
+::: {.column width="80%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/borough-freqs.png", error = FALSE)
+```
+:::
+
+---
+
+### Variation within + between variables
+
+<br>
+
+::: {.column width="100%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/bars-assoc.png", error = FALSE)
+```
+:::
+
+---
+
+### EDA workflow
+
+
+<br>
+
+::: {.fragment}
+
+* Expose pattern
+
+:::
+
+
+::: {.fragment}
+
+* Model an expectation derived from pattern
+
+:::
+
+
+::: {.fragment}
+
+* Show deviation from expectation
+
+:::
+
+::: {.fragment}
+
+  + *Check for uncertainty*
+
+:::
+
+---
+
+### EDA workflow
+
+```{r}
+#| out.width: 100%
+#| echo: false
+#| eval: true
+
+include_graphics("img/borough-freqs-resids.png", error = FALSE)
+```
+
+---
+
+### EDA workflow
+
+<br>
+
+<div style="font-size:0.6em;"> 
+
+> EDA is often thought of as an alternative to model-based statistical analysis, but once we think of **graphs as comparisons to models**, it makes sense that the amount we've learned increases with the complexity of the model being compared to. **Effective graphics** create visual structures that **enable model inspection** by foregrounding comparisons of interest in ways that exploit the abilities of the human visual systems.
+
+
+> We propose a perspective that **unites exploratory and confirmatory analysis** through the idea of **graphs as model checks** [...] and describe how [...] systems for exploratory visual analysis should be designed to **better support model-driven inference and representation of uncertainty**.
+
+> Hullman and Gelman 2021
+
+doi: `10.1162/99608f92.3ab8a587`
+
+</div>
+
+---
+
+### EDA workflow
+
+::: {.column width="65%"}
+![](img/ga_twitter.png){fig-align="center"}
+:::
+
+<span style="font-size:0.6em;"> doi: `10.1111/gean.12338` </span>
+---
+
+### Comparison
+
+::: {.notes}
+
+EDA should invite comparison -- we can achieve this with out vis design.
+
+:::
+
+---
+
+## Techniques  
+
+---
+
+<br>
+
+::: {.column width="80%"}
+
+![](img/freqs_imd.png){fig-align="center"}
+:::
+
+----
+
+::: {.column width="66%"}
+
+<br>
+
+![](img/imd_driver_cas.png){fig-align="center"}
+:::
+
+---
+
+::: {.column width="80%"}
+
+![](img/model_imd_location.png){fig-align="center"}
+:::
+---

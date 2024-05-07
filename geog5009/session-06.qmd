@@ -1,0 +1,152 @@
+---
+title: "GEOG5009 <br> <span style='font-size:.8em; font-weight: 500'>Visualization for</span> <br> <span style='font-size:.8em; font-weight: 500'>Geographic Data Science</span>"
+subtitle: "<br><span style='color:#525252; font-size:1.0em;'>-- Spring/Summer 2024</span>"
+format: 
+   revealjs:
+     transition: fade
+     theme: theme/slides-theme.scss
+     css: theme/style.css
+     footer: '[Roger Beecham](https://roger-beecham.com)'
+     mainfont: Avenir Book
+---
+
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+library(knitr)
+library(kableExtra)
+library(tidyverse)
+```
+
+
+# Session 6 : Models
+
+---
+
+<br>
+
+::: {.column width="85%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/brexit_vote.png", error = FALSE)
+```
+:::
+
+---
+
+
+
+::: {.column width="85%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/brexit_stories.png", error = FALSE)
+```
+:::
+
+---
+
+<br>
+
+::: {.column width="85%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/brexit_model.png", error = FALSE)
+```
+:::
+
+---
+
+<br>
+
+::: {.column width="95%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/map_uniform.png", error = FALSE)
+```
+:::
+
+
+---
+
+<br>
+
+::: {.column width="85%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/scatters.png", error = FALSE)
+```
+:::
+
+---
+
+<br>
+
+::: {.column width="80%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/pcps.png", error = FALSE)
+```
+:::
+
+---
+
+<br><br>
+
+::: {.column width="80%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/outputs.png", error = FALSE)
+```
+:::
+
+---
+
+::: {.column width="90%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/lineups_hex_annotate.png", error = FALSE)
+```
+:::
+
+---
+
+<br><br>
+
+::: {.column width="90%"}
+
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/outputs_fe.png", error = FALSE)
+```
+
+:::
+
+---
+
+<br>
+
+::: {.column width="90%"}
+
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/lineups_fe.png", error = FALSE)
+```
+
+:::
+
+---
+
+## Technical Element

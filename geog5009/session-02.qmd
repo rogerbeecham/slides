@@ -1,0 +1,530 @@
+---
+title: "GEOG5009 <br> <span style='font-size:.8em; font-weight: 500'>Visualization for</span> <br> <span style='font-size:.8em; font-weight: 500'>Geographic Data Science</span>"
+subtitle: "<br><span style='color:#525252; font-size:1.0em;'>-- Spring/Summer 2024</span>"
+format: 
+   revealjs:
+     transition: fade
+     theme: theme/slides-theme.scss
+     css: theme/style.css
+     footer: '[Roger Beecham](https://roger-beecham.com)'
+     mainfont: Avenir Book
+---
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+library(knitr)
+library(kableExtra)
+library(tidyverse)
+```
+
+# Session 2 : Data Fundamentals
+
+::: {.notes}
+
+Review objectives --
+
+* vocab important -- determines the operations that we can perform.
+
+* vocab important sds -- new data, work out its structure.
+
+* tidyverse -- end up coming up with analysis templates
+
+* bikedata and citibike -- loading data for the first time; exploring usefulness for cycling research -- show data
+
+* short on conceptual; large on technical
+
+:::
+
+---
+
+## Data structure
+
+
+---
+
+
+### Data frame
+
+
+::: {.column width="80%"}
+
+![](img/data-structure.png){fig-align="left"}
+:::
+
+
+::: {.notes}
+
+spreadsheet like representations:
+
+*  rows are observations (case/record)
+
+*  columns are variables
+
+* organising not always easy -- Tidy
+
+*  Each variable (column) in a data frame is a vector that must be of equal length
+
+* Missing - `NA`
+
+* `list-col`
+:::
+
+---
+
+### Stevens levels of measurement
+
+
+<br>
+ 
+
+```{r}
+#| label: tbl-variable-types
+#| tbl-cap: "Breakdown of variable types and corresponding mathematical operations. "
+#| echo: false
+#| eval: true
+
+variable_types <- tibble::tibble(
+  Measurement = c("Nominal", "Ordinal", "Interval", "Ratio"),
+  Example = c(
+    "Political parties; street names",
+    "Terrorism threat levels",
+    "Temperatures; years",
+    "Distances; prices "
+    ),
+  Operators = c(
+    "&#61;  &#8800;",
+    "&#61;  &#8800; <>",
+    "&#61;  &#8800; <> +  -",
+    "&#61;  &#8800; <> +  - &#124 &#215; &#247;"
+    ),
+  Midpoint = c(
+    "mode",
+    "median",
+    "mean",
+    "mean"
+   ),
+  Spread = c(
+    "entropy",
+    "percentile",
+    "variance",
+    "variance"
+  )
+)
+
+kbl(variable_types, protect_latex = TRUE, escape=FALSE) |>
+ row_spec(0, extra_css = "border-bottom: 1px solid;") |>
+ pack_rows("Categories", 1, 2, bold=FALSE, label_row_css = "border-bottom: 0px solid;") |>
+ pack_rows("Measures", 3, 4, bold=FALSE, label_row_css = "border-bottom: 0px solid;") |>
+ column_spec(c(1,3), width = "8em",  extra_css = "font-family:  Monospace") |>
+ kable_styling(font_size = 20)
+```
+
+
+---
+
+### R data types
+
+<br>
+
+
+```{r}
+#| label: tbl-data-types
+#| tbl-cap: "A breakdown of data types in R."
+#| echo: false
+#| eval: true
+
+data_types <- tibble::tibble(
+  Type = c("lgl", "int", "dbl", "chr", "dttm", "fctr" ),
+  Description = c(
+    "Logical -- vectors that can contain only `TRUE` or `FALSE` values",
+    "Integers -- whole numbers",
+    "Double --  real numbers with decimals",
+    "Character -- text strings",
+    "Date-times -- a date + a time",
+    "Factors -- represent categorical variables of fixed and potentially orderable values"
+  )
+)
+
+kbl(data_types, protect_latex = TRUE, escape=FALSE) |>
+ row_spec(0, extra_css = "border-bottom: 1px solid;") |>
+ column_spec(1, width = "8em",  extra_css = "font-family:  Monospace") |>
+ kable_styling(font_size = 22)
+
+```
+
+
+---
+
+## Applying Stevens levels of measurement 
+
+---
+
+
+<div style="font-size:0.7em;">
+
+* dataset: [Citibike OD trip data](https://www.citibikenyc.com/system-data) 
+* variables: `trip_distance` | `user_type` 
+* measurement: `ratio` | `nominal`
+</div>
+
+
+::: {.fragment}
+```{r}
+#| out.width: 90%
+#| echo: false
+include_graphics("img/dist.png", error = FALSE)
+```
+:::
+
+---
+
+<div style="font-size:0.7em;">
+
+* dataset: Citibike OD trip data
+* variable: `trip_speed` | `user_age_band` | `user_type` | `trip_distance` 
+* measurement: `ratio` | `ordinal` | `nominal` | `ordinal`
+
+::: {.fragment}
+
+```{r}
+#| out.width: 80%
+#| echo: false
+
+include_graphics("img/speeds.png", error = FALSE)
+```
+:::
+
+
+---
+
+<div style="font-size:0.7em;">
+
+* dataset: Citibike OD trip data </span> <br>
+* variable: `trip_count` | `hod` | `user_type` | `day_week`
+*  measurement: `ratio` | `interval|cyclic ratio` | `nominal` | `ordinal` 
+</div> 
+
+
+::: {.fragment}
+```{r}
+#| echo: false
+#| out-width: 80%
+include_graphics("img/hod_dow.png", error = FALSE)
+```
+:::
+
+
+
+--- 
+
+## Tidy data
+
+
+
+---
+
+::: {.column width="70%"}
+![](img/data3.png){fig-align="left"}
+:::
+
+
+
+
+::: {.fragment}
+```{r}
+#| echo: false
+#| tbl-cap: "Is this tidy?"
+drugs <- tibble::tibble(
+  treatment = c("treatment_a", "treatment_b"),
+  "John Smith" = c("--", "2"),
+  "Jane Doe" = c("16", "11"),
+  "Mary Johnson" = c("3", "1")
+    )
+
+kbl(drugs,  protect_latex = TRUE, escape=FALSE) |>
+ row_spec(0, extra_css = "border-bottom: 1px solid;") |>
+ kable_styling(font_size = 24)
+```
+:::
+
+
+::: {.notes}
+identify the **variables** and their **values**:
+
+1. `person`:  a categorical nominal variable which takes three values: John Smith, Jane Doe, Mary Johnson.
+2. `treatment`: a categorical nominal variable which takes values: a and b.
+3. `result`: a measurement ratio (I think) variable which six recorded values (including the missing value)
+
+Each **observation** is then a test result returned for each combination of `person` and `treatment`.
+:::
+
+
+---
+
+
+::: {.column width="70%"}
+![](img/data3.png){fig-align="left"}
+:::
+
+
+::: {.fragment}
+```{r}
+#| echo: false
+#| tbl-cap: "Is this tidy?"
+drugs <- tibble::tibble(
+  person = c("John Smith", "John Smith", "Jane Doe", "Jane Doe", "Mary Johnson", "Mary Johnson"),
+  treatment = c("a", "b", "a", "b", "a", "b"),
+  result = c("--", "2", "16", "11", "3", "1")
+    )
+kbl(drugs,  protect_latex = TRUE, escape=FALSE) |>
+ row_spec(0, extra_css = "border-bottom: 1px solid;") |>
+ kable_styling(font_size = 24)
+```
+:::
+
+
+::: {.notes}
+identify the **variables** and their **values**:
+
+1. `person`:  a categorical nominal variable which takes three values: John Smith, Jane Doe, Mary Johnson.
+2. `treatment`: a categorical nominal variable which takes values: a and b.
+3. `result`: a measurement ratio (I think) variable which six recorded values (including the missing value)
+
+Each **observation** is then a test result returned for each combination of `person` and `treatment`.
+:::
+
+
+---
+
+::: {.column width="70%"}
+![](img/data3.png){fig-align="left"}
+:::
+
+
+::: {.fragment}
+```{r}
+#| echo: false
+#| tbl-cap: "Is this tidy?"
+gapminder_untidy2 <- tibble::tibble(
+  country = c("Afghanistan", "Afghanistan", "Brazil", "Brazil", "China", "China"),
+  year = c("1999", "2000", "1999", "2000", "1999", "2000"),
+  f_cases = c("447", "1599", "16982", "39440", "104007", "104746"),
+  m_cases = c("298", "1067", "20755", "41048", "108252", "109759"),
+  f_population = c("9993400", "10296280", "86001181", "87251329", "636451250", "640212600"),
+  m_population = c("9993671", "10299080", "86005181", "87253569", "636464022", "640215983")
+    )
+kbl(gapminder_untidy2,  protect_latex = TRUE, escape=FALSE) |>
+ row_spec(0, extra_css = "border-bottom: 1px solid;") |>
+ kable_styling(font_size = 24)
+```
+:::
+
+
+---
+
+
+::: {.column width="70%"}
+![](img/data3.png){fig-align="left"}
+:::
+
+
+::: {.fragment}
+```{r}
+#| echo: false
+#| tbl-cap: "Is this tidy?"
+gapminder_tidy <- tibble::tibble(
+  country = c("Afghanistan", "Afghanistan", "Brazil", "Brazil", "China", "China"),
+  year = c("1999", "2000", "1999", "2000", "1999", "2000"),
+  cases = c("745", "2666", "37737", "80488", "212258", "213766"),
+  population = c("19987071", "20595360", "172006362", "174504898", "1272915272", "1280428583")
+    )
+kbl(gapminder_tidy,  protect_latex = TRUE, escape=FALSE) |>
+ row_spec(0, extra_css = "border-bottom: 1px solid;") |>
+ kable_styling(font_size = 24)
+```
+:::
+
+---
+
+## Tidy data and `dplyr`
+
+---
+
+::: {.column width="90%"}
+![](img/transform1.png){fig-align="left"}
+:::
+
+---
+
+### `dplyr`'s grammar of data manipulation
+
+<br>
+
+```{r}
+#| label: tbl-dplyr-verbs
+#| tbl-cap: "dplyr funcitions (verbs) for manipulating data frames."
+#| echo: false
+
+dplyr_verbs <- tibble::tibble(
+  `function()` = c("filter()", "arrange()", "select()", "rename()", "mutate()", "group_by()", "summarise()" , "..."),
+  Description = c(
+    "Picks rows (observations) if their values match a specified criteria",
+    "Reorders rows (observations) based on their values",
+    "Picks a subset of columns (variables) by name (or name characteristics)",
+    "Changes the name of columns in the data frame",
+    "Adds new columns",
+    "Chunks the dataset into groups for grouped operations",
+    "Calculates single-row (non-grouped) or multiple-row (if grouped) summary values",
+    ""
+  )
+)
+
+kbl(dplyr_verbs) |> column_spec(1, extra_css = "font-family:  Monospace") |> row_spec(0, extra_css = "border-bottom: 1px solid;") |> kable_styling(font_size = 24)
+```
+
+---
+
+### `dplyr`'s grammar of data manipulation
+
+::: columns
+
+::: {.column width="50%"}
+<br>
+<div style="font-size:0.7em;">
+1. Start with a data frame 
+2. Pass some arguments to the function which control what you do to the data frame.  
+3. Return the updated data frame. 
+</div>
+:::
+
+::: {.column width="50%"}
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: false
+count(
+  data=ny_trips,
+  gender,
+  sort=TRUE
+  )
+#    gender       n
+# 1    male 1044621
+# 2  female  586361
+# 3 unknown  251291
+```
+
+```{css}
+code.sourceCode {
+  font-size: 0.7em;
+  /* or try font-size: xx-large; */
+}
+```
+
+:::
+
+:::
+---
+
+### `dplyr`'s grammar of data manipulation
+
+::: columns
+
+::: {.column width="50%"}
+<br>
+<div style="font-size:0.7em;">
+1. Start with a data frame 
+2. Pass some arguments to the function which control what you do to the data frame.  
+3. Return the updated data frame. 
+</div>
+:::
+
+::: {.column width="50%"}
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: false
+ny_trips |> 
+  group_by(gender)  |> 
+  summarise(count=n()) |> 
+  arrange(desc(count)) 
+
+# # A tibble: 3 x 2
+#  gender    count
+#  <chr>     <int>
+# 1 male    1044621
+# 2 female   586361
+# 3 unknown  251291
+```
+
+```{css}
+code.sourceCode {
+  font-size: 0.7em;
+  /* or try font-size: xx-large; */
+}
+```
+
+:::
+
+:::
+
+---
+
+### Use `%>%` for a layered grammar of manipulation
+
+::: columns
+
+::: {.column width="50%"}
+<br>
+<div style="font-size:0.7em;">
+1. Start with a data frame 
+2. Pass some arguments to the function which control what you do to the data frame.  
+3. Return the updated data frame. 
+</div>
+:::
+
+::: {.column width="50%"}
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: false
+ny_trips |>  
+  filter(gender != "unknown") |> 
+  group_by(gender) |> 
+  summarise(count=n()) |> 
+  mutate(prop=count/sum(count)) |> 
+  arrange(desc(count)) 
+
+## # A tibble: 2 x 3
+##  gender   count  prop
+##  <chr>    <int> <dbl>
+## 1 male   1044621 0.640
+## 2 female  586361 0.360
+```
+
+```{css}
+code.sourceCode {
+  font-size: 0.7em;
+  /* or try font-size: xx-large; */
+}
+```
+
+:::
+
+:::
+
+---
+
+## Technical element
+
+
+
+

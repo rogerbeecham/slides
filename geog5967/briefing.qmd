@@ -1,0 +1,604 @@
+---
+title: "GEOG5967 <br> <span style='font-size:.8em; font-weight: 500'>CAMS Dissertation</span> <br> <span style='font-size:.8em; font-weight: 500'>in Geography</span>"
+subtitle: "<br><span style='color:#525252; font-size:1.0em;'>-- Spring/Summer 2024</span>"
+format: 
+   revealjs:
+     transition: fade
+     theme: theme/slides-theme.scss
+     css: theme/style.css
+     footer: '[Roger Beecham](https://roger-beecham.com)'
+     mainfont: Avenir Book
+---
+
+## CAMS Dissertations
+
+
+* **Important**  <br> Worth 30 credits
+
+* **Interesting** <br> Chance to study something that matters to you
+
+* **Independent** <br> Opportunity to work on substantive piece of work on your own
+
+* **Initiative**  <br> Led by you
+
+::: footer
+:::
+
+::: {.notes}
+
+Go to Minerva.
+Handbook : module information -- scan through -- 
+            12k words etc.
+            overview of dates 
+            supervisor guidance 
+            data guidance 
+            subission specifics 
+Learning Resources
+             will post examples -- not necessarily good but indicatve
+             
+:::
+
+---
+
+## CAMS Geography Dissertations
+
+* Module leader: Roger Beecham | Module team: Various
+
+* In this session:
+  + Choosing a dissertation topic
+  + Finding data for a dissertation
+  + Finding literature for a dissertation
+  + Planning a dissertation
+
+* E-mail `r.j.beecham@leeds.ac.uk` with your broad dissertation theme by **Friday 10th May** (20-30 words max)
+
+
+::: footer
+:::
+
+::: {.notes}
+
+:::
+
+---
+
+## CAMS Geography Dissertations
+
+* Module leader: Roger Beecham | Module team: Various
+
+* In this session:
+  + Choosing a dissertation topic
+  + Finding data for a dissertation
+  + Finding literature for a dissertation
+  + Planning a dissertation
+
+
+:::{style="color: #a50f15;"}
+* E-mail `r.j.beecham@leeds.ac.uk` with your broad dissertation theme by **Friday 10th May** (20-30 words max)
+:::
+
+::: footer
+:::
+
+::: {.notes}
+
+:::
+
+---
+
+## CAMS Geography Dissertations
+
+:::{.fragment .fade-in style="font-size: 90%;"}
+
+> Involves some form of **spatial analysis** linked to any of the topics covered in the lectures and practical classes.
+
+:::
+
+:::{.fragment .fade-in style="font-size: 90%;"}
+
+> Is **analytic** in nature, using any of the methods, tools and techniques covered in your Geography modules
+
+:::
+
+:::{.fragment .fade-in style="font-size: 90%;"}
+> Uses **secondary data** from any of the broad type of sources that we have introduced.
+
+:::
+
+:::{.fragment .fade-in style="font-size: 90%;"}
+
+> Represents a substantial piece of **academic research**, but can be carried out with input from a company or other external organisation.
+:::
+
+::: footer
+:::
+
+::: {.notes}
+
+:::
+
+---
+
+# Choosing a topic
+
+## Choosing a topic
+
+:::{.columns}
+
+::: {.column width="50%" style="font-size: 90%;"}
+
+**Techniques** <br>
+
+* Spatial pattern analysis
+* Time series analysis
+* Network analysis
+* Machine Learning
+  + regression, decision trees, clustering
+* Empirical modelling
+  + ABMs/microsimulation
+* Data visualisation
+
+:::
+
+::: {.column width="50%" style="font-size: 90%;"}
+**Themes** <br>
+
+* Demographics
+* Housing markets
+* Consumer analytics/profiling
+* Network planning
+* Targeted marketing / Response modelling
+* Inequalities and accessibility
+
+:::
+
+:::
+
+::: footer
+:::
+
+::: {.notes}
+Also technology : R, Python, others
+
+Important : specfic and well-specified 
+
+:::
+
+
+---
+
+## How to come up with an idea
+
+
+:::{.fragment .fade-in style="font-size: 80%;"}
+
+*  Identify **[aspects of the course]()** that have **interested you** and some of the readings that you have undertaken.  Are there aspects that you’d be able and **want to develop further**?
+
+:::
+
+:::{.fragment .fade-in style="font-size: 80%;"}
+
+* Note some of the **[methods and technologies](https://www.tidymodels.org/)** used -- could you apply these to a different study area or a slightly different problem?
+
+:::
+
+:::{.fragment .fade-in style="font-size: 80%;"}
+* Is there an **[interesting dataset](https://insideairbnb.com/)** that you’d like to explore further?
+
+:::
+
+:::{.fragment .fade-in style="font-size: 80%;"}
+
+* Is there a **[particular issue](https://www.theguardian.com/society/2019/jan/28/improving-uk-cycling-rates-could-save-nhs-319m-says-report)** related to your home country or your previous study/employment that you could focus on.
+:::
+
+:::{.fragment .fade-in style="font-size: 80%;"}
+
+* Have you read a research paper that [**especially interested you**](https://www.tandfonline.com/doi/full/10.1080/09593969.2021.2017321) -- could you carry out a similar study with some related data for Leeds/UK/home country?
+
+:::
+
+::: footer
+:::
+
+::: {.notes}
+
+So understand requirements, thought about broad themes/topics that interest -- how to proceed?
+
+Pick interesting paper/study/analysis read?
+
+:::
+
+---
+
+## Example
+
+
+::: footer
+:::
+
+::: {.notes}
+
+Connected bikeability
+
+Overarching message : don't over-complicate.
+Best dissertations : build upon work already done.
+
+:::
+
+---
+
+## Task 
+
+<br>
+
+Propose a broad dissertation topic, then write down:
+
+* Is it linked to the objectives of my programme of study?
+
+* Do I have sufficient interest in this topic to study it for the next 6 months?
+
+* Do I have the necessary skills?
+
+* Is sufficient data available and have I got access to it?
+
+* Is there some relevant academic literature?
+
+```{r}
+#| label: ex-2-timer
+countdown::countdown(
+  minutes = 15,
+  color_border = "#b20e10",
+  color_text = "#b20e10",
+  color_running_text = "white",
+  color_running_background = "#b20e10",
+  color_finished_text = "#b20e10",
+  color_finished_background = "white",
+  top = 0,
+  margin = "0.5em",
+  font_size = "2em"
+)
+```
+
+::: footer
+:::
+
+::: {.notes}
+
+Connected bikeability
+
+Overarching message : don't over-complicate.
+Best dissertations : build upon work already done.
+
+:::
+
+---
+
+# Finding data
+
+## Why is **data** so important to planning?
+
+
+
+
+:::{.fragment .fade-in style="font-size: 80%;"}
+
+*  Geography dissertations are **analytic** in nature, characterised by the application of spatial and statistical analysis techniques to analyse large-scale datasets.
+
+:::
+
+:::{.fragment .fade-in style="font-size: 80%;"}
+
+* Geography dissertations are **secondary data analysis** projects, repurposing datasets that already exist.
+
+:::
+
+:::{.fragment .fade-in style="font-size: 80%;"}
+* **CAMS** Geography dissertations are applied **data science** studies repurposing administrative, but also sometimes new, observational datasets.
+:::
+
+
+
+
+::: footer
+:::
+
+::: {.notes}
+
+:::
+---
+
+## How to select **data**
+
+1. Look back at the datasets you have used in **taught sessions**
+
+2. Investigate some of the datasets suggested in the **dissertation module handbook** and during this session
+
+3. Think back to some of the datasets you have seen via your **personal, social or academic networks**
+
+::: footer
+:::
+
+::: {.notes}
+Some dissertations present a coherent and interesting analysis using only a *single* dataset. Others combine several datasets.
+
+:::
+
+---
+
+## Different categories of open dataset
+
+
+:::{.fragment .fade-in }
+
+1. Small area census and government data
+
+:::
+
+:::{.fragment .fade-in }
+
+2. Open data portals
+
+:::
+
+:::{.fragment .fade-in }
+
+3. Domain and dataset-specialised APIs
+:::
+
+
+
+::: footer
+:::
+
+::: {.notes}
+
+:::
+---
+
+## Small area census and gov data
+
+<br>
+
+* UK Census and survey data from [`nomisweb`](https://www.nomisweb.co.uk/), [`UK Data Service`](https://ukdataservice.ac.uk/)
+
+* US Census and survey data from [`US Census Bureau`](https://www.census.gov/), [`tidycensus`](https://walker-data.com/tidycensus/)
+
+
+::: footer
+:::
+
+::: {.notes}
+
+Demonstrate access via UK data service:
+
+Geog precision, variable selection
+:::
+
+---
+
+## Open data portals
+
+* UK: [`Data Mill North`](https://datamillnorth.org/dataset), [`OpenManchester`](http://open.manchester.gov.uk/), [`data.gov.uk`](https://data.gov.uk/)
+
+* Non-UK: [`data.melbourne`](https://data.melbourne.vic.gov.au/), [`opendata.cityofnewyork`](https://opendata.cityofnewyork.us/data/), [`data.gov.sg`](https://data.gov.sg/)
+
+
+::: footer
+:::
+
+::: {.notes}
+
+Demonstrate access via UK data service:
+
+Geog precision, variable selection
+:::
+
+---
+
+## Domain specific APIs
+
+* Transport: [`stats19`](https://docs.ropensci.org/stats19/), [`TfL Open Data`](https://tfl.gov.uk/info-for/open-data-users/), [`bikedata`](https://docs.ropensci.org/bikedata/), [`moverment.uber`](https://movement.uber.com/?lang=en-GB), [`OpenFlights`](https://openflights.org/data.html)
+
+* Crime: [`data.police.uk`](https://data.police.uk/), [`ukpolice`](https://docs.evanodell.com/ukpolice/)
+
+* Health: [`covid-19 cases, deaths, vaccines`](https://coronavirus.data.gov.uk/details/download), [`covdata`](https://kjhealy.github.io/covdata/), [`covmobility`](https://kjhealy.github.io/covmobility/)
+
+* User-generated: [`yelp.com`](https://www.yelp.com/dataset), [`twitter API`](https://developer.twitter.com/en/docs/twitter-api)
+
+* Miscellany: [`awesome-public-datasets`](https://github.com/awesomedata/awesome-public-datasets)
+
+::: footer
+:::
+
+::: {.notes}
+
+
+:::
+
+---
+
+## Demo
+
+* [`UK Data Service`](https://ukdataservice.ac.uk/)
+
+*  [`stats19`](https://docs.ropensci.org/stats19/)
+
+::: footer
+:::
+
+::: {.notes}
+
+
+:::
+
+---
+
+## Task : class discussion
+
+<br>
+
+You have an (approximate) theme / themes for your dissertation, let's discuss ideas for potential datasets.
+
+Instructions:
+
+1. Record the approximate thematic area of your dissertation.
+2. Identify any datasets that you have already considered -- or "don't know" if you have no idea of datasets.
+
+```{r}
+#| label: ex-3-timer
+countdown::countdown(
+  minutes = 15,
+  color_border = "#b20e10",
+  color_text = "#b20e10",
+  color_running_text = "white",
+  color_running_background = "#b20e10",
+  color_finished_text = "#b20e10",
+  color_finished_background = "white",
+  top = 0,
+  margin = "0.5em",
+  font_size = "2em"
+)
+```
+
+::: footer
+:::
+
+::: {.notes}
+
+Connected bikeability
+
+Overarching message : don't over-complicate.
+Best dissertations : build upon work already done.
+
+:::
+
+---
+
+# Finding literature
+
+## Finding literature
+
+* [University Library - Literature Search](https://library.leeds.ac.uk/info/1404/literature_searching/14/literature_searching_explained)
+
+* [University Library - Using Newspapers](https://library.leeds.ac.uk/info/1105/newspapers)
+
+* [Google Scholar](https://scholar.google.co.uk/)
+
+* [Science Direct](https://www.sciencedirect.com/)
+
+* [Web of Science](https://clarivate.com/products/scientific-and-academic-research/research-discovery-and-workflow-solutions/webofscience-platform/)
+
+::: footer
+:::
+
+::: {.notes}
+
+Connected bikeability
+
+:::
+
+---
+
+# Planning your dissertation
+
+
+## Process
+
+:::{style="font-size: 80%;"}
+
+
+* You are allocated a **supervisor** who will be able to provide advice and suggestions. You will usually meet with them 4 – 6 times during your research.
+
+* You will e-mail a **1-page research plan** on **Friday 7th June** to your supervisor.
+
+* You will receive oral feedback on your research plan in **June**.
+
+* Most of your research will be carried out over the summer (June – August) and must be completed independently.
+
+* Submit your final dissertation on **Thursday 29th August before 2pm**.
+
+* The **maximum word limit** for your dissertation is 12,000 words, many may be considerably shorter than this.
+
+:::
+
+::: footer
+:::
+
+::: {.notes}
+
+:::
+
+---
+
+## Next steps
+
+:::{style="font-size: 80%;"}
+
+* E-mail to me (Roger Beecham) your 20-30 word outline by Friday 10th May.
+
+* Contact your supervisor for your **single** meeting with them before you hand in your 1-page dissertation plan.
+
+* Prepare your dissertation plan, submit it **via e-mail by Friday 17th Jun**.
+
+* You should receive feedback on your dissertation plan via a meeting and have three meetings with your supervisor to:
+  + Discuss data preparation, lit review and methods
+  + Troubleshoot analysis and discuss outputs
+  + Discuss findings and write-up
+
+:::
+
+---
+
+## Help and support
+
+:::{style="font-size: 80%;"}
+
+* Your **dissertation supervisor is your primary contact** and you should deal directly with them for support and advice.
+
+* Roger (`r.j.beecham@leeds.ac.uk`) manages the dissertation module. Contact him with administrative queries or issues that you have not been able to resolve with your supervisor.
+
+* Claire Gorner (`c.gorner@leeds.ac.uk`) in the Geography Student Support Office is your contact for any personal issues affecting your progress or for deadline extensions.
+
+* **New** : Dedicated GIS/Coding support from PGR + academic practice support from Na Yan (n.yan@leeds.ac.uk)
+
+:::
+---
+
+## Supervisors
+
+<br>
+
+:::{style="font-size: 90%;"}
+
+> Your **dissertation supervisor is your primary contact** and you should deal directly with them for support and advice.
+>
+> But: You must take initiative to develop and manage your dissertation.
+>
+> Note: Supervisors are there for guidance and advice but you lead your individual projects.
+
+:::
+
+---
+
+## 1-page dissertation plan
+
+:::{style="font-size: 70%;"}
+
+1. **Title** | Likely this will change
+
+2. **Research questions / aims** | What you hope to achieve
+
+3. **Research tasks** | The activities/steps you will take to achieve your aims
+
+4. **Why this topic is interesting, relevant, topical**
+  + Why this topic interests you
+  + Academic interest in the topic area -- with some appropriate academic literature
+  + Only if appropriate, the wider commercial or public interest in the topic
+
+5. **Methods** | Include high-level details
+  + List and describe datasets: how collected, size, geographic scale, temporal coverage
+  + Tools/techniques/methods/software you will use to analyse your data -- how and why
+  + Address how these will help engage with research aims
+
+:::

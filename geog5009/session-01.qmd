@@ -1,0 +1,638 @@
+---
+title: "GEOG5009 <br> <span style='font-size:.8em; font-weight: 500'>Visualization for</span> <br> <span style='font-size:.8em; font-weight: 500'>Geographic Data Science</span>"
+subtitle: "<br><span style='color:#525252; font-size:1.0em;'>-- Spring/Summer 2024</span>"
+format: 
+   revealjs:
+     transition: fade
+     theme: theme/slides-theme.scss
+     css: theme/style.css
+     footer: '[Roger Beecham](https://roger-beecham.com)'
+     mainfont: Avenir Book
+---
+
+## Course Background
+
+::: footer
+:::
+
+::: {.notes}
+
+1. Today: introduction to course. How it will be configured and working; split of theoretical and lab activity.
+2. Introduce rationale behind the course, my ambition with it.
+
+:::
+
+---
+
+> <span style='font-size:25pt;'>In modern data analysis, **graphics** and **computational statistics** are increasingly used together to explore and **identify complex patterns** in data and to make and **communicate claims under uncertainty**. This course will go beyond traditional ideas of charts, graphs, maps (and also statistics!) to equip you with the **analysis**, **design** and **technical skills** to analyse and communicate with social science datasets. </span>
+
+
+::: footer
+:::
+
+::: {.notes}
+
+So : this course is about demonstrating a "modern" approach to data analysis (with social science datasets)
+:::
+
+---
+
+
+> <span style='font-size:25pt;'> The course emphasises real-world applications. You will work with both new, **large-scale behavioural datasets**, as well as more traditional, **administrative datasets** located within various social science domains: Political Science, Crime Science, Urban and Transport Planning.</span>
+
+> <span style='font-size:25pt;'>  As well as learning how to **use graphics and statistics to explore patterns in these data**, implementing recent ideas from **data journalism** you will learn how to **communicate research findings** – how to **tell stories with data**.</span>
+
+::: footer
+:::
+
+::: {.notes}
+Not a how-to primer -- they exist.
+
+**Journalism** Data science is very application oriented. Some of the more substantive analyses I've seen recently haven't necessarily come from academia.
+:::
+
+## Course Objectives
+
+::: footer
+:::
+
+---
+
+::: {.incremental}
+- **Describe, process and combine** social science datasets.
+- **Design statistical graphics** that expose structure in social science data and that are underpinned by established principles in information visualization and cartography.
+- Use modern data science and visualization frameworks to produce **coherent, reproducible data analyses**.
+- Apply modern **statistical techniques** for analysing, representing and communicating data and **model uncertainty**.
+:::
+
+::: {.notes}
+Want to cover main components of modern data analysis -- they are here.
+But to do so by stealth : through real analysis scenarios.
+:::
+
+---
+## Minerva
+
+::: footer
+:::
+
+---
+
+
+## Course Book
+
+::: footer
+:::
+
+---
+
+![](img/vis4sds_book.png){fig-alt="vis4sds book screenshot." fig-align="left" width=50%}
+
+::: footer
+:::
+
+
+::: {.notes}
+Chapters > Explain and justify each session.
+Session 08 > Identify Conceptual versus Technical.
+
+Conceptual and Technical elements
+Examples revealing some of the sessions
+
+
+:::
+
+---
+
+# Session 1: Introduction
+
+## Why *Visualization* for data science?
+
+::: footer
+:::
+
+::: {.notes}
+
+Modern Data Analysis : what and why?
+
+:::
+
+
+
+---
+
+<span style="font-size:0.9em;">
+Donoho 2017's **six key facets** of **data science**:
+</span>
+
+<span style="font-size:0.8em;">
+1.  data gathering, preparation, and exploration; 
+</span>
+
+<span style="font-size:0.8em;">
+2.  data representation and transformation;
+</span>
+
+<span style="font-size:0.8em;">
+3.  computing with data;
+</span>
+
+<span style="font-size:0.8em;">
+4.  data visualization and presentation;
+</span>
+
+<span style="font-size:0.8em;">
+5.  data modelling;
+</span>
+
+<span style="font-size:0.8em;">
+6.  and a more introspective “science about data science”
+</span>
+
+
+<br>
+<span style="font-size:0.5em;">
+Donoho, D. 2017. “50 Years of Data Science”, *Journal of Computational and Graphical Statistics*, 26 (6): 745–66. doi: [10.1080/10618600.2017.1384734](https://www.tandfonline.com/doi/full/10.1080/10618600.2017.1384734)
+</span>
+
+
+::: footer
+:::
+
+---
+
+
+<span style="font-size:0.9em;">
+Donoho 2017's **six key facets** of **data science**:
+</span>
+
+<span style="font-size:0.8em;">
+1.  **data gathering, preparation, and exploration; (Sessions 2, 3, 5)**
+</span>
+
+<span style="font-size:0.8em;">
+2.  data representation and transformation;
+</span>
+
+<span style="font-size:0.8em;">
+3.  computing with data;
+</span>
+
+<span style="font-size:0.8em;">
+4.  data visualization and presentation;
+</span>
+
+<span style="font-size:0.8em;">
+5.  data modelling;
+</span>
+
+<span style="font-size:0.8em;">
+6.  and a more introspective “science about data science”
+</span>
+
+
+<br>
+<span style="font-size:0.5em;">
+Donoho, D. 2017. “50 Years of Data Science”, *Journal of Computational and Graphical Statistics*, 26 (6): 745–66. doi: [10.1080/10618600.2017.1384734](https://www.tandfonline.com/doi/full/10.1080/10618600.2017.1384734)
+</span>
+
+
+::: footer
+:::
+
+---
+
+
+<span style="font-size:0.9em;">
+Donoho 2017's **six key facets** of **data science**:
+</span>
+
+<span style="font-size:0.8em;">
+1.  data gathering, preparation, and exploration; 
+</span>
+
+<span style="font-size:0.8em;">
+2.  **data representation and transformation (Sessions 2, 3)**;
+</span>
+
+<span style="font-size:0.8em;">
+3.  computing with data;
+</span>
+
+<span style="font-size:0.8em;">
+4.  data visualization and presentation;
+</span>
+
+<span style="font-size:0.8em;">
+5.  data modelling;
+</span>
+
+<span style="font-size:0.8em;">
+6.  and a more introspective “science about data science”
+</span>
+
+
+<br>
+<span style="font-size:0.5em;">
+Donoho, D. 2017. “50 Years of Data Science”, *Journal of Computational and Graphical Statistics*, 26 (6): 745–66. doi: [10.1080/10618600.2017.1384734](https://www.tandfonline.com/doi/full/10.1080/10618600.2017.1384734)
+</span>
+
+
+::: footer
+:::
+
+---
+
+
+
+<span style="font-size:0.9em;">
+Donoho 2017's **six key facets** of **data science**:
+</span>
+
+<span style="font-size:0.8em;">
+1.  data gathering, preparation, and exploration; 
+</span>
+
+<span style="font-size:0.8em;">
+2.  data representation and transformation;
+</span>
+
+<span style="font-size:0.8em;">
+3.  **computing with data (Session 2, All sessions)**;
+</span>
+
+<span style="font-size:0.8em;">
+4.  data visualization and presentation;
+</span>
+
+<span style="font-size:0.8em;">
+5.  data modelling;
+</span>
+
+<span style="font-size:0.8em;">
+6.  and a more introspective “science about data science”
+</span>
+
+
+<br>
+<span style="font-size:0.5em;">
+Donoho, D. 2017. “50 Years of Data Science”, *Journal of Computational and Graphical Statistics*, 26 (6): 745–66. doi: [10.1080/10618600.2017.1384734](https://www.tandfonline.com/doi/full/10.1080/10618600.2017.1384734)
+</span>
+
+
+::: footer
+:::
+
+---
+
+
+
+<span style="font-size:0.9em;">
+Donoho 2017's **six key facets** of **data science**:
+</span>
+
+<span style="font-size:0.8em;">
+1.  data gathering, preparation, and exploration; 
+</span>
+
+<span style="font-size:0.8em;">
+2.  data representation and transformation;
+</span>
+
+<span style="font-size:0.8em;">
+3.  computing with data;
+</span>
+
+<span style="font-size:0.8em;">
+4.  data visualization and presentation;
+</span>
+
+<span style="font-size:0.8em;">
+5.  **data modelling (Sessions 4, 6, 7, 8)**;
+</span>
+
+<span style="font-size:0.8em;">
+6.  **and a more introspective “science about data science” (All sessions)**
+</span>
+
+
+<br>
+<span style="font-size:0.5em;">
+Donoho, D. 2017. “50 Years of Data Science”, *Journal of Computational and Graphical Statistics*, 26 (6): 745–66. doi: [10.1080/10618600.2017.1384734](https://www.tandfonline.com/doi/full/10.1080/10618600.2017.1384734)
+</span>
+
+
+::: footer
+:::
+
+---
+
+
+<span style="font-size:0.8em;">
+Donoho 2017's **six key facets** of **data science**:
+</span>
+
+<span style="font-size:0.8em;">
+1.  data gathering, preparation, and exploration; 
+</span>
+
+<span style="font-size:0.8em;">
+2.  data representation and transformation;
+</span>
+
+<span style="font-size:0.8em;">
+3.  computing with data;
+</span>
+
+<span style="font-size:0.8em;color:#d03231;">
+4.  **data visualization and presentation (All sessions)**;
+</span>
+
+<span style="font-size:0.8em;">
+5.  data modelling;
+</span>
+
+<span style="font-size:0.8em;">
+6.  and a more introspective “science about data science” (All sessions)
+</span>
+
+
+<br>
+<span style="font-size:0.5em;">
+Donoho, D. 2017. “50 Years of Data Science”, *Journal of Computational and Graphical Statistics*, 26 (6): 745–66. doi: [10.1080/10618600.2017.1384734](https://www.tandfonline.com/doi/full/10.1080/10618600.2017.1384734)
+</span>
+
+::: footer
+:::
+
+---
+
+## Why visualization?
+
+::: footer
+:::
+
+---
+
+
+::: {.column width="80%"}
+![](img/anscombe_data.png){fig-align="center"}
+:::
+::: footer
+:::
+
+
+---
+
+
+::: {.column width="90%"}
+![](img/anscombe_plot.png){fig-align="center"}
+:::
+::: footer
+:::
+
+---
+
+<br>
+
+[`datasaurus`](https://itsalocke.com/datasaurus/) R package
+
+::: {.column width="85%"}
+![](img/datasaurus_dozen.gif){fig-align="center"}
+:::
+
+::: footer
+:::
+
+---
+
+
+<br>
+
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/FaRBUnO5PZI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen width="60%"></iframe>
+</div>
+
+::: footer
+:::
+
+---
+
+
+::: {.column width="65%"}
+![](img/bikeshare.png){fig-align="center"}
+:::
+
+```{r}
+#| echo: true
+#| eval: false
+memberID   oTime             dTime              oStation    dStation
+217####	   13/12/2012 11:20	 13/12/2012 11:36	  421	        421
+217####	   28/10/2012 11:45	 28/10/2012 11:48	  492	        505
+217####	   15/12/2012 11:04	 15/12/2012 11:07	  492	        505
+217####	   31/12/2012 08:45	 31/12/2012 08:49	  492	        505
+217####	   02/01/2013 08:49	 02/01/2013 08:53	  492	        505
+217####	   06/01/2013 11:26	 06/01/2013 11:29	  492	        505
+217####	   18/01/2013 08:37	 18/01/2013 08:41	  492       	 505
+```
+
+::: footer
+:::
+
+---
+
+
+::: {.column width="65%"}
+![](img/bikeshare.png){fig-align="center"}
+:::
+
+
+
+* trips per year: c.10 million
+
+* modal day of week: Wed-Thu
+
+* modal month of year: Jun-Jul
+
+* average travel time: 8 mins
+
+
+::: footer
+:::
+
+---
+
+::: {.column width="90%"}
+![](img/bike1.jpeg){fig-align="center"}
+:::
+
+::: footer
+:::
+
+---
+
+::: {.column width="90%"}
+![](img/bike2.jpeg){fig-align="center"}
+:::
+
+::: footer
+:::
+
+---
+
+::: {.column width="90%"}
+![](img/bike3.jpeg){fig-align="center"}
+:::
+
+::: footer
+:::
+
+---
+
+::: {.column width="90%"}
+![](img/bike4.jpeg){fig-align="center"}
+:::
+
+::: footer
+:::
+
+---
+
+::: {.column width="90%"}
+![](img/bike5.jpeg){fig-align="center"}
+:::
+
+::: footer
+:::
+
+---
+
+::: {.column width="90%"}
+![](img/bike6.jpeg){fig-align="center"}
+:::
+
+::: footer
+:::
+
+---
+
+
+
+In Geographic Data Science research projects:
+
+* <span style="font-size:0.9em;">Data are repurposed for social science research often **for the first time**; </span>
+
+* <span style="font-size:0.9em;">Contain complex structure and geo-spatial relations that **cannot be easily captured by statistical summaries alone**; </span>
+
+* <span style="font-size:0.9em;"> Types of questions that can be asked and the techniques deployed **cannot be easily specified in advance** </span>
+
+::: footer
+:::
+
+
+---
+
+::: {.column width="65%"}
+![](img/dsm.png){fig-align="center"}
+:::
+
+<span style="font-size:0.5em;"> Sedlmair, M., Meyer, M., and Munzner, T. (2012) "Design Study Methodology: Reflections from the Trenches and the Stacks," *IEEE Transactions on Visualization and Computer Graphics*, 18(12): 2431-2440, doi: [10.1109/TVCG.2012.213](https://ieeexplore.ieee.org/document/6327248) </spans>
+
+::: footer
+:::
+
+---
+
+
+<br>
+<span style="font-size:0.8em;"> doi: `10.1111/gean.12338` </span>
+
+::: {.column width="65%"}
+![](img/ga_twitter.png){fig-align="center"}
+:::
+
+
+::: footer
+:::
+
+---
+
+## How: R + Tidyverse + Quarto?
+
+---
+
+<br>
+
+::: {.column width="70%"}
+![](img/why_r.png){fig-align="center"}
+:::
+
+
+::: footer
+:::
+
+---
+
+<br>
+
+::: {.column width="60%"}
+![](img/science_broken.png){fig-align="center"}
+:::
+
+
+::: footer
+:::
+
+---
+
+<br>
+
+> <span style="font-size:0.9em;"> **Reproducible research** is the idea that **data analyses**, and more generally, **scientific claims**, are published with their **data and software code** so that others may **verify** the **findings** and **build upon them**. </span>
+>
+> <span style="font-size:0.9em;"> Roger Peng, Jeff Leek and Brian Caffo </span>
+
+::: footer
+:::
+
+---
+
+<br>
+
+A reproducible research project should be accompanied with code and data that:
+
+* <span style="font-size:0.9em;">Allow all published tables and figures to be regenerated </span> <br>
+* <span style="font-size:0.9em;">Does what it claims (the code works) </span> <br>
+* <span style="font-size:0.9em;">Can be justified and explained through proper documentation
+
+::: footer
+:::
+
+---
+
+::: {.column width="85%"}
+![](img/quarto.png){fig-align="center"}
+:::
+
+
+::: footer
+:::
+
+---
+
+## Help: Questions (approach) + Slack 
+
+
+::: footer
+:::
+
+---
+
+## Conclusions
+
+::: footer
+:::
+
+---
+
+
+
