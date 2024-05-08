@@ -404,17 +404,7 @@ Donoho, D. 2017. “50 Years of Data Science”, *Journal of Computational and G
 ::: footer
 :::
 
----
 
-
-<br>
-
-<div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/FaRBUnO5PZI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen width="60%"></iframe>
-</div>
-
-::: footer
-:::
 
 ---
 
@@ -422,6 +412,8 @@ Donoho, D. 2017. “50 Years of Data Science”, *Journal of Computational and G
 ::: {.column width="65%"}
 ![](img/bikeshare.png){fig-align="center"}
 :::
+
+::: {style="font-size: 70%;"}
 
 ```{r}
 #| echo: true
@@ -433,37 +425,20 @@ memberID   oTime             dTime              oStation    dStation
 217####	   31/12/2012 08:45	 31/12/2012 08:49	  492	        505
 217####	   02/01/2013 08:49	 02/01/2013 08:53	  492	        505
 217####	   06/01/2013 11:26	 06/01/2013 11:29	  492	        505
-217####	   18/01/2013 08:37	 18/01/2013 08:41	  492       	 505
+217####	   18/01/2013 08:37	 18/01/2013 08:41	  492       	505
 ```
 
+:::
+
 ::: footer
 :::
 
 ---
 
-
-::: {.column width="65%"}
-![](img/bikeshare.png){fig-align="center"}
-:::
-
-
-
-* trips per year: c.10 million
-
-* modal day of week: Wed-Thu
-
-* modal month of year: Jun-Jul
-
-* average travel time: 8 mins
-
-
-::: footer
-:::
-
----
+<br>
 
 ::: {.column width="90%"}
-![](img/bike1.jpeg){fig-align="center"}
+![](img/schema.png){fig-align="center"}
 :::
 
 ::: footer
@@ -471,8 +446,12 @@ memberID   oTime             dTime              oStation    dStation
 
 ---
 
-::: {.column width="90%"}
-![](img/bike2.jpeg){fig-align="center"}
+
+
+::: {.column width="80%"}
+
+
+![](img/flows.png){fig-align="center"}
 :::
 
 ::: footer
@@ -480,8 +459,11 @@ memberID   oTime             dTime              oStation    dStation
 
 ---
 
-::: {.column width="90%"}
-![](img/bike3.jpeg){fig-align="center"}
+::: {.column width="80%"}
+
+<br><br>
+
+![](img/ranks.png){fig-align="center"}
 :::
 
 ::: footer
@@ -489,8 +471,10 @@ memberID   oTime             dTime              oStation    dStation
 
 ---
 
+<br>
+
 ::: {.column width="90%"}
-![](img/bike4.jpeg){fig-align="center"}
+![](img/ods_sex.png){fig-align="center"}
 :::
 
 ::: footer
@@ -498,18 +482,15 @@ memberID   oTime             dTime              oStation    dStation
 
 ---
 
-::: {.column width="90%"}
-![](img/bike5.jpeg){fig-align="center"}
-:::
-
-::: footer
-:::
 
 ---
 
-::: {.column width="90%"}
-![](img/bike6.jpeg){fig-align="center"}
-:::
+
+<br>
+
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/FaRBUnO5PZI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen width="60%"></iframe>
+</div>
 
 ::: footer
 :::
