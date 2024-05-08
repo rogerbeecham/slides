@@ -531,56 +531,6 @@ Connected bikeability
 
 ---
 
-## Next steps
-
-:::{style="font-size: 80%;"}
-
-* E-mail to me (Roger Beecham) your 20-30 word outline by Friday 10th May.
-
-* Contact your supervisor for your **single** meeting with them before you hand in your 1-page dissertation plan.
-
-* Prepare your dissertation plan, submit it **via e-mail by Friday 17th Jun**.
-
-* You should receive feedback on your dissertation plan via a meeting and have three meetings with your supervisor to:
-  + Discuss data preparation, lit review and methods
-  + Troubleshoot analysis and discuss outputs
-  + Discuss findings and write-up
-
-:::
-
----
-
-## Help and support
-
-:::{style="font-size: 80%;"}
-
-* Your **dissertation supervisor is your primary contact** and you should deal directly with them for support and advice.
-
-* Roger (`r.j.beecham@leeds.ac.uk`) manages the dissertation module. Contact him with administrative queries or issues that you have not been able to resolve with your supervisor.
-
-* Claire Gorner (`c.gorner@leeds.ac.uk`) in the Geography Student Support Office is your contact for any personal issues affecting your progress or for deadline extensions.
-
-* **New** : Dedicated GIS/Coding support from PGR + academic practice support from Na Yan (n.yan@leeds.ac.uk)
-
-:::
----
-
-## Supervisors
-
-<br>
-
-:::{style="font-size: 90%;"}
-
-> Your **dissertation supervisor is your primary contact** and you should deal directly with them for support and advice.
->
-> But: You must take initiative to develop and manage your dissertation.
->
-> Note: Supervisors are there for guidance and advice but you lead your individual projects.
-
-:::
-
----
-
 ## 1-page dissertation plan
 
 :::{style="font-size: 70%;"}
@@ -602,3 +552,56 @@ Connected bikeability
   + Address how these will help engage with research aims
 
 :::
+---
+
+## Supervisors
+
+<br>
+
+:::{style="font-size: 90%;"}
+
+> Your **dissertation supervisor is your primary contact** and you should deal directly with them for support and advice.
+>
+> But: You must take initiative to develop and manage your dissertation.
+>
+> Note: Supervisors are there for guidance and advice but you lead your individual projects.
+
+:::
+
+---
+
+## Help and support
+
+:::{style="font-size: 80%;"}
+
+* Your **dissertation supervisor is your primary contact** and you should deal directly with them for support and advice.
+
+* Roger (`r.j.beecham@leeds.ac.uk`) manages the dissertation module. Contact him with administrative queries or issues that you have not been able to resolve with your supervisor.
+
+* Claire Gorner (`c.gorner@leeds.ac.uk`) in the Geography Student Support Office is your contact for any personal issues affecting your progress or for deadline extensions.
+
+* **New** : Dedicated GIS/Coding support from PGR + academic practice support from Na Yan (n.yan@leeds.ac.uk). Details to follow.
+
+:::
+
+---
+
+## Next steps
+
+:::{style="font-size: 80%;"}
+
+* E-mail to me (Roger Beecham) your 20-30 word outline by **Friday 10th May**.
+
+* Contact your supervisor for your **single** meeting with them before you hand in your 1-page dissertation plan.
+
+* Prepare your dissertation plan, submit it **via e-mail by Friday 7th Jun**.
+
+* You should receive feedback on your dissertation plan via a meeting and have three meetings with your supervisor to:
+  + Discuss data preparation, lit review and methods
+  + Troubleshoot analysis and discuss outputs
+  + Discuss findings and write-up
+
+:::
+
+
+
