@@ -17,7 +17,7 @@ format:
 ## Talk outline
 
 
-1. Why is data visualization?
+1. Why is data visualization important?
 
 2. What makes a good visualization?
 
@@ -41,7 +41,7 @@ format:
 ## Talk outline
 
 
-1. Why is data visualization?
+1. Why is data visualization important?
 
 2. What makes a good visualization?
 
@@ -98,6 +98,11 @@ format:
 
 ---
 
+::: {.column width="80%"}
+![](img/anscombe_data_stat.png){fig-align="center"}
+:::
+
+---
 
 ::: {.column width="90%"}
 ![](img/anscombe_plot.png){fig-align="center"}
@@ -287,10 +292,14 @@ memberID   oTime             dTime              oStation    dStation
 ---
 
 ::: {.column width="90%"}
-![](img/lineups_hex_annotate.png){fig-align="center"}
+![](img/lineups_hex_1.png){fig-align="center"}
 :::
 
+---
 
+::: {.column width="90%"}
+![](img/lineups_hex_annotate.png){fig-align="center"}
+:::
 
 ---
 
@@ -300,7 +309,11 @@ memberID   oTime             dTime              oStation    dStation
 ![](img/geog_2.png){fig-align="center"}
 :::
 
+---
 
+::: {.column width="60%"}
+![](img/hop.gif)
+:::
 
 ---
 
@@ -363,6 +376,11 @@ memberID   oTime             dTime              oStation    dStation
 
 ---
 
+
+
+
+---
+
 ::: {.columns}
 
 
@@ -398,6 +416,15 @@ memberID   oTime             dTime              oStation    dStation
 <br>
 
 ::: {.column width="100%"}
+![](img/vaccine_effect_unlabelled.png){fig-align="center"}
+:::
+
+---
+
+
+<br>
+
+::: {.column width="100%"}
 ![](img/vaccine_effect.png){fig-align="center"}
 :::
 
@@ -415,7 +442,7 @@ memberID   oTime             dTime              oStation    dStation
 <br><br>
 
 ::: {style="font-size: 180%;"}
-**Good** <br>
+Good <br>
 data graphics
 :::
 
@@ -481,7 +508,7 @@ data graphics
 <br><br>
 
 ::: {style="font-size: 180%;"}
-**Good** <br>
+Good <br>
 data graphics
 :::
 
@@ -519,7 +546,7 @@ data graphics
 
 ::: {style="font-size: 180%;"}
 Vocabulary  <br>
-| grammar 
+| grammar <br>
 :::
 
 :::
@@ -690,10 +717,11 @@ Experimental findings vary and so these models of human perception are also subj
 
 ---
 
+## perceived effect != statistical effect
 
 ::: columns
 
-<br><br>
+<br>
 
 ::: {.column width="35%"}
   
