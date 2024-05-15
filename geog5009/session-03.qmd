@@ -141,6 +141,8 @@ include_graphics("img/wp_long.png", error = FALSE)
 
 ---
 
+
+
 ## Grammar of Graphics
 
 

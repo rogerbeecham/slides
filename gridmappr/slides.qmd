@@ -1,0 +1,1474 @@
+---
+title: "<span style='font-size:.75em; font-family: Iosevka; font-weight: 700;'>::gridmappr </span><span style='font-size:.75em; font-weight: 500'><br> for gridmap design<br>  and analysis</span>"
+subtitle: "<br><br><span style='color:#525252; font-size:1.2em;'>*-- Roger Beecham*</span>"
+format: 
+   revealjs:
+     transition: fade
+     transition-speed: slow
+     theme: theme/slides-theme.scss
+     css: theme/style.css
+     footer: '[Roger Beecham](https://roger-beecham.com) | School of Geography | Leeds Institute for Data Analytics'
+     mainfont: Jost
+     logo: "img/isds.png"
+---
+
+
+### Gridmaps 
+
+![](img/anim_real_grid_frame.png){.absolute top=95 left=190 width="70%"}
+
+
+::: footer
+:::
+
+::: {.notes}
+
+Maps with spatial units of the same graphic size and shape, ordered with an approximate spatial arrangement. 
+
+Means that can use in maps chart types that show distributions of values, multivariate structrure.
+
+
+
+:::
+
+---
+
+
+### Gridmaps 
+
+![](img/anim_real_grid.gif){.absolute top=95 left=190 width="70%"}
+
+::: {.fragment .fade-in transition-speed="slow"}
+![](img/rivers_grid.png){.absolute top=90 left=210 width="66%"}
+:::
+
+
+<!--::: {.fragment .fade-in transition-speed="slow"}
+![](img/workers_plot.png){.absolute top=90 left=210 width="66%"}
+:::-->
+
+::: {.fragment .fade-in transition-speed="slow"}
+![](img/t.png){.absolute top=122 left=44 width="79%"}
+
+:::
+
+
+::: footer
+:::
+
+::: {.notes}
+
+Maps with spatial units of the same graphic size and shape, ordered with an approximate spatial arrangement. 
+
+Means that encode in maps chart types that show more than one value.
+
+There excellent examples of their use in data journalism...
+And I also think there are interesting applications for this in spatial anaysis -- beacuse the addition of a spatial positioning to standard graphics...
+
+allow us to generate spatial features -- in statistical terms, estimands -- that are unique to the graphic itself. 
+
+Reflect on this at end of talk.
+
+:::
+
+---
+
+### Gridmaps 
+
+<br>
+
+::: {.columns}
+
+
+::: {.column width="65%"}
+
+![](img/wp_electoral_full.png){fig-align="center"}
+:::
+
+::: {.column width="30%"}
+![](img/wp_banner.png){width="100%" fig-align="center"}
+![](img/wp_legend.png){fig-align="center"}
+
+:::
+
+:::
+
+
+::: footer
+:::
+
+::: {.notes}
+
+Maps with spatial units of the same graphic size and shape, ordered with an approximate spatial arrangement. 
+
+Means that can use in maps chart types that show distributions of values, multivariate structrure.
+
+There excellent examples of their use in data journalism...
+And I also think there are interesting applications for this in spatial anaysis -- beacuse the addition of a spatial positioning to ...
+
+allow us to generate spatial features -- combinations of estimators -- that are unique to the graphic itself. 
+
+Reflect on this at end of talk.
+:::
+
+---
+
+<br>
+
+::: {style="font-size: 110%; font-weight: 500;"}
+
+1. `gridmappr`<br> for generating layouts 
+<br><br>
+
+2. `ggplot2`<br> for gridmap design 
+<br><br>
+
+3. `tidyverse`<br> for gridmap analysis
+
+::: 
+
+![](img/gridmappr.svg){.absolute top=150 left=700 width="30%"}
+
+
+::: footer
+:::
+
+::: {.notes}
+Mostly talk about how to generate these layouts using gridmappr.
+
+Also how to design gridmaps in high-level, declarative coding style that we use nowadays for analysis.
+
+End by saying if these graphics are conveying unique / new structure, are there  mechanisms that we can use to informally check that strucrure -- or show it in some useful comparison context...
+:::
+
+
+
+
+# `gridmappr` for generating layouts
+
+---
+
+
+### Gridmap layouts
+
+<br>
+
+::: {.columns}
+
+
+::: {.column width="90%"}
+
+![](img/smwg.png){fig-align="center"}
+:::
+
+
+:::
+
+::: footer
+:::
+
+::: {.notes}
+
+The approach that my package uses is based on work in this paper.
+
+
+:::
+
+---
+
+
+### Gridmap layouts
+
+<br>
+
+::: {.columns}
+
+
+::: {.column width="70%"}
+
+![](img/gridmap_observable.png){fig-align="center"}
+
+:::
+
+:::
+
+::: footer
+:::
+
+::: {.notes}
+
+And also later implemented in javascript in this Observable notebook by Jo Wood.
+
+
+:::
+
+
+---
+
+### `gridmappr` layouts
+
+::: {.columns}
+
+::: {.column width="35%"}
+::: {.fragment .fade-in}
+![](img/france_map.png){.absolute top=150 left=0 width="30%"}
+:::
+::: {.fragment .fade-in}
+![](img/france_grid.png){.absolute top=180 left=320 width="32%"}
+:::
+:::
+
+
+::: {.column width="50%"}
+::: {.fragment .fade-in}
+![](img/0_6_1312_c.png){.absolute top=140 left=730 width="35%"}
+:::
+:::
+
+
+
+:::
+
+
+::: footer
+:::
+
+::: {.notes}
+
+
+1. Start with real spatial units 
+2. Specify a grid containing at least as many cells as spatial units in the real geography -- these are candidate positions that spatial units might be allocated to.
+3. Allocate to grid such that sum of distance distortion between real and grid centroids is minimised. 
+
+
+:::
+
+---
+
+
+### `gridmappr` layouts
+
+
+::: {.columns}
+
+::: {.column width="35%"}
+
+![](img/france_map.png){.absolute top=150 left=0 width="30%"}
+
+![](img/france_grid.png){.absolute top=180 left=320 width="32%"}
+
+:::
+
+
+::: {.column width="50%"}
+
+![](img/0_6_1213_dis.png){.absolute top=140 left=730 width="35%"}
+:::
+:::
+
+
+
+
+
+::: footer
+:::
+
+::: {.notes}
+
+
+1. Start with real spatial units 
+2. Specify a grid containing at least as many cells as spatial units in the real geography -- these are candidate positions that spatial units might be allocated to.
+3. Allocate to grid such that sum of distance distortion between real and grid centroids is minimised. 
+
+
+:::
+
+---
+
+
+### `gridmappr` layouts
+
+<br>
+
+:::{.columns}
+
+::: {.column width="40%" style="font-size: 65%;"}
+
+
+
+```{r}
+#| eval: false
+#| echo: true
+points_to_grid(
+  pts=...,
+  n_row=...,
+  n_col=...,
+  compactness=...,
+  spacers=list(...)
+)
+```
+
+
+:::
+
+::: {.column width="60%" style="font-size: 60%;"}
+
+* `pts` A tibble of geographic points `(x,y)` to be allocated to a grid.
+    
+* `n_row`  Maximum number of rows in grid.
+    
+* `n_col` Maximum number of columns in grid.
+    
+* `compactness` Parameter between `0` and `1` where `0` allocates towards edges, `0.5` preserves scaled geographic location and `1` allocates towards centre of grid.
+    
+* `spacers` Optional list of grid cell locations defining grid location of fixed spacers which cannot be allocated points. Coordinates are in `(row, column)` order with the origin `(1,1)` in the bottom-left. The default is an empty list.
+
+
+:::
+
+:::
+
+::: footer
+:::
+
+::: {.notes}
+
+Main function is : points_to_grid()
+
+
+:::
+  
+---
+
+### `gridmappr` layouts
+
+<br>
+
+:::{.columns}
+
+::: {.column width="40%" style="font-size: 65%;"}
+
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "2,3,4"
+points_to_grid(
+  pts=...,
+  n_row=...,
+  n_col=...,
+  compactness=...,
+  spacers=list(...)
+)
+```
+
+
+:::
+
+
+::: {.column width="60%" style="font-size: 60%;"}
+
+* `pts` A tibble of geographic points `(x,y)` to be allocated to a grid.
+    
+* `n_row`  Maximum number of rows in grid.
+    
+* `n_col` Maximum number of columns in grid.
+
+:::
+
+
+::: {.notes}
+to this we pass
+
+1. Geographic point locations
+
+2. Grid of stated row, col dimensions
+
+
+:::
+
+
+:::
+
+::: footer
+:::
+
+
+---
+
+### `gridmappr` layouts
+
+<br>
+
+:::{.columns}
+
+::: {.column width="40%" style="font-size: 65%;"}
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "2,3,4"
+points_to_grid(
+  pts=...,
+  n_row=...,
+  n_col=...,
+  compactness=...,
+  spacers=list(...)
+)
+```
+
+
+:::
+
+::: {.column width="60%" style="font-size: 50%;"}
+
+```{r}
+#| eval: false
+#| echo: true
+#    row col               area_name
+# 1    9   7                   Aisne
+# 2    5   6                  Allier
+# 3    4   9            Hautes-Alpes
+# 4    3  10         Alpes-Maritimes
+# 5    7   9             Haute-Saône
+# 6    1   3         Hautes-Pyrénées
+# 7    8   8                    Aube
+# 8    1   5                    Aude
+# 9    2   6                 Aveyron
+# 10   1   7                 Hérault
+# 11   8   5          Hauts-de-Seine
+# 12  10   2                Calvados
+# 13   4   5                  Cantal
+# 14   4   1       Charente-Maritime
+# 15   6   5                    Cher
+# 16   4   8                   Isère
+# 17   3   6                  Lozère
+# 18   9   1           Côtes-d'Armor
+# 19   8   6            Val-de-Marne
+# 20   9   5                   Paris
+```
+
+
+::: 
+:::
+
+
+::: footer
+:::
+
+::: {.notes}
+
+
+This returns an data frame of row and column ideas defining positions of the gridmap
+:::
+
+---
+
+
+### `gridmappr` layouts
+
+
+![](img/grid_1010.png){.absolute top=160 left=0 width="35%"}
+![](img/grid_1212.png){.absolute top=160 left=330 width="35%"}
+![](img/grid_1414.png){.absolute top=160 left=660 width="35%"}
+
+
+::: {.fragment .fade-in}
+![](img/0_6_1010.png){.absolute top=160 left=0 width="35%"}
+![](img/0_6_1212.png){.absolute top=160 left=330 width="35%"}
+![](img/0_6_1414.png){.absolute top=160 left=660 width="35%"}
+:::
+
+
+
+
+
+
+
+::: footer
+:::
+
+::: {.notes}
+
+The smaller the grid dimensions, the more graphic space we have for encoding data, but at the expense of spatial precision.
+
+
+The larger the grid dimensions -- the more cells -- gaps -- the grid contains -- the closer to real geography.
+
+
+
+:::
+
+---
+
+
+### `gridmappr` layouts
+
+<br>
+
+:::{.columns}
+
+::: {.column width="40%" style="font-size: 65%;"}
+
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "5"
+points_to_grid(
+  pts=...,
+  n_row=...,
+  n_col=...,
+  compactness=...,
+  spacers=list(...)
+)
+```
+
+:::
+
+::: {.column width="60%" style="font-size: 60%;"}
+
+
+* `compactness` Parameter between `0` and `1` where `0` allocates towards edges, `0.5` preserves scaled geographic location and `1` allocates towards centre of grid.
+    
+
+
+::: 
+:::
+
+
+::: footer
+:::
+
+
+::: {.notes}
+
+Also a compactness parameter which varies continuously between 0 and 1
+:::
+
+---
+
+### `gridmappr` layouts
+
+
+![](img/1_1213_grid.png){.absolute top=160 left=0 width="35%"}
+
+![](img/0_5_1213_grid.png){.absolute top=160 left=330 width="35%"}
+
+![](img/0_1213_grid.png){.absolute top=160 left=660 width="35%"}
+
+:::{.fragment .fade-in}
+
+![](img/1_1213.png){.absolute top=160 left=0 width="35%"}
+
+:::
+
+:::{.fragment .fade-in}
+
+![](img/0_1213.png){.absolute top=160 left=660 width="35%"}
+
+:::
+
+:::{.fragment .fade-in}
+
+![](img/0_5_1213.png){.absolute top=160 left=330 width="35%"}
+
+:::
+
+::: footer
+:::
+
+::: {.notes}
+
+Also a compactness parameter :
+
+* A value of 1 places points as close to the grid as possible; 
+* A value of 0 places points to the edge of the grid -- useful for geogs with holes
+* A value of .5 attempts to place each point at its relative geographic position scaled within the bounds of the grid. 
+
+:::
+
+---
+
+
+### `gridmappr` layouts
+
+<br>
+
+:::{.columns}
+
+::: {.column width="40%" style="font-size: 65%;"}
+
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "6"
+points_to_grid(
+  pts=...,
+  n_row=...,
+  n_col=...,
+  compactness=...,
+  spacers=list(...)
+)
+```
+
+
+
+:::
+
+::: {.column width="60%" style="font-size: 60%;"}
+
+
+* `spacers` Optional list of grid cell locations defining grid location of fixed spacers which cannot be allocated points. Coordinates are in `(row, column)` order with the origin `(1,1)` in the bottom-left. The default is an empty list.
+    
+
+::: 
+:::
+
+::: footer
+:::
+
+::: {.notes}
+
+ we can also add in spacers -- reserved cells that cannot be allocated to the grid. 
+
+:::
+
+---
+
+
+### `gridmappr` layouts
+
+
+![](img/1213_spacers_grid_empty.png){.absolute top=140 left=20 width="40%"}
+![](img/1213_spacers_grid.png){.absolute top=140 left=450 width="40%"}
+
+:::{.fragment .fade-in}
+![](img/1213_spacers_empty.png){.absolute top=140 left=20 width="40%"}
+
+![](img/1213_spacers.png){.absolute top=140 left=450 width="40%"}
+
+:::
+
+::: footer
+:::
+
+::: {.notes}
+
+ This helps us to, for example, separate non-contiguous geographies.  
+
+:::
+
+
+---
+
+# `ggplot2` for gridmap design 
+
+
+::: {.notes}
+
+That's how to generate layouts using gridmappr.
+
+Now want to quickly talk through code for doing design in standard ggplot2.
+<!--
+Because it provides a really useful structure/framework for thinking about our analysis 
+
+Demonstrate this later through an analysis of 2021 Census travel to work data in London.
+
+ Also: Think about *what is it* that these sorts of layouts -- and maps more generally -- hope to achieve?-->
+:::
+
+---
+
+<!-- ### `ggplot2` for gridmap design  -->
+
+### Create `sf` gridmap object
+  
+  
+:::{.columns}
+
+::: {.column width="40%" style="font-size: 50%;"}
+
+<br><br>
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "6"
+gridmappr::make_grid(france, n_row, n_col) |> 
+   ggplot() +
+   geom_sf() 
+```
+
+
+:::
+
+::: {.column width="60%"}
+
+![](img/example_poly_france.png){.absolute top=90 left=530 width="55%"}
+
+
+::: 
+:::  
+   
+::: footer
+:::
+  
+::: {.notes}
+
+gridmappr:: ships with a function called make_grid
+
+This passes a grid of stated size over your original spatial units and returns a
+simple features object for that grid with corresponding row and col IDs.
+  
+  
+:::
+  
+  
+---
+
+<!-- ### `ggplot2` for gridmap design  -->
+ 
+### Create `sf` gridmap object 
+  
+:::{.columns}
+
+::: {.column width="40%" style="font-size: 60%;"}
+
+<br><br>
+```{r}
+#| eval: false
+#| echo: true
+make_grid(france, n_row, n_col) 
+```
+
+
+:::
+
+::: {.column width="60%"}
+
+![](img/example_poly_grid2.png){.absolute top=90 left=530 width="55%"}
+
+
+::: 
+:::  
+   
+::: footer
+:::
+  
+::: {.notes}
+
+This passes a grid of stated size over your original spatial units and returns a simple features object for that grid with corresponding row and col IDs.
+
+:::
+  
+    
+::: {.notes}
+
+gridmappr:: ships with a function called make_grid
+
+This passes a grid of stated size over your original spatial units and returns a
+simple features object for that grid with corresponding row and col IDs.
+  
+  
+:::
+  
+---
+
+### Create `sf` gridmap object
+  
+  
+:::{.columns}
+
+::: {.column width="40%" style="font-size: 60%;"}
+
+<br><br>
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "2"
+make_grid(france, n_row, n_col) |> 
+   inner_join(solution) 
+```
+
+
+:::
+
+::: {.column width="60%"}
+
+![](img/example_poly2.png){.absolute top=90 left=530 width="55%"}
+
+
+::: 
+:::  
+   
+::: footer
+:::
+  
+::: {.notes}
+This can then be joined on the gridmappr layout returned from points to grid -- here held in `solution` object.
+:::
+
+---
+
+### Gridmap via `sf` object
+
+
+
+::: footer
+:::
+  
+::: {.notes}
+  
+:::
+
+---
+
+<!-- ### `ggplot2` for gridmap design  -->
+### Gridmap via `sf` object
+
+#### text position : *dept centroid*
+  
+:::{.columns}
+
+::: {.column width="40%" style="font-size: 60%;"}
+
+<br>
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "3,4,5,6,7"
+make_grid(france, n_row, n_col) |> 
+   inner_join(solution) |>
+   ggplot() +
+   geom_sf() +
+   geom_text(
+     aes(x=x, y=y, label=area_name)
+   ) 
+```
+
+
+:::
+
+::: {.column width="60%"}
+
+![](img/grid_labels.png){.absolute top=90 left=530 width="55%"}
+
+
+::: 
+:::  
+   
+::: footer
+:::
+  
+::: {.notes}
+  
+:::
+
+---
+
+### Gridmap via `sf` object
+  
+#### point area : *perimeter*
+  
+:::{.columns}
+
+::: {.column width="40%" style="font-size: 60%;"}
+
+<br>
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "8,9,10"
+make_grid(france, n_row, n_col) |> 
+   inner_join(solution) |>
+   ggplot() +
+   geom_sf() +
+   geom_text(
+     aes(x=x, y=y, label=area_name)
+   ) +
+   geom_point(
+     aes(x, y, size=perimeter)
+  )
+```
+
+
+:::
+
+::: {.column width="60%"}
+
+![](img/grid_poly_point.png){.absolute top=90 left=530 width="55%"}
+
+
+::: 
+:::  
+   
+::: footer
+:::
+  
+::: {.notes}
+So this is essentially rendering gridmaps as you would normally some thematic map.
+:::
+
+---
+
+### Gridmap via `facet_grid()` 
+
+:::{.fragment .fade-in}
+
+#### bar height : *1/dist*
+  
+:::{.columns}
+
+::: {.column width="40%" style="font-size: 60%;"}
+
+![](img/bar.png){.absolute top=150 left=10 width="40%"}
+
+:::
+:::
+
+::: {.column width="60%"}
+
+:::{.fragment .fade-in}
+![](img/bar_corse.png){.absolute top=150 left=550 width="40%"}
+:::
+
+:::{.fragment .fade-in}
+![](img/facet_bar.png){.absolute top=115 left=550 width="50%"}
+:::
+
+::: 
+:::  
+   
+::: footer
+:::
+  
+::: {.notes}
+
+But not really using gridmaps as way intedned. 
+
+Show distributions of values with a 2d ordering. 
+
+So from my department data set I created an OD dadaset 
+measuring pairwise distances between department centroids. 
+
+Bar height: 1/distance to 20 nearest departments.
+
+Paris has a few departments that are very close.
+Corsica has one nearby neighbour but then many that are a long way away.
+
+Corse Du Sud has this shape -- other than its imeediate neighbour, some distance to its next deparment.
+
+We can generate small multiple facted plots of each of these.. Eyeballing it we can 
+see those deparments around more densely populated Paris area.
+
+:::
+
+---
+
+### Gridmap via `facet_grid()` 
+
+#### *1/dist*  
+  
+:::{.columns}
+
+::: {.column width="40%" style="font-size: 60%;"}
+
+
+<br>
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "1,3,4,5,10"
+france_ods |> 
+   ggplot() +
+   geom_col(
+    aes(x=rank, y=dist)
+   ) +
+  geom_text(
+    data=. %>% filter(o_name==d_name), 
+    aes(x=x, y=y, label=d_name)
+  ) +
+  facet_wrap(~d_name) 
+```
+
+
+:::
+
+::: {.column width="60%"}
+
+![](img/facet_bar.png){.absolute top=115 left=550 width="50%"}
+
+
+::: 
+:::  
+   
+::: footer
+:::
+  
+::: {.notes}
+
+We can generate small multiple facted plots of each of these.. Eyeballing it we can 
+see those deparments around more densely populated Paris area.
+
+The code looks like this...
+
+facet : condition on some variiable to generate small multiples. In this d_name -- is the destination department that we are looking ar distances to. 
+
+Layout is a really important property to consider when working with small multiple graphics. 
+:::
+
+---
+
+
+### Gridmap via `facet_grid()` 
+
+#### bar height : *1/dist*   
+  
+:::{.columns}
+
+::: {.column width="40%" style="font-size: 60%;"}
+
+<br>
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "1,3,4,5,10"
+france_ods |> 
+   ggplot() +
+   geom_col(
+    aes(x=rank, y=dist)
+   ) +
+  geom_text(
+    data=. %>% filter(o_name==d_name), 
+    aes(x=x, y=y, label=d_name)
+  ) +
+  facet_grid(-d_row~d_col) 
+```
+
+
+:::
+
+::: {.column width="60%"}
+
+![](img/bars_outline.png){.absolute top=90 left=530 width="55%"}
+
+
+::: 
+:::  
+   
+::: footer
+:::
+  
+::: {.notes}
+So there is a function called facet_grid() -- where we control how we want small mutliples to be arranged in rows and columns. 
+
+Spatial layout can be effected by supplying the row and col IDs of our gridmap.
+:::
+
+---
+
+### OD maps via `facet_grid()` + `sf` object
+  
+:::{.fragment .fade-in}
+![](img/paper_od_map.png){.absolute top=150 left=10 width="50%"}
+  ![](img/odmap_paper_france.png){.absolute top=160 left=600 width="35%"}
+
+ ![](img/odmap_paper_us.png){.absolute top=370 left=580 width="40%"}
+:::
+
+::: footer
+
+:::
+
+::: {.notes}
+
+We can extend this idea to generate more complex graphics...
+to encode these origin-destination distances within their spatial position.
+
+OD Maps:
+
+Visual solution to the problem that you get whenever analysing origin-destination data
+in flow maps in that you get this big hairball effect --- occlusion -- even with small number of flows.
+
+Origin-Destination maps are effectively geographically arranged thematic maps. 
+
+They use this map-within-map layout to encode full Origin-Destination structure. 
+
+:::
+
+---
+
+### OD maps via `facet_grid()` + `sf` object
+
+#### *highlight : same OD*  
+
+:::{.columns}
+
+::: {.column width="40%" style="font-size: 60%;"}
+
+<br>
+```{r}
+#| eval: false
+#| echo: true
+france_ods |> 
+  left_join(france, by=c("o_name"="name")) |>
+  ggplot() +
+  geom_sf() +
+  geom_sf(
+    data= . %>% filter(is_focus)
+    ) +
+  facet_grid(-d_row ~ d_col) 
+```
+
+
+:::
+
+::: {.column width="60%"}
+
+![](img/odmap_france_empty.png){.absolute top=90 left=530 width="55%"}
+
+
+::: 
+:::  
+   
+::: footer
+
+:::
+  
+::: {.notes}
+
+
+So if we think abut the top level grid arrangement effected with facet_grid as destinations...
+
+And those bars earlier conveying distances from origins departments,,,
+
+To generate an OD map, we facet_grid in the same way, but join on a simple features file on origin... 
+
+:::
+
+---
+
+### OD maps via `facet_grid()` + `sf` object
+
+#### *fill : 1/dist*    
+  
+:::{.columns}
+
+::: {.column width="40%" style="font-size: 60%;"}
+
+<br>
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "5,6,7"
+france_ods |> 
+  left_join(france, by=c("o_name"="name")) |>
+  ggplot() +
+  geom_sf(aes(fill=dist)) +
+   geom_sf(
+    data= . %>% filter(is_focus)
+    ) +
+  facet_grid(-d_row ~ d_col) 
+```
+
+
+:::
+
+::: {.column width="60%"}
+
+![](img/odmap_france.png){.absolute top=90 left=530 width="55%"}
+
+
+::: 
+:::  
+   
+::: footer
+
+:::
+
+
+::: {.notes}
+
+To generate a map of spatially arranged choropleth maps...
+coloured by distance ...
+
+
+hopefully can see what's happening when comparing departments to the edges of country
+with those in middle.
+
+Take bit of interpreting by imagine if you wanted to encode this with 96^2 overlapping lines 
+
+
+:::
+
+---
+
+# `tidyverse` for gridmap analysis
+
+
+::: {.notes}
+
+
+:::
+
+---
+
+### `tidyverse` for gridmap analysis
+
+
+![](img/2021_comp.png){.absolute top=115 left=10 width="80%"}
+
+
+::: footer
+:::
+
+::: {.notes}
+
+:::
+
+---
+
+### `tidyverse` for gridmap analysis
+
+
+![](img/paper_1.png){.absolute top=80 left=10 width="35%"}
+
+![](img/paper_2.png){.absolute top=80 left=400 width="35%"}
+
+![](img/paper_3.png){.absolute top=400 left=10 width="35%"}
+
+![](img/paper_4.png){.absolute top=400 left=400 width="35%"}
+
+::: {.notes}
+
+A few years ago I tried playing with gridmaps to analyse labour market geography in London:
+
+-- extent to which workers live and work in the same borough -- self-containment. 
+-- how this varies by occupation type
+-- and geography of this
+
+:::
+   
+::: footer
+
+:::
+
+---
+
+
+### `tidyverse` for gridmap analysis
+
+
+![](img/t3_title.png){.absolute top=115 left=10 width="35%"}
+![](img/t3_graphic.png){.absolute top=300 left=400 width="40%"}
+
+![](img/t3_graphic_text.png){.absolute top=300 left=100 width="20%"}
+
+::: footer
+:::
+
+::: {.notes}
+
+Seemed worth returning to when new Census came online, because it was so mucked up 
+by Covid.
+
+In these area plots, line height varies by the proportion living and working in the same borough.
+
+Purple : those in professional occupations
+Green : Manual / Clerical 
+
+In 2011 the green line is higher than the purple one in every borough.
+The reverse was true in 2021 -- and in a big way
+
+
+:::
+
+
+
+---
+
+### `tidyverse` for gridmap analysis
+
+![](img/workers_plot_text.png){.absolute top=90 left=170 width="67%"}
+
+
+::: footer
+:::
+
+::: {.notes}
+
+
+Whilst the pattern true everywhere...
+Particularly so inner London boroughs, where also for non-professional jobs --
+
+:::
+
+---
+
+### `tidyverse` for gridmap analysis
+
+<br><br><br> &nbsp; &nbsp; &nbsp; inner <br><br><br> &nbsp; &nbsp; &nbsp; outer
+
+![](img/workers_plot_lmb.png){.absolute top=180 left=200 width="18%"}
+![](img/workers_plot_hack.png){.absolute top=180 left=400 width="18%"}
+![](img/workers_plot_isl.png){.absolute top=180 left=600 width="18%"}
+
+
+![](img/workers_plot_hil.png){.absolute top=350 left=200 width="18%"}
+![](img/workers_plot_hav.png){.absolute top=350 left=400 width="18%"}
+![](img/workers_plot_bad.png){.absolute top=350 left=600 width="18%"}
+
+
+::: {.notes}
+
+* Lambeth
+* Islington 
+* Hackney
+* Wandsworth
+
+Not very London boroughs still heavy on prof increases, but for non-professional 
+almost less self contained...
+
+But we are just eyeballing this.
+
+If there is a spatial pattern in the different shape of these trends, we might want to use some testing mechanism to informally explore this. 
+
+:::
+
+
+
+::: footer
+:::
+---
+
+### `tidyverse` for gridmap analysis
+
+![](img/lineups_hex_annotate.png){.absolute top=110 left=170 width="67%"}
+
+
+::: footer
+:::
+
+::: {.notes}
+
+
+So you might have seen graphical inference tests where you observe some structure in data...
+
+...and set up a sort of visual test statistic -- a map lineup --
+where we hide the real data against a set of decoy plots with the data for boroughs
+randomly permuted...
+
+And see if we can spot the real from these decoy plots, that lends credibility to the visual inference we might be making....
+
+
+
+:::
+
+---
+### `tidyverse` for gridmap analysis
+  
+![](img/workers_lineup.png){.absolute top=110 left=10 width="90%"}
+  
+::: footer
+
+:::
+  
+::: {.notes}
+
+I had the idea of doing this with these plots at about 1:30 last night....
+
+The effect isn't really visually detectable 
+
+
+:::
+
+
+---
+
+### `tidyverse` for gridmap analysis
+  
+![](img/lineup_annon.png){.absolute top=110 left=10 width="90%"}
+  
+::: footer
+
+:::
+  
+::: {.notes}
+
+There are some great examples of this sort of informal visual testing with gridmaps in some of the papers that I cite in the abstract. 
+:::
+
+
+---
+
+
+### `tidyverse` for gridmap analysis
+
+
+:::{.columns}
+
+::: {.column width="30%" style="font-size: 50%;"}
+
+<br><br>
+```{r}
+#| eval: false
+#| echo: true
+grid |> 
+  left_join(commute_data) |> 
+  rsample::permutations(
+  permute=area_name, 
+  times=5, 
+  apparent=TRUE
+  ) |> 
+  mutate(
+    data=map(splits, ~rsample::analysis(.))
+    ) |>
+  select(id, data) |>
+  unnest(cols=data) |> 
+  ggplot() +
+  ... +
+  ... +
+  facet_wrap(~permID)
+```
+
+
+:::
+
+:::
+
+  
+![](img/lineup_annon.png){.absolute top=150 left=570 width="50%"}
+  
+::: footer
+
+
+:::
+  
+::: {.notes}
+
+But I also wanted to make a separare point that these sort of resamplong testing mechanisms I think we want to be using when we do exploratory data analysis -- with graphics..
+
+and can be all done in a sort of interactive way with functional programming stuff in tidyverse...
+
+there's not loads of code here...
+
+
+:::
+
+---
+
+<br><br><br><br><br><br><br><br><br><br>
+<span style='font-size:1.2em; font-family: Iosevka; font-weight: 700;'>github.com/rogerbeecham/gridmappr </span>
+
+![](img/gridmappr.svg){.absolute top=120 left=10 width="30%"}
+
+::: footer
+
+:::
+
+::: {.notes}
+I did a burst of activitiy for a month this time last year, 
+but plan to do more on this to extend the package...
+
+:::
