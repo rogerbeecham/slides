@@ -24,26 +24,76 @@ library(tidyverse)
 
 :::
 
-# Session 8 : Recap and consolidate  
+# Session 7 : Recap and consolidate  
 
 ---
 
 <br>
 
-### Part 1 : Grammar of interactive data analysis
+### Part 1 : Assignment 1 Brief
 
 <br>
 
-### Part 2 : Exploratory visual analysis as model-driven process
+### Part 2 : Grammar of interactive data analysis
 
 <br>
 
-### Part 3 : Visual methods for discouraging false discovery
+### Other Parts : Models and Inference
+
+---
+
+# Part 1 : Assignment 1 brief
+
+---
+
+## Citibike use in June 2020
+
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+::: {style="font-size: 100%;"}
+
+Sat 13th June <br>~ 23600 trips
+
+:::
+
+
+```{r}
+#| echo: false
+#| out-width: 100%
+include_graphics("img/sat.png", error = FALSE)
+```
+
+:::
+
+::: {.column width="50%"}
+
+
+::: {style="font-size: 100%;"}
+Tue 16th June<br> ~ 17500 trips
+:::
+
+
+```{r}
+#| echo: false
+#| out-width: 100%
+include_graphics("img/tue.png", error = FALSE)
+```
+
+:::
+
+:::
+
 
 
 ---
 
-# Part 1 : Grammar of interactive data analysis 
+# Part 2 : Grammar of interactive data analysis 
+
+---
+
 
 ---
 
@@ -58,6 +108,41 @@ include_graphics("img/hod_dow.png", error = FALSE)
 :::
 
 ---
+
+## RQ1 : Do different customer categories in the Citibike scheme cycle differently? 
+
+
+---
+
+
+
+## RQ1 : Do different customer categories in the Citibike scheme cycle differently? 
+
+```{r}
+#| eval: false
+#| echo: false
+ny_month <- ny_trips |>
+  mutate(
+    day=wday(start_time, label=TRUE),
+    hour=hour(start_time)) |> 
+  group_by(user_type, day, hour) |>
+  summarise(count=n()) |>
+  ungroup()
+```
+
+
+
+:::{.fragment}
+```{r}
+#| echo: false
+#| out-width: 80%
+include_graphics("img/hod_dow.png", error = FALSE)
+```
+:::
+
+---
+
+
 
 ## RQ1 
 
@@ -120,7 +205,7 @@ ny_temporal <- ny_trips |>
 
 ---
 
-## RQ1 
+## RQ1
 
 ### Reshape data for comparison 
 
@@ -175,7 +260,7 @@ ny_temporal |>
 
 ---
 
-## RQ1 
+## RQ1
 
 ### Plot data for data-rich comparison
 
@@ -215,8 +300,8 @@ include_graphics("img/hod_dow.png", error = FALSE)
 :::
 
 :::
+---
 
---- 
 
 
 ## RQ1 
@@ -269,7 +354,7 @@ include_graphics("img/hod_dow_gender.png", error = FALSE)
 
 ---
 
-## RQ1 
+## RQ1
 
 ### Exploit layers for additional comparison
 
@@ -295,8 +380,8 @@ ny_trips |>
   ggplot(aes(x=hour, y=count, group=user_type, colour=user_type)) +
   geom_line(linewidth=1.1) +
   geom_line(
-    data=. %>% group_by(user_type, day) %>% mutate(count=mean(count)),
-    linewidth=.4
+    data=. %>% group_by(user_type, day) %>% 
+    mutate(count=mean(count)), linewidth=.4
     ) +
   scale_colour_manual(values=c("#e31a1c", "#1f78b4")) +
   facet_wrap(~day, nrow=1)+
@@ -321,9 +406,25 @@ include_graphics("img/hod_dow_user_comp.png", error = FALSE)
 
 :::
 
+
 ---
 
-## RQ1 
+## RQ1
+
+### Rearrange plot "grammar" for alternative comparison
+
+<br>
+
+```{r}
+#| out.width: 100%
+#| echo: false
+
+include_graphics("img/hod_emph_user.png", error = FALSE)
+```
+
+---
+
+## RQ1
 
 ### Rearrange plot "grammar" for alternative comparison
 
@@ -346,14 +447,14 @@ ny_trips |>
   group_by(user_type, day, hour) |>
   summarise(count=n()) |>
   ungroup() |> 
-  ggplot(aes(x=hour, y=count, group=user_type, colour=user_type)) +
+  ggplot(aes(x=day, y=count, group=user_type, colour=user_type)) +
   geom_line(linewidth=1.1) +
   geom_line(
     data=. %>% group_by(user_type, day) %>% mutate(count=mean(count)),
     linewidth=.4
     ) +
   scale_colour_manual(values=c("#e31a1c", "#1f78b4")) +
-  facet_wrap(~day, nrow=1)+
+  facet_wrap(~hour, nrow=1)+
   labs(x="", y="trip counts")
 ```
 
@@ -374,6 +475,22 @@ include_graphics("img/hod_emph_user.png", error = FALSE)
 :::
 
 :::
+
+---
+
+
+## RQ1 
+
+### Add label for clarity
+
+```{r}
+#| out.width: 80%
+#| echo: false
+
+include_graphics("img/hod_emph_user_label.png", error = FALSE)
+include_graphics("img/hod_emph_user.png", error = FALSE)
+```
+
 
 ---
 
@@ -433,6 +550,7 @@ ny_trips |>
 #| echo: false
 
 include_graphics("img/hod_emph_user_label.png", error = FALSE)
+include_graphics("img/hod_emph_user.png", error = FALSE)
 ```
 
 :::
@@ -442,7 +560,7 @@ include_graphics("img/hod_emph_user_label.png", error = FALSE)
 
 ---
 
-## RQ2 : How did 2019 General Eleciton shift Conservative? 
+## RQ2 : How did 2019 General Election shift Conservative? 
 
 ---
 
@@ -471,7 +589,10 @@ data_gb |>
   geom_point(aes(colour=winner_19)) +
   geom_abline(intercept = 0, slope = 1) +
   scale_colour_manual(values=c(con,lab,other)) +
-  labs(y="Conservative 2019 vote share", x="Conservative 2017 vote share")
+  labs(
+     y="Conservative 2019 vote share", 
+     x="Conservative 2017 vote share"
+  )
 
 ```
 
@@ -511,7 +632,7 @@ include_graphics("img/scatters_con_basic.png", error = FALSE)
 ```{r}
 #| eval: false
 #| echo: true
-#| code-line-numbers: "8,12,16"
+#| code-line-numbers: "8,9, 12,16"
 data_gb |>
   mutate(
     winner_19=case_when(
@@ -528,7 +649,10 @@ data_gb |>
   scale_colour_manual(values=c(con,lab,other)) +
   scale_fill_manual(values=c(con,lab,other)) +
   scale_alpha_ordinal(range=c(.3,.9)) +
-  labs(y="Conservative 2019 vote share", x="Conservative 2017 vote share")
+  labs(
+    y="Conservative 2019 vote share", 
+    x="Conservative 2017 vote share"
+  )
 
 ```
 
@@ -584,7 +708,10 @@ data_gb |>
   scale_colour_manual(values=c(con,lab,other)) +
   scale_alpha_ordinal(range=c(.5,1)) +
   scale_shape_manual(values=c(21,19)) +
-  labs(y="Conservative 2019 vote share", x="Conservative 2017 vote share")
+  labs(
+    y="Conservative 2019 vote share", 
+    x="Conservative 2017 vote share"
+  )
 ```
 
 </div>
@@ -757,10 +884,12 @@ include_graphics("img/scatters_patchwork.png", error = FALSE)
 :::
 
 :::
-
 ---
 
-# Part 2 : Exploratory visual data analysis as model-driven process
+
+
+
+# Part 3 : Exploratory visual data analysis as model-driven process
 
 
 ---
@@ -1631,7 +1760,7 @@ include_graphics("img/od_map_model2.png", error = FALSE)
 ---
 
 
-# Part 3 : Visual methods for discouraging false discovery
+# Part 4 : Visual methods for discouraging false discovery
 
 
 ---
