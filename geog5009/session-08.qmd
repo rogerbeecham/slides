@@ -10,6 +10,7 @@ format:
      mainfont: Avenir Book
 ---
 
+
 ```{r}
 #| echo: false
 #| eval: true
@@ -22,133 +23,214 @@ library(tidyverse)
 
 ::: {.notes}
 
+* Core to data analysis
+* Many ways in which it can be understood and represented
+* This session -- parameter uncertainty -- representing the different possible values that a parameter might take
+* Using visualization to imply levels of uncertainty
+* Doing so in a reliable way is challenging
+
 :::
 
-# Session 7 : Recap and consolidate  
+
+# Session 8 : Uncertainty 
 
 ---
 
 <br>
 
-### Part 1 : Assignment 1 Brief
+::: {.column width="65%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/uncertainty_vars.png", error = FALSE)
+```
+:::
+
+::: {.notes}
+
+Vis research concerned with visual variables / visual channels used to represent uncertainty.
+Ideally:
+* intuitive -- related to precision/accuracy
+* discriminative -- levels can be discriminated
+* exmaples : fuzziness -- effective (semantically related)
+* size/transparency/colour values -- though less logically related to uncertainty
+* * sketchiness
+
+:::
+
+---
+
+## Uncertainty visualization mantra
+
+<br><br>
+
+> *Things that are not precise should not be encoded with symbols that look precise*
+
+---
 
 <br>
 
-### Part 2 : Grammar of interactive data analysis
+::: {.column width="65%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/uncertainty_vars.png", error = FALSE)
+```
+:::
+
+---
 
 <br>
 
-### Other Parts : Models and Inference
-
----
-
-# Part 1 : Assignment 1 brief
-
----
-
-## Citibike use in June 2020
-
-
-:::{.columns}
-
-::: {.column width="50%"}
-
-::: {style="font-size: 100%;"}
-
-Sat 13th June <br>~ 23600 trips
-
-:::
-
-
+::: {.column width="65%"}
 ```{r}
+#| out.width: 100%
 #| echo: false
-#| out-width: 100%
-include_graphics("img/sat.png", error = FALSE)
-```
-
-:::
-
-::: {.column width="50%"}
-
-
-::: {style="font-size: 100%;"}
-Tue 16th June<br> ~ 17500 trips
-:::
-
-
-```{r}
-#| echo: false
-#| out-width: 100%
-include_graphics("img/tue.png", error = FALSE)
-```
-
-:::
-
-:::
-
-
-
----
-
-# Part 2 : Grammar of interactive data analysis 
-
----
-
-
----
-
-## RQ1 : Do different customer categories in the Citibike scheme cycle differently? 
-
-:::{.fragment}
-```{r}
-#| echo: false
-#| out-width: 80%
-include_graphics("img/hod_dow.png", error = FALSE)
+include_graphics("img/cone_uncertainty.png", error = FALSE)
 ```
 :::
 
 ---
-
-## RQ1 : Do different customer categories in the Citibike scheme cycle differently? 
-
-
----
-
-
-
-## RQ1 : Do different customer categories in the Citibike scheme cycle differently? 
-
-```{r}
-#| eval: false
-#| echo: false
-ny_month <- ny_trips |>
-  mutate(
-    day=wday(start_time, label=TRUE),
-    hour=hour(start_time)) |> 
-  group_by(user_type, day, hour) |>
-  summarise(count=n()) |>
-  ungroup()
-```
-
-
-
-:::{.fragment}
-```{r}
-#| echo: false
-#| out-width: 80%
-include_graphics("img/hod_dow.png", error = FALSE)
-```
-:::
-
----
-
-
-
-## RQ1 
-
-### Condition data
 
 <br>
+
+::: {.column width="65%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/cone_redesign.png", error = FALSE)
+```
+:::
+
+---
+
+## Representing risk : frequency framing
+
+::: {.notes}
+
+* parameter uncertainty: estimated injury severity rates for pedestrian-vehicle crashes in our STATS19 road crash dataset.
+* relative frequencies, risk ratios -- notoriously difficult to generate inuition on these
+* KSI rate of ped-vehicle crashes comparing two areas. Bristol and Sheffield. Similarly sozed but different KSIs -- 15% Bristol; 50% Sheffield
+* Icon arrays -- effective at communicating probabolities of event outcomes -- alternative might be to show lenght in bars. But the random element of arrangement helps intuition around probabilities
+
+:::
+
+
+---
+
+<br>
+
+::: {.column width="65%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/icon_arrays.png", error = FALSE)
+```
+:::
+
+
+---
+
+<br>
+
+::: {.column width="65%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/icon_arrays.png", error = FALSE)
+```
+:::
+
+---
+
+<br>
+
+::: {.column width="90%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/risk_theatre.png", error = FALSE)
+```
+:::
+
+::: {.notes}
+
+:::
+
+
+---
+
+## Quantifying parameter uncertainty: bootstrapping
+
+::: {.notes}
+
+* comparing single parameter values
+* but problem with ratios is they are insensitive to sample size -- in notes we compare two other areas that contain radically different rates but based on small numbers
+* We can derive a range of possible values that a parameter might take.
+* Do this by generating empirically a sampling distribution.
+
+:::
+
+---
+
+<br>
+
+::: {.column width="75%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/bootstrap_selected.png", error = FALSE)
+```
+:::
+
+---
+
+## Uncertainty visualization mantra
+
+<br><br>
+
+> *Things that are not precise should not be encoded with symbols that look precise*
+
+
+
+---
+
+<br><br>
+
+::: {.column width="90%"}
+```{r}
+#| out.width: 100%
+#| echo: false
+include_graphics("img/selected_uncertainty.png", error = FALSE)
+```
+:::
+
+---
+
+## Hypothetical outcome plots
+
+::: {.notes}
+
+https://www.nytimes.com/2014/05/02/upshot/how-not-to-be-misled-by-the-jobs-report.html
+
+:::
+
+---
+
+## Code demo
+
+---
+
+
+## Frequency framing
+
+---
+
+
+---
+
+<br><br>
+
 
 :::{.columns}
 
@@ -159,13 +241,72 @@ include_graphics("img/hod_dow.png", error = FALSE)
 ```{r}
 #| eval: false
 #| echo: true
-ny_temporal <- ny_trips |>
-  mutate(
-    day=wday(start_time, label=TRUE),
-    hour=hour(start_time)) |> 
-  group_by(user_type, day, hour) |>
-  summarise(count=n()) |>
-  ungroup()
+#| code-line-numbers: "7,8,9,10,11,12,13"
+array_data |> 
+  pivot_longer(
+    cols=c(Oxford,Fareham), 
+    names_to="la", 
+    values_to="is_ksi"
+    ) |> 
+  ggplot(aes(x=row,y=col, fill=is_ksi)) +
+  geom_tile(colour="#ffffff", size=1) +
+  scale_fill_manual(
+    values=c("#fee0d2","#de2d26"), 
+    guide=FALSE
+    )+
+  facet_wrap(~la)
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+
+```{r}
+#| out.width: 100%
+#| echo: false
+
+include_graphics("img/icon-technical.png", error = FALSE)
+```
+
+:::
+
+:::
+
+---
+
+<br><br>
+
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+array_data <- tibble(
+  row=rep(1:10, times=1, each=10),
+  col=rep(1:10, times=10, each=1),
+  Oxford=
+    sample(
+      c(
+        rep(TRUE, times=1, each=17), 
+        rep(FALSE, times=1, each=83)
+        ),
+      size=100, replace=FALSE),
+  Fareham=
+    sample(
+      c(
+        rep(TRUE, times=1, each=41), 
+        rep(FALSE, times=1, each=59)
+        ),
+      size=100, replace=FALSE)
+)
 ```
 
 </div>
@@ -179,21 +320,23 @@ ny_temporal <- ny_trips |>
 ```{r}
 #| eval: false
 #| echo: true
-> ny_temporal
-# A tibble: 336 × 4
-   user_type day    hour count
-   <chr>     <ord> <int> <int>
- 1 Customer  Sun       0   341
- 2 Customer  Sun       1   284
- 3 Customer  Sun       2   118
- 4 Customer  Sun       3    59
- 5 Customer  Sun       4    42
- 6 Customer  Sun       5    57
- 7 Customer  Sun       6   103
- 8 Customer  Sun       7   173
- 9 Customer  Sun       8   387
-10 Customer  Sun       9   743
-# ℹ 326 more rows
+
+array_data
+
+# A tibble: 100 × 4
+     row   col Oxford Fareham
+   <int> <int> <lgl>  <lgl>  
+ 1     1     1 TRUE   FALSE  
+ 2     1     2 TRUE   TRUE   
+ 3     1     3 FALSE  FALSE  
+ 4     1     4 TRUE   FALSE  
+ 5     1     5 TRUE   FALSE  
+ 6     1     6 FALSE  FALSE  
+ 7     1     7 FALSE  FALSE  
+ 8     1     8 FALSE  FALSE  
+ 9     1     9 FALSE  TRUE   
+10     1    10 FALSE  TRUE
+# ℹ 90 more rows
 # ℹ Use `print(n = ...)` to see more rows
 ```
 
@@ -205,11 +348,9 @@ ny_temporal <- ny_trips |>
 
 ---
 
-## RQ1
 
-### Reshape data for comparison 
+<br><br>
 
-<br>
 
 :::{.columns}
 
@@ -220,611 +361,20 @@ ny_temporal <- ny_trips |>
 ```{r}
 #| eval: false
 #| echo: true
-ny_temporal |>
-  group_by(user_type) |>
-  mutate(user_count=sum(count)) |>
-  group_by(user_type, day) |>
-  summarise(count=sum(count), user_count=first(user_count), prop=count/user_count) |>
-  select(user_type, day, prop) |>
-  pivot_wider(names_from=user_type, values_from=prop)
-```
-
-</div>
-
-:::
-
-::: {.column width="50%"}
-
-<div style="font-size:0.5em;"> 
-
-```{r}
-#| eval: false
-#| echo: true
-# A tibble: 7 × 3
-  day   Customer Subscriber
-  <ord>    <dbl>      <dbl>
-1 Sun     0.198       0.144
-2 Mon     0.137       0.163
-3 Tue     0.144       0.172
-4 Wed     0.104       0.125
-5 Thu     0.0973      0.122
-6 Fri     0.135       0.138
-7 Sat     0.185       0.136
-```
-
-</div>
-
-:::
-
-:::
-
----
-
-## RQ1
-
-### Plot data for data-rich comparison
-
-<br>
-
-:::{.columns}
-
-::: {.column width="50%"}
-
-<div style="font-size:0.5em;"> 
-
-```{r}
-#| eval: false
-#| echo: true
-ny_temporal |>
-  ggplot(aes(x=hour, y=count, group=user_type)) +
-  geom_line(aes(colour=user_type), linewidth=1.1) +
-  scale_colour_manual(values=c("#e31a1c", "#1f78b4")) +
-  facet_wrap(~day, nrow=1)+
-  labs(x="", y="trip counts")
-```
-
-</div>
-
-:::
-
-::: {.column width="50%"}
-
-
-```{r}
-#| out.width: 100%
-#| echo: false
-
-include_graphics("img/hod_dow.png", error = FALSE)
-```
-
-:::
-
-:::
----
-
-
-
-## RQ1 
-
-### Reuse template for different conditioning
-
-<br>
-
-:::{.columns}
-
-::: {.column width="50%"}
-
-<div style="font-size:0.5em;"> 
-
-```{r}
-#| eval: false
-#| echo: true
-#| code-line-numbers: "5,8,9"
-ny_trips |>
-  mutate(
-    day=wday(start_time, label=TRUE),
-    hour=hour(start_time)) |> 
-  group_by(gender, day, hour) |>
-  summarise(count=n()) |>
-  ungroup() |> 
-  ggplot(aes(x=hour, y=count, group=gender)) +
-  geom_line(aes(colour=gender), linewidth=1.1) +
-  scale_colour_manual(values=c("#e31a1c", "#1f78b4")) +
-  facet_wrap(~day, nrow=1)+
-  labs(x="", y="trip counts")
-```
-
-</div>
-
-:::
-
-::: {.column width="50%"}
-
-
-```{r}
-#| out.width: 100%
-#| echo: false
-
-include_graphics("img/hod_dow_gender.png", error = FALSE)
-```
-
-:::
-
-:::
-
----
-
-## RQ1
-
-### Exploit layers for additional comparison
-
-<br>
-
-:::{.columns}
-
-::: {.column width="50%"}
-
-<div style="font-size:0.5em;"> 
-
-```{r}
-#| eval: false
-#| echo: true
-#| code-line-numbers: "10,11,12,13"
-ny_trips |>
-  mutate(
-    day=wday(start_time, label=TRUE),
-    hour=hour(start_time)) |> 
-  group_by(user_type, day, hour) |>
-  summarise(count=n()) |>
-  ungroup() |> 
-  ggplot(aes(x=hour, y=count, group=user_type, colour=user_type)) +
-  geom_line(linewidth=1.1) +
-  geom_line(
-    data=. %>% group_by(user_type, day) %>% 
-    mutate(count=mean(count)), linewidth=.4
-    ) +
-  scale_colour_manual(values=c("#e31a1c", "#1f78b4")) +
-  facet_wrap(~day, nrow=1)+
-  labs(x="", y="trip counts")
-```
-
-</div>
-
-:::
-
-::: {.column width="50%"}
-
-
-```{r}
-#| out.width: 100%
-#| echo: false
-
-include_graphics("img/hod_dow_user_comp.png", error = FALSE)
-```
-
-:::
-
-:::
-
-
----
-
-## RQ1
-
-### Rearrange plot "grammar" for alternative comparison
-
-<br>
-
-```{r}
-#| out.width: 100%
-#| echo: false
-
-include_graphics("img/hod_emph_user.png", error = FALSE)
-```
-
----
-
-## RQ1
-
-### Rearrange plot "grammar" for alternative comparison
-
-<br>
-
-:::{.columns}
-
-::: {.column width="50%"}
-
-<div style="font-size:0.5em;"> 
-
-```{r}
-#| eval: false
-#| echo: true
-#| code-line-numbers: "8,11,15"
-ny_trips |>
-  mutate(
-    day=wday(start_time, label=TRUE),
-    hour=hour(start_time)) |> 
-  group_by(user_type, day, hour) |>
-  summarise(count=n()) |>
-  ungroup() |> 
-  ggplot(aes(x=day, y=count, group=user_type, colour=user_type)) +
-  geom_line(linewidth=1.1) +
-  geom_line(
-    data=. %>% group_by(user_type, day) %>% mutate(count=mean(count)),
-    linewidth=.4
-    ) +
-  scale_colour_manual(values=c("#e31a1c", "#1f78b4")) +
-  facet_wrap(~hour, nrow=1)+
-  labs(x="", y="trip counts")
-```
-
-</div>
-
-:::
-
-::: {.column width="50%"}
-
-
-```{r}
-#| out.width: 100%
-#| echo: false
-
-include_graphics("img/hod_emph_user.png", error = FALSE)
-```
-
-:::
-
-:::
-
----
-
-
-## RQ1 
-
-### Add label for clarity
-
-```{r}
-#| out.width: 80%
-#| echo: false
-
-include_graphics("img/hod_emph_user_label.png", error = FALSE)
-include_graphics("img/hod_emph_user.png", error = FALSE)
-```
-
-
----
-
-
-## RQ1 
-
-### Add label for clarity
-
-:::{.columns}
-
-::: {.column width="50%"}
-
-<div style="font-size:0.5em;"> 
-
-```{r}
-#| eval: false
-#| echo: true
-#| code-line-numbers: "17,18,19,20,21,22,23,24"
-ny_trips |>
-  mutate(
-    day=wday(start_time, label=TRUE),
-    hour=hour(start_time)
+#| code-line-numbers: "2,3,4,5,6,13"
+array_data |> 
+  pivot_longer(
+    cols=c(Oxford,Fareham), 
+    names_to="la", 
+    values_to="is_ksi"
     ) |> 
-  filter(!hour %in% c(0:5)) |> 
-  group_by(user_type, day, hour) |>
-  summarise(count=n()) |>
-  ungroup() |> 
-  ggplot(aes(x=day, y=count, colour=user_type)) +
-  geom_point() +
-  geom_line(aes(group=user_type), linewidth=.7) +
-  geom_line(aes(group=user_type),
-    data=. %>% group_by(user_type, hour) %>% mutate(count=mean(count)),
-    linewidth=.4
-    ) +
-  geom_text(
-    data = . %>% 
-      filter(
-        user_type=="Subscriber", day %in% c("Sun", "Tue", "Thu", "Sat"),
-        hour %in% c(8, 11, 14, 17, 20)
-        ),
-      aes(label=str_sub(day,1,1), y=0), vjust=0, colour="#000000", size=2.5
-    ) +
-  scale_colour_manual(values=c("#e31a1c", "#1f78b4")) +
-  facet_wrap(~hour, nrow=1)+
-  labs(x="", y="trip counts")
-```
-
-</div>
-
-:::
-
-::: {.column width="50%"}
-
-
-```{r}
-#| out.width: 100%
-#| echo: false
-
-include_graphics("img/hod_emph_user_label.png", error = FALSE)
-include_graphics("img/hod_emph_user.png", error = FALSE)
-```
-
-:::
-
-:::
-
-
----
-
-## RQ2 : How did 2019 General Election shift Conservative? 
-
----
-
-## RQ2
-
-### Plot association
-
-<br>
-
-:::{.columns}
-
-::: {.column width="50%"}
-
-<div style="font-size:0.5em;"> 
-
-```{r}
-#| eval: false
-#| echo: true
-data_gb |>
-  mutate(winner_19=case_when(
-           winner_19 == "Conservative" ~ "Conservative",
-           winner_19 == "Labour" ~ "Labour",
-           TRUE ~ "Other"
-         )) |> 
-  ggplot(aes(x=con_17, y=con_19)) +
-  geom_point(aes(colour=winner_19)) +
-  geom_abline(intercept = 0, slope = 1) +
-  scale_colour_manual(values=c(con,lab,other)) +
-  labs(
-     y="Conservative 2019 vote share", 
-     x="Conservative 2017 vote share"
-  )
-
-```
-
-</div>
-
-:::
-
-::: {.column width="50%"}
-
-
-
-```{r}
-#| out.width: 100%
-#| echo: false
-
-include_graphics("img/scatters_con_basic.png", error = FALSE)
-```
-
-:::
-
-:::
-
----
-
-## RQ2
-
-### Exploit encoding for additional comparison
-
-<br>
-
-:::{.columns}
-
-::: {.column width="50%"}
-
-<div style="font-size:0.5em;"> 
-
-```{r}
-#| eval: false
-#| echo: true
-#| code-line-numbers: "8,9, 12,16"
-data_gb |>
-  mutate(
-    winner_19=case_when(
-           winner_19 == "Conservative" ~ "Conservative",
-           winner_19 == "Labour" ~ "Labour",
-           TRUE ~ "Other"
-         ),
-    is_flipped=seat_change_1719 %in% 
-       c("Conservative gain from Labour","Labour gain from Conservative")
-    ) |>
-  ggplot(aes(x=con_17, y=con_19)) +
-  geom_point(aes(colour=winner_19, fill=winner_19, alpha=is_flipped), pch=21) +
-  geom_abline(intercept = 0, slope = 1) +
-  scale_colour_manual(values=c(con,lab,other)) +
-  scale_fill_manual(values=c(con,lab,other)) +
-  scale_alpha_ordinal(range=c(.3,.9)) +
-  labs(
-    y="Conservative 2019 vote share", 
-    x="Conservative 2017 vote share"
-  )
-
-```
-
-</div>
-
-:::
-
-::: {.column width="50%"}
-
-
-
-```{r}
-#| out.width: 100%
-#| echo: false
-
-include_graphics("img/scatters_con_alpha.png", error = FALSE)
-```
-
-:::
-
-:::
-
----
-
-
-## RQ2
-
-### Exploit encoding for additional comparison
-
-<br>
-
-:::{.columns}
-
-::: {.column width="50%"}
-
-<div style="font-size:0.5em;"> 
-
-```{r}
-#| eval: false
-#| echo: true
-#| code-line-numbers: "10,14"
-data_gb |>
-  mutate(winner_19=case_when(
-           winner_19 == "Conservative" ~ "Conservative",
-           winner_19 == "Labour" ~ "Labour",
-           TRUE ~ "Other"
-         ),
-         is_flipped=seat_change_1719 %in% 
-       c("Conservative gain from Labour","Labour gain from Conservative")) |>
-  ggplot(aes(x=con_17, y=con_19)) +
-  geom_point(aes(colour=winner_19, shape=is_flipped, alpha=is_flipped)) +
-  geom_abline(intercept = 0, slope = 1) +
-  scale_colour_manual(values=c(con,lab,other)) +
-  scale_alpha_ordinal(range=c(.5,1)) +
-  scale_shape_manual(values=c(21,19)) +
-  labs(
-    y="Conservative 2019 vote share", 
-    x="Conservative 2017 vote share"
-  )
-```
-
-</div>
-
-:::
-
-::: {.column width="50%"}
-
-
-
-```{r}
-#| out.width: 100%
-#| echo: false
-
-include_graphics("img/scatters_con_shape.png", error = FALSE)
-```
-
-:::
-
-:::
-
----
-
-
-## RQ2
-
-### Edit plot "grammar" for comparison
-
-<br>
-
-:::{.columns}
-
-::: {.column width="50%"}
-
-<div style="font-size:0.5em;"> 
-
-```{r}
-#| eval: false
-#| echo: true
-#| code-line-numbers: "9,11"
-data_gb |>
-  mutate(winner_19=case_when(
-           winner_19 == "Conservative" ~ "Conservative",
-           winner_19 == "Labour" ~ "Labour",
-           TRUE ~ "Other"
-         ),
-         is_flipped=seat_change_1719 %in% 
-       c("Conservative gain from Labour","Labour gain from Conservative")) |>
-  ggplot(aes(x=leave_hanretty, y=con_19)) +
-  geom_point(aes(colour=winner_19, shape=is_flipped, alpha=is_flipped)) +
-  geom_vline(xintercept=50) +
-  scale_colour_manual(values=c(con,lab,other)) +
-  scale_alpha_ordinal(range=c(.5,1)) +
-  scale_shape_manual(values=c(21,19)) +
-  labs(y="Conservative 2019 vote share", x="Leave")
-```
-
-</div>
-
-:::
-
-::: {.column width="50%"}
-
-
-
-```{r}
-#| out.width: 100%
-#| echo: false
-
-include_graphics("img/scatters_con_leave.png", error = FALSE)
-```
-
-:::
-
-:::
-
----
-
-## RQ2
-
-### Add label for exploration
-
-<br>
-
-:::{.columns}
-
-::: {.column width="50%"}
-
-<div style="font-size:0.5em;"> 
-
-```{r}
-#| eval: false
-#| echo: true
-#| code-line-numbers: "12,13,14,15"
-data_gb |>
-  mutate(winner_19=case_when(
-           winner_19 == "Conservative" ~ "Conservative",
-           winner_19 == "Labour" ~ "Labour",
-           TRUE ~ "Other"
-         ),
-         is_flipped=seat_change_1719 %in% 
-       c("Conservative gain from Labour","Labour gain from Conservative")) |>
-  ggplot(aes(x=leave_hanretty, y=con_19)) +
-  geom_point(aes(colour=winner_19, shape=is_flipped, alpha=is_flipped)) +
-  geom_vline(xintercept=50) +
-  geom_text(
-    data=. %>% filter(leave_hanretty<50, is_flipped),
-    aes(label=constituency_name), size=3, nudge_y=3
+  ggplot(aes(x=row,y=col, fill=is_ksi)) +
+  geom_tile(colour="#ffffff", size=1) +
+  scale_fill_manual(
+    values=c("#fee0d2","#de2d26"), 
+    guide=FALSE
     )+
-  scale_colour_manual(values=c(con,lab,other)) +
-  scale_alpha_ordinal(range=c(.5,1)) +
-  scale_shape_manual(values=c(21,19)) +
-  labs(y="Conservative 2019 vote share", x="Leave")
+  facet_wrap(~la)
 ```
 
 </div>
@@ -832,124 +382,13 @@ data_gb |>
 :::
 
 ::: {.column width="50%"}
-
 
 
 ```{r}
 #| out.width: 100%
 #| echo: false
 
-include_graphics("img/scatters_con_leave_ann.png", error = FALSE)
-```
-
-:::
-
-:::
----
-
-## RQ2
-
-### Compose views for comparison
-
-<br>
-
-:::{.columns}
-
-::: {.column width="50%"}
-
-<div style="font-size:0.5em;"> 
-
-```{r}
-#| eval: false
-#| echo: true
-library(patchwork)
-change_plot / leave_plot
-```
-
-</div>
-
-:::
-
-::: {.column width="40%"}
-
-
-
-```{r}
-#| out.width: 100%
-#| echo: false
-
-include_graphics("img/scatters_patchwork.png", error = FALSE)
-```
-
-:::
-
-:::
----
-
-
-
-
-# Part 3 : Exploratory visual data analysis as model-driven process
-
-
----
-
-## RQ1 : Where do professional and non-professional workers commute in London? 
-
----
-
-## RQ1 
-
-
-<br>
-
-:::{.columns}
-
-::: {.column width="50%"}
-
-<div style="font-size:0.5em;"> 
-
-```{r}
-#| eval: false
-#| echo: true
-library(ggtext)
-
-nodes |> 
-  filter(type=="jobs") |> 
-  mutate(la=factor(la, levels=bor_orders)) |> 
-  group_by(la, is_prof) |> 
-  summarise(count=sum(count)) |> 
-  ggplot(aes(x=la, y=count)) + 
-  geom_col(data=. %>% filter(is_prof), fill="#e41a1c", alpha=.7) +
-  geom_col(data=. %>% filter(!is_prof), fill="#377eb8", alpha=.7) +
-  scale_y_continuous(
-     breaks=c(0:4*100000), 
-     labels = scales::comma_format(scale = .001)
-     ) +
-  labs(
-    x="", 
-    y="job count in hundred thousands",  
-    subtitle="<span style = 'color: #377eb8;'>not-prof</span> | <span style = 'color: #e41a1c;'>prof</span> "
-    )+
-  theme(
-    axis.text.x = element_text(angle=-90, hjust=0), 
-    plot.subtitle = element_markdown(size=15)
-    )
-```
-
-</div>
-
-:::
-
-::: {.column width="50%"}
-
-
-
-```{r}
-#| out.width: 100%
-#| echo: false
-
-include_graphics("img/jobs_type_bor.png", error = FALSE)
+include_graphics("img/icon-technical.png", error = FALSE)
 ```
 
 :::
@@ -958,385 +397,8 @@ include_graphics("img/jobs_type_bor.png", error = FALSE)
 
 ---
 
-## RQ1 
 
-
-<br>
-
-:::{.columns}
-
-::: {.column width="50%"}
-
-<div style="font-size:0.5em;"> 
-
-```{r}
-#| eval: false
-#| echo: true
-#| code-line-numbers: "5,6,7,8"
-library(ggtext)
-
-nodes |> 
-  filter(type=="jobs") |> 
-  mutate(la=factor(la, levels=bor_orders)) |> 
-  group_by(la, is_prof) |> 
-  summarise(count=sum(count)) |> 
-  ggplot(aes(x=la, y=count)) + 
-  geom_col(data=. %>% filter(is_prof), fill="#e41a1c", alpha=.7) +
-  geom_col(data=. %>% filter(!is_prof), fill="#377eb8", alpha=.7) +
-  scale_y_continuous(
-     breaks=c(0:4*100000), 
-     labels = scales::comma_format(scale = .001)
-     ) +
-  labs(
-    x="", 
-    y="job count in hundred thousands",  
-    subtitle="<span style = 'color: #377eb8;'>not-prof</span> | <span style = 'color: #e41a1c;'>prof</span> "
-    )+
-  theme(
-    axis.text.x = element_text(angle=-90, hjust=0), 
-    plot.subtitle = element_markdown(size=15)
-    )
-```
-
-</div>
-
-:::
-
-::: {.column width="50%"}
-
-
-
-```{r}
-#| out.width: 100%
-#| echo: false
-
-include_graphics("img/jobs_type_bor.png", error = FALSE)
-```
-
-:::
-
-:::
-
----
-
-## RQ1 
-
-
-<br>
-
-:::{.columns}
-
-::: {.column width="50%"}
-
-<div style="font-size:0.5em;"> 
-
-```{r}
-#| eval: false
-#| echo: true
-#| code-line-numbers: "9,10"
-library(ggtext)
-
-nodes |> 
-  filter(type=="jobs") |> 
-  mutate(la=factor(la, levels=bor_orders)) |> 
-  group_by(la, is_prof) |> 
-  summarise(count=sum(count)) |> 
-  ggplot(aes(x=la, y=count)) + 
-  geom_col(data=. %>% filter(is_prof), fill="#e41a1c", alpha=.7) +
-  geom_col(data=. %>% filter(!is_prof), fill="#377eb8", alpha=.7) +
-  scale_y_continuous(
-     breaks=c(0:4*100000), 
-     labels = scales::comma_format(scale = .001)
-     ) +
-  labs(
-    x="", 
-    y="job count in hundred thousands",  
-    subtitle="<span style = 'color: #377eb8;'>not-prof</span> | <span style = 'color: #e41a1c;'>prof</span> "
-    )+
-  theme(
-    axis.text.x = element_text(angle=-90, hjust=0), 
-    plot.subtitle = element_markdown(size=15)
-    )
-```
-
-</div>
-
-:::
-
-::: {.column width="50%"}
-
-
-
-```{r}
-#| out.width: 100%
-#| echo: false
-
-include_graphics("img/jobs_type_bor.png", error = FALSE)
-```
-
-:::
-
-:::
-
----
-
-## RQ1 
-
-
-<br>
-
-:::{.columns}
-
-::: {.column width="50%"}
-
-<div style="font-size:0.5em;"> 
-
-```{r}
-#| eval: false
-#| echo: true
-#| code-line-numbers: "1,18,19,24"
-library(ggtext)
-
-nodes |> 
-  filter(type=="jobs") |> 
-  mutate(la=factor(la, levels=bor_orders)) |> 
-  group_by(la, is_prof) |> 
-  summarise(count=sum(count)) |> 
-  ggplot(aes(x=la, y=count)) + 
-  geom_col(data=. %>% filter(is_prof), fill="#e41a1c", alpha=.7) +
-  geom_col(data=. %>% filter(!is_prof), fill="#377eb8", alpha=.7) +
-  scale_y_continuous(
-     breaks=c(0:4*100000), 
-     labels = scales::comma_format(scale = .001)
-     ) +
-  labs(
-    x="", 
-    y="job count in hundred thousands",  
-    subtitle="<span style = 'color: #377eb8;'>not-prof</span> | <span style = 'color: #e41a1c;'>prof</span> "
-    )+
-  theme(
-    axis.text.x = element_text(angle=-90, hjust=0), 
-    plot.subtitle = element_markdown(size=15)
-    )
-```
-
-</div>
-
-:::
-
-::: {.column width="50%"}
-
-
-
-```{r}
-#| out.width: 100%
-#| echo: false
-
-include_graphics("img/jobs_type_bor.png", error = FALSE)
-```
-
-:::
-
-:::
-
----
-
-## RQ1 
-
-
-<br>
-
-:::{.columns}
-
-::: {.column width="50%"}
-
-<div style="font-size:0.5em;"> 
-
-```{r}
-#| eval: false
-#| echo: true
-#| code-line-numbers: "11,12,13,14"
-library(ggtext)
-
-nodes |> 
-  filter(type=="jobs") |> 
-  mutate(la=factor(la, levels=bor_orders)) |> 
-  group_by(la, is_prof) |> 
-  summarise(count=sum(count)) |> 
-  ggplot(aes(x=la, y=count)) + 
-  geom_col(data=. %>% filter(is_prof), fill="#e41a1c", alpha=.7) +
-  geom_col(data=. %>% filter(!is_prof), fill="#377eb8", alpha=.7) +
-  scale_y_continuous(
-     breaks=c(0:4*100000), 
-     labels = scales::comma_format(scale = .001)
-     ) +
-  labs(
-    x="", 
-    y="job count in hundred thousands",  
-    subtitle="<span style = 'color: #377eb8;'>not-prof</span> | <span style = 'color: #e41a1c;'>prof</span> "
-    )+
-  theme(
-    axis.text.x = element_text(angle=-90, hjust=0), 
-    plot.subtitle = element_markdown(size=15)
-    )
-```
-
-</div>
-
-:::
-
-::: {.column width="50%"}
-
-
-
-```{r}
-#| out.width: 100%
-#| echo: false
-
-include_graphics("img/jobs_type_bor.png", error = FALSE)
-```
-
-:::
-
-:::
-
-
----
-
-
-## RQ1 : 
-
-#### 51% of jobs are professional, so there is a distinctive geog
-
-::: {.column width="80%"}
-
-```{r}
-#| out.width: 100%
-#| echo: false
-
-include_graphics("img/jobs_type_bor.png", error = FALSE)
-```
-
-:::
-
----
-
-## RQ1 : 
-
-#### Our model 1
-
-##### Randomly select commute <br> *expect* 51% to be professional
-
-<br>
-
-:::{.columns}
-
-::: {.column width="50%"}
-
-<div style="font-size:0.5em;"> 
-
-```{r}
-#| eval: false
-#| echo: true
-edges |> 
-  mutate( 
-    global_prof = sum(prof) / sum(prof + non_prof),
-    count = prof + non_prof,
-    obs = prof,
-    exp = (global_prof * count),
-    resid = (obs - exp) / (exp^.7)
-  )
-```
-
-</div>
-
-:::
-
-::: {.column width="50%"}
-
-<div style="font-size:0.5em;"> 
-
-```{r}
-#| eval: false
-#| echo: true
-# A tibble: 1,089 × 6
-   o_bor                d_bor                global_prof   obs    exp  resid
-   <chr>                <chr>                      <dbl> <dbl>  <dbl>  <dbl>
- 1 Barking and Dagenham Barking and Dagenham       0.513  3202 7514.  -8.35 
- 2 Barking and Dagenham Barnet                     0.513   110  144.  -1.04 
- 3 Barking and Dagenham Bexley                     0.513    41   79.5 -1.80 
- 4 Barking and Dagenham Brent                      0.513   118  149.  -0.927
- 5 Barking and Dagenham Bromley                    0.513    36   53.3 -1.07 
- 6 Barking and Dagenham Camden                     0.513   781  951.  -1.40 
- 7 Barking and Dagenham City of London             0.513  1122 1447.  -2.00 
- 8 Barking and Dagenham Croydon                    0.513    30   56.4 -1.57 
- 9 Barking and Dagenham Ealing                     0.513    94  128.  -1.15 
-10 Barking and Dagenham Enfield                    0.513   221  335.  -1.95
-```
-
-</div>
-
-:::
-
-:::
-
-
----
-
-## RQ1 : 
-
-#### Our model 1  
-
-##### Randomly select commute <br> *expect* 51% to be professional
-
-<br>
-
-:::{.columns}
-
-::: {.column width="50%"}
-
-<div style="font-size:0.5em;"> 
-
-```{r}
-#| eval: false
-#| echo: true
-edges |> 
-  mutate( 
-    global_prof = sum(prof) / sum(prof + non_prof),
-    count = prof + non_prof,
-    obs = prof,
-    exp = (global_prof * count),
-    resid = (obs - exp) / (exp^.7)
-  )
-```
-
-</div>
-
-:::
-
-::: {.column width="50%"}
-
-```{r}
-#| out.width: 100%
-#| echo: false
-
-include_graphics("img/od_map_model.png", error = FALSE)
-```
-
-:::
-
-:::
-
-
----
-
-## RQ1 : 
-
-#### Our model 2
-
-##### Randomly select commute <br> *expect* % professional ~ destination
-
-<br>
+<br><br>
 
 
 :::{.columns}
@@ -1348,79 +410,18 @@ include_graphics("img/od_map_model.png", error = FALSE)
 ```{r}
 #| eval: false
 #| echo: true
-#| code-line-numbers: "4,6"
-edges |> 
-  group_by(d_bor) |> 
-  mutate(
-    local_prof = sum(prof) / sum(prof + non_prof),
-    count = prof + non_prof,
-    obs = prof,
-    exp = (local_prof * count),
-    resid = (obs - exp) / (exp^.7)
-  )
-```
-
-</div>
-
-:::
-
-::: {.column width="50%"}
-
-```{r}
-#| out.width: 100%
-#| echo: false
-
-include_graphics("img/od_map_model2.png", error = FALSE)
-```
-
-:::
-
-:::
-
-
----
-
-## RQ1 : 
-
-#### Our model 2
-
-##### Randomly select commute <br> *expect* % professional ~ destination
-
-
-
-:::{.columns}
-
-::: {.column width="50%"}
-
-<br>
-
-<div style="font-size:0.4em;"> 
-
-```{r}
-#| eval: false
-#| echo: true
-plot_data |>
+theatre_cells |>
   ggplot() +
-  geom_sf(aes(fill=resid), colour = "#ffffff", size = 0.15, alpha = 0.9) +
+  geom_sf() +
   geom_sf(
-    data = . %>% filter(bor_focus),
-    fill = "transparent", colour = "#373737", size = 0.3
-    ) +
-  geom_text(
-    data = plot_data %>% filter(bor_focus),
-    aes(x = o_x, y = o_y, label = str_extract(o_bor, "^.{1}")),
-    colour = "#252525", alpha = 0.9, size = 2.1,
-    hjust = "centre", vjust = "middle"
+    data=ksi_data,
+    fill="#000000"
   ) +
-  geom_text(
-    data = plot_data %>% filter(bor_focus),
-    aes(x = bbox_grid$xmax, y = bbox_grid$ymin, label = abbreviate(o_bor, 3)),
-    colour = "#252525", alpha = 0.9, size = 3.5,
-    hjust = "right", vjust = "bottom"
-  ) +
-  coord_sf(crs = st_crs(plot_data), datum = NA) +
-  facet_grid(-d_row ~ d_col, shrink = FALSE) +
-  scale_fill_distiller(palette = "RdBu", direction = -1 )
+  annotate("text", x=23, y=1, label="Stage", alpha=.5) +
+  annotate("text", x=23, y=21, label="Orchestra", alpha=.5) +
+  annotate("text", x=23, y=31, label="Front mezzanine", alpha=.5) +
+  annotate("text", x=23, y=42, label="Rear mezzanine", alpha=.5) +
+  facet_wrap(~la)
 ```
 
 </div>
@@ -1429,61 +430,34 @@ plot_data |>
 
 ::: {.column width="50%"}
 
+
 ```{r}
 #| out.width: 100%
 #| echo: false
 
-include_graphics("img/od_map_model2.png", error = FALSE)
+include_graphics("img/risk_theatre_crash.png", error = FALSE)
 ```
 
 :::
 
 :::
 
-
 ---
 
-## RQ1 : 
 
-#### Our model 2
-
-##### Randomly select commute <br> *expect* % professional ~ destination
-
-<br>
+<br><br>
 
 
 :::{.columns}
 
 ::: {.column width="50%"}
 
-<div style="font-size:0.4em;"> 
+<div style="font-size:0.5em;"> 
 
 ```{r}
 #| eval: false
 #| echo: true
-#| code-line-numbers: "3"
-plot_data |>
-  ggplot() +
-  geom_sf(aes(fill=resid), colour = "#ffffff", size = 0.15, alpha = 0.9) +
-  geom_sf(
-    data = . %>% filter(bor_focus),
-    fill = "transparent", colour = "#373737", size = 0.3
-    ) +
-  geom_text(
-    data = plot_data %>% filter(bor_focus),
-    aes(x = o_x, y = o_y, label = str_extract(o_bor, "^.{1}")),
-    colour = "#252525", alpha = 0.9, size = 2.1,
-    hjust = "centre", vjust = "middle"
-  ) +
-  geom_text(
-    data = plot_data %>% filter(bor_focus),
-    aes(x = bbox_grid$xmax, y = bbox_grid$ymin, label = abbreviate(o_bor, 3)),
-    colour = "#252525", alpha = 0.9, size = 3.5,
-    hjust = "right", vjust = "bottom"
-  ) +
-  coord_sf(crs = st_crs(plot_data), datum = NA) +
-  facet_grid(-d_row ~ d_col, shrink = FALSE) +
-  scale_fill_distiller(palette = "RdBu", direction = -1 )
+theatre_cells
 ```
 
 </div>
@@ -1492,62 +466,165 @@ plot_data |>
 
 ::: {.column width="50%"}
 
-```{r}
-#| out.width: 100%
-#| echo: false
+<div style="font-size:0.5em;"> 
 
-include_graphics("img/od_map_model2.png", error = FALSE)
+```{r}
+#| eval: false
+#| echo: true
+Simple feature collection with 1000 features and 3 fields
+Geometry type: POLYGON
+Dimension:     XY
+Bounding box:  xmin: 1 ymin: 1 xmax: 47 ymax: 40
+Geodetic CRS:  WGS 84
+First 10 features:
+   id col row                       geometry
+1   7   7   1 POLYGON ((7 1, 8 1, 8 2, 7 ...
+2   8   8   1 POLYGON ((8 1, 9 1, 9 2, 8 ...
+3   9   9   1 POLYGON ((9 1, 10 1, 10 2, ...
+4  38  38   1 POLYGON ((38 1, 39 1, 39 2,...
+5  39  39   1 POLYGON ((39 1, 40 1, 40 2,...
+6  40  40   1 POLYGON ((40 1, 41 1, 41 2,...
+7  53   7   2 POLYGON ((7 2, 8 2, 8 3, 7 ...
+8  54   8   2 POLYGON ((8 2, 9 2, 9 3, 8 ...
+9  55   9   2 POLYGON ((9 2, 10 2, 10 3, ...
+10 56  10   2 POLYGON ((10 2, 11 2, 11 3,...
 ```
 
-:::
+</div>
 
 :::
 
+:::
 
 ---
 
 
-## RQ1 : 
-
-#### Our model 2
-
-##### Randomly select commute <br> *expect* % professional ~ destination
-
-<br>
+<br><br>
 
 
 :::{.columns}
 
 ::: {.column width="50%"}
 
-<div style="font-size:0.4em;"> 
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+theatre_cells |>
+  ggplot() +
+  geom_sf() +
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+
+```{r}
+#| out.width: 100%
+#| echo: false
+
+include_graphics("img/theatre-technical-seats.png", error = FALSE)
+```
+
+:::
+
+:::
+
+---
+
+
+
+<br><br>
+
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+ksi_data <- bind_rows(
+  theatre_cells |> 
+    slice_sample(n=170) |> 
+    add_column(la="Oxford\n170 KSI in 1,000 crashes"),
+  theatre_cells |> 
+    slice_sample(n=410) |> 
+    add_column(la="Fareham\n410 KSI in 1,000 crashes")
+)
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+> ksi_data
+Simple feature collection with 580 features and 4 fields
+Geometry type: POLYGON
+Dimension:     XY
+Bounding box:  xmin: 1 ymin: 1 xmax: 47 ymax: 40
+Geodetic CRS:  WGS 84
+First 10 features:
+     id col row                               la                       geometry
+1   807  25  18 Oxford\n170 KSI in 1,000 crashes POLYGON ((25 18, 26 18, 26 ...
+2  1054  42  23 Oxford\n170 KSI in 1,000 crashes POLYGON ((42 23, 43 23, 43 ...
+3   145   7   4 Oxford\n170 KSI in 1,000 crashes POLYGON ((7 4, 8 4, 8 5, 7 ...
+4   317  41   7 Oxford\n170 KSI in 1,000 crashes POLYGON ((41 7, 42 7, 42 8,...
+5  1679  23  37 Oxford\n170 KSI in 1,000 crashes POLYGON ((23 37, 24 37, 24 ...
+6  1101  43  24 Oxford\n170 KSI in 1,000 crashes POLYGON ((43 24, 44 24, 44 ...
+7   564  12  13 Oxford\n170 KSI in 1,000 crashes POLYGON ((12 13, 13 13, 13 ...
+8  1675  19  37 Oxford\n170 KSI in 1,000 crashes POLYGON ((19 37, 20 37, 20 ...
+9  1653  43  36 Oxford\n170 KSI in 1,000 crashes POLYGON ((43 36, 44 36, 44 ...
+10 1591  27  35 Oxford\n170 KSI in 1,000 crashes POLYGON ((27 35, 28 35, 28 ...
+```
+
+</div>
+
+:::
+
+:::
+
+---
+
+
+<br><br>
+
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
 
 ```{r}
 #| eval: false
 #| echo: true
 #| code-line-numbers: "4,5,6,7"
-plot_data |>
+theatre_cells |>
   ggplot() +
-  geom_sf(aes(fill=resid), colour = "#ffffff", size = 0.15, alpha = 0.9) +
+  geom_sf() +
   geom_sf(
-    data = . %>% filter(bor_focus),
-    fill = "transparent", colour = "#373737", size = 0.3
-    ) +
-  geom_text(
-    data = plot_data %>% filter(bor_focus),
-    aes(x = o_x, y = o_y, label = str_extract(o_bor, "^.{1}")),
-    colour = "#252525", alpha = 0.9, size = 2.1,
-    hjust = "centre", vjust = "middle"
+    data=ksi_data,
+    fill="#000000"
   ) +
-  geom_text(
-    data = plot_data %>% filter(bor_focus),
-    aes(x = bbox_grid$xmax, y = bbox_grid$ymin, label = abbreviate(o_bor, 3)),
-    colour = "#252525", alpha = 0.9, size = 3.5,
-    hjust = "right", vjust = "bottom"
-  ) +
-  coord_sf(crs = st_crs(plot_data), datum = NA) +
-  facet_grid(-d_row ~ d_col, shrink = FALSE) +
-  scale_fill_distiller(palette = "RdBu", direction = -1 )
+  annotate("text", x=23, y=1, label="Stage", alpha=.5) +
+  annotate("text", x=23, y=21, label="Orchestra", alpha=.5) +
+  annotate("text", x=23, y=31, label="Front mezzanine", alpha=.5) +
+  annotate("text", x=23, y=42, label="Rear mezzanine", alpha=.5) +
+  facet_wrap(~la)
 ```
 
 </div>
@@ -1556,238 +633,28 @@ plot_data |>
 
 ::: {.column width="50%"}
 
-```{r}
-#| out.width: 100%
-#| echo: false
-
-include_graphics("img/od_map_model2.png", error = FALSE)
-```
-
-:::
-
-:::
-
-
----
-
-## RQ1 : 
-
-#### Our model 2
-
-##### Randomly select commute <br> *expect* % professional ~ destination
-
-<br>
-
-
-:::{.columns}
-
-::: {.column width="50%"}
-
-<div style="font-size:0.4em;"> 
-
-```{r}
-#| eval: false
-#| echo: true
-#| code-line-numbers: "8,9,10,11,12,13"
-plot_data |>
-  ggplot() +
-  geom_sf(aes(fill=resid), colour = "#ffffff", size = 0.15, alpha = 0.9) +
-  geom_sf(
-    data = . %>% filter(bor_focus),
-    fill = "transparent", colour = "#373737", size = 0.3
-    ) +
-  geom_text(
-    data = plot_data %>% filter(bor_focus),
-    aes(x = o_x, y = o_y, label = str_extract(o_bor, "^.{1}")),
-    colour = "#252525", alpha = 0.9, size = 2.1,
-    hjust = "centre", vjust = "middle"
-  ) +
-  geom_text(
-    data = plot_data %>% filter(bor_focus),
-    aes(x = bbox_grid$xmax, y = bbox_grid$ymin, label = abbreviate(o_bor, 3)),
-    colour = "#252525", alpha = 0.9, size = 3.5,
-    hjust = "right", vjust = "bottom"
-  ) +
-  coord_sf(crs = st_crs(plot_data), datum = NA) +
-  facet_grid(-d_row ~ d_col, shrink = FALSE) +
-  scale_fill_distiller(palette = "RdBu", direction = -1 )
-```
-
-</div>
-
-:::
-
-::: {.column width="50%"}
 
 ```{r}
 #| out.width: 100%
 #| echo: false
 
-include_graphics("img/od_map_model2.png", error = FALSE)
+include_graphics("img/risk_theatre_crash.png", error = FALSE)
 ```
 
 :::
 
 :::
 
-
 ---
 
-## RQ1 : 
-
-#### Our model 2
-
-##### Randomly select commute <br> *expect* % professional ~ destination
-
-<br>
-
-
-:::{.columns}
-
-::: {.column width="50%"}
-
-<div style="font-size:0.4em;"> 
-
-```{r}
-#| eval: false
-#| echo: true
-#| code-line-numbers: "14,15,16,17,18,19"
-plot_data |>
-  ggplot() +
-  geom_sf(aes(fill=resid), colour = "#ffffff", size = 0.15, alpha = 0.9) +
-  geom_sf(
-    data = . %>% filter(bor_focus),
-    fill = "transparent", colour = "#373737", size = 0.3
-    ) +
-  geom_text(
-    data = plot_data %>% filter(bor_focus),
-    aes(x = o_x, y = o_y, label = str_extract(o_bor, "^.{1}")),
-    colour = "#252525", alpha = 0.9, size = 2.1,
-    hjust = "centre", vjust = "middle"
-  ) +
-  geom_text(
-    data = plot_data %>% filter(bor_focus),
-    aes(x = bbox_grid$xmax, y = bbox_grid$ymin, label = abbreviate(o_bor, 3)),
-    colour = "#252525", alpha = 0.9, size = 3.5,
-    hjust = "right", vjust = "bottom"
-  ) +
-  coord_sf(crs = st_crs(plot_data), datum = NA) +
-  facet_grid(-d_row ~ d_col, shrink = FALSE) +
-  scale_fill_distiller(palette = "RdBu", direction = -1 )
-```
-
-</div>
-
-:::
-
-::: {.column width="50%"}
-
-```{r}
-#| out.width: 100%
-#| echo: false
-
-include_graphics("img/od_map_model2.png", error = FALSE)
-```
-
-:::
-
-:::
-
-
----
-
-## RQ1 : 
-
-#### Our model 2
-
-##### Randomly select commute <br> *expect* % professional ~ destination
-
-<br>
-
-
-:::{.columns}
-
-::: {.column width="50%"}
-
-<div style="font-size:0.4em;"> 
-
-```{r}
-#| eval: false
-#| echo: true
-#| code-line-numbers: "20,21"
-plot_data |>
-  ggplot() +
-  geom_sf(aes(fill=resid), colour = "#ffffff", size = 0.15, alpha = 0.9) +
-  geom_sf(
-    data = . %>% filter(bor_focus),
-    fill = "transparent", colour = "#373737", size = 0.3
-    ) +
-  geom_text(
-    data = plot_data %>% filter(bor_focus),
-    aes(x = o_x, y = o_y, label = str_extract(o_bor, "^.{1}")),
-    colour = "#252525", alpha = 0.9, size = 2.1,
-    hjust = "centre", vjust = "middle"
-  ) +
-  geom_text(
-    data = plot_data %>% filter(bor_focus),
-    aes(x = bbox_grid$xmax, y = bbox_grid$ymin, label = abbreviate(o_bor, 3)),
-    colour = "#252525", alpha = 0.9, size = 3.5,
-    hjust = "right", vjust = "bottom"
-  ) +
-  coord_sf(crs = st_crs(plot_data), datum = NA) +
-  facet_grid(-d_row ~ d_col, shrink = FALSE) +
-  scale_fill_distiller(palette = "RdBu", direction = -1 )
-```
-
-</div>
-
-:::
-
-::: {.column width="50%"}
-
-```{r}
-#| out.width: 100%
-#| echo: false
-
-include_graphics("img/od_map_model2.png", error = FALSE)
-```
-
-:::
-
-:::
-
+## Bootstraps
 
 ---
 
 
-# Part 4 : Visual methods for discouraging false discovery
 
+<br><br>
 
----
-
-
-::: {.column width="90%"}
-
-```{r}
-#| out.width: 100%
-#| echo: false
-
-include_graphics("img/lineups_hex_annotate.png", error = FALSE)
-```
-
-:::
-
----
-
-## RQ : Are our residuals spatially strucured? How and why?
-
----
-
-## RQ
-
-### Lineup as informal test statistic
-
-<br>
 
 :::{.columns}
 
@@ -1798,74 +665,26 @@ include_graphics("img/lineups_hex_annotate.png", error = FALSE)
 ```{r}
 #| eval: false
 #| echo: true
-model <- cons_data |> 
-  select(-c(population, population_density)) |>
+rate_boots <- ped_veh |> 
   mutate(
-    across(
-      c(younger:heavy_industry),
-      ~(.x-mean(.x))/sd(.x)),
-    type="full_dataset", region=as.factor(region)
-    ) |>
-  nest(data=-type) |>
-  mutate(
-    # Include `-1` to eliminate the constant term and include a dummy for every area
-    model=map(data,
-      ~lm(
-        leave ~ 
-          region +  degree  + eu_born + white  + no_car + not_good_health + heavy_industry -1, data=.x
-        )
-      ),
-    # augment() for predictions / residuals
-    values=map(model, augment)
-  )
-```
-
-</div>
-
-:::
-
-::: {.column width="50%"}
-
-```{r}
-#| out.width: 100%
-#| echo: false
-include_graphics("img/lineups_hex_annotate.png", error = FALSE)
-```
-
-:::
-
-:::
-
----
-
-## RQ
-
-### Lineup as informal test statistic
-
-<br>
-
-:::{.columns}
-
-::: {.column width="50%"}
-
-<div style="font-size:0.5em;"> 
-
-```{r}
-#| eval: false
-#| echo: true
-permuted_data <- model |>
-  mutate(
-    resids=map(values, ~.x |>  select(.resid))
+    is_ksi=accident_severity!="Slight",
+    year=lubridate::year(date)
+  ) |> 
+  filter(year==2019,
+         local_authority_district %in% c("Bristol, City of",
+                                         "Sheffield", "Bromsgrove", "Cotswold")
   ) |>
-  select(-c(model, values)) |>
-  unnest(cols=c(data,resids)) |>
-  select(pcon19cd, .resid) |>
-  permutations(
-    permute=c(pcon19cd), times=8, apparent=TRUE
-    ) |>
-  mutate(data=map(splits, ~rsample::analysis(.))) |>
-  select(id, data) |>
-  unnest(cols=data)
+  select(local_authority_district, is_ksi) |> 
+  nest(data=-local_authority_district) |> 
+  mutate(la_boot=map(data, bootstraps, times=1000, apparent=TRUE)) |> 
+  select(-data) |> 
+  unnest(la_boot) |> 
+  mutate(
+    is_ksi=map(splits, ~ analysis(.) |>  pull(is_ksi)),
+    ksi_rate=map_dbl(is_ksi, ~mean(.x)),
+    sample_size=map_dbl(is_ksi, ~length(.x))
+  ) |> 
+  select(-c(splits, is_ksi))
 ```
 
 </div>
@@ -1874,11 +693,30 @@ permuted_data <- model |>
 
 ::: {.column width="50%"}
 
+<div style="font-size:0.5em;"> 
+
 ```{r}
-#| out.width: 100%
-#| echo: false
-include_graphics("img/lineups_hex_annotate.png", error = FALSE)
+#| eval: false
+#| echo: true
+> rate_boots
+# A tibble: 4,004 × 4
+   local_authority_district id            ksi_rate sample_size
+   <chr>                    <chr>            <dbl>       <dbl>
+ 1 Sheffield                Bootstrap0001    0.504         248
+ 2 Sheffield                Bootstrap0002    0.536         248
+ 3 Sheffield                Bootstrap0003    0.512         248
+ 4 Sheffield                Bootstrap0004    0.472         248
+ 5 Sheffield                Bootstrap0005    0.435         248
+ 6 Sheffield                Bootstrap0006    0.472         248
+ 7 Sheffield                Bootstrap0007    0.492         248
+ 8 Sheffield                Bootstrap0008    0.5           248
+ 9 Sheffield                Bootstrap0009    0.496         248
+10 Sheffield                Bootstrap0010    0.488         248
+# ℹ 3,994 more rows
+# ℹ Use `print(n = ...)` to see more rows
 ```
+
+</div>
 
 :::
 
@@ -1886,40 +724,41 @@ include_graphics("img/lineups_hex_annotate.png", error = FALSE)
 
 ---
 
-## RQ
 
-### Lineup as informal test statistic
 
-<br>
+<br><br>
+
 
 :::{.columns}
 
 ::: {.column width="50%"}
 
-<div style="font-size:0.45em;"> 
+<div style="font-size:0.5em;"> 
 
 ```{r}
 #| eval: false
 #| echo: true
-max_resid <- max(abs(permuted_data$.resid))
-ids <- permuted_data |> pull(id) |> unique()
-
-cons_hex |>
-  select(cons_code, region) |>
-  inner_join(
-    permuted_data, 
-    by=c("cons_code"="pcon19cd")
-    ) |>
-  mutate(id=factor(id, levels=sample(ids))) |>
-  ggplot() +
-  geom_sf(aes(fill=.resid), colour="#636363", linewidth=0.05)+
-  geom_sf(
-    data=. %>% group_by(region) %>% summarise(),
-    colour="#636363", linewidth=0.2, fill="transparent"
-    )+
-  facet_wrap(~id, ncol=3) +
-  scale_fill_distiller(palette="RdBu", direction=1,
-                       limits=c(-max_resid, max_resid), guide="none")
+#| code-line-numbers: "1,2,3,4,5,6,7,8,9,10"
+rate_boots <- ped_veh |> 
+  mutate(
+    is_ksi=accident_severity!="Slight",
+    year=lubridate::year(date)
+  ) |> 
+  filter(year==2019,
+         local_authority_district %in% c("Bristol, City of",
+                                         "Sheffield", "Bromsgrove", "Cotswold")
+  ) |>
+  select(local_authority_district, is_ksi) |> 
+  nest(data=-local_authority_district) |> 
+  mutate(la_boot=map(data, bootstraps, times=1000, apparent=TRUE)) |> 
+  select(-data) |> 
+  unnest(la_boot) |> 
+  mutate(
+    is_ksi=map(splits, ~ analysis(.) |>  pull(is_ksi)),
+    ksi_rate=map_dbl(is_ksi, ~mean(.x)),
+    sample_size=map_dbl(is_ksi, ~length(.x))
+  ) |> 
+  select(-c(splits, is_ksi))
 ```
 
 </div>
@@ -1928,11 +767,302 @@ cons_hex |>
 
 ::: {.column width="50%"}
 
+<div style="font-size:0.5em;"> 
+
 ```{r}
-#| out.width: 100%
-#| echo: false
-include_graphics("img/lineups_hex_annotate.png", error = FALSE)
+#| eval: false
+#| echo: true
+> rate_boots
+    local_authority_district is_ksi
+1                  Sheffield   TRUE
+2                  Sheffield   TRUE
+3                  Sheffield  FALSE
+4                  Sheffield  FALSE
+5                  Sheffield  FALSE
+6                  Sheffield  FALSE
+7                  Sheffield   TRUE
+8                  Sheffield   TRUE
+9                  Sheffield   TRUE
+10                 Sheffield   TRUE
+11                 Sheffield  FALSE
+12                 Sheffield  FALSE
 ```
+
+</div>
+
+:::
+
+:::
+
+---
+
+<br><br>
+
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "11"
+rate_boots <- ped_veh |> 
+  mutate(
+    is_ksi=accident_severity!="Slight",
+    year=lubridate::year(date)
+  ) |> 
+  filter(year==2019,
+         local_authority_district %in% c("Bristol, City of",
+                                         "Sheffield", "Bromsgrove", "Cotswold")
+  ) |>
+  select(local_authority_district, is_ksi) |> 
+  nest(data=-local_authority_district) |> 
+  mutate(la_boot=map(data, bootstraps, times=1000, apparent=TRUE)) |> 
+  select(-data) |> 
+  unnest(la_boot) |> 
+  mutate(
+    is_ksi=map(splits, ~ analysis(.) |>  pull(is_ksi)),
+    ksi_rate=map_dbl(is_ksi, ~mean(.x)),
+    sample_size=map_dbl(is_ksi, ~length(.x))
+  ) |> 
+  select(-c(splits, is_ksi))
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+> rate_boots
+# A tibble: 4 × 2
+  local_authority_district data              
+  <chr>                    <list>            
+1 Sheffield                <tibble [248 × 1]>
+2 Bromsgrove               <tibble [27 × 1]> 
+3 Bristol, City of         <tibble [228 × 1]>
+4 Cotswold                 <tibble [19 × 1]> 
+```
+
+</div>
+
+:::
+
+:::
+
+---
+
+<br><br>
+
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "12"
+rate_boots <- ped_veh |> 
+  mutate(
+    is_ksi=accident_severity!="Slight",
+    year=lubridate::year(date)
+  ) |> 
+  filter(year==2019,
+         local_authority_district %in% c("Bristol, City of",
+                                         "Sheffield", "Bromsgrove", "Cotswold")
+  ) |>
+  select(local_authority_district, is_ksi) |> 
+  nest(data=-local_authority_district) |> 
+  mutate(la_boot=map(data, bootstraps, times=1000, apparent=TRUE)) |> 
+  select(-data) |> 
+  unnest(la_boot) |> 
+  mutate(
+    is_ksi=map(splits, ~ analysis(.) |>  pull(is_ksi)),
+    ksi_rate=map_dbl(is_ksi, ~mean(.x)),
+    sample_size=map_dbl(is_ksi, ~length(.x))
+  ) |> 
+  select(-c(splits, is_ksi))
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+> rate_boots
+# A tibble: 4 × 3
+  local_authority_district data               la_boot           
+  <chr>                    <list>             <list>            
+1 Sheffield                <tibble [248 × 1]> <boot [1,001 × 2]>
+2 Bromsgrove               <tibble [27 × 1]>  <boot [1,001 × 2]>
+3 Bristol, City of         <tibble [228 × 1]> <boot [1,001 × 2]>
+4 Cotswold                 <tibble [19 × 1]>  <boot [1,001 × 2]>
+```
+
+</div>
+
+:::
+
+:::
+
+---
+
+
+<br><br>
+
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "13,14"
+rate_boots <- ped_veh |> 
+  mutate(
+    is_ksi=accident_severity!="Slight",
+    year=lubridate::year(date)
+  ) |> 
+  filter(year==2019,
+         local_authority_district %in% c("Bristol, City of",
+                                         "Sheffield", "Bromsgrove", "Cotswold")
+  ) |>
+  select(local_authority_district, is_ksi) |> 
+  nest(data=-local_authority_district) |> 
+  mutate(la_boot=map(data, bootstraps, times=1000, apparent=TRUE)) |> 
+  select(-data) |> 
+  unnest(la_boot) |> 
+  mutate(
+    is_ksi=map(splits, ~ analysis(.) |>  pull(is_ksi)),
+    ksi_rate=map_dbl(is_ksi, ~mean(.x)),
+    sample_size=map_dbl(is_ksi, ~length(.x))
+  ) |> 
+  select(-c(splits, is_ksi))
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+> rate_boots
+# A tibble: 4,004 × 3
+   local_authority_district splits           id           
+   <chr>                    <list>           <chr>        
+ 1 Sheffield                <split [248/89]> Bootstrap0001
+ 2 Sheffield                <split [248/93]> Bootstrap0002
+ 3 Sheffield                <split [248/91]> Bootstrap0003
+ 4 Sheffield                <split [248/92]> Bootstrap0004
+ 5 Sheffield                <split [248/92]> Bootstrap0005
+ 6 Sheffield                <split [248/92]> Bootstrap0006
+ 7 Sheffield                <split [248/90]> Bootstrap0007
+ 8 Sheffield                <split [248/92]> Bootstrap0008
+ 9 Sheffield                <split [248/83]> Bootstrap0009
+10 Sheffield                <split [248/97]> Bootstrap0010
+# ℹ 3,994 more rows
+# ℹ Use `print(n = ...)` to see more rows
+```
+
+</div>
+
+:::
+
+:::
+
+---
+
+
+<br><br>
+
+
+:::{.columns}
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "15,16,17,18,19,20"
+rate_boots <- ped_veh |> 
+  mutate(
+    is_ksi=accident_severity!="Slight",
+    year=lubridate::year(date)
+  ) |> 
+  filter(year==2019,
+         local_authority_district %in% c("Bristol, City of",
+                                         "Sheffield", "Bromsgrove", "Cotswold")
+  ) |>
+  select(local_authority_district, is_ksi) |> 
+  nest(data=-local_authority_district) |> 
+  mutate(la_boot=map(data, bootstraps, times=1000, apparent=TRUE)) |> 
+  select(-data) |> 
+  unnest(la_boot) |> 
+  mutate(
+    is_ksi=map(splits, ~ analysis(.) |>  pull(is_ksi)),
+    ksi_rate=map_dbl(is_ksi, ~mean(.x)),
+    sample_size=map_dbl(is_ksi, ~length(.x))
+  ) |> 
+  select(-c(splits, is_ksi))
+```
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+<div style="font-size:0.5em;"> 
+
+```{r}
+#| eval: false
+#| echo: true
+> rate_boots
+# A tibble: 4,004 × 4
+   local_authority_district id            ksi_rate sample_size
+   <chr>                    <chr>            <dbl>       <dbl>
+ 1 Sheffield                Bootstrap0001    0.528         248
+ 2 Sheffield                Bootstrap0002    0.448         248
+ 3 Sheffield                Bootstrap0003    0.484         248
+ 4 Sheffield                Bootstrap0004    0.524         248
+ 5 Sheffield                Bootstrap0005    0.464         248
+ 6 Sheffield                Bootstrap0006    0.484         248
+ 7 Sheffield                Bootstrap0007    0.512         248
+ 8 Sheffield                Bootstrap0008    0.552         248
+ 9 Sheffield                Bootstrap0009    0.472         248
+10 Sheffield                Bootstrap0010    0.484         248
+# ℹ 3,994 more rows
+# ℹ Use `print(n = ...)` to see more rows
+```
+
+</div>
 
 :::
 
@@ -1941,41 +1071,34 @@ include_graphics("img/lineups_hex_annotate.png", error = FALSE)
 
 ---
 
-## RQ
 
-### Lineup as informal test statistic
 
-<br>
+<br><br>
+
 
 :::{.columns}
 
 ::: {.column width="50%"}
 
-<div style="font-size:0.45em;"> 
+<div style="font-size:0.5em;"> 
 
 ```{r}
 #| eval: false
 #| echo: true
-#| code-line-numbers: "1,12,18,19"
-max_resid <- max(abs(permuted_data$.resid))
-ids <- permuted_data |> pull(id) |> unique()
-
-cons_hex |>
-  select(cons_code, region) |>
-  inner_join(
-    permuted_data, 
-    by=c("cons_code"="pcon19cd")
-    ) |>
-  mutate(id=factor(id, levels=sample(ids))) |>
-  ggplot() +
-  geom_sf(aes(fill=.resid), colour="#636363", linewidth=0.05)+
-  geom_sf(
-    data=. %>% group_by(region) %>% summarise(),
-    colour="#636363", linewidth=0.2, fill="transparent"
-    )+
-  facet_wrap(~id, ncol=3) +
-  scale_fill_distiller(palette="RdBu", direction=1,
-                       limits=c(-max_resid, max_resid), guide="none")
+rate_boots |>
+  group_by(local_authority_district) |>
+  mutate(std.error=sd(ksi_rate)) |>
+  filter(id=="Apparent") |>
+  ggplot(
+    aes(x=reorder(local_authority_district, ksi_rate), 
+        y=ksi_rate)
+    ) +
+  stat_gradientinterval(
+    aes(dist = dist_normal(mu=ksi_rate, sigma=std.error)),
+    point_size = 1.5
+  ) +
+  labs(x="local authority", y="ksi rate") +
+  coord_flip()
 ```
 
 </div>
@@ -1984,67 +1107,12 @@ cons_hex |>
 
 ::: {.column width="50%"}
 
-```{r}
-#| out.width: 100%
-#| echo: false
-include_graphics("img/lineups_hex_annotate.png", error = FALSE)
-```
-
-:::
-
-:::
-
-
----
-
-## RQ
-
-### Lineup as informal test statistic
-
-<br>
-
-:::{.columns}
-
-::: {.column width="50%"}
-
-<div style="font-size:0.45em;"> 
-
-```{r}
-#| eval: false
-#| echo: true
-#| code-line-numbers: "2,10,17"
-max_resid <- max(abs(permuted_data$.resid))
-ids <- permuted_data |> pull(id) |> unique()
-
-cons_hex |>
-  select(cons_code, region) |>
-  inner_join(
-    permuted_data, 
-    by=c("cons_code"="pcon19cd")
-    ) |>
-  mutate(id=factor(id, levels=sample(ids))) |>
-  ggplot() +
-  geom_sf(aes(fill=.resid), colour="#636363", linewidth=0.05)+
-  geom_sf(
-    data=. %>% group_by(region) %>% summarise(),
-    colour="#636363", linewidth=0.2, fill="transparent"
-    )+
-  facet_wrap(~id, ncol=3) +
-  scale_fill_distiller(palette="RdBu", direction=1,
-                       limits=c(-max_resid, max_resid), guide="none")
-```
-```
-
-</div>
-
-:::
-
-::: {.column width="50%"}
 
 ```{r}
 #| out.width: 100%
 #| echo: false
-include_graphics("img/lineups_hex_annotate.png", error = FALSE)
+
+include_graphics("img/selected_uncertainty_slides.png", error = FALSE)
 ```
 
 :::
