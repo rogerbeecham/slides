@@ -1,0 +1,356 @@
+---
+title: "<span style='font-size:1.25em;'>INFUZE </span><br> <span style='font-size:.9em; font-weight: 500'>Kick-Off Meeting</span><br><span style='font-size:.7em; font-weight: 500'>3rd-4th September 2024</span>"
+subtitle: "<br><span style='color:#525252; font-size:1.5em;'>Roger Beecham</span><br><span style='color:#525252; font-size:.9em;'>-- School of Geography </span> <br> <span style='color:#525252; font-size:.9em;'>-- Leeds Institute for Data Analytics</span>"
+format: 
+   revealjs:
+     transition: fade
+     theme: theme/slides-theme.scss
+---
+
+
+
+::: {style="font-size: 180%;"}
+
+
+1. My selected paper
+
+<br>
+
+2. How my work relates to INFUZE
+
+
+:::
+
+---
+
+::: {style="font-size: 180%;"}
+
+
+
+1. My selected paper
+
+<br>
+
+2. How ~~my work~~ datavis relates to INFUZE
+
+
+:::
+
+---
+
+
+::: {.columns}
+
+::: {.column width="20%"}
+
+<br>
+
+::: {style="font-size: 500%;"}
+1.
+:::
+
+:::
+
+::: {.column width="70%"}
+
+<br>
+
+::: {.fragment .fade-in style="font-size: 170%;"}
+
+![](img/goodwin_creative.png){fig-align="center"}
+
+
+:::
+
+:::
+
+:::
+
+
+
+---
+
+::: {.columns}
+
+::: {.column width="20%"}
+
+<br>
+
+::: {style="font-size: 500%;"}
+1.
+:::
+
+:::
+
+::: {.column width="60%"}
+
+
+![](img/beecham_design1.png){fig-align="center"}
+![](img/beecham_design2.png){.absolute top=310 left=250 width="50%"}
+
+:::
+
+:::
+
+
+
+---
+
+
+::: {.columns}
+
+::: {.column width="20%"}
+
+<br>
+
+::: {style="font-size: 500%;"}
+1.
+:::
+
+:::
+
+::: {.column width="80%"}
+
+::: {style="font-size: 170%;"}
+
+<br>
+
+> Models (ABMs) ...<br>
+> are not about **product** but **encoding** and **communicating thought**  
+
+:::
+
+
+:::
+
+:::
+
+
+---
+
+::: {.columns}
+
+::: {.column width="20%"}
+
+<br>
+
+::: {style="font-size: 500%;"}
+2.
+:::
+
+:::
+
+::: {.column width="80%"}
+
+<br>
+
+::: {.fragment .fade-in style="font-size: 170%;"}
+
+> Datavis can ...<br>
+> expose **complex structure** <br>
+> and **relations** <br>
+
+:::
+
+:::
+
+:::
+
+---
+
+
+![](img/bikeshare2.png){fig-align="left" height=100}
+
+::: {.column width="80%"}
+![](img/schema.png){fig-align="left"}
+:::
+
+---
+
+
+
+::: {.column width="80%"}
+
+
+![](img/flows.png){fig-align="center"}
+:::
+
+
+---
+
+::: {.columns}
+
+::: {.column width="20%"}
+
+<br>
+
+::: {style="font-size: 500%;"}
+2.
+:::
+
+:::
+
+::: {.column width="80%"}
+
+<br>
+
+::: {.fragment .fade-in style="font-size: 170%;"}
+
+> Datavis can ...<br>
+> **provoke intuition** about statistical concepts  <br>
+> -- **risk** and **uncertainty** <br>
+> derived from models
+
+:::
+
+:::
+
+:::
+
+
+---
+
+<br>
+
+::: {.column width="100%"}
+![](img/dot2.png){fig-align="center"}
+:::
+
+---
+
+
+---
+
+<br>
+
+::: {.column width="100%"}
+![](img/dot3.png){fig-align="center"}
+:::
+
+---
+
+<br>
+
+::: {.column width="100%"}
+![](img/dot4.png){fig-align="center"}
+:::
+
+---
+
+<br>
+
+::: {.column width="100%"}
+![](img/dot5.png){fig-align="center"}
+:::
+
+
+---
+
+<br>
+
+::: {.column width="100%"}
+![](img/dot6.png){fig-align="center"}
+:::
+
+---
+
+
+
+<br>
+
+::: {.column width="100%"}
+![](img/waffle_ped.png){fig-align="center"}
+:::
+
+
+---
+
+
+<br>
+
+::: {.column width="80%"}
+![](img/risk_theatre_ped.png){fig-align="center"}
+:::
+
+
+---
+
+
+
+
+---
+
+::: {.columns}
+
+
+::: {.column width="20%"}
+
+<br>
+
+::: {style="font-size: 500%;"}
+2.
+:::
+
+:::
+
+::: {.column width="80%"}
+
+<br><br>
+
+::: {.fragment .fade-in style="font-size: 170%;"}
+
+> **Geography** ...<br>
+> is an important <br> unit of analysis <br>
+
+:::
+
+:::
+
+:::
+
+
+--- 
+
+![](img/anim_real_grid.gif){.absolute top=95 left=190 width="70%"}
+
+::: {.fragment .fade-in transition-speed="slow"}
+![](img/rivers_grid.png){.absolute top=90 left=210 width="66%"}
+:::
+
+::: {.fragment .fade-in transition-speed="slow"}
+![](img/t.png){.absolute top=122 left=44 width="79%"}
+
+:::
+
+::: {.fragment .fade-in transition-speed="slow"}
+![](img/t.png){.absolute top=122 left=44 width="79%"}
+
+:::
+
+---
+
+![](img/2021_comp.png){.absolute top=115 left=10 width="80%"}
+
+---
+
+
+
+---
+
+::: {.columns}
+
+
+::: {.column width="40%"}
+
+
+::: {style="font-size: 1300%"}
+
+?
+
+:::
+
+:::
+
+:::
+
+
