@@ -66,7 +66,23 @@ format:
 
 :::
 
+::: {.notes}
 
+WHY? 
+
+About exploring spacefor *shifting consumption behaviours*.
+Tools for allowing analysts to explore individualised consumption -- by individual, by appliance -- profile usage
+From here, explore different futures by growing / reducing consumption at different periouds.  
+
+
+Visual interfaces to explore what-if scenarios -- remodelling of consumption patterns. 
+
+Engagement of experts in analysis leads to successful, novel and effective solutions.
+
+Demand Horizons : individualised usage profiles / Consumption signatures / Ownership groups 
+
+
+:::
 
 ---
 
@@ -311,6 +327,9 @@ format:
 
 --- 
 
+### `gridmappr`  
+
+
 ![](img/anim_real_grid.gif){.absolute top=95 left=190 width="70%"}
 
 ::: {.fragment .fade-in transition-speed="slow"}
@@ -328,6 +347,8 @@ format:
 :::
 
 ---
+
+### `gridmappr`  
 
 ![](img/2021_comp.png){.absolute top=115 left=10 width="80%"}
 
