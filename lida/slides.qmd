@@ -1,6 +1,6 @@
 ---
-title: "<span style='font-size:.9em; font-family: Iosevka;'><br> Data Science @ UoL</span>"
-subtitle: "<span style='font-size:1.5em;'>An introduction to LIDA and ATI</span>"
+title: "<span style='font-size:.7em;'><br> Health Foundation visit to University of Leeds </span>"
+subtitle: "<span style='font-size:1.5em;'>An introduction to Leeds Institute for Data Analytics</span>"
 #author: "<span style='color:#d03231;'><a href='https://roger-beecham.com'>Roger Beecham</a></span>"
 format: 
    revealjs:
@@ -16,7 +16,7 @@ format:
 
 <br> 
 
-> *The home of Data Science and AI at University of Leeds*
+> *A multidisciplinary institute for Data Analytics and AI at University of Leeds*
 
 
 ::: {.columns}
@@ -75,7 +75,8 @@ Extension of stuff that happens in Faculties (hence we are Faculty funded)
 
  * <span style='font-size:0.7em;'> Health </span>
  * <span style='font-size:0.7em;'> Societies </span> 
-* <span style='font-size:0.7em;'> **Environment** | </span> <span style='font-size:0.5em; font-family: Iosevka;'> https://sciml-leeds.github.io/ </span>
+* <span style='font-size:0.7em;'> Environment 
+ * <span style='font-size:0.7em;'> Food </span> 
 
 
 
@@ -146,68 +147,6 @@ DSDP :
 
 ---
 
-
-
-
-## LIDA Data Analytics Team
-
-
-::: {.column width="80%"}
-![](img/dat.jpg){fig-align="center"}
-:::
-
-::: {.notes}
-
-DAT : 
-
-* shifting to modern, reproducible workflows 
-* version control with GIT, advice and work on curating datasets as data products 
-* Experts in data governance : can wite DAT time into grants
-* RSE time 
-
-
-
-A collaborative physical space and hub
-Professional services staff in operations and communications
-Regular data science seminars on a wide variety of methods and topics
-The Data Analytics Team (DAT) are our team of specialists in data management, data analysis, software engineering and information security.
-Secure processes to support your data analytics research throughout the project lifecycle. 
-Secure physical data environment and IT infrastructure for the storage and processing of pseudonymised and personally identifiable data. 
-6x safe rooms to enable the secure processing of PII and ONS SRS data. 
-
-:::
-
----
-
-## Leeds Analytic Secure Environment for Research (LASER)
-
-
-::: {.columns}
-
-::: {.column width="50%"}
-<br>
-![](img/laser.png){fig-align="center"}
-:::
-
-::: {.column width="50%"}
-
-<span style='font-size:0.8em;'> *Cloud based (Microsoft Azure) platform hosted in LIDA  hosting data that are highly sensitive, personally identifiable or commercially sensitive. <br><br>Follows high security standards -- ISO27001 and The NHS Data Protection Toolkit*</span>
-
-
-:::
-
-:::
-
-::: {.notes}
-LIDA provides expertise in data analytics to help colleagues from all faculties to advance knowledge through internationally outstanding research and education in interdisciplinary data science and artificial intelligence.
-
-The Leeds Analytics Secure Environment for Research (LASER) is a cutting edge cloud based (Microsoft Azure) platform hosted in LIDA, designed to empower researchers and students to drive data analytics excellence at the University.
-
-LIDA’s research environment – including both secure offices and LASER platform – securely hosts data that are highly sensitive, personally identifiable or commercially sensitive. This capability aids the development of research that can make a difference to our local communities and the world around us.
-:::
-
----
-
 ## LIDA Team
 
 <br>
@@ -249,7 +188,70 @@ LIDA’s research environment – including both secure offices and LASER platfo
 ---
 
 
-## How can LIDA help you?
+
+
+## Leeds Analytic Secure Environment for Research (LASER)
+
+
+::: {.columns}
+
+::: {.column width="50%"}
+<br>
+![](img/laser.png){fig-align="center"}
+:::
+
+::: {.column width="50%"}
+
+<span style='font-size:0.8em;'> *Cloud based (Microsoft Azure) platform hosted in LIDA  hosting data that are highly sensitive, personally identifiable or commercially sensitive. <br><br>Follows high security standards -- ISO27001 and The NHS Data Protection Toolkit*</span>
+
+
+:::
+
+:::
+
+::: {.notes}
+LIDA provides expertise in data analytics to help colleagues from all faculties to advance knowledge through internationally outstanding research and education in interdisciplinary data science and artificial intelligence.
+
+The Leeds Analytics Secure Environment for Research (LASER) is a cutting edge cloud based (Microsoft Azure) platform hosted in LIDA, designed to empower researchers and students to drive data analytics excellence at the University.
+
+LIDA’s research environment – including both secure offices and LASER platform – securely hosts data that are highly sensitive, personally identifiable or commercially sensitive. This capability aids the development of research that can make a difference to our local communities and the world around us.
+:::
+
+---
+
+## LIDA Data Analytics Team
+
+
+::: {.column width="80%"}
+![](img/dat.jpg){fig-align="center"}
+:::
+
+::: {.notes}
+
+DAT : 
+
+* shifting to modern, reproducible workflows 
+* version control with GIT, advice and work on curating datasets as data products 
+* Experts in data governance : can wite DAT time into grants
+* RSE time 
+
+
+
+A collaborative physical space and hub
+Professional services staff in operations and communications
+Regular data science seminars on a wide variety of methods and topics
+The Data Analytics Team (DAT) are our team of specialists in data management, data analysis, software engineering and information security.
+Secure processes to support your data analytics research throughout the project lifecycle. 
+Secure physical data environment and IT infrastructure for the storage and processing of pseudonymised and personally identifiable data. 
+6x safe rooms to enable the secure processing of PII and ONS SRS data. 
+
+:::
+
+---
+
+
+
+<!-- ## LIDA Capacity
 
 <br><br><br>
 
@@ -304,7 +306,7 @@ LIDA’s research environment – including both secure offices and LASER platfo
 
 <!-- ::: -->
 
-::: {.notes}
+<!-- ::: {.notes}
 
 LIDA absolutely not meant to compete with, or detract from R&I that happens within schools.
 
@@ -318,12 +320,12 @@ Selfish interest in more SEE collaboratiob, via Environment community
 
 * Rothamsted Research North Wyke Farm Data Platform
 * UoL Research Farm -- Data Platform / sharing
-:::
+:::  -->
 
 
 ---
 
-## How can LIDA help you?
+## LIDA Capacity
 
 ::: {style="font-size: 80%;"}
 :::
@@ -377,7 +379,19 @@ As well as Communities and Programmes, could think about more dedicated SEE-rela
 
 ---
 
-## How can LIDA help you?
+## LIDA Activity and Health
+
+
+---
+
+![](img/case_studies.png){fig-align="center"}
+
+---
+
+![](img/yorkshire_sde.png){fig-align="center"}
+
+
+<!-- ## How can LIDA help you?
 
 ::: {style="font-size: 80%;"}
 
@@ -409,7 +423,7 @@ As well as Communities and Programmes, could think about more dedicated SEE-rela
 
 ::: {.notes}
 
-:::
+::: -->
 
 <!-- --- -->
 
@@ -507,7 +521,7 @@ As well as Communities and Programmes, could think about more dedicated SEE-rela
 
 ::: {style="font-size: 80%; text-align: right;"}
 
-<span style='font-size:1.8em; font-family: Iosevka;'>**Data Science @ UoL**</span><br>
-<span style='font-size:1.5em;'>**An introduction to LIDA and ATI**</span>
+<span style='font-size:1.8em; font-family: Iosevka;'>**Data Science and AI @ UoL**</span><br>
+<span style='font-size:1.5em;'>**An introduction to LIDA **</span>
 
 :::
