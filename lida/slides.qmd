@@ -1,7 +1,6 @@
 ---
 title: "<span style='font-size:.7em;'><br> Health Foundation visit to University of Leeds </span>"
 subtitle: "<span style='font-size:1.5em;'>An introduction to Leeds Institute for Data Analytics</span>"
-#author: "<span style='color:#d03231;'><a href='https://roger-beecham.com'>Roger Beecham</a></span>"
 format: 
    revealjs:
      transition: fade
@@ -379,7 +378,7 @@ As well as Communities and Programmes, could think about more dedicated SEE-rela
 
 ---
 
-## LIDA Activity and Health
+# LIDA Activity and Health
 
 
 ---
