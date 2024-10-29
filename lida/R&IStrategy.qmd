@@ -93,8 +93,8 @@ format:
 
 * 0930 -- 1000 | Introducing LIDA R&I Strategy 2024–2029
 * 1000 -- 1045 | **LIDA Communities and Programmes**
-  + **What your Community/Programme is**
-  + **What your Community/Programme could be**
+  + What your Community/Programme is
+  + What your Community/Programme could be
 * 1045 -- 1100 | Break
 * 1100 -- 1145 | Breakouts with C&P Leads
 * 1145 -- 1200 | Break
@@ -156,6 +156,10 @@ countdown::countdown(
 ---
 
 ## Agenda
+
+::: {style="text-align: right;"}
+`https://t.ly/utZHw`
+:::
 
 ::: {style="font-size: 85%;"}
 
