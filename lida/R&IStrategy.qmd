@@ -27,9 +27,42 @@ format:
 
 ---
 
+![](img/front.png){.absolute top=55 left=0 width="35%"}
+![](img/summary_title.png){.absolute top=0 left=420 width="50%"}
+
+::: {.columns}
+
+::: {.column width="40%"}
+
+
+:::
+
+::: {.column width="60%"}
+
+
+::: {style="font-size: 65%;"}
+
+<br><br><br><br>
+
+**Research and Innovation**
+
+* Produce world-class cross disciplinary research.
+* Diversify & increase data science & AI research income.
+* Deliver impactful research & innovation.
+* Develop, support & retain an inclusive research community.
+
+:::
+
+:::
+
+:::
+
+---
+
 
 ![](img/front.png){.absolute top=55 left=0 width="35%"}
 ![](img/offer_r&I.png){.absolute top=0 left=420 width="50%"}
+
 
 ---
 
@@ -48,6 +81,40 @@ format:
 ![](img/table_aim.png){.absolute top=90 left=320 width="75%"}
 ![](img/table_1.png){.absolute top=160 left=320 width="75%"}
 
+
+---
+
+![](img/front.png){.absolute top=55 left=0 width="30%"}
+
+::: {.columns}
+
+::: {.column width="32%"}
+
+
+:::
+
+::: {.column width="68%"}
+
+
+::: {style="font-size: 75%;"}
+
+<br><br>
+
+**Strategic Aim 1** <br> *Produce world-class cross disciplinary research*
+
+:::
+
+::: {style="font-size: 65%;"}
+
+Scoping to characterise **what makes data-driven research world-leading and specify a blueprint for successful data science and Al research**. In-focus will be **composition of academic teams, expert partners and stakeholder organisations, and output types produced** - fundamental papers, software tools, datasets
+
+:::
+
+:::
+
+:::
+
+
 ---
 
 ![](img/front.png){.absolute top=55 left=0 width="30%"}
@@ -57,13 +124,112 @@ format:
 ---
 
 ![](img/front.png){.absolute top=55 left=0 width="30%"}
+
+::: {.columns}
+
+::: {.column width="32%"}
+
+
+:::
+
+::: {.column width="68%"}
+
+
+::: {style="font-size: 75%;"}
+
+<br><br>
+
+**Strategic Aim 2** <br> *Diversify and increase DS&AI research income*
+
+:::
+
+::: {style="font-size: 65%;"}
+
+Develop **new models** for generating and increasing data science and AI research income, working **with RIS**.
+
+:::
+
+:::
+
+:::
+
+---
+
+![](img/front.png){.absolute top=55 left=0 width="30%"}
 ![](img/table_aim.png){.absolute top=90 left=320 width="75%"}
 ![](img/table_3.png){.absolute top=160 left=320 width="75%"}
 ---
 
 ![](img/front.png){.absolute top=55 left=0 width="30%"}
+
+::: {.columns}
+
+::: {.column width="32%"}
+
+
+:::
+
+::: {.column width="68%"}
+
+
+::: {style="font-size: 75%;"}
+
+<br><br>
+
+**Strategic Aim 3** <br> *Deliver impactful research and innovation*
+
+:::
+
+::: {style="font-size: 65%;"}
+
+Identify **exemplars** of impact-in-the-small and impact-in-the-large, from **applied** and **underpinning** data science **disciplines**;
+
+Identify key and emerging **research agendas, technologies and methods in modern data science**, specialised to research discipline.
+
+:::
+
+:::
+
+:::
+
+
+---
+
+
+![](img/front.png){.absolute top=55 left=0 width="30%"}
 ![](img/table_aim.png){.absolute top=90 left=320 width="75%"}
 ![](img/table_4.png){.absolute top=160 left=320 width="75%"}
+---
+
+![](img/front.png){.absolute top=55 left=0 width="30%"}
+
+::: {.columns}
+
+::: {.column width="32%"}
+
+
+:::
+
+::: {.column width="68%"}
+
+
+::: {style="font-size: 75%;"}
+
+<br><br>
+
+**Strategic Aim 4** <br> *Develop, support and retain an inclusive research community*
+
+:::
+
+::: {style="font-size: 65%;"}
+
+Attract and nurture LIDA researchers. Proactively encourage new and established staff to partake in LIDA research. Provide guidance and career support.
+
+:::
+
+:::
+
+:::
 
 ---
 
