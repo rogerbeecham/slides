@@ -1,6 +1,6 @@
 ---
 title: "<span style='font-size:.9em;'><br> LIDA R&I Strategy <br> 2024-2029 </span>"
-subtitle: "<span style='font-size:1.5em;'>Communities & Programmes<br> Planning </span>"
+subtitle: "<span style='font-size:1.5em;'>Community & Programme <br> Planning </span>"
 format: 
    revealjs:
      transition: fade
@@ -12,6 +12,15 @@ format:
 ---
 
 ![](img/front.png){.absolute top=55 left=0 width="35%"}
+
+
+::: {.notes}
+
+
+Strategy motivating this event
+
+
+:::
 
 ---
 
@@ -57,8 +66,56 @@ format:
 
 :::
 
+::: {.notes}
+
+Deliver: great work ... that is funded ... and has impact ... do so through community.
+
+
+:::
+
 ---
 
+
+![](img/front.png){.absolute top=55 left=0 width="35%"}
+![](img/summary_title.png){.absolute top=0 left=420 width="50%"}
+
+::: {.columns}
+
+::: {.column width="40%"}
+
+
+:::
+
+::: {.column width="60%"}
+
+
+::: {style="font-size: 65%;"}
+
+<br><br><br><br>
+
+**Research and Innovation**
+
+* Produce **world-class cross disciplinary research**.
+* Diversify & increase **data science & AI research income**.
+* Deliver **impactful** research & innovation.
+* Develop, support & retain an inclusive **research community**.
+
+:::
+
+:::
+
+:::
+
+::: {.notes}
+
+Deliver: great work ... that is funded ... and has impact ... do so through community.
+
+
+:::
+
+---
+
+<!--
 
 ![](img/front.png){.absolute top=55 left=0 width="35%"}
 ![](img/offer_r&I.png){.absolute top=0 left=420 width="50%"}
@@ -68,11 +125,41 @@ format:
 
 ![](img/front.png){.absolute top=55 left=0 width="35%"}
 ![](img/offer_r&I_hl.png){.absolute top=0 left=420 width="50%"}
-
 ---
+
+-->
+
 
 ![](img/front.png){.absolute top=55 left=0 width="35%"}
 ![](img/table.png){.absolute top=0 left=420 width="50%"}
+
+::: {.notes}
+
+Table sets out objectives to meet this ambition.
+ Left-column of this to drive the agenda for today.
+
+:::
+
+---
+
+
+## Agenda
+
+::: {style="font-size: 85%;"}
+
+* 0930 -- 1000 | Introducing LIDA R&I Strategy 2024–2029
+* 1000 -- 1045 | LIDA Communities and Programmes
+  + What your Community/Programme *is*
+  + What your Community/Programme *could be*
+* 1045 -- 1100 | Break
+* 1100 -- 1145 | **Breakouts with C&P Leads**
+* 1145 -- 1200 | Break
+* 1200 – 1245 | Reporting back 
+* 1245 – 1300 | Outcomes and actions 
+* 1300 – 1400 | Lunch
+ 
+:::
+
 
 ---
 
@@ -111,6 +198,15 @@ Scoping to characterise **what makes data-driven research world-leading and spec
 :::
 
 :::
+
+:::
+
+::: {.notes}
+
+What excellent DS and AI research looks like in your field.
+Shifting, so keen to know what the characteristics of impressive data-driven science is.
+In my domain: about practice, rigour as much as it is stunning empirical / methodological discovery.
+Useful to know what others think.
 
 :::
 
@@ -153,6 +249,17 @@ Develop **new models** for generating and increasing data science and AI researc
 
 :::
 
+::: {.notes}
+
+Scoping out what funding opportunities / grand challenges are out there. 
+Or probably more the conditions that need to start looking for opportuities. 
+Contact networks, partners etc.
+
+
+Beyond this session...
+
+:::
+
 ---
 
 ![](img/front.png){.absolute top=55 left=0 width="30%"}
@@ -182,13 +289,21 @@ Develop **new models** for generating and increasing data science and AI researc
 
 ::: {style="font-size: 65%;"}
 
-Identify **exemplars** of impact-in-the-small and impact-in-the-large, from **applied** and **underpinning** data science **disciplines**;
+Identify **exemplars of impact**, from **applied** and **underpinning data science disciplines**;
 
 Identify key and emerging **research agendas, technologies and methods in modern data science**, specialised to research discipline.
 
 :::
 
 :::
+
+:::
+
+::: {.notes}
+
+Scoping out what impact looks like in your domain / discipline. 
+
+What are those leading discipline doing in terms of research practice. 
 
 :::
 
@@ -231,6 +346,16 @@ Attract and nurture LIDA researchers. Proactively encourage new and established 
 
 :::
 
+
+::: {.notes}
+
+We want it to be natural that people engage in Communities and Programmes because it is the obvious thing to do: offers something beyond their immediate school. 
+
+Useful to hear experience of running these -- and things that we can do to nurture/support researchers.
+
+
+:::
+
 ---
 
 ## Agenda
@@ -248,6 +373,13 @@ Attract and nurture LIDA researchers. Proactively encourage new and established 
 * 1245 – 1300 | Outcomes and actions 
 * 1300 – 1400 | Lunch
  
+:::
+
+
+::: {.notes}
+
+Show folders.
+
 :::
 
 
@@ -324,7 +456,7 @@ countdown::countdown(
 ## Agenda
 
 ::: {style="text-align: right;"}
-`https://t.ly/utZHw`
+`https://t.ly/oy_vX`
 :::
 
 ::: {style="font-size: 85%;"}
