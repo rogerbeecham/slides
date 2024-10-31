@@ -16,8 +16,12 @@ format:
 
 ::: {.notes}
 
+Welcome: R&I Day / morning.
 
-Strategy motivating this event
+Strategy motivating this event.
+Say a little about this.
+But either way, good to get Programmes and Communities together.
+What we want them to be and do -- how we can make them great enablers.
 
 
 :::
@@ -67,6 +71,8 @@ Strategy motivating this event
 :::
 
 ::: {.notes}
+
+These are ambitions for Research.
 
 Deliver: great work ... that is funded ... and has impact ... do so through community.
 
@@ -161,6 +167,13 @@ Table sets out objectives to meet this ambition.
 :::
 
 
+
+::: {.notes}
+
+Emphasise that want this to happen within C&P groups -- and so discipline areas.
+
+:::
+
 ---
 
 
@@ -205,8 +218,10 @@ Scoping to characterise **what makes data-driven research world-leading and spec
 
 What excellent DS and AI research looks like in your field.
 Shifting, so keen to know what the characteristics of impressive data-driven science is.
-In my domain: about practice, rigour as much as it is stunning empirical / methodological discovery.
+In my domain: about practice, rigour as much as it is stunning empirical discovery/ methodological innovation. Or maybe bits of both.
 Useful to know what others think.
+That might present opportunities for spillover / collaboration.
+
 
 :::
 
@@ -251,9 +266,10 @@ Develop **new models** for generating and increasing data science and AI researc
 
 ::: {.notes}
 
-Scoping out what funding opportunities / grand challenges are out there. 
-Or probably more the conditions that need to start looking for opportuities. 
-Contact networks, partners etc.
+Predictable information passing:  scoping out what funding opportunities / grand challenges are out there -- 
+
+Maybe here look at probably more the conditions that need to start actively hitting  opportunities -- maybe useful opportunities for collaboration here 
+-- Contact networks, partners etc.
 
 
 Beyond this session...
@@ -301,7 +317,7 @@ Identify key and emerging **research agendas, technologies and methods in modern
 
 ::: {.notes}
 
-Scoping out what impact looks like in your domain / discipline. 
+Scoping out what impact looks like in your domain / discipline -- this is obvs different depending on discipline.
 
 What are those leading discipline doing in terms of research practice. 
 
@@ -349,7 +365,9 @@ Attract and nurture LIDA researchers. Proactively encourage new and established 
 
 ::: {.notes}
 
-We want it to be natural that people engage in Communities and Programmes because it is the obvious thing to do: offers something beyond their immediate school. 
+Ideally we want people to engage in Communities and Programmes because it is the obvious thing to do: offers something beyond their immediate school. 
+
+Tricky because it takes time to realise benefits.
 
 Useful to hear experience of running these -- and things that we can do to nurture/support researchers.
 
