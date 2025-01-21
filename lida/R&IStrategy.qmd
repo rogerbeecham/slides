@@ -19,9 +19,12 @@ format:
 Welcome: R&I Day / morning.
 
 Strategy motivating this event.
+
 Say a little about this.
+
 But either way, good to get Programmes and Communities together.
-What we want them to be and do -- how we can make them great enablers.
+
+What we want them to be and do -- how we can make them great enablers for your work.
 
 
 :::
@@ -74,7 +77,13 @@ What we want them to be and do -- how we can make them great enablers.
 
 These are ambitions for Research.
 
-Deliver: great work ... that is funded ... and has impact ... do so through community.
+Deliver: great work 
+
+... that is funded 
+
+... and has impact 
+
+... do so through community.
 
 
 :::
@@ -114,7 +123,13 @@ Deliver: great work ... that is funded ... and has impact ... do so through comm
 
 ::: {.notes}
 
-Deliver: great work ... that is funded ... and has impact ... do so through community.
+Deliver: great work 
+
+... that is funded 
+
+... and has impact 
+
+... do so through community.
 
 
 :::
@@ -142,7 +157,8 @@ Deliver: great work ... that is funded ... and has impact ... do so through comm
 ::: {.notes}
 
 Table sets out objectives to meet this ambition.
- Left-column of this to drive the agenda for today.
+ 
+Left-column of this to drive the agenda for today.
 
 :::
 
@@ -217,9 +233,15 @@ Scoping to characterise **what makes data-driven research world-leading and spec
 ::: {.notes}
 
 What excellent DS and AI research looks like in your field.
+
 Shifting, so keen to know what the characteristics of impressive data-driven science is.
-In my domain: about practice, rigour as much as it is stunning empirical discovery/ methodological innovation. Or maybe bits of both.
+
+In my domain: about practice, rigour as much as it is stunning empirical discovery/ methodological innovation. 
+
+Or maybe bits of both.
+
 Useful to know what others think.
+
 That might present opportunities for spillover / collaboration.
 
 
