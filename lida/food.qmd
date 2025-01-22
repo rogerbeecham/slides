@@ -247,68 +247,6 @@ Suport grant writing, comms, data management and governmeance
 
 ---
 
-## LIDA Data Analytics Team
-
-
-::: {.column width="80%"}
-![](img/dat.jpg){fig-align="center"}
-:::
-
-::: {.notes}
-
-DAT : 
-
-* shifting to modern, reproducible workflows 
-* version control with GIT, advice and work on curating datasets as data products 
-* Experts in data governance : can wite DAT time into grants
-* RSE time 
-
-* collaborative physical space and hub
-
-:::
-
----
-
-
-## LIDA Food
-
-
-
-::: {.columns}
-
-::: {.column width="49%"}
-
-<span style='font-size:0.8em;'> -- **Mission** </span>
-
-<span style="font-size:0.8em; text-align=center">
-Use data science and AI to **tackle** the greatest **food system challenges**, from **agriculture** and food **manufacturing** through to **health outcomes** of the population and the planet.</span>
-
-
-:::
-
-::: {.column width="49%"}
-
-<span style='font-size:0.8em;'> -- **Via** </span>
-
-<span style="font-size:0.8em; text-align=center">
-An interdisciplinary community of **industry, gov partners** and **academics** that 
-exploits **existing expertise** and supports **newer researchers**.
-
-
-:::
-
-:::
-
-::: {.notes}
-
-Global Food Environment Institute, University Farm, Agri-Energy Research Group
-
-
-:::
-
-
----
-
 ![](img/front.png){.absolute top=55 left=0 width="35%"}
 ![](img/summary_title.png){.absolute top=0 left=420 width="50%"}
 
@@ -392,6 +330,48 @@ Identify key and emerging **research agendas, technologies and methods in modern
 :::
 
 
+---
+
+
+## LIDA Food
+
+
+
+::: {.columns}
+
+::: {.column width="49%"}
+
+<span style='font-size:0.8em;'> -- **Mission** </span>
+
+<span style="font-size:0.8em; text-align=center">
+Use data science and AI to **tackle** the greatest **food system challenges**, from **agriculture** and food **manufacturing** through to **health outcomes** of the population and the planet.</span>
+
+
+:::
+
+::: {.column width="49%"}
+
+<span style='font-size:0.8em;'> -- **Via** </span>
+
+<span style="font-size:0.8em; text-align=center">
+An interdisciplinary community of **industry, gov partners** and **academics** that 
+exploits **existing expertise** and supports **newer researchers**.
+
+
+:::
+
+:::
+
+::: {.notes}
+
+Global Food Environment Institute, University Farm, Agri-Energy Research Group
+
+
+:::
+
+
+
+
 --- 
 
 
@@ -402,7 +382,7 @@ Identify key and emerging **research agendas, technologies and methods in modern
 
 
 
-::: {style="font-size: 220%; text-align: right;"}
+::: {style="font-size: 250%; text-align: right;"}
 
 LIDA Food
 
