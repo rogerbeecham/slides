@@ -1,0 +1,402 @@
+---
+title: "<span style='font-size:0.8em;'><br><br>Farm Data Workshop</span>"
+subtitle: "<span style='font-size:1.2em;'> -- Introducing LIDA</span>"
+format: 
+   revealjs:
+     transition: fade
+     theme: theme/slides-theme.scss
+     css: theme/style.css
+     footer: '[Roger Beecham](https://roger-beecham.com) | School of Geography | Leeds Institute for Data Analytics'
+     mainfont: Jost
+     logo: "https://comms.leeds.ac.uk/wp-content/uploads/sites/51/2021/04/Visual-identity-section-images--e1618925864440.png"
+---
+
+## Leeds Institute for Data Analytics
+
+<br> 
+
+> *A multidisciplinary institute for Data Analytics and AI at University of Leeds*
+
+
+::: {.columns}
+
+::: {.column width="49%"}
+
+<span style='font-size:0.8em;'> -- **Vision** </span>
+
+ <span style='font-size:0.8em;'> To enhance knowledge and improve well-being and prosperity through internationally outstanding research and education in interdisciplinary data science and artificial intelligence. </span>
+
+
+
+:::
+
+::: {.column width="49%"}
+
+<span style='font-size:0.8em;'> -- **Mission** </span>
+
+<span style="font-size:0.8em; text-align=center">
+The purpose of LIDA is to leverage and develop local, national, and international talent to enable high impact data science research.</span>
+
+
+
+:::
+
+:::
+
+::: footer
+
+
+:::
+
+::: {.notes}
+
+Started up in 2014 by RCUK and UoL.
+Links **coordinating** activity disparate parts of the University.
+Application of ML or AI (computing) in healthcare/environment and/or societies
+Extension of stuff that happens in Faculties (hence we are Faculty funded)
+:::
+
+---   
+
+
+## Leeds Institute for Data Analytics
+
+<br> 
+
+> ...*Where computer scientists, mathematicians and statisticians work with application scientists*
+
+
+::: {.columns}
+
+::: {.column width="49%"}
+
+<span style='font-size:0.8em;'> -- **Communities (Application)** </span>
+
+ * <span style='font-size:0.7em;'> Health </span>
+ * <span style='font-size:0.7em;'> Societies </span> 
+* <span style='font-size:0.7em;'> Environment 
+ * <span style='font-size:0.7em;'> Food </span> 
+
+
+
+
+:::
+
+::: {.column width="49%"}
+
+<span style='font-size:0.8em;'> -- **Programmes (Methods)** </span>
+
+ * <span style='font-size:0.7em;'> AI </span>
+ * <span style='font-size:0.7em;'> Immersive Tech </span> 
+* <span style='font-size:0.7em;'> Data Sciece Infrastructure </span> 
+* <span style='font-size:0.7em;'> The *Science* of Data Science</span> 
+* <span style='font-size:0.7em;'> Visualization</span> 
+
+
+:::
+
+:::
+
+::: footer
+
+
+:::
+
+::: {.notes}
+
+That through Programmes and Communities, aims to define/ set/ address future research agenda.
+
+Communities : 
+Env : Meteorology, glaciology, Satellite Data
+
+Programmes : 
+* CS/Maths/Engineering Methods development activity -- modelling paradigms for analysing differently structured data; for modelling weird outcomes; for addressing statistical issues --risk/uncertainry
+* Data research infrastructures (cloud, data/AI platforms and pipelines, tools) and data visualisation
+* Increasingly about **application** Algorithm Transparency, Responsible AI etc.
+
+:::
+
+---
+
+
+## Leeds Institute for Data Analytics
+
+<br> 
+
+> ...*Where computer scientists, mathematicians and statisticians work with application scientists*
+
+
+::: {.columns}
+
+::: {.column width="49%"}
+
+<span style='font-size:0.8em;'> -- **Communities (Application)** </span>
+
+ * <span style='font-size:0.7em;'> Health </span>
+ * <span style='font-size:0.7em;'> Societies </span> 
+* <span style='font-size:0.7em;'> Environment 
+ * <span style='font-size:0.7em;'> **Food** </span> 
+
+
+
+
+:::
+
+::: {.column width="49%"}
+
+<span style='font-size:0.8em;'> -- **Programmes (Methods)** </span>
+
+ * <span style='font-size:0.7em;'> AI </span>
+ * <span style='font-size:0.7em;'> Immersive Tech </span> 
+* <span style='font-size:0.7em;'> Data Sciece Infrastructure </span> 
+* <span style='font-size:0.7em;'> The *Science* of Data Science</span> 
+* <span style='font-size:0.7em;'> Visualization</span> 
+
+
+:::
+
+:::
+
+::: footer
+
+
+:::
+
+::: {.notes}
+
+
+:::
+
+---
+
+
+## What does LIDA do?
+<br>
+
+::: {.column width="80%"}
+![](img/lida_structure.png){fig-align="center"}
+:::
+
+
+::: {.notes}
+
+E&T important component. DSDP, CPD short courses, Data Science Programmes that LIDA supports.
+
+:::
+
+---
+
+## LIDA Team
+
+<br>
+
+::: {.column width="80%"}
+![](img/team.png){fig-align="center"}
+:::
+
+
+::: {.notes}
+Professional Services
+
+Suport grant writing, comms, data management and governmeance
+
+:::
+
+---
+
+## LIDA Team
+
+<br>
+
+::: {.column width="80%"}
+![](img/leaders.png){fig-align="center"}
+:::
+
+
+::: {.notes}
+
+:::
+
+---
+
+
+
+
+## Leeds Analytic Secure Environment for Research (LASER)
+
+
+::: {.columns}
+
+::: {.column width="50%"}
+<br>
+![](img/laser.png){fig-align="center"}
+:::
+
+::: {.column width="50%"}
+
+<span style='font-size:0.8em;'> *Cloud based (Microsoft Azure) platform hosted in LIDA  hosting data that are highly sensitive, personally identifiable or commercially sensitive. <br><br>Follows high security standards -- ISO27001 and The NHS Data Protection Toolkit*</span>
+
+
+:::
+
+:::
+
+::: {.notes}
+
+:::
+
+---
+
+![](img/front.png){.absolute top=55 left=0 width="35%"}
+![](img/summary_title.png){.absolute top=0 left=420 width="50%"}
+
+::: {.columns}
+
+::: {.column width="40%"}
+
+
+:::
+
+::: {.column width="60%"}
+
+
+::: {style="font-size: 65%;"}
+
+<br><br><br><br>
+
+**Research and Innovation**
+
+* Produce **world-class cross disciplinary research**.
+* Diversify & increase **data science & AI research income**.
+* Deliver **impactful** research & innovation.
+* Develop, support & retain an inclusive **research community**.
+
+:::
+
+:::
+
+:::
+
+::: {.notes}
+
+Deliver: great work 
+
+... that is funded 
+
+... and has impact 
+
+... do so through community.
+
+
+:::
+
+---
+
+![](img/front.png){.absolute top=55 left=0 width="30%"}
+
+::: {.columns}
+
+::: {.column width="32%"}
+
+
+:::
+
+::: {.column width="68%"}
+
+
+::: {style="font-size: 75%;"}
+
+<br><br>
+
+**Strategic Aim 3** <br> *Deliver impactful research and innovation*
+
+:::
+
+::: {style="font-size: 65%;"}
+
+Identify **exemplars of impact**, from **applied** and **underpinning data science disciplines**;
+
+Identify key and emerging **research agendas, technologies and methods in modern data science**, specialised to research discipline.
+
+:::
+
+:::
+
+:::
+
+::: {.notes}
+
+
+:::
+
+
+---
+
+
+## LIDA Food
+
+
+
+::: {.columns}
+
+::: {.column width="49%"}
+
+<span style='font-size:0.8em;'> -- **Mission** </span>
+
+<span style="font-size:0.8em; text-align=center">
+Use data science and AI to **tackle** the greatest **food system challenges**, from **agriculture** and food **manufacturing** through to **health outcomes** of the population and the planet.</span>
+
+
+:::
+
+::: {.column width="49%"}
+
+<span style='font-size:0.8em;'> -- **Via** </span>
+
+<span style="font-size:0.8em; text-align=center">
+An interdisciplinary community of **industry, gov partners** and **academics** that 
+exploits **existing expertise** and supports **newer researchers**.
+
+
+:::
+
+:::
+
+::: {.notes}
+
+Global Food Environment Institute, University Farm, Agri-Energy Research Group
+
+
+:::
+
+
+
+
+--- 
+
+
+![](img/gefi.png){.absolute top=50 left=0 width="80%"}
+
+
+::: {.notes}
+
+Global Food Environment Institute, University Farm, Agri-Energy Research Group
+
+
+:::
+
+---
+
+
+<br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+
+
+::: {style="font-size: 250%; text-align: right;"}
+
+LIDA Food + GFEI
+
+:::
