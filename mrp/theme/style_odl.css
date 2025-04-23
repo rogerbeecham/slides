@@ -1,0 +1,11 @@
+h1.title {
+  margin-bottom: 0;
+  background-image: url(../img/odl_logo.png);
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 700px, 700px;
+}
+
+title.slide {
+  text-align: left;
+}
