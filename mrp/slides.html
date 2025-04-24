@@ -7,7 +7,9 @@
 <link href="slides_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="slides_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="slides_files/libs/quarto-html/quarto-html-d41d8cd98f00b204e9800998ecf8427e.min.css" rel="stylesheet" append-hash="true" data-mode="light">
-<link href="slides_files/libs/quarto-html/quarto-syntax-highlighting-57cf0665b166c0fb4ae44652ba65173d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="slides_files/libs/quarto-html/quarto-syntax-highlighting-57cf0665b166c0fb4ae44652ba65173d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="slides_files/libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="slides_files/libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.6.28">
 
   <title>Should we use  MRP   for simulating area-level outcomes?</title>
@@ -29,7 +31,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="slides_files/libs/revealjs/dist/theme/quarto-93a9e73d5b2bc2295bc83b0737aac430.css">
+  <link rel="stylesheet" href="slides_files/libs/revealjs/dist/theme/quarto-99a42d6d2a0a27005f19932f848d8eec.css">
   <link rel="stylesheet" href="theme/style.css">
   <link href="slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="slides_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -339,6 +341,20 @@
 <div class="footer">
 
 </div>
+<aside class="notes">
+<p>Start : SAE</p>
+<p>Assume : no knowledge</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2">
 
@@ -349,10 +365,7 @@
 </div>
 <aside class="notes">
 <ol type="1">
-<li><p>In social sciences, we often use random / probabilities from samples from surveys to estimate the characteristics of a population: their attitudes, preferences, behaviour.</p></li>
-<li><p>These samples might be stratified to be representative at national [England].</p></li>
-<li><p>Often we want to know about the likely characteristics of a population for smaller areas. And there are population-level datasets that exist</p></li>
-<li><p>Small are estimation is where we use individual-level survey data to estimate some unknown outcome – smoking / alcohol consumption, income, benefits entitlement, active travel uptake and attitudes of a population, at small area population level.</p></li>
+<li>In social sciences, we often use samples from surveys to estimate the characteristics of a population.</li>
 </ol>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -373,22 +386,81 @@
 <div class="footer">
 
 </div>
+<aside class="notes">
+<ol start="2" type="1">
+<li>These samples are usually desgined to be representative nationally.</li>
+</ol>
+<p>We think we can estimate a population parameter of smoking reasonably well from a sample.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2">
 
-<h3 id="small-area-estimation-direct-estimation">Small area estimation <br> <span style="font-size:.8em; font-weight: 600">– direct estimation </span></h3>
+<h3 id="small-area-estimation-direct-estimation">Small area estimation <br> <span style="font-size:1.3em; font-weight: 600">– direct estimation </span></h3>
 <p><img data-src="img/survey_region.png" class="absolute" style="top: 120px; left: 50px; width: 100%; "></p>
 <div class="footer">
 
 </div>
+<aside class="notes">
+<ol start="3" type="1">
+<li>If we have enough sample we we might be able to directly estimate a subnational population – Region. Direct estimation</li>
+</ol>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2">
 
-<h3 id="small-area-estimation-direct-estimation-1">Small area estimation<br> <span style="color:#969696; font-size:.8em; font-weight: 600">– direct estimation </span></h3>
+<h3 id="small-area-estimation-direct-estimation-1">Small area estimation<br> <span style="color:#969696; font-size:1.3em; font-weight: 600">– direct estimation </span></h3>
 <p><img data-src="img/survey_region_msoa.png" class="absolute" style="top: 120px; left: 50px; width: 100%; "></p>
+<div class="fragment">
+<div style="
+  position: relative;
+  top: 20px;
+  left: 30px;
+  background-color: rgba(240, 240, 240, 0.8); 
+  border: 0px solid #ec407a;
+  border-radius: 6px;
+  padding: 1em;
+">
+<p><br> <em>Small are estimation is where we use <span class="text-emphasise">survey data</span> to estimate an <span class="text-emphasise">unknown outcome</span> – smoking, beliefs about cycling, voting intention – for subpopulations (small areas) where <span class="text-emphasise">sample sizes</span> are too <span class="text-emphasise">small</span> for direct estimation.</em> <br> <br></p>
+</div>
+</div>
 <div class="footer">
 
 </div>
+<aside class="notes">
+<ol start="4" type="1">
+<li>But we can’t do direct estimation – subsetting/subdividing – when looking at how an outcome is in smaller areas.</li>
+</ol>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2">
 
@@ -402,22 +474,15 @@
 </section>
 <section class="slide level2">
 
-<h3 id="spm">SPM</h3>
-<p><img data-src="img/survey_region_msoa.png" class="absolute" style="top: 100px; left: 50px; width: 100%; "></p>
-<p><br><br><br><br><br><br><br><br><br><br></p>
-<p><!-- <p  style='font-size:1.8em; font-weight: 500; text-align: right;'>SPM</p> --></p>
+<h3 id="spatial-microsimulation-1">Spatial microsimulation</h3>
+<p><img data-src="img/mrp1.png" class="absolute" style="top: 100px; left: 50px; width: 100%; "></p>
 <div class="footer">
 
 </div>
 <aside class="notes">
 <ol type="1">
 <li>Start with survey of individuals [highlight survey graphic] and some small areas that we want to estimate our outcome over.</li>
-<li>Allocate individuals to each small area sampling with replacement from individual survey data so that it sums to the total number living in that area and counting up the number of people from our survey on the target outcome.</li>
-<li>Could do this sampling randomly. But then we’d assume that our target outcome is uniformly distributed across small areas – that it doesn’t vary.</li>
-<li>If we knew, either from some analysis on the survey dataset or existing knowledge, that our target outcome varies systematically by demographics or some other area-level context. We can take data from the Census describing the <em>known</em> composition of areas and ensure that we sample from the survey in the same number as those demographics.</li>
-<li><ul>
-<li>So if this area contained …? we <em>constrain</em> our sample – make sure that the total counts of survey respondents we’re allocating approximates to the joint sums of that demographic in that area.</li>
-</ul></li>
+<li>Allocate individuals to each small area sampling with replacement from individual survey data so that it sums to the total number living in that area.</li>
 </ol>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -433,26 +498,107 @@
 </section>
 <section class="slide level2">
 
-<h3 id="spm-assumptions">SPM <span class="text-emphasise"> assumptions</span></h3>
+<h3 id="spatial-microsimulation-2">Spatial microsimulation</h3>
+<p><img data-src="img/mrp2.png" class="absolute" style="top: 100px; left: 50px; width: 100%; "></p>
+<div class="footer">
+
+</div>
+<aside class="notes">
+<ol start="3" type="1">
+<li>So if this MSOA has 11k people, we’d sample from our survey that number of individuals – then count up on the target outcome.</li>
+<li>Could do this sampling randomly.</li>
+</ol>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="spatial-microsimulation-3">Spatial microsimulation</h3>
+<p><img data-src="img/mrp3.png" class="absolute" style="top: 100px; left: 50px; width: 100%; "></p>
+<aside class="notes">
+<p>But then we’d assume that our target outcome is uniformly distributed across small areas – that it doesn’t vary.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="footer">
+
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="spatial-microsimulation-4">Spatial microsimulation</h3>
+<p><img data-src="img/mrp4.png" class="absolute" style="top: 100px; left: 50px; width: 100%; "></p>
+<aside class="notes">
+<ol start="4" type="1">
+<li><p>If we knew, either from some analysis on the survey dataset or existing knowledge, that our target outcome varies systematically by demographics or some other area-level context.</p></li>
+<li><p>So if this area contained c.1400 women aged 50-64 we <em>constrain</em> our sample – make sure that the total counts of survey respondents we’re allocating approximates to the joint sums of that demographic in that area.</p></li>
+</ol>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="footer">
+
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="spatial-microsimulation-assumptions">Spatial microsimulation <span style="font-size:1.5em; font-weight: 600;">assumptions</span></h3>
 <div class="columns">
 <div class="column" style="width:55%;">
 <p><br></p>
 <div style="font-size: 80%;">
+<div style="
+  position: relative;
+  top: -20px;
+  left: 30px;
+  background-color: rgba(240, 240, 240, 0.7); 
+  border: 0px solid #ec407a;
+  border-radius: 6px;
+  padding: 1em;
+">
 <ol type="1">
-<li><p>Survey data are sufficiently <span class="text-emphasise">large</span> and rich to be reproduce the diversity of individuals in a small area.</p></li>
-<li><p>The target / outcome being simulated is associated with the constraint variables.</p></li>
-<li><p>That this association is stable and geographically uniform.</p></li>
+<li><p>Survey data are sufficiently <span class="text-emphasise">large</span> and <span class="text-emphasise">rich</span> to be reproduce the diversity of individuals in a small area.</p></li>
+<li><p>The <span class="text-emphasise">target / outcome</span> being simulated is <span class="text-emphasise">associated with the constraint</span> variables.</p></li>
+<li><p>That this <span class="text-emphasise">association</span> is stable and geographically <span class="text-emphasise">uniform</span>.</p></li>
 </ol>
 </div>
-</div><p><img data-src="img/spm_demo.png" class="absolute" style="top: 200px; left: 650px; width: 30%; "></p><p><br></p><!--  <p  style='font-size:1.8em; font-weight: 500; text-align: right;'>SPM</p> -->
+</div>
+</div><p><img data-src="img/spm4_map.png" class="absolute" style="top: 200px; left: 650px; width: 30%; "></p><p><br></p><!--  <p  style='font-size:1.8em; font-weight: 500; text-align: right;'>SPM</p> -->
 </div>
 <div class="footer">
 
 </div>
 <aside class="notes">
-<p>But of course this would only make sense if we think our outcome of interest at the area-level was cleanly associated with the demographic composition of those areas – and that area-level <strong>context</strong> was very unlikely to affect our target outcome.</p>
-<p>if we thought that our we believed that each small area was <strong>composed</strong> of an entirely uniform mix of people, or had <strong>context</strong> that</p>
 <p>Quite big assumptions – that tend to get quite a throway treatment in the papers on SPM I’ve read.</p>
+<p><br></p>
+<p>But of course this would only make sense if we think our outcome of interest at the area-level was cleanly associated with the demographic composition of those areas – and that area-level <strong>context</strong> was very unlikely to affect our target outcome.</p>
+<p>3 Ideally outcome of interest is stable to geographic context –</p>
+<p>if we thought that our we believed that each small area was <strong>composed</strong> of an entirely uniform mix of people, or had <strong>context</strong> that</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -469,22 +615,34 @@
 
 </section></section>
 <section>
-<section id="multilievel-regression-with-poststratification" class="title-slide slide level1 center">
-<h1>Multilievel Regression with Poststratification</h1>
+<section id="multilievel-regression-w-poststratification" class="title-slide slide level1 center">
+<h1>Multilievel Regression w/ Poststratification</h1>
+<aside class="notes">
+<p>MRP the same goals – but model-based approach.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div class="footer">
 
 </div>
 </section>
 <section class="slide level2">
 
-<h3 id="mrp">MRP</h3>
-<p><img data-src="img/gelman.jpg" class="absolute" style="top: 100px; left: 20px; width: 50%; "></p>
+<p><img data-src="img/gelman.jpg" class="absolute" style="top: 200px; left: 20px; width: 65%; "></p>
 <div class="columns">
 <div class="column" style="width:1%;">
 
 </div><div class="column" style="width:65%;">
 <div style="font-size: 80%;">
-<p><br><br><br><br><br>&gt;<br><br><br></p>
+<!-- <br><br><br><br><br>><br><br><br><br><br>    -->
 <p><!-- <p  style='font-size:2.2em; font-weight: 500; text-align: right;'>MRP</p> --></p>
 <p>Andrew Gelman and Thomas Little (1997) <br> <strong><em>Poststratification into many categories using hierarchical logistic regression</em></strong> <br><em>Survey Methodology</em>, 23(2): 127–135</p>
 </div>
@@ -493,8 +651,9 @@
 
 </div>
 <aside class="notes">
-<p>MRP the same goals – but model-based approach.</p>
-<p>Strong history in Political Opinion research: use hierarchical regression to come up with estimates of public opinion across a wide range of demographic and geographic subgroups (poststratification cells) – even when survey sample sizes are small in many of those cells.</p>
+<p>Notoriety Political Opinion research: explaining polling missess 2016</p>
+<p><br><br><br></p>
+<p>use hierarchical regression to come up with estimates of public opinion across a wide range of demographic and geographic subgroups (poststratification cells) – even when survey sample sizes are small in many of those cells.</p>
 <p>Show basic regresion formula</p>
 <p>Basic MRP setup: a model estimating an outcome y based on set of variables x known in the population (these are constraints) – highlight <strong>R</strong> Fit a regression model of y on x and then averaging over the cells in proportion to their known population counts</p>
 <p>Show basic regression formula predicting out. <strong>P</strong></p>
@@ -516,6 +675,40 @@
 </section>
 <section class="slide level2">
 
+<p><img data-src="img/gelman.jpg" class="absolute" style="top: 200px; left: 20px; width: 65%; "></p>
+<div class="columns">
+<div class="column" style="width:1%;">
+
+</div><div class="column" style="width:75%;">
+<div style="font-size: 80%;">
+<!-- <br><br><br><br><br>><br><br><br><br><br>    -->
+<p><!-- <p  style='font-size:2.2em; font-weight: 500; text-align: right;'>MRP</p> --></p>
+<p>Andrew Gelman and Thomas Little (1997) <br> <strong><em>Poststratification into many categories using<br> hierarchical logistic regression</em></strong> <br><em>Survey Methodology</em>, 23(2): 127–135</p>
+<div style="
+  position: relative;
+  top: -180px;
+  left: 0px;
+  background-color: rgba(240, 240, 240, 0.95); 
+  border: 0px solid #ec407a;
+  border-radius: 6px;
+  padding: 1em;
+">
+<div style="font-size: 120%;">
+<p><br></p>
+<blockquote>
+<p><em>A key attribute of MRP is that it allows <span class="text-emphasise">predictions</span> of y [an <span class="text-emphasise">outcome</span>] <span class="text-emphasise">given</span> values of x [<span class="text-emphasise">constraints</span>] that are <span class="text-emphasise">not observed in the sample</span>, or which have such <span class="text-emphasise">small counts in the sample</span> that it would be impossible to make predictions for them from local data alone.</em></p>
+</blockquote>
+<p><br></p>
+</div>
+</div>
+</div>
+</div><div class="footer">
+
+</div>
+</div>
+</section>
+<section class="slide level2">
+
 <h3 id="mrp-workflow">MRP workflow</h3>
 <div class="footer">
 
@@ -523,7 +716,7 @@
 </section>
 <section class="slide level2">
 
-<h3 id="mrp-workflow-1"><span class="text-emphasise">MR</span>P workflow</h3>
+<h3 id="mrp-workflow-1">MR<span style="font-size:1.em; font-weight: 400;">P workflow</span></h3>
 <div style="font-size: 80%;">
 <ol type="1">
 <li><p>Estimate mutilevel <span class="text-emphasise">model</span> of the target outcome, using</p>
@@ -540,7 +733,7 @@
 </section>
 <section class="slide level2">
 
-<h3 id="mrp-workflow-2">MR<span class="text-emphasise">P</span> workflow</h3>
+<h3 id="mrp-workflow-2"><span style="font-size:1.em; font-weight: 400;">MR</span>P<span style="font-size:1.em; font-weight: 400;"> workflow</span></h3>
 <div style="font-size: 80%;">
 <ol type="1">
 <li><p>Estimate mutilevel <span class="text-emphasise">model</span> of the target outcome, using</p>
@@ -549,7 +742,7 @@
 <li>area-level <span class="text-emphasise">context</span> variables</li>
 <li><span class="text-emphasise">pooled estimates</span> via random intercepts, ideally on small-areas being simulated</li>
 </ul></li>
-<li><p>Collect per small-area, the joint counts of individuals by demographic types ~ the <span class="text-emphasise">poststratification frame</span></p></li>
+<li><p>Collect per small-area, the joint counts of individuals by demographic types ~ the <span class="text-emphasise">poststratification frame</span>.</p></li>
 </ol>
 <div class="fragment">
 <ol start="3" type="1">
@@ -571,29 +764,39 @@
 </section></section>
 <section>
 <section id="our-thesis-for-mrp-over-spm" class="title-slide slide level1 center">
-<h1>‘Our’ thesis for MRP over SPM</h1>
+<h1>Our thesis <br> <span style="font-size:.9em; font-weight: 300">– for MRP over SPM </span></h1>
 <div class="footer">
 
 </div>
 </section>
 <section class="slide level2">
 
-<h3 id="our-thesis">‘Our’ thesis</h3>
+<h3 id="our-thesis">Our thesis</h3>
+<div style="
+  position: relative;
+  top: 20px;
+  left: 10px;
+  background-color: rgba(240, 240, 240, 0.7); 
+  border: 0px solid #ec407a;
+  border-radius: 6px;
+  padding: 1em;
+">
 <div style="font-size: 80%;">
 <div class="fragment">
 <ol type="1">
-<li>Since it uses multilevel model designs – pooled estimates – MRP can estimate small-area outcomes when target spatial units are <strong>poorly represented by survey data</strong>.</li>
+<li><em>Since it uses <span class="text-emphasise">multilevel</span> model designs – pooled estimates – MRP can estimate outcomes in <span class="text-emphasise">small-areas</span> <span class="text-emphasise">poorly represented</span> by survey data.</em></li>
 </ol>
 </div>
 <div class="fragment">
 <ol start="2" type="1">
-<li>MRP adjusts for things that <strong>should bother us as geographers</strong>: modelled outcomes can reflect <strong>geographic dependency</strong> in outcome and <strong>heterogeneity</strong> in <strong>process</strong>.</li>
+<li><em>MRP adjusts for things that <span class="text-emphasise">should bother us</span> as geographers: modelled outcomes can reflect <span class="text-emphasise">geographic dependency</span> in outcome and <span class="text-emphasise">heterogeneity</span> in <span class="text-emphasise">process</span>.</em></li>
 </ol>
 </div>
 <div class="fragment">
 <ol start="3" type="1">
-<li>MRP invites us to think in a <strong>principled</strong> way about the outcome and our <strong>inferences</strong> – as we explicitly model that outcome.</li>
+<li><em>MRP invites us to think in a <span class="text-emphasise">principled</span> way about the outcome and our <span class="text-emphasise">inferences</span> – as we explicitly model that outcome.</em></li>
 </ol>
+</div>
 </div>
 </div>
 <div class="footer">
@@ -627,20 +830,27 @@
 
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><span style="font-size:.9em; font-weight: 600">Survey</span> <span style="font-size:.7em;">~7,000 respondents</span></p>
+<p><span style="font-size:1.2em; font-weight: 500">Survey</span> <span style="font-size:.7em;">~7,000 respondents</span></p>
 <p><img data-src="img/hse.png" class="absolute" style="top: 80px; left: 10px; width: 40%; "></p>
 <div class="fragment">
 <p><br><br><br><br><br></p>
-<p><span style="font-size:.9em; font-weight: 600">~Population</span></p>
-<p><img data-src="img/census.png" class="absolute" style="top: 400px; left: 10px; width: 40%; "></p>
+<p><span style="font-size:1.2em; font-weight: 500">~Population</span></p>
+<p><img data-src="img/census.png" class="absolute" style="top: 420px; left: 10px; width: 40%; "></p>
 </div>
 </div><div class="column" style="width:50%;">
-<p><span style="font-size:.9em; font-weight: 600">Target outcome</span></p>
+<p><span style="font-size:1.2em; font-weight: 500">Target outcome</span></p>
 <div style="font-size: 80%;">
-<blockquote>
-<p><em>How is your health in general?</em></p>
-<p><span style="font-size:.9em;"> 1. Very good <br> 2. Good <br> 3. Fair <br> 4. Bad <br> 5. Very Bad </span></p>
-</blockquote>
+<div style="
+  position: relative;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(240, 240, 240, 0.7); 
+  border: 0px solid #ec407a;
+  border-radius: 6px;
+  padding: .2em;
+">
+<p><span style="font-size:1.0em; font-weight: 500"><em>How is your health in general?</em></span> <br> <span style="font-size:.9em;"> 1. Very good <br> 2. Good <br> 3. Fair <br> 4. Bad <br> 5. Very Bad </span></p>
+</div>
 </div>
 </div></div>
 <div class="footer">
@@ -651,18 +861,25 @@
 
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><span style="font-size:.9em; font-weight: 600">Survey</span> <span style="font-size:.7em;">~7,000 respondents</span></p>
+<p><span style="font-size:1.2em; font-weight: 500">Survey</span> <span style="font-size:.7em;">~7,000 respondents</span></p>
 <p><img data-src="img/hse.png" class="absolute" style="top: 80px; left: 10px; width: 40%; "></p>
 <p><br><br><br><br><br></p>
-<p><span style="font-size:.9em; font-weight: 600">~Population</span></p>
-<p><img data-src="img/census.png" class="absolute" style="top: 400px; left: 10px; width: 40%; "></p>
+<p><span style="font-size:1.2em; font-weight: 500">~Population</span></p>
+<p><img data-src="img/census.png" class="absolute" style="top: 420px; left: 10px; width: 40%; "></p>
 </div><div class="column" style="width:50%;">
-<p><span style="font-size:.9em; font-weight: 600"><del>Target</del> Known outcome</span></p>
+<p><span style="font-size:1.2em; font-weight: 500"><del>Target</del> Known outcome</span></p>
 <div style="font-size: 80%;">
-<blockquote>
-<p><em>How is your health in general?</em></p>
-<p><span style="font-size:.9em;"> 1. Very good <br> 2. Good <br> 3. Fair <br> 4. Bad <br> 5. Very Bad </span></p>
-</blockquote>
+<div style="
+  position: relative;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(240, 240, 240, 0.7); 
+  border: 0px solid #ec407a;
+  border-radius: 6px;
+  padding: .2em;
+">
+<p><span style="font-size:1.0em; font-weight: 500"><em>How is your health in general?</em></span> <br> <span style="font-size:.9em;"> 1. Very good <br> 2. Good <br> 3. Fair <br> 4. Bad <br> 5. Very Bad </span></p>
+</div>
 </div>
 </div></div>
 <div class="footer">
@@ -673,18 +890,25 @@
 
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><span style="font-size:.9em; font-weight: 600">Survey</span> <span style="font-size:.7em;">~7,000 respondents</span></p>
+<p><span style="font-size:1.2em; font-weight: 500">Survey</span> <span style="font-size:.7em;">~7,000 respondents</span></p>
 <p><img data-src="img/hse.png" class="absolute" style="top: 80px; left: 10px; width: 40%; "></p>
 <p><br><br><br><br><br></p>
-<p><span style="font-size:.9em; font-weight: 600">~Population</span></p>
-<p><img data-src="img/census.png" class="absolute" style="top: 400px; left: 10px; width: 40%; "></p>
+<p><span style="font-size:1.2em; font-weight: 500">~Population</span></p>
+<p><img data-src="img/census.png" class="absolute" style="top: 420px; left: 10px; width: 40%; "></p>
 </div><div class="column" style="width:50%;">
-<p><span style="font-size:.9em; font-weight: 600"><del>Target</del> Known outcome</span></p>
+<p><span style="font-size:1.2em; font-weight: 500"><del>Target</del> Known outcome</span></p>
 <div style="font-size: 80%;">
-<blockquote>
-<p><em>How is your health in general?</em></p>
-<p><span style="font-size:.9em;"> 1. <strong>Very good</strong> <br> 2. <strong>Good</strong> <br> 3. Fair <br> 4. Bad <br> 5. Very Bad </span></p>
-</blockquote>
+<div style="
+  position: relative;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(240, 240, 240, 0.7); 
+  border: 0px solid #ec407a;
+  border-radius: 6px;
+  padding: .2em;
+">
+<p><span style="font-size:1.0em; font-weight: 500"><em>How is your health in general?</em></span> <br> <span style="font-size:.9em;"> 1. <strong>Very good</strong> <br> 2. <strong>Good</strong> <br> 3. Fair <br> 4. Bad <br> 5. Very Bad </span></p>
+</div>
 </div>
 </div></div>
 <p><img data-src="img/outcome.png" class="absolute" style="top: 380px; left: 480px; width: 40%; "></p>
@@ -694,17 +918,46 @@
 </section>
 <section class="slide level2">
 
+<div style="font-size: 70%;">
 <p><br></p>
-<div style="font-size: 80%;">
 <div class="no-bullets">
+<div class="columns">
+<div class="column" style="width:45%;">
+
+</div><div class="column" style="width:55%;">
+<div style="
+  position: relative;
+  top: 0px;
+  left: 10px;
+  background-color: rgba(240, 240, 240, 0.7); 
+  border: 0px solid #ec407a;
+  border-radius: 6px;
+  padding: .2em;
+">
 <ul>
-<li><strong>demographic types</strong>
+<li><span style="font-size:1.2em; font-weight: 600">demographic types</span>
 <ul>
 <li>sex <span style="font-size:.8em;">{F | M}</span></li>
 <li>age <span style="font-size:.8em;">{0-15 | 16-24 | 25-34 | 35-49 | 50-64 | 65+}</span></li>
-<li>education <span style="font-size:.8em;">{level0 | level1/2 | level3 | level4}</span></li>
+<li>education <span style="font-size:.8em;">{level0 | level1/2 | level3 | level4}</span><br>
+</li>
 </ul></li>
-<li><strong>area-level context</strong>
+</ul>
+</div>
+<div style="margin-top: 0.5em;">
+
+</div>
+<div style="
+  position: relative;
+  top: 0px;
+  left: 10px;
+  background-color: rgba(240, 240, 240, 0.7); 
+  border: 0px solid #ec407a;
+  border-radius: 6px;
+  padding: .2em;
+">
+<ul>
+<li><span style="font-size:1.2em; font-weight: 600">area-level context</span>
 <ul>
 <li>imd <span style="font-size:.8em;">{1 most deprived | 2 | 3 | 4 | 5 least deprived}</span></li>
 <li>region <span style="font-size:.8em;">{EM | E | Ldn | NE | SE | SW | WM | Y&amp;H}</span></li>
@@ -712,8 +965,10 @@
 </ul></li>
 </ul>
 </div>
+</div></div>
 </div>
-<p><img data-src="img/hse.png" class="absolute" style="top: 80px; left: 650px; width: 40%; "></p>
+</div>
+<p><img data-src="img/hse.png" class="absolute" style="top: 50px; left: 0px; width: 45%; "></p>
 <div class="footer">
 
 </div>
@@ -732,29 +987,29 @@
 </ul></li>
 <li>Model 2
 <ul>
-<li>{sex + age + imd}</li>
+<li>{<span style="font-weight: 500">sex + age + imd</span>}</li>
 </ul></li>
 <li>Model 3
 <ul>
-<li>{sex + age + urban-rural}</li>
+<li>{<span style="font-weight: 500">sex + age + urban-rural</span>}</li>
 </ul></li>
 <li>Model 4
 <ul>
-<li>{sex + age + region}</li>
+<li>{<span style="font-weight: 500">sex + age + region</span>}</li>
 </ul></li>
 <li>Model 5
 <ul>
-<li>{sex + age + region + imd}</li>
+<li>{<span style="font-weight: 500">sex + age + region + imd</span>}</li>
 </ul></li>
 <li>Model 6
 <ul>
-<li>{sex + age + region + education}</li>
+<li>{<span style="font-weight: 500">sex + age + region + education</span>}</li>
 </ul></li>
 </ul>
 </div>
 </div>
 </div></div>
-<p><img data-src="img/fmf.png" class="absolute" style="top: 80px; left: 400px; width: 50%; "></p>
+<p><img data-src="img/fmf.png" class="absolute" style="top: 80px; left: 450px; width: 45%; "></p>
 <div class="footer">
 
 </div>
@@ -762,7 +1017,40 @@
 <section class="slide level2">
 
 <h3 id="mrp-designs">MRP designs</h3>
-<p>RSTAN + model spec –&gt; different models as a way of explaining SPM stuff</p>
+<div class="columns">
+<div class="column" style="width:80%;">
+<div class="no-bullets">
+<div style="font-size: 70%;">
+<ul>
+<li>Model 1
+<ul>
+<li>{<span style="font-weight: 500">sex + age</span>}</li>
+</ul></li>
+<li>Model 2
+<ul>
+<li>{<span style="font-weight: 500">sex + age + imd</span>}</li>
+</ul></li>
+<li>Model 3
+<ul>
+<li>{<span style="font-weight: 500">sex + age + urban-rural</span>}</li>
+</ul></li>
+<li>Model 4
+<ul>
+<li>{<span style="font-weight: 500">sex + age + region</span>}</li>
+</ul></li>
+<li>Model 5
+<ul>
+<li>{<span style="font-weight: 500">sex + age + region + imd</span>}</li>
+</ul></li>
+<li>Model 6
+<ul>
+<li>{<span style="font-weight: 500">sex + age + region + education</span>}</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div></div>
+<p><img data-src="img/rstanarm.png" class="absolute" style="top: 80px; left: 450px; width: 45%; "></p>
 <div class="footer">
 
 </div>
@@ -772,6 +1060,7 @@
 <h3 id="comparison-metrics">Comparison metrics</h3>
 <div class="no-bullets">
 <div style="font-size: 80%;">
+<p><br><br></p>
 <ul>
 <li><span style="font-weight: 500">Mean Absolute Error</span>
 <ul>
@@ -800,6 +1089,7 @@
 <h3 id="comparison-metrics-1">Comparison metrics</h3>
 <div class="no-bullets">
 <div style="font-size: 80%;">
+<p><br><br></p>
 <ul>
 <li><span style="font-weight: 500; color:#737373;">Mean Absolute Error</span>
 <ul>
@@ -827,6 +1117,7 @@
 <h3 id="comparison-metrics-2">Comparison metrics</h3>
 <div class="no-bullets">
 <div style="font-size: 80%;">
+<p><br><br></p>
 <ul>
 <li><span style="font-weight: 500; color:#737373;">Mean Absolute Error</span>
 <ul>
@@ -861,21 +1152,100 @@
 </section>
 <section class="slide level2">
 
-<h3 id="hse-underestimates">HSE underestimates <br></h3>
-<p><em>good</em> outcome</p>
-<p><img data-src="img/outcome.png" class="absolute" style="top: -10px; left: 550px; width: 28%; "></p>
-<p><img data-src="img/outcome_spm.png" class="absolute" style="top: 220px; left: 550px; width: 28%; "></p>
-<p><img data-src="img/outcome_mrp.png" class="absolute" style="top: 460px; left: 550px; width: 28%; "></p>
+<h3 id="hse-underestimates-good-outcome">HSE underestimates <br> <em>good</em> outcome</h3>
+<p><img data-src="img/hse_bias.png" class="absolute" style="top: 180px; left: 0px; width: 80%; "></p>
+<p><img data-src="img/outcome.png" class="absolute" style="top: 450px; left: -50px; width: 25%; "></p>
+<p><img data-src="img/outcome_spm.png" class="absolute" style="top: 450px; left: 280px; width: 25%; "></p>
+<p><img data-src="img/outcome_mrp.png" class="absolute" style="top: 450px; left: 580px; width: 25%; "></p>
 <div class="footer">
 
 </div>
 </section>
 <section class="slide level2">
 
-<p><img data-src="img/results.png" class="absolute" style="top: 0px; left: 10px; width: 55%; "></p>
+<div style="position: relative;">
+<div style="
+    position: absolute; top: 300px; left: -90px;
+    transform: rotate(-270deg);">
+<span style="font-size:.6em; font-weight:250; color: #525252">Increasing model complexity </span>
+</div>
+<p><svg width="100" height="550" style="position: absolute; top: 80px; left: 20px;"> <defs> <marker id="arrowhead" markerwidth="10" markerheight="7" refx="3.5" refy="3.5" orient="auto"> <polygon points="0 0, 7 3.5, 0 7" fill="#525252"></polygon> </marker> </defs> <!-- Line drawn vertically down --> <line x1="50" y1="10" x2="50" y2="480" stroke="#525252" stroke-width=".7" marker-end="url(#arrowhead)"></line> </svg></p>
+</div>
+<p><img data-src="img/results.png" class="absolute" style="top: 0px; left: 150px; width: 55%; "></p>
 <div class="footer">
 
 </div>
+<aside class="notes">
+
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<div style="position: relative;">
+<div style="
+    position: absolute; top: 300px; left: -90px;
+    transform: rotate(-270deg);">
+<span style="font-size:.6em; font-weight:250; color: #525252">Increasing model complexity </span>
+</div>
+<p><svg width="100" height="550" style="position: absolute; top: 80px; left: 20px;"> <defs> <marker id="arrowhead" markerwidth="10" markerheight="7" refx="3.5" refy="3.5" orient="auto"> <polygon points="0 0, 7 3.5, 0 7" fill="#525252"></polygon> </marker> </defs> <!-- Line drawn vertically down --> <line x1="50" y1="10" x2="50" y2="480" stroke="#525252" stroke-width=".7" marker-end="url(#arrowhead)"></line> </svg></p>
+</div>
+<p><img data-src="img/results_title.png" class="absolute" style="top: 0px; left: 150px; width: 80%; "> <img data-src="img/results_early.png" class="absolute" style="top: 100px; left: 150px; width: 80%; "></p>
+<p><img data-src="img/results_legend.png" class="absolute" style="top: 580px; left: 150px; width: 80%; "></p>
+<div class="footer">
+
+</div>
+<aside class="notes">
+
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<div style="position: relative;">
+<div style="
+    position: absolute; top: 300px; left: -90px;
+    transform: rotate(-270deg);">
+<span style="font-size:.6em; font-weight:250; color: #525252">Increasing model complexity </span>
+</div>
+<p><svg width="100" height="550" style="position: absolute; top: 80px; left: 20px;"> <defs> <marker id="arrowhead" markerwidth="10" markerheight="7" refx="3.5" refy="3.5" orient="auto"> <polygon points="0 0, 7 3.5, 0 7" fill="#525252"></polygon> </marker> </defs> <!-- Line drawn vertically down --> <line x1="50" y1="10" x2="50" y2="480" stroke="#525252" stroke-width=".7" marker-end="url(#arrowhead)"></line> </svg></p>
+</div>
+<p><img data-src="img/results_title.png" class="absolute" style="top: 0px; left: 150px; width: 80%; "> <img data-src="img/results_late.png" class="absolute" style="top: 100px; left: 150px; width: 80%; "></p>
+<p><img data-src="img/results_legend.png" class="absolute" style="top: 580px; left: 150px; width: 80%; "></p>
+<div class="footer">
+
+</div>
+<aside class="notes">
+
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2">
 
@@ -883,50 +1253,77 @@
 <section>
 <section id="discussion" class="title-slide slide level1 center">
 <h1>Discussion</h1>
-
-</section>
-<section class="slide level2">
-
-</section>
-<section class="slide level2">
-
-<h3 id="mrp-on-labour-voting-intention">MRP <span style="font-size:.9em; font-weight: 400">on Labour voting intention</span></h3>
-<div class="footer">
-
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="mrp-on-labour-voting-intention-1">M<span class="text-emphasise">R</span>P <span style="font-size:.9em; font-weight: 400">on Labour voting intention</span></h3>
-<p><!-- <span style='font-size:1.2em; font-weight: 500'>Use case: Labour voting intention</span> --></p>
-<div class="columns">
-<div class="column" style="width:60%;">
-<div style="font-size: 80%;">
-<!-- <div style="max-width: 100%; overflow-x: auto;"> -->
-<p><span class="math display">\[
-\text{logit}(\Pr(\color{#d03231}{y_i = 1})) = \alpha + \\ \beta^{\text{age}}_{\text{age}[i]} + \\ \beta^{\text{education}}_{\text{education}[i]} + \\ \beta_{\text{age} \times \text{edu}} + \\ \beta^{\text{lagged_vote}}_{\text{lagged_vote}[i]} + \\ \beta^{\text{region}}_{\text{region}[i]} + \\ \beta^{\text{imd}}_{\text{imd}[i]}
-\]</span></p>
+<!-- --- -->
+<!-- ### Our thesis  -->
+<!-- <div style=" -->
+<!--   position: relative; -->
+<!--   top: 20px; -->
+<!--   left: 10px; -->
+<!--   background-color: rgba(240, 240, 240, 0.7);  -->
+<!--   border: 0px solid #ec407a; -->
+<!--   border-radius: 6px; -->
+<!--   padding: 1em; -->
+<!-- "> -->
+<!-- ::: {style="font-size: 80%;"} -->
+<!-- 1. *Since it uses <span class="text-emphasise">multilevel</span> model designs -- pooled estimates -- MRP can estimate outcomes in <span class="text-emphasise">small-areas</span> <span class="text-emphasise">poorly represented</span> by survey data.*    -->
+<!-- 2. *MRP adjusts for things that <span class="text-emphasise">should bother us</span> as geographers: modelled outcomes can reflect <span class="text-emphasise">geographic dependency</span> in outcome and <span class="text-emphasise">heterogeneity</span> in <span class="text-emphasise">process</span>.* -->
+<!-- 3. *MRP invites us to think in a <span class="text-emphasise">principled</span> way about the outcome and our <span class="text-emphasise">inferences</span> -- as we explicitly model that outcome.* -->
+<!-- ::: -->
 <!-- </div> -->
+<!-- ::: footer -->
+<!-- ::: -->
+<!-- ::: {.notes} -->
+<!-- Complex relationships and interactions: political polling age and education.  -->
+<!-- ::: -->
+<!-- --- -->
+<!-- ### Our thesis  -->
+<!-- <div style=" -->
+<!--   position: relative; -->
+<!--   top: 20px; -->
+<!--   left: 10px; -->
+<!--   background-color: rgba(240, 240, 240, 0.7);  -->
+<!--   border: 0px solid #ec407a; -->
+<!--   border-radius: 6px; -->
+<!--   padding: 1em; -->
+<!-- "> -->
+<!-- ::: {style="font-size: 80%;"} -->
+<!-- 1. *Since it uses <span class="text-emphasise">multilevel</span> model designs -- pooled estimates -- MRP can estimate outcomes in <span class="text-emphasise">small-areas</span> <span class="text-emphasise">poorly represented</span> by survey data.*    -->
+<!-- 2. <span style='color: #969696'>*MRP adjusts for things that **should bother us** as geographers: modelled outcomes can reflect **geographic dependency** in outcome and **heterogeneity** in **process**.*</span> -->
+<!-- 3. <span style='color: #969696'>*MRP invites us to think in a **principled** way about the outcome and our **inferences** -- as we explicitly model that outcome.*</span> -->
+<!-- ::: -->
+<!-- </div> -->
+<!-- ::: footer -->
+<!-- ::: -->
+<!-- ::: {.notes} -->
+<!-- Complex relationships and interactions: political polling age and education.  -->
+<!-- ::: -->
+</section>
+<section class="slide level2">
+
+<h3 id="our-thesis-1">Our thesis</h3>
+<div style="
+  position: relative;
+  top: 20px;
+  left: 10px;
+  background-color: rgba(240, 240, 240, 0.7); 
+  border: 0px solid #ec407a;
+  border-radius: 6px;
+  padding: 1em;
+">
+<div style="font-size: 80%;">
+<ol type="1">
+<li><p><span style="color: #969696"><em>Since it uses <strong>multilevel</strong> model designs – pooled estimates – MRP can estimate outcomes in <strong>small-areas poorly represented</strong> by survey data.</em></span></p></li>
+<li><p><em>MRP adjusts for things that <span class="text-emphasise">should bother us</span> as geographers: modelled outcomes can reflect <span class="text-emphasise">geographic dependency</span> in outcome and <span class="text-emphasise">heterogeneity</span> in <span class="text-emphasise">process</span>.</em> <br> <strong>&gt; Outcomes</strong>: {travel behaviour/ attitude, others}</p></li>
+<li><p><span style="color: #969696"><em>MRP invites us to think in a <strong>principled</strong> way about the outcome and our <strong>inferences</strong> – as we explicitly model that outcome.</em></span></p></li>
+</ol>
 </div>
-</div><div class="column" style="width:40%;">
-<div style="font-size: 60%;">
-<p><br></p>
-<p><span class="math inline">\(\color{#d03231}{y_i = 1}\)</span> if respondent <span class="math inline">\(i\)</span> intends to vote Labour</p>
 </div>
-</div></div>
 <div class="footer">
 
 </div>
 <aside class="notes">
-<p>MRP the same goals – but model-based approach.</p>
-<p>Strong history in Political Opinion research: use hierarchical regression to come up with estimates of public opinion across a wide range of demographic and geographic subgroups (poststratification cells) – even when survey sample sizes are small in many of those cells.</p>
-<p>Show basic regresion formula</p>
-<p>Basic MRP setup: a model estimating an outcome y based on set of variables x known in the population (these are constraints) – highlight <strong>R</strong> Fit a regression model of y on x and then averaging over the cells in proportion to their known population counts</p>
-<p>Show basic regression formula predicting out. <strong>P</strong></p>
-<p>Update basic regression formula with multilevel. <strong>M</strong></p>
-<p>Desire to poststratify on as many factors as possible, and a regression model with a large number of predictors and interactions cannot be estimated stably using least squares.</p>
-<p>A key attribute of MRP (or RRP) is that it allows predictions for y given values of x that are not observed in the sample, or which have such small counts in the sample that it would be impossible to make predictions for them from local data alone.</p>
-<p>group-level predictors for multilevel regressions (so that, for example, inferences for small states in a national survey are partially pooled toward reasonable state-level estimates rather than to a national baseline); adjusting for non-census variables, in which case the population counts of the poststratification cells themselves must be estimated from the data</p>
+<p>But that 1 is true, we have some evidence to support it: e.g.&nbsp;the way of dealing with this in SPM is to add hard geographic constraints and hope that the smaller number of individuals working from picks up that diversity in process… unlikely.</p>
+<p>in the case of geog dependency in outcome – there are, thinking about travel behaviour area-level things that are going to bind that outcomethat are complex.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -938,68 +1335,41 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+<!-- --- -->
+<!-- ### Our thesis  -->
+<!-- <div style=" -->
+<!--   position: relative; -->
+<!--   top: 20px; -->
+<!--   left: 10px; -->
+<!--   background-color: rgba(240, 240, 240, 0.7);  -->
+<!--   border: 0px solid #ec407a; -->
+<!--   border-radius: 6px; -->
+<!--   padding: 1em; -->
+<!-- "> -->
+<!-- ::: {style="font-size: 80%;"} -->
+<!-- 1. *Since it uses <span class="text-emphasise">multilevel</span> model designs -- pooled estimates -- MRP can estimate outcomes in <span class="text-emphasise">small-areas</span> <span class="text-emphasise">poorly represented</span> by survey data.*    -->
+<!-- 2. *MRP adjusts for things that <span class="text-emphasise">should bother us</span> as geographers: modelled outcomes can reflect <span class="text-emphasise">geographic dependency</span> in outcome and <span class="text-emphasise">heterogeneity</span> in <span class="text-emphasise">process</span>.* <br> -->
+<!-- **> Outcomes**: {travel behaviour/ attitude, others} -->
+<!-- 3. *MRP invites us to think in a <span class="text-emphasise">principled</span> way about the outcome and our <span class="text-emphasise">inferences</span> -- as we explicitly model that outcome.* -->
+<!-- ::: -->
+<!-- </div> -->
+<!-- ::: footer -->
+<!-- ::: -->
+<!-- ::: {.notes} -->
+<!-- Again just looking at the regression outputs -- this is an outcome that is really heavily discriminated by age -- there is a some area-level deprivation component, but less than I'd expect.  -->
+<!-- ::: -->
 </section>
 <section class="slide level2">
 
-<h3 id="mrp-on-labour-voting-intention-2">M<span class="text-emphasise">R</span>P <span style="font-size:.9em; font-weight: 400">on Labour voting intention</span></h3>
-<p><!-- <span style='font-size:1.2em; font-weight: 500'>Use case: Labour voting intention</span> --></p>
 <div class="columns">
-<div class="column" style="width:60%;">
-<div style="font-size: 80%;">
-<!-- <div style="max-width: 100%; overflow-x: auto;"> -->
-<p><span class="math display">\[
-\text{logit}(\Pr(y_i = 1)) = \alpha + \\ \beta^{\text{age}}_{\color{#d03231}{\text{age}[i]}} + \\ \beta^{\text{education}}_{\color{#d03231}{\text{education}[i]}} + \\ \beta_{\text{age} \times \text{edu}} + \\ \beta^{\text{lagged_vote}}_{\text{lagged_vote}[i]} + \\ \beta^{\text{region}}_{\text{region}[i]} + \\ \beta^{\text{imd}}_{\text{imd}[i]}
-\]</span></p>
-<!-- </div> -->
+<div class="column" style="width:40%;">
+<div style="font-size: 1300%">
+<p>?</p>
 </div>
-</div><div class="column" style="width:40%;">
-<div style="font-size: 60%;">
-<p><br></p>
-<p><span class="math inline">\(\color{#d03231}{\text{individual-variable}[i]}\)</span> in the survey discriminating of the outcome, and known in Census.</p>
-</div>
-</div></div>
-<div class="footer">
-
-</div>
-<aside class="notes">
-<p>MRP the same goals – but model-based approach.</p>
-<p>Strong history in Political Opinion research: use hierarchical regression to come up with estimates of public opinion across a wide range of demographic and geographic subgroups (poststratification cells) – even when survey sample sizes are small in many of those cells.</p>
-<p>Show basic regresion formula</p>
-<p>Basic MRP setup: a model estimating an outcome y based on set of variables x known in the population (these are constraints) – highlight <strong>R</strong> Fit a regression model of y on x and then averaging over the cells in proportion to their known population counts</p>
-<p>Show basic regression formula predicting out. <strong>P</strong></p>
-<p>Update basic regression formula with multilevel. <strong>M</strong></p>
-<p>Desire to poststratify on as many factors as possible, and a regression model with a large number of predictors and interactions cannot be estimated stably using least squares.</p>
-<p>A key attribute of MRP (or RRP) is that it allows predictions for y given values of x that are not observed in the sample, or which have such small counts in the sample that it would be impossible to make predictions for them from local data alone.</p>
-<p>group-level predictors for multilevel regressions (so that, for example, inferences for small states in a national survey are partially pooled toward reasonable state-level estimates rather than to a national baseline); adjusting for non-census variables, in which case the population counts of the poststratification cells themselves must be estimated from the data</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section class="slide level2">
-
-<h3 id="mrp-on-labour-voting-intention-3">M<span class="text-emphasise">R</span>P <span style="font-size:.9em; font-weight: 400">on Labour voting intention</span></h3>
-<p><!-- <span style='font-size:1.2em; font-weight: 500'>Use case: Labour voting intention</span> --></p>
-<div class="columns">
-<div class="column" style="width:60%;">
-<div style="font-size: 80%;">
-<!-- <div style="max-width: 100%; overflow-x: auto;"> -->
-<p><span class="math display">\[
-\text{logit}(\Pr(y_i = 1)) = \alpha + \\ \beta^{\text{age}}_{\text{age}[i]} + \\ \beta^{\text{education}}_{\text{education}[i]} + \\ \beta_{\text{age} \times \text{edu}} + \\ \beta^{\text{lagged_vote}}_{\color{#d03231}{\text{lagged_vote}[i]}} + \\ \beta^{\text{region}}_{\color{#d03231}{\text{region}[i]}} + \\ \beta^{\text{imd}}_{\color{#d03231}{\text{imd}[i]}}
-\]</span></p>
-<!-- </div> -->
-</div>
-</div><div class="column" style="width:40%;">
-<div style="font-size: 60%;">
-<p><br></p>
-<p><span class="math inline">\(\color{#d03231}{\text{area-variable}[i]}\)</span> known or can be attributed to the survey response. Constituency level vote share in the previous election</p>
+</div><div class="column" style="width:60%;">
+<p><br><br></p>
+<div style="font-size: 220%">
+<p><em>synthetic population</em> <br> <em>generation</em></p>
 </div>
 </div></div>
 <div class="footer">
@@ -1008,70 +1378,168 @@
 </section>
 <section class="slide level2">
 
-<h3 id="mrp-on-labour-voting-intention-4"><span class="text-emphasise">M</span>RP <span style="font-size:.9em; font-weight: 400">on Labour voting intention</span></h3>
-<p><!-- <span style='font-size:1.2em; font-weight: 500'>Use case: Labour voting intention</span> --></p>
-<div class="columns">
-<div class="column" style="width:60%;">
-<div style="font-size: 80%;">
-<!-- <div style="max-width: 100%; overflow-x: auto;"> -->
-<p><span class="math display">\[
-\text{logit}(\Pr(y_i = 1)) = \alpha + \\ \beta^{\color{#d03231}{\text{age}}}_{\text{age}[i]} + \\ \beta^{\color{#d03231}{\text{education}}}_{\text{education}[i]} + \\ \beta_{\text{age} \times \text{edu}} + \\ \beta^{\color{#d03231}{\text{lagged_vote}}}_{\text{lagged_vote}[i]} + \\ \beta^{\color{#d03231}{\text{region}}}_{\text{region}[i]} + \\ \beta^{\color{#d03231}{\text{imd}}}_{\text{imd}[i]}
-\]</span></p>
-<!-- </div> -->
+<div style="font-size: 300%; color: #525252">
+<p><br><br></p>
+<p><i class="fas fa-laptop-code"></i></p>
 </div>
-</div><div class="column" style="width:40%;">
-<div style="font-size: 60%;">
-<p><br></p>
-<ul>
-<li><span class="math inline">\(\color{#d03231}{\text{varying-intercept}}\)</span> on each of covariates .</li>
-</ul>
-</div>
-</div></div>
+<p><span style="font-size:1.5em; font-family: Iosevka; font-weight: 700; color:#525252">github.com/rogerbeecham/… </span></p>
 <div class="footer">
 
 </div>
 </section>
 <section class="slide level2">
 
-<h3 id="small-area-estimation-multilevel-regression-with-poststratification-mrp">Small area estimation <br> –<span style="font-size:1.0em; font-weight: 800">Multilevel Regression with Poststratification (MRP)</span></h3>
-<aside class="notes">
-<p>Principled case:</p>
-<p>Write out arguments for</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section class="slide level2">
-
-</section>
-<section class="slide level2">
-
-<p><br><br><br><br><br><br><br><br><br><br> <span style="font-size:1.2em; font-family: Iosevka; font-weight: 700;">github.com/rogerbeecham/gridmappr </span></p>
-<p><img data-src="img/gridmappr.svg" class="absolute" style="top: 120px; left: 10px; width: 30%; "></p>
 <div class="footer">
 
 </div>
-<aside class="notes">
-<p>I did a burst of activitiy for a month this time last year, but plan to do more on this to extend the package…</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<!-- --- -->
+<!-- ### MRP <span style='font-size:.9em; font-weight: 400'>on Labour voting intention</span> -->
+<!-- ::: footer -->
+<!-- ::: -->
+<!-- --- -->
+<!-- ### M<span class="text-emphasise">R</span>P</span> <span style='font-size:.9em; font-weight: 400'>on Labour voting intention</span> -->
+<!--  <!-- <span style='font-size:1.2em; font-weight: 500'>Use case: Labour voting intention</span> -->
+<p>–&gt;</p>
+<!-- ::: {.columns} -->
+<!-- ::: {.column width="60%"} -->
+<!-- ::: {style="font-size: 80%;"} -->
+<!-- <!-- <div style="max-width: 100%; overflow-x: auto;"> -->
+<p>–&gt;</p>
+<!-- $$ -->
+<!-- \text{logit}(\Pr(\color{#d03231}{y_i = 1})) = \alpha + \\ \beta^{\text{age}}_{\text{age}[i]} + \\ \beta^{\text{education}}_{\text{education}[i]} + \\ \beta_{\text{age} \times \text{edu}} + \\ \beta^{\text{lagged_vote}}_{\text{lagged_vote}[i]} + \\ \beta^{\text{region}}_{\text{region}[i]} + \\ \beta^{\text{imd}}_{\text{imd}[i]} -->
+<!-- $$ -->
+<!-- <!-- </div> -->
+<p>–&gt;</p>
+<!-- ::: -->
+<!-- ::: -->
+<!-- ::: {.column width="40%"} -->
+<!-- ::: {style="font-size: 60%;"} -->
+<!-- <br> -->
+<!-- $\color{#d03231}{y_i = 1}$ if respondent $i$ intends to vote Labour -->
+<!-- ::: -->
+<!-- ::: -->
+<!-- ::: -->
+<!-- ::: footer -->
+<!-- ::: -->
+<!-- ::: {.notes} -->
+<!-- MRP the same goals -- but model-based approach. -->
+<!-- Strong history in Political Opinion research: use hierarchical regression to come up with estimates of public opinion across a wide range of demographic and geographic subgroups (poststratification cells) -- even when survey sample sizes are small in many of those cells. -->
+<!-- Show basic regresion formula -->
+<!-- Basic MRP setup: a model estimating an outcome y based on set of variables x known in the population (these are constraints) -- highlight **R** -->
+<!-- Fit a regression model of y on x and then averaging over the cells in proportion to their known population counts -->
+<!-- Show basic regression formula predicting out.  **P** -->
+<!-- Update basic regression formula with multilevel.  **M** -->
+<!-- Desire to poststratify on as many factors as possible, and a regression model with a large number of predictors and interactions cannot be estimated stably using least squares. -->
+<!-- A key attribute of MRP (or RRP) is that it allows predictions for y given values of x that are not observed in the sample, or which have such small counts in the sample that it would be impossible to make predictions for them from local data alone. -->
+<!-- group-level predictors for multilevel regressions (so that, for example, inferences for small states in a national survey are partially pooled toward reasonable state-level estimates rather than to a national baseline); adjusting for non-census variables, in which case the population counts of the poststratification cells themselves must be estimated from the data -->
+<!-- ::: -->
+<!-- --- -->
+<!-- ### M<span class="text-emphasise">R</span>P</span> <span style='font-size:.9em; font-weight: 400'>on Labour voting intention</span> -->
+<!--  <!-- <span style='font-size:1.2em; font-weight: 500'>Use case: Labour voting intention</span> -->
+<p>–&gt;</p>
+<!-- ::: {.columns} -->
+<!-- ::: {.column width="60%"} -->
+<!-- ::: {style="font-size: 80%;"} -->
+<!-- <!-- <div style="max-width: 100%; overflow-x: auto;"> -->
+<p>–&gt;</p>
+<!-- $$ -->
+<!-- \text{logit}(\Pr(y_i = 1)) = \alpha + \\ \beta^{\text{age}}_{\color{#d03231}{\text{age}[i]}} + \\ \beta^{\text{education}}_{\color{#d03231}{\text{education}[i]}} + \\ \beta_{\text{age} \times \text{edu}} + \\ \beta^{\text{lagged_vote}}_{\text{lagged_vote}[i]} + \\ \beta^{\text{region}}_{\text{region}[i]} + \\ \beta^{\text{imd}}_{\text{imd}[i]} -->
+<!-- $$ -->
+<!-- <!-- </div> -->
+<p>–&gt;</p>
+<!-- ::: -->
+<!-- ::: -->
+<!-- ::: {.column width="40%"} -->
+<!-- ::: {style="font-size: 60%;"} -->
+<!-- <br> -->
+<!-- $\color{#d03231}{\text{individual-variable}[i]}$ in the survey discriminating of the outcome, and known in Census. -->
+<!-- ::: -->
+<!-- ::: -->
+<!-- ::: -->
+<!-- ::: footer -->
+<!-- ::: -->
+<!-- ::: {.notes} -->
+<!-- MRP the same goals -- but model-based approach. -->
+<!-- Strong history in Political Opinion research: use hierarchical regression to come up with estimates of public opinion across a wide range of demographic and geographic subgroups (poststratification cells) -- even when survey sample sizes are small in many of those cells. -->
+<!-- Show basic regresion formula -->
+<!-- Basic MRP setup: a model estimating an outcome y based on set of variables x known in the population (these are constraints) -- highlight **R** -->
+<!-- Fit a regression model of y on x and then averaging over the cells in proportion to their known population counts -->
+<!-- Show basic regression formula predicting out.  **P** -->
+<!-- Update basic regression formula with multilevel.  **M** -->
+<!-- Desire to poststratify on as many factors as possible, and a regression model with a large number of predictors and interactions cannot be estimated stably using least squares. -->
+<!-- A key attribute of MRP (or RRP) is that it allows predictions for y given values of x that are not observed in the sample, or which have such small counts in the sample that it would be impossible to make predictions for them from local data alone. -->
+<!-- group-level predictors for multilevel regressions (so that, for example, inferences for small states in a national survey are partially pooled toward reasonable state-level estimates rather than to a national baseline); adjusting for non-census variables, in which case the population counts of the poststratification cells themselves must be estimated from the data -->
+<!-- ::: -->
+<!-- --- -->
+<!-- ### M<span class="text-emphasise">R</span>P</span> <span style='font-size:.9em; font-weight: 400'>on Labour voting intention</span> -->
+<!--  <!-- <span style='font-size:1.2em; font-weight: 500'>Use case: Labour voting intention</span> -->
+<p>–&gt;</p>
+<!-- ::: {.columns} -->
+<!-- ::: {.column width="60%"} -->
+<!-- ::: {style="font-size: 80%;"} -->
+<!-- <!-- <div style="max-width: 100%; overflow-x: auto;"> -->
+<p>–&gt;</p>
+<!-- $$ -->
+<!-- \text{logit}(\Pr(y_i = 1)) = \alpha + \\ \beta^{\text{age}}_{\text{age}[i]} + \\ \beta^{\text{education}}_{\text{education}[i]} + \\ \beta_{\text{age} \times \text{edu}} + \\ \beta^{\text{lagged_vote}}_{\color{#d03231}{\text{lagged_vote}[i]}} + \\ \beta^{\text{region}}_{\color{#d03231}{\text{region}[i]}} + \\ \beta^{\text{imd}}_{\color{#d03231}{\text{imd}[i]}} -->
+<!-- $$ -->
+<!-- <!-- </div> -->
+<p>–&gt;</p>
+<!-- ::: -->
+<!-- ::: -->
+<!-- ::: {.column width="40%"} -->
+<!-- ::: {style="font-size: 60%;"} -->
+<!-- <br> -->
+<!-- $\color{#d03231}{\text{area-variable}[i]}$ known or can be attributed to the survey response.  -->
+<!-- Constituency level vote share in the previous election  -->
+<!-- ::: -->
+<!-- ::: -->
+<!-- ::: -->
+<!-- ::: footer -->
+<!-- ::: -->
+<!-- --- -->
+<!-- ### <span class="text-emphasise">M</span>RP</span> <span style='font-size:.9em; font-weight: 400'>on Labour voting intention</span> -->
+<!--  <!-- <span style='font-size:1.2em; font-weight: 500'>Use case: Labour voting intention</span> -->
+<p>–&gt;</p>
+<!-- ::: {.columns} -->
+<!-- ::: {.column width="60%"} -->
+<!-- ::: {style="font-size: 80%;"} -->
+<!-- <!-- <div style="max-width: 100%; overflow-x: auto;"> -->
+<p>–&gt;</p>
+<!-- $$ -->
+<!-- \text{logit}(\Pr(y_i = 1)) = \alpha + \\ \beta^{\color{#d03231}{\text{age}}}_{\text{age}[i]} + \\ \beta^{\color{#d03231}{\text{education}}}_{\text{education}[i]} + \\ \beta_{\text{age} \times \text{edu}} + \\ \beta^{\color{#d03231}{\text{lagged_vote}}}_{\text{lagged_vote}[i]} + \\ \beta^{\color{#d03231}{\text{region}}}_{\text{region}[i]} + \\ \beta^{\color{#d03231}{\text{imd}}}_{\text{imd}[i]} -->
+<!-- $$ -->
+<!-- <!-- </div> -->
+<p>–&gt;</p>
+<!-- ::: -->
+<!-- ::: -->
+<!-- ::: {.column width="40%"} -->
+<!-- ::: {style="font-size: 60%;"} -->
+<!-- <br> -->
+<!-- - $\color{#d03231}{\text{varying-intercept}}$ on each of covariates .  -->
+<!-- ::: -->
+<!-- ::: -->
+<!-- ::: -->
+<!-- ::: footer -->
+<!-- ::: -->
+<!-- --- -->
+<!-- ### Small area estimation  <br> --<span style='font-size:1.0em; font-weight: 800'>Multilevel Regression with Poststratification (MRP)</span> -->
+<!-- ::: {.notes} -->
+<!-- Principled case:  -->
+<!-- Write out arguments for -->
+<!-- ::: -->
+<!-- --- -->
+<!-- --- -->
+<!-- ::: {style="font-size: 300%; color: #525252"} -->
+<!--   -->
+<!-- ::: -->
+<!-- <br><br><br><br><br><br><br><br><br><br> -->
+<!-- <span style='font-size:1.2em; font-family: Iosevka; font-weight: 700;'>github.com/rogerbeecham/... </span> -->
+<!-- ::: footer -->
+<!-- ::: -->
+<!-- ::: {.notes} -->
+<!-- I did a burst of activitiy for a month this time last year,  -->
+<!-- but plan to do more on this to extend the package... -->
+<!-- ::: -->
 
 </section></section>
     </div>
