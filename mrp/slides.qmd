@@ -59,7 +59,7 @@ Assume : no knowledge
 
 2. These samples are usually desgined to be representative nationally. 
 
-We think we can estimate a population parameter of smoking reasonably well from a sample.
+We think we can estimate smoking as a population parameter reasonably well from HSE.
 
 :::
 
@@ -76,7 +76,7 @@ We think we can estimate a population parameter of smoking reasonably well from 
 
 ::: {.notes}
 
-3. If we have enough sample we we might be able to directly estimate a subnational population -- Region. Direct estimation
+3. If we have enough sample we we might be able to subset by Region - to sum up number of smokers in each. directly estimate a subnational population by subdividing
 
 :::
 
@@ -111,7 +111,7 @@ We think we can estimate a population parameter of smoking reasonably well from 
 
 ::: {.notes}
 
-4. But we can't do direct estimation -- subsetting/subdividing -- when looking at how an outcome is in smaller areas.
+4. But we can't do direct estimation -- subdividing -- when looking at how an outcome is in smaller areas.
 
 
 :::
@@ -140,7 +140,7 @@ We think we can estimate a population parameter of smoking reasonably well from 
 
 ::: {.notes}
 
-1. Start with survey of individuals [highlight survey graphic] and some small areas that we want to estimate our outcome over.
+1. Start with survey of individuals and some small areas that we want to estimate our outcome over.
 2. Allocate individuals to each small area sampling with replacement from individual survey data so that it sums to the total number living in that area.   
 
 :::
@@ -262,7 +262,7 @@ We think we can estimate a population parameter of smoking reasonably well from 
 ::: {.notes}
 
 
-Quite big assumptions -- that tend to get quite a throway treatment in the papers on SPM I've read.
+Quite big assumptions 
 
 
 
@@ -1150,7 +1150,7 @@ Complex relationships and interactions: political polling age and education.
 ::: {.notes}
 
 
-
+starts tp address some of misses that we were seeing in MRP 
 :::
 
 
@@ -1399,9 +1399,9 @@ in the case of geog dependency in outcome -- there are, thinking about travel be
 ---
 
 
-::: footer
+<!-- ::: footer -->
 
-:::
+<!-- ::: -->
 
 
 <!-- --- -->
