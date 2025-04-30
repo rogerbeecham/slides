@@ -1,0 +1,575 @@
+---
+title: "<span style='font-size:.8em; font-weight: 500;'>Open Science practice in social reseach</span>"
+subtitle: "<span style='font-size:2.0em; font-weight: 700;'>Reflections from the data analytic trenches</span><br><span style='color:#525252; font-size:1.2em; font-weight: 500;'><br>30th April 2025 </span>"
+format: 
+   revealjs:
+     transition: fade
+     theme: theme/slides-theme.scss
+     css: theme/style.css
+     footer: 'Roger Beecham | School of Geography | LIDA'
+     mainfont: Jost
+     logo: "img/logos/lida.png"
+     resources: 
+       - fonts/iosevka-regular.ttc
+       - fonts/iosevka-semibold.ttc
+       - fonts/iosevka-thin.ttc
+       - fonts/iosevka.ttc
+
+      
+---
+
+
+```{=html}
+<style>
+.flushright {
+   text-align: right;
+}
+</style>
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| eval: true
+#| classes: no-stripe
+library(gt)
+library(gtExtras)
+library(dplyr)
+library(readr)
+library(glue)
+library(purrr)
+library(stringr)
+```
+
+
+
+## Open Science
+
+
+::: {.columns}
+
+::: {.column width="50%"}
+
+<div style="
+  position: relative;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(229, 213, 187, 1); 
+  border: 0px solid #ec407a;
+  border-radius: 6px;
+  padding: .2em;
+">
+
+* Questionable Research Practices
+* Explainability 
+* Transparency
+* Reproducibility
+* Accessibility
+* Accountability
+
+</div>
+
+:::
+
+
+
+::: {.column width="50%"}
+
+<div style="
+  position: relative;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(229, 213, 187, 1); 
+  border: 0px solid #ec407a;
+  border-radius: 6px;
+  padding: .2em;
+">
+
+* Open Access 
+* Open Data / Open Source Software
+* Preprints
+* Registered Reports
+* Code Repos
+* Zenodo, arXiv, OSF
+
+</div>
+
+:::
+
+:::
+
+:::{.fragment}
+
+<div class="cross-overlay">
+  <svg class="cross-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <line x1="5" y1="55" x2="80" y2="10" />
+  </svg>
+</div>
+
+:::
+
+
+::: {.notes}
+
+80% SoG | 20% LIDA 
+
+I do "applied data science" in Geography. 
+
+And I'm going to talk about this -- and a couple of projects ongoing over the last year or so ...
+
+If I were to give a primer on Open Science theory and practice in Geog.
+
+:::
+
+---
+
+
+::: {style="font-size: 130%"}
+
+
+<span style='font-size:1.6em; font-weight: 600;'>What does </span> 
+<span style='font-size:2.5em; font-weight: 600; color: #99000d'>good* </span> 
+<span style='font-size:1.6em; font-weight: 600;'> data-driven science look like? </span><br>
+
+<br>
+-------------------- <br>
+
+<span style='color: #99000d'>*</span>defensible | rigorous | theoretically-informed 
+
+:::
+
+
+
+---
+
+::: {style="font-size: 40%"}
+
+
+<span style='font-size:1.6em; font-weight: 600;'>What does </span> 
+<span style='font-size:2.5em; font-weight: 600; color: #99000d'>good* </span> 
+<span style='font-size:1.6em; font-weight: 600;'> data-<br>driven science look like? </span><br>
+
+<br>
+-------------------- <br>
+
+<span style='color: #99000d'>*</span>defensible | rigorous | theoretically-informed 
+
+:::
+
+<br>
+
+<span style='font-size:2.8em; font-weight: 600;'>
+Does Open Science get us there?
+</span>
+
+---
+
+
+
+![](img/stats19.png){.absolute top=10 left=0 width="50%"} 
+
+![](img/stats19_2.png){.absolute top=30 left=550 width="40%"} 
+
+
+::: {.notes}
+
+
+
+Stats19 -- the road safety dataset for UK
+
+Had some  draft pre-registration report/proposal looking at pedestrian injury -- 
+
+* inequalities in who-hit-whom
+* before / after analysis, establishing effect of intervention classes on crash rates/ injury sevrity.
+
+Wanted to do this in a good, rigorous empirical way.
+
+:::
+
+---
+
+
+
+::: {.columns}
+
+::: {.column width="30%"}
+
+::: {style="font-size: 110%"}
+
+
+::: {.fragment}
+
+<br> > explore <span style='font-size:.8em; '>**~ EDA** </span> <br> > pre-register <br> > test <span style='font-size:.8em; '>**~ CDA** </span>
+
+
+:::
+
+<!-- ![](img/forking.png){.absolute top=250 left=0 width="30%"} -->
+
+:::
+
+
+
+:::
+
+::: {.column width="70%"}
+
+
+![](img/science_broken.png){.absolute top=300 left=350 width="45%"}
+![](img/forking.png){.absolute top=50 left=350 width="50%"}
+
+
+:::
+
+::: {.column width="40%"}
+
+
+::: {style="font-size: 130%"}
+
+
+:::
+
+:::
+
+:::
+
+::: {.notes}
+
+Open Science response to reprdoducibility crisis in empirical science diagnosed in 2010s
+
+P-hacking and disreputable practices but also open-ended nature of analysis means that you end up making decisions that end up biaising your results downstreant that you are not aware of...
+
+Structural changes / standards in how science is conducted, reported, and rewarded.
+
+Aim to Establish empirical rigour, replicable and testable analysis  
+
+BUT : 
+
+Can lead to didactic and narrow set of practices 
+may not apply well to applied analysis :
+
+Explore > Pre-register > Test
+
+This paper questions whether tenets of science reform necessarily lead to defensible science.
+
+If exploratory analysis is limited and shallow, then can end up testing poorly specified null hypotheses. 
+
+:::
+
+
+
+---
+
+![](img/stats19.png){.absolute top=10 left=0 width="50%"} 
+
+![](img/stats19_2.png){.absolute top=30 left=550 width="40%"} 
+
+
+::: {.notes}
+
+We could definitely have done this -- and come up with some p-values...
+
+But it was very clear to us that this would have not been a particularly sensible study -- there is loads of additional context that we were not accounting for, when reducing down to a single set of testable hypotheses. 
+
+Analysing road crashes that are particular events that happen in context, is different to, say experimental research, where might establish the effect of statins on blood pressure.
+
+
+:::
+
+---
+
+
+<br><br>
+
+::: {style="font-size: 110%"}
+
+> *Many of the human errors we point out in data analysis can be attributed to a **lack of ability to entertain multiple possibilities**. We like to **suppress and reduce  uncertainty**, not maintain it as we go.*
+>
+> Jessica Hullman, 2024
+
+:::
+
+
+
+
+---
+
+::: {.columns}
+
+::: {.column width="60%"}
+
+::: {style="font-size: 85%"}
+
+<br><br>
+
+> Exploratory research **needs rigor** to serve its intended aim of **facilitating scientific discovery**. Whichever method is selected [...] it needs to be implemented rigorously to **maximize the probability of true discoveries while minimizing the probability of false discoveries**.
+> 
+> Devezer et al. 2021
+
+:::
+
+:::
+
+
+![](img/science_reform_paper.png){.absolute top=0 left=650 width="35%"}
+
+:::
+
+
+::: {.notes}
+
+
+
+This paper questions whether tenets of science reform necessarily lead to defensible science.
+
+If exploratory analysis is limited and shallow, then can end up testing poorly specified null hypotheses. 
+
+Argue for expand role of exploratory research -- 
+
+:::
+
+---
+
+
+
+
+![](img/analysis1.png){.absolute top=80 left=450 width="55%"}
+![](img/analysis2.png){.absolute top=350 left=450 width="51%"}
+
+
+![](img/ga_twitter.png){.absolute top=0 left=0 width="40%"}
+
+::: {.notes}
+
+**Demonstrating** how we do scientific exploration in a way that is:
+
+* structured (that acknowledges important branching points and makes careful decisions on what to persue)
+* that uses theory, heuristics -- and models -- to support interpretion 
+* that uses statistical techniques de-emphasises / discourages spurious disovery.
+* that considers *coverage* -- how likely are dominant effects likely to hold? how sensitive are they to noise?
+
+This was a model-based analysis, but emphasis in models is different -- more on using models for helping us to identify parts of data space that is surprsing--
+less interested in how much overall data depart from expectaiton, but *where* this is the case 
+
+
+* that considers appropriate levels of data and analytic uncertainty -- some might be represented by statistical computation; others might be more epistemic; that considers 
+
+And so instead we pushed our exploratory analysis in various directions, using combinations of models and data graphics in tandem -- in a way that geographers often do, but that you tend not to see in data analysis primers.
+
+:::
+
+
+
+---
+
+
+
+
+::: {.columns}
+
+
+::: {.column width="49%" style="background-color: #000000; color: #f0f0f0f0"}
+
+
+
+::: {.flushright}
+
+
+
+::: {style="font-size: 200%"}
+**Rigour**
+:::
+
+::: {style="font-size: 90%"}
+-- Repeatable analysis plans <br>
+-- Known inference protocols <br>
+-- Expectations for size and stability of effects 
+<br><br><br><br><br><br><br><br>
+:::
+
+:::
+
+:::
+
+::: {.column width="50%"}
+
+<br><br><br><br>
+
+::: {style="font-size: 200%"}
+**Richness**
+:::
+
+::: {style="font-size: 90%"}
+-- Evolving analysis plans <br>
+-- Informal inference (multiplicity) <br>
+-- Effects situated within descriptive context
+
+:::
+
+:::
+
+:::
+
+
+::: {.notes}
+
+When doing **good** data-driven research we need to consider these two things at the same time.
+
+Rigour :
+
+-- established, well-justified and thoroughly considered analysis plans
+
+
+Richness :
+
+-- descriptive detail that underpins the inferences we make necessary for generalising / transfer
+-- if context under which data / findings generated not properly detailed, should we be surprised about a replication crisis? 
+
+
+We ask:
+
+-- do the things/recipes we associate with rigour really lead to more defensible, better science?
+-- straightjacket, risk getting trapped in local minima + mechanics of pre-registration
+
+
+
+:::
+
+
+---
+
+
+![](img/challenge.png){.absolute top=10 left=0 width="90%"}
+
+---
+
+![](img/tmcf-team-turing.jpeg){.absolute top=30 left=0 width="80%"}
+
+::: {.notes}
+
+Applied data scientists doing problem-driven research; methods-oriented data scientists from Vis and Stats
+
+:::
+
+
+
+---
+
+
+
+::: {.flushright}
+**wide** data analysis
+:::
+
+![](img/blogs.png){.absolute top=100 left=0 width="95%"}
+
+
+---
+
+
+::: {style="font-size: 110%"}
+
+<span style='font-size:4.0em;'>**wide**</span> <span style='font-size:2.0em;'>**Data Analysis** </span><br>
+-------------------- <br>
+[**E**]nabling <br> [**W**]ide <br> [**D**]etailed and <br> [**I**]nteractive <br> data practice
+
+:::
+
+
+::: {.notes}
+
+In the blogs : examples of new techniques, frameworks, approaches to navigate this space...
+
+Write these up in four strategies for wide data analysis
+
+
+
+:::
+---
+
+::: {.flushright}
+**wide** foundations
+:::
+
+<span style='font-size:1.2em;'> Ways of **thinking** wide </span> <br>
+
+![](img/thinking.png){.absolute top=150 left=0 width="95%"}
+
+
+
+
+---
+
+
+::: {.flushright}
+**wide** foundations
+:::
+
+<span style='font-size:1.2em;'> Ways of **doing** wide </span> <br>
+
+![](img/doing.png){.absolute top=150 left=0 width="95%"}
+
+
+---
+
+
+::: {.flushright}
+**wide** prompting questions
+:::
+
+
+![](img/schemas.png){.absolute top=70 left=0 width="90%"}
+
+<br><br><br><br><br><br><br><br><br><br>
+
+::: {style="font-size: 55%;"}
+Wood et al. (2019) Design Exposition with Literate Visualization, <br> *IEEE Transactions on Visualization and Computer Graphics*
+
+:::
+
+---
+
+::: {.flushright}
+**wide** call-to-action
+:::
+
+<!-- ![](img/hdsr.png){.absolute top=0 left=550 width="40%"} -->
+<!-- ![](img/rss_b.png){.absolute top=100 left=0 width="70%"} -->
+
+::: {.columns}
+
+::: {.column width="70%"}
+
+![](img/si.png){.absolute top=100 left=0 width="65%"}
+
+:::
+
+
+::: {.column width="30%"}
+
+::: {style="font-size: 100%"}
+
+<br>> Case studies <br> > Methods <br> > Tools
+
+:::
+
+:::
+
+:::
+
+
+
+
+::: {.notes}
+. 
+
+:::
+
+---
+
+
+::: {.flushright}
+**Leeds** call-to-action
+:::
+
+![](img/science_ds.png){.absolute top=0 left=0 width="65%"}
