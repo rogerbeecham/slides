@@ -1,0 +1,1299 @@
+---
+title: "<span style='font-size:1.38em;'>GeoVisualization </span><br> <span style='font-size:.95em; font-weight: 500'>LIDA Vis Programme</span><br><span style='font-size:.7em; font-weight: 500'>23rd May 2025</span>"
+subtitle: "<br><span style='color:#525252; font-size:1.5em;'>Roger Beecham</span><br><span style='color:#525252; font-size:.9em;'>-- School of Geography </span> <br> <span style='color:#525252; font-size:.9em;'>-- Leeds Institute for Data Analytics</span>"
+format: 
+   revealjs:
+     transition: fade
+     theme: theme/slides-theme.scss
+     mainfont: Avenir Book
+---
+
+
+
+::: {style="font-size: 140%;"}
+
+::: {.callout-important icon=false}
+
+## Talk outline
+
+
+1. Why is GeoVisualization important?
+
+2. What makes a good GeoVisualization?
+
+3. Some GeoVisualization theory + heuristics 
+
+4. Xenomaps
+
+5. Useful resources
+
+
+:::
+
+:::
+
+---
+
+::: {style="font-size: 140%;"}
+
+::: {.callout-important icon=false}
+
+## Talk outline
+
+
+1. Why is ~~Geo~~Visualization important?
+
+2. What makes a good ~~Geo~~Visualization?
+
+3. Some ~~Geo~~Visualization theory + heuristics 
+
+4. Xenomaps
+
+5. Useful resources
+
+
+:::
+
+:::
+
+---
+
+# 1. Why GeoVisualization?
+
+---
+
+# 1. Why ~~Geo~~Visualization?
+
+---
+
+::: {.columns}
+
+::: {.column width="20%"}
+
+<br>
+
+::: {style="font-size: 500%;"}
+1.
+:::
+
+:::
+
+::: {.column width="80%"}
+
+<br><br>
+
+::: {.fragment .fade-in style="font-size: 150%;"}
+
+> ~~Data graphics~~ **maps** <br>
+> reveal structure that initial statistical summaries miss.
+
+:::
+
+:::
+
+:::
+
+---
+
+
+
+::: {.column width="80%"}
+![](img/anscombe_data.png){fig-align="center"}
+:::
+
+---
+
+::: {.column width="80%"}
+![](img/anscombe_data_stat.png){fig-align="center"}
+:::
+
+---
+
+::: {.column width="90%"}
+![](img/anscombe_plot.png){fig-align="center"}
+:::
+
+
+---
+
+<br>
+
+[`datasaurus`](https://itsalocke.com/datasaurus/) R package
+
+::: {.column width="85%"}
+![](img/datasaurus_dozen.gif){fig-align="center"}
+:::
+---
+
+
+::: {.columns}
+
+::: {.column width="20%"}
+
+<br>
+
+::: {style="font-size: 500%;"}
+1.
+:::
+
+:::
+
+::: {.column width="80%"}
+
+<br>
+
+::: {style="font-size: 140%;"}
+
+> ~~Data graphics~~ **maps** <br>
+> reveal structure that initial statistical summaries miss.
+> ... <br><br>
+> *Spatial relations are especially <br>
+> difficult to model*.
+:::
+
+:::
+
+
+:::
+
+---
+
+
+
+
+
+::: {.columns}
+
+::: {.column width="20%"}
+
+<br>
+
+::: {style="font-size: 500%;"}
+2.
+:::
+
+:::
+
+::: {.column width="80%"}
+
+<br>
+
+::: {.fragment .fade-in style="font-size: 140%;"}
+
+> ~~Data graphics~~ **maps** <br>
+> expose complex relations <br>
+> that cannot be easily captured<br>
+> by non-visual means.
+
+
+:::
+
+:::
+
+:::
+
+
+---
+
+
+::: {.column width="100%"}
+![](img/bikeshare.png){fig-align="center"}
+:::
+
+::: {style="font-size: 90%;"}
+
+```{r}
+#| echo: true
+#| eval: false
+memberID   oTime             dTime              oStation    dStation
+217####	   13/12/2012 11:20	 13/12/2012 11:36	  421	        421
+217####	   28/10/2012 11:45	 28/10/2012 11:48	  492	        505
+217####	   15/12/2012 11:04	 15/12/2012 11:07	  492	        505
+217####	   31/12/2012 08:45	 31/12/2012 08:49	  492	        505
+217####	   02/01/2013 08:49	 02/01/2013 08:53	  492	        505
+217####	   06/01/2013 11:26	 06/01/2013 11:29	  492	        505
+217####	   18/01/2013 08:37	 18/01/2013 08:41	  492       	505
+```
+
+:::
+---
+
+<br>
+
+::: {.column width="90%"}
+![](img/schema.png){fig-align="center"}
+:::
+
+---
+
+
+
+::: {.column width="80%"}
+
+
+![](img/flows.png){fig-align="center"}
+:::
+
+
+---
+
+::: {.columns}
+
+::: {.column width="20%"}
+
+<br>
+
+::: {style="font-size: 500%;"}
+2.
+:::
+
+:::
+
+::: {.column width="80%"}
+
+<br><br>
+
+::: {style="font-size: 140%;"}
+
+> ~~Data graphics~~ **maps** <br>
+> expose complex relations <br>
+> that cannot be easily captured<br>
+> by non-visual means.
+
+
+:::
+
+:::
+
+:::
+
+---
+
+::: {.column width="100%"}
+
+<br>
+
+![](img/ranks.png){fig-align="center"}
+:::
+
+---
+
+<br>
+
+::: {.column width="90%"}
+![](img/ods_sex.png){fig-align="center"}
+:::
+
+
+---
+
+
+<!-- ::: {.columns} -->
+
+<!-- ::: {.column width="20%"} -->
+
+<!-- <br> -->
+
+<!-- ::: {style="font-size: 500%;"} -->
+<!-- 3. -->
+<!-- ::: -->
+
+<!-- ::: -->
+
+<!-- ::: {.column width="80%"} -->
+
+<!-- <br><br> -->
+
+<!-- ::: {.fragment .fade-in style="font-size: 170%;"} -->
+
+<!-- > Data graphics ...<br> -->
+<!-- > can inject rigour <br> -->
+<!-- > into exploratory analysis -->
+
+
+<!-- ::: -->
+
+<!-- ::: -->
+
+<!-- ::: -->
+
+
+<!-- --- -->
+
+<!-- ::: {.column width="90%"} -->
+<!-- ![](img/lineups_hex_1.png){fig-align="center"} -->
+<!-- ::: -->
+
+<!-- --- -->
+
+<!-- ::: {.column width="90%"} -->
+<!-- ![](img/lineups_hex_annotate.png){fig-align="center"} -->
+<!-- ::: -->
+
+<!-- --- -->
+
+<!-- <br> -->
+
+<!-- ::: {.column width="90%"} -->
+<!-- ![](img/geog_2.png){fig-align="center"} -->
+<!-- ::: -->
+
+<!-- --- -->
+
+<!-- ::: {.column width="60%"} -->
+<!-- ![](img/hop.gif) -->
+<!-- ::: -->
+
+<!-- --- -->
+
+<!-- ::: {.columns} -->
+
+<!-- ::: {.column width="20%"} -->
+
+<!-- <br> -->
+
+<!-- ::: {style="font-size: 500%;"} -->
+<!-- 4. -->
+<!-- ::: -->
+
+<!-- ::: -->
+
+<!-- ::: {.column width="80%"} -->
+
+<!-- <br><br> -->
+
+<!-- ::: {.fragment .fade-in style="font-size: 170%;"} -->
+
+<!-- > Data graphics ...<br> -->
+<!-- > can communicate statistical concepts <br> -->
+<!-- > -- risk and uncertainty -->
+
+
+<!-- ::: -->
+
+<!-- ::: -->
+
+<!-- ::: -->
+
+
+<!-- --- -->
+
+<!-- <br> -->
+
+<!-- ::: {.column width="100%"} -->
+<!-- ![](img/poll_stats.png){fig-align="center"} -->
+<!-- ::: -->
+
+<!-- --- -->
+
+<!-- <br> -->
+
+<!-- ::: {.column width="100%"} -->
+<!-- ![](img/poll_waffle.png){fig-align="center"} -->
+<!-- ::: -->
+
+
+<!-- --- -->
+
+
+<!-- <br> -->
+
+<!-- ::: {.column width="100%"} -->
+<!-- ![](img/poll_theatre.png){fig-align="center"} -->
+<!-- ::: -->
+
+
+<!-- --- -->
+
+
+
+
+<!-- --- -->
+
+<!-- ::: {.columns} -->
+
+
+<!-- ::: {.column width="20%"} -->
+
+<!-- <br> -->
+
+<!-- ::: {style="font-size: 500%;"} -->
+<!-- 5. -->
+<!-- ::: -->
+
+<!-- ::: -->
+
+<!-- ::: {.column width="80%"} -->
+
+<!-- <br><br> -->
+
+<!-- ::: {.fragment .fade-in style="font-size: 170%;"} -->
+
+<!-- > Data graphics ...<br> -->
+<!-- > are compelling <br> and can persuade <br> -->
+<!-- > -- they have authority -->
+
+<!-- ::: -->
+
+<!-- ::: -->
+
+<!-- ::: -->
+
+
+<!-- ---  -->
+
+<!-- <br> -->
+
+<!-- ::: {.column width="100%"} -->
+<!-- ![](img/vaccine_effect_unlabelled.png){fig-align="center"} -->
+<!-- ::: -->
+
+<!-- --- -->
+
+
+<!-- <br> -->
+
+<!-- ::: {.column width="100%"} -->
+<!-- ![](img/vaccine_effect.png){fig-align="center"} -->
+<!-- ::: -->
+
+---
+
+# 2. What makes a good GeoVisualization? 
+
+---
+
+::: {.columns}
+
+
+::: {.column width="30%"}
+
+<br><br><br>
+
+::: {style="font-size: 180%; color:#525252;"}
+Good  <br>
+GeoVis
+:::
+
+:::
+
+::: {.column width="70%"}
+
+
+::: {.fragment .fade-in style="font-size: 100%;"}
+
+::: {.fragment}
+* Expose **complex structure** and relations.
+:::
+
+::: {.fragment}
+* Are **data rich**: present many numbers in a small space.
+:::
+
+::: {.fragment}
+* Reveal patterns at **multiple levels**: from broad overview to fine structure.
+:::
+
+::: {.fragment}
+* Have **elegance**: are without extraneous detail.
+:::
+
+::: {.fragment}
+* Generate an **aesthetic response** that encourages people to engage.
+:::
+
+:::
+
+:::
+
+:::
+
+---
+
+::: columns
+
+::: {.column width="65%"}
+
+![](img/wp_spoke.png){fig-align="center"}
+
+:::
+
+::: {.column width="35%"}
+
+![](img/wp_long.png)
+
+:::
+
+:::
+
+---
+
+
+::: {.columns}
+
+
+::: {.column width="30%"}
+
+<br><br><br>
+
+::: {style="font-size: 180%; color:#525252;"}
+Good <br>
+GeoVis
+:::
+
+:::
+
+::: {.column width="70%"}
+
+<br>
+
+::: {style="font-size: 120%;"}
+
+> *Data graphics visually display measured quantities by means of the **combined use** of **points, lines, a coordinate system**, numbers, symbols, words, shading, and **color**.*
+> 
+> Tufte 1983
+
+
+:::
+
+:::
+
+:::
+
+---
+
+# 3. GeoVisualization theory + heuristics
+
+---
+
+::: {.columns}
+
+
+::: {.column width="35%"}
+
+<br><br><br><br>
+
+::: {style="font-size: 180%; color:#525252;"}
+Theory
+:::
+
+:::
+
+::: {.column width="65%"}
+
+<br>
+
+::: {style="font-size: 120%;"}
+
+> *Data graphics visually display measured quantities by means of the **combined use** of **points, lines, a coordinate system**, numbers, symbols, words, shading, and **color**.*
+> 
+> Tufte 1983
+
+
+:::
+
+:::
+
+:::
+
+---
+
+## Visual channels
+
+
+::: columns
+
+
+::: {.column width="60%"}
+
+![](img/munzner_effect_trans.png){fig-align="center"}
+::::
+
+:::
+---
+
+::: {.callout-tip icon=false collapse=true}
+## Task: count number of occurrences of #3
+![](img/no-encoding.png)
+
+:::
+
+::: {.notes}
+Answer : 6
+:::
+
+---
+
+
+::: {.callout-tip icon=false collapse=true}
+## Task: count number of occurrences of #3
+```{r}
+#| label: area-encoding
+#| fig-cap: "Encoding: *area*."
+#| echo: false
+knitr::include_graphics("img/area-encoding.png", error = FALSE)
+```
+
+:::
+
+::: {.notes}
+Answer : 9
+:::
+
+---
+
+
+::: {.callout-tip icon=false collapse=true}
+## Task: count number of occurrences of #3
+```{r}
+#| label: angle-encoding
+#| fig-cap: "Encoding: *tilt/angle*."
+#| echo: false
+knitr::include_graphics("img/angle-encoding.png", error = FALSE)
+```
+
+:::
+
+::: {.notes}
+Answer : 5
+:::
+
+---
+
+
+::: {.callout-tip icon=false collapse=true}
+## Task: count number of occurrences of #3
+```{r}
+#| label: hue-encoding
+#| fig-cap: "Encoding: *colour hue*."
+#| echo: false
+knitr::include_graphics("img/hue-encoding.png", error = FALSE)
+```
+
+:::
+
+::: {.notes}
+Answer : 2
+:::
+
+---
+
+
+::: {.callout-tip icon=false collapse=true}
+## Task: count number of occurrences of #3
+```{r}
+#| label: spatial-encoding
+#| fig-cap: "Encoding: *spatial region*."
+#| echo: false
+knitr::include_graphics("img/spatial-encoding.png", error = FALSE)
+```
+
+:::
+
+::: {.notes}
+Answer : 5
+:::
+
+---
+
+## Visual channels
+
+::: columns
+
+
+::: {.column width="60%"}
+
+![](img/munzner_effect_trans.png){fig-align="center"}
+::::
+
+:::
+
+---
+
+## Stevens' power law
+
+<div style="font-size:0.8em;">
+$R=kS^n$
+</div>
+
+<div style="font-size:0.4em;">
+* $S$ : stimulus magnitude 
+* $R$ : response (perceived length, area)
+* $^n$ : power law exponent, varies with stimulus type. $n$ is 1 where perfect mapping.
+</div>
+
+::: {.fragment}
+
+![](img/perception.svg)
+
+:::
+
+::: {.notes}
+
+The ranking of *magnitude:order* channels is also informed by established theory and evidence.
+
+When using data graphics to communicate quantities, certain visual channels are known to induce biases. [Psychophysics](https://en.wikipedia.org/wiki/Psychophysics) is a branch of psychology that develops methods aimed at capturing the often non-linear relationship between the properties of a *stimuli* such as symbol length, area or colour value, and their *perceived response*. Stevens' power law is an empirically-derived relationship that models this effect.
+
+
+@stevens_subjective_1963' experimental work involved varying the length of lines and areas of squares and deriving power functions for their perception. For length, an exponent of ~1.0 was estimated; for area an exponent of 0.7. So whilst variation in length is accurately perceived, we *underestimate* the size of areas as they increase. @flannery_relative_1971's work, which was concerned with the perception of quantities in graduated point maps, estimated an exponent of 0.87 for the perception of circle size.
+
+Experimental findings vary and so these models of human perception are also subject to variation. Nevertheless, corrections can be applied. In cartography a [Flannery compensation](https://makingmaps.net/2007/08/28/perceptual-scaling-of-map-symbols/) is used when representing quantities with area.
+
+
+:::
+
+---
+
+## Colour
+
+
+![](img/colour_type.png)
+
+
+::: {.notes}
+https://blog.datawrapper.de/which-color-scale-to-use-in-data-vis/
+:::
+
+
+
+---
+
+::: {.columns}
+
+
+::: {.column width="30%"}
+
+<br><br><br><br>
+
+::: {style="font-size: 180%; color:#525252;"}
+Theory
+:::
+
+:::
+
+::: {.column width="70%"}
+
+<br><br>
+
+::: {style="font-size: 120%;"}
+
+> If good data visualization design is about visual **encoding trade-offs**,
+> this is especially true of GeoVisualization design.
+
+
+:::
+
+:::
+
+:::
+
+
+
+---
+
+::: columns
+
+::: {.column width="65%"}
+
+![](img/wp_spoke.png){fig-align="center"}
+
+:::
+
+::: {.column width="35%"}
+
+![](img/wp_long.png)
+
+:::
+
+:::
+
+---
+
+
+![](img/chor_maps.png){.absolute top=60 left=0 width="100%"}
+![](img/chor_maps_legend.png){.absolute top=550 left=800 width="15%"}
+
+
+---
+
+
+::: {.columns}
+
+
+::: {.column width="30%"}
+
+<br><br><br><br>
+
+::: {style="font-size: 180%;"}
+Theory
+:::
+
+:::
+
+::: {.column width="70%"}
+
+<br>
+
+::: {style="font-size: 120%;"}
+
+> When using data graphics for analysis, we must remember that **perceived effect != statistical effect**.
+> <br><br>
+> This is a special problem for maps.
+
+
+:::
+
+:::
+
+:::
+
+---
+
+## perceived effect != statistical effect
+
+::: columns
+
+<br>
+
+::: {.column width="35%"}
+  
+![](img/guess_correl1.png)
+
+:::
+
+::: {.column width="65%"}
+
+![](img/guess_correl2.png)
+:::
+
+:::
+
+---
+
+## perceived effect != statistical effect
+
+![](img/maplineup.png)
+Beecham et al. (2017) "Map LineUps: Effects of spatial structure on graphical inference", *IEEE TVCG*.
+
+
+
+---
+
+
+::: {.columns}
+
+
+::: {.column width="30%"}
+
+<br><br><br><br>
+
+::: {style="font-size: 180%; color:#525252;"}
+
+Heuristics
+
+:::
+
+:::
+
+::: {.column width="70%"}
+
+<br><br><br>
+
+::: {style="font-size: 120%;"}
+
+> *Things that are **not precise** should not be **encoded** with **symbols** that look precise.*
+
+
+:::
+
+:::
+
+:::
+
+
+---
+
+
+::: columns
+
+
+::: {.column width="40%"}
+
+<br><br><br>
+
+::: {style="font-size: 80%;"}
+
+> *Things that are **not precise** should not be **encoded** with **symbols** that look precise.*
+
+
+:::
+
+:::
+
+::: {.column width="60%"}
+
+<br><br>
+![](img/cone_uncertainty.png)
+
+:::
+
+:::
+
+
+
+
+
+
+----
+
+
+::: columns
+
+
+
+::: {.column width="40%"}
+
+<br><br><br>
+
+::: {style="font-size: 80%; color:#525252;"}
+
+> *Things that are **not precise** should not be **encoded** with **symbols** that look precise.*
+
+
+:::
+
+:::
+
+::: {.column width="60%"}
+
+<br><br>
+
+![](img/cone_redesign_auth.png)
+
+:::
+
+:::
+
+
+---
+
+# 4. Xenomaps
+
+---
+
+::: columns
+
+
+
+::: {.column width="30%"}
+
+<br><br><br><br><br>
+
+::: {style="font-size: 100%; color:#525252;"}
+
+Xenomaps
+
+
+:::
+
+:::
+
+::: {.column width="70%"}
+
+<br>
+
+![](img/xenomaps.png)
+
+:::
+
+:::
+
+
+
+---
+
+
+::: columns
+
+
+
+::: {.column width="30%"}
+
+<br><br><br><br><br>
+
+::: {style="font-size: 100%; color:#525252;"}
+
+Xenomaps
+
+
+:::
+
+:::
+
+::: {.column width="70%"}
+
+<br>
+
+![](img/anim_real_grid_frame.png){.absolute top=95 left=190 width="70%"}
+
+:::
+
+:::
+
+---
+
+::: columns
+
+
+
+::: {.column width="30%"}
+
+<br><br><br><br><br>
+
+::: {style="font-size: 100%; color:#525252;"}
+
+Xenomaps
+
+
+:::
+
+:::
+
+::: {.column width="70%"}
+
+<br>
+
+
+
+![](img/anim_real_grid.gif){.absolute top=95 left=190 width="70%"}
+
+:::
+
+:::
+
+
+---
+
+
+::: columns
+
+
+
+::: {.column width="30%"}
+
+<br><br><br><br><br>
+
+::: {style="font-size: 100%; color:#525252;"}
+
+Xenomaps
+
+
+:::
+
+:::
+
+::: {.column width="70%"}
+
+<br>
+
+![](img/rivers_grid.png){.absolute top=90 left=220 width="65%"}
+
+:::
+
+:::
+
+---
+
+
+
+::: columns
+
+
+
+::: {.column width="30%"}
+
+<br><br><br><br><br>
+
+::: {style="font-size: 100%; color:#525252;"}
+
+Xenomaps
+
+
+:::
+
+:::
+
+::: {.column width="70%"}
+
+<br>
+
+
+
+![](img/t.png){.absolute top=122 left=300 width="79%"}
+
+:::
+
+:::
+
+---
+
+
+
+::: columns
+
+
+
+::: {.column width="30%"}
+
+<br><br><br><br><br>
+
+::: {style="font-size: 100%; color:#525252;"}
+
+Xenomaps
+
+
+:::
+
+:::
+
+::: {.column width="70%"}
+
+<br>
+
+
+
+![](img/wp_electoral_full.png){.absolute top=30 left=380 width="68%"}
+
+![](img/wp_banner.png){.absolute top=400 left=0 width="25%"}
+![](img/wp_legend.png){.absolute top=430 left=0 width="30%"}
+
+:::
+
+:::
+
+---
+
+
+::: columns
+
+
+
+::: {.column width="30%"}
+
+<br><br><br><br><br>
+
+::: {style="font-size: 100%; color:#525252;"}
+
+Xenomaps
+
+
+:::
+
+:::
+
+::: {.column width="70%"}
+
+<br>
+
+
+
+![](img/paper_od_map.png){.absolute top=20 left=250 width="45%"}
+![](img/odmap_paper_france.png){.absolute top=140 left=730 width="35%"}
+![](img/odmap_paper_us.png){.absolute top=400 left=255 width="50%"}
+
+:::
+
+:::
+
+
+---
+
+
+
+
+
+::: columns
+
+
+
+::: {.column width="30%"}
+
+<br><br>
+
+::: {style="font-size: 80%; color:#525252;"}
+
+Radburn & Beecham (2021)  "Mapping deprivation for each and every small area in England”, *Regional Studies, Regional Science*.
+
+
+:::
+
+:::
+
+::: {.column width="50%"}
+
+<br><br>
+
+![](img/featured.png){.absolute top=0 left=350 width="52%"}
+
+
+
+:::
+
+:::
+
+---
+
+
+
+
+
+
+# 5. Resources
+
+---
+
+::: {.columns}
+
+
+::: {.column width="40%"}
+
+
+::: {style="font-size: 300%; color: #525252"}
+
+{{< fa book-open-reader >}}<br>{{< fa laptop-code >}} 
+
+:::
+
+:::
+
+::: {.column width="50%"}
+
+
+
+![](img/1_cover_mockup.png){.absolute top=0 left=350 width="45%"}
+
+:::
+
+:::
+
+
+---
+
+
+::: {.columns}
+
+
+::: {.column width="40%"}
+
+
+::: {style="font-size: 1300%"}
+
+?
+
+:::
+
+:::
+
+:::
+
+

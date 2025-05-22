@@ -1016,12 +1016,12 @@ Complex relationships and interactions: political polling age and education.
 
 
 
-![](img/outcome.png){.absolute top="450px" left="-50px" width="25%"}
+![](img/outcome.png){.absolute top="400px" left="-50px" width="25%"}
 
-![](img/outcome_spm.png){.absolute top="450px" left="280px" width="25%"}
+![](img/outcome_spm.png){.absolute top="400px" left="280px" width="25%"}
 
 
-![](img/outcome_mrp.png){.absolute top="450px" left="580px" width="25%"}
+![](img/outcome_mrp.png){.absolute top="400px" left="580px" width="25%"}
 
 
 ::: footer
