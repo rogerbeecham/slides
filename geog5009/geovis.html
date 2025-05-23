@@ -528,7 +528,7 @@
 <p><br></p>
 <div style="font-size: 140%;">
 <blockquote>
-<p><del>Data graphics</del> <strong>maps</strong> <br> reveal structure that initial statistical summaries miss. … <br><br> <em>Spatial relations are especially <br> difficult to model</em>.</p>
+<p><del>Data graphics</del> <strong>maps</strong> <br> reveal structure that initial statistical summaries miss. … <br><br> <em><strong>Spatial relations</strong> are especially <br> <strong>difficult to model</strong></em>.</p>
 </blockquote>
 </div>
 </div></div>
@@ -537,14 +537,14 @@
 
 <div class="columns">
 <div class="column" style="width:20%;">
-<p><br></p>
+<p><br><br></p>
 <div style="font-size: 500%;">
 <ol start="2" type="1">
 <li></li>
 </ol>
 </div>
 </div><div class="column" style="width:80%;">
-<p><br></p>
+<p><br><br></p>
 <div class="fragment fade-in" style="font-size: 140%;">
 <blockquote>
 <p><del>Data graphics</del> <strong>maps</strong> <br> expose complex relations <br> that cannot be easily captured<br> by non-visual means.</p>
@@ -1033,9 +1033,12 @@
 <div class="fragment">
 <p><img data-src="img/perception.svg"></p>
 </div>
+<div class="fragment">
+<p><img data-src="img/scaled-circles.png" class="absolute" style="top: 300px; left: 700px; width: 30%; "></p>
+</div>
 <aside class="notes">
-<p>The ranking of <em>magnitude:order</em> channels is also informed by established theory and evidence.</p>
-<p>When using data graphics to communicate quantities, certain visual channels are known to induce biases. <a href="https://en.wikipedia.org/wiki/Psychophysics">Psychophysics</a> is a branch of psychology that develops methods aimed at capturing the often non-linear relationship between the properties of a <em>stimuli</em> such as symbol length, area or colour value, and their <em>perceived response</em>. Stevens’ power law is an empirically-derived relationship that models this effect.</p>
+<p><a href="https://en.wikipedia.org/wiki/Psychophysics">Psychophysics</a> develops methods aimed at capturing the often non-linear relationship between the properties of a <em>stimuli</em> such as symbol length, area or colour value, and their <em>perceived response</em>.</p>
+<p>Stevens’ power law is an empirically-derived relationship that models this effect.</p>
 <p><span class="citation" data-cites="stevens_subjective_1963">@stevens_subjective_1963</span>’ experimental work involved varying the length of lines and areas of squares and deriving power functions for their perception. For length, an exponent of ~1.0 was estimated; for area an exponent of 0.7. So whilst variation in length is accurately perceived, we <em>underestimate</em> the size of areas as they increase. <span class="citation" data-cites="flannery_relative_1971">@flannery_relative_1971</span>’s work, which was concerned with the perception of quantities in graduated point maps, estimated an exponent of 0.87 for the perception of circle size.</p>
 <p>Experimental findings vary and so these models of human perception are also subject to variation. Nevertheless, corrections can be applied. In cartography a <a href="https://makingmaps.net/2007/08/28/perceptual-scaling-of-map-symbols/">Flannery compensation</a> is used when representing quantities with area.</p>
 <style type="text/css">
@@ -1071,15 +1074,15 @@
 
 <div class="columns">
 <div class="column" style="width:30%;">
-<p><br><br><br><br></p>
-<div style="font-size: 180%; color:#525252;">
-<p>Theory</p>
+<p><br><br><br></p>
+<div style="font-size: 160%; color:#525252;">
+<p>Theory + <strong>Heuristics</strong></p>
 </div>
 </div><div class="column" style="width:70%;">
 <p><br><br></p>
 <div style="font-size: 120%;">
 <blockquote>
-<p>If good data visualization design is about visual <strong>encoding trade-offs</strong>, this is especially true of GeoVisualization design.</p>
+<p>If good data visualization design is about <strong>visual encoding trade-offs</strong>, this is especially true of GeoVisualization design.</p>
 </blockquote>
 </div>
 </div></div>
@@ -1099,21 +1102,21 @@
 </section>
 <section class="slide level2">
 
-<p><img data-src="img/chor_maps.png" class="absolute" style="top: 60px; left: 0px; width: 100%; "> <img data-src="img/chor_maps_legend.png" class="absolute" style="top: 550px; left: 800px; width: 15%; "></p>
+<p><img data-src="img/chor_maps.png" class="absolute" style="top: 40px; left: 30px; width: 100%; "> <img data-src="img/chor_maps_legend.png" class="absolute" style="top: 550px; left: 800px; width: 15%; "></p>
 </section>
 <section class="slide level2">
 
 <div class="columns">
 <div class="column" style="width:30%;">
 <p><br><br><br><br></p>
-<div style="font-size: 180%;">
-<p>Theory</p>
+<div style="font-size: 180%; color:#525252;">
+<p>Theory + analysis</p>
 </div>
 </div><div class="column" style="width:70%;">
 <p><br></p>
 <div style="font-size: 120%;">
 <blockquote>
-<p>When using data graphics for analysis, we must remember that <strong>perceived effect != statistical effect</strong>. <br><br> This is a special problem for maps.</p>
+<p>When using data graphics for <strong>analysis</strong>, we must remember that <strong>perceived effect != statistical effect</strong>. <br><br> This is a special problem for maps.</p>
 </blockquote>
 </div>
 </div></div>
@@ -1129,15 +1132,22 @@
 </section>
 <section id="perceived-effect-statistical-effect-1" class="slide level2">
 <h2>perceived effect != statistical effect</h2>
-<p><img data-src="img/maplineup.png"> Beecham et al.&nbsp;(2017) “Map LineUps: Effects of spatial structure on graphical inference”, <em>IEEE TVCG</em>.</p>
+<p><img data-src="img/kay_heer.png" class="absolute" style="top: 150px; left: 50px; width: 90%; "></p>
+</section>
+<section id="perceived-effect-statistical-effect-2" class="slide level2">
+<h2>perceived effect != statistical effect</h2>
+<p><img data-src="img/maplineup.png" class="absolute" style="top: 120px; left: 10px; width: 100%; "> <br><br><br><br><br><br><br><br><br></p>
+<div style="font-size: 80%;">
+<p>Beecham et al.&nbsp;(2017) “Map LineUps: Effects of spatial structure on graphical inference”, <em>IEEE TVCG</em>.</p>
+</div>
 </section>
 <section class="slide level2">
 
 <div class="columns">
 <div class="column" style="width:30%;">
 <p><br><br><br><br></p>
-<div style="font-size: 180%; color:#525252;">
-<p>Heuristics</p>
+<div style="font-size: 140%; color:#525252;">
+<p>Heuristics + uncertainty</p>
 </div>
 </div><div class="column" style="width:70%;">
 <p><br><br><br></p>
@@ -1210,6 +1220,19 @@
 <p><br></p>
 <p><img data-src="img/anim_real_grid_frame.png" class="absolute" style="top: 95px; left: 190px; width: 70%; "></p>
 </div></div>
+<aside class="notes">
+<p>Spatial distortion</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2">
 
@@ -1289,6 +1312,27 @@
 <p><br><br></p>
 <p><img data-src="img/featured.png" class="absolute" style="top: 0px; left: 350px; width: 52%; "></p>
 </div></div>
+<aside class="notes">
+<ul>
+<li><p>32,844 neighbourhoods : constant size and with an approximate geographical arrangement</p></li>
+<li><p>Neighbourhoods are nested hierarchically, and this hierarchy is emphasized in our design</p></li>
+<li><p>allowing analysis within and between regions.</p></li>
+<li><p>rich patterns of continuity and discontinuity at multiple spatial scales –</p></li>
+<li><p>regions compared and and ranked according to deprivation (RQ1)</p></li>
+<li><p>high deprivation areas at the top of the graphic (northern regions); mid-purple representing mid-deprivation areas in most of the bottom right (London), and dark green representing the least deprived areas in the bottom middle (South East).</p></li>
+<li><p>London perhaps uniquely contains neighbourhoods that are socioeconomically diverse, and this diversity appears to have a regression-to-the-mean-type effect on its IMD scores. Also immediately obvious is the fact that deprivation concentrates geographically: areas of dark purple and dark green in contiguous blocks.</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2">
 
@@ -1306,7 +1350,7 @@
 <p><i class="fa-solid fa-book-open-reader" aria-label="book-open-reader"></i><br><i class="fa-solid fa-laptop-code" aria-label="laptop-code"></i></p>
 </div>
 </div><div class="column" style="width:50%;">
-<p><img data-src="img/1_cover_mockup.png" class="absolute" style="top: 0px; left: 350px; width: 45%; "></p>
+<p><img data-src="img/cover_new.png" class="absolute" style="top: 0px; left: 350px; width: 45%; "></p>
 </div></div>
 </section>
 <section class="slide level2">
