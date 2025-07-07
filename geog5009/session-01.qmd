@@ -1,6 +1,6 @@
 ---
-title: "GEOG5009 <br> <span style='font-size:.8em; font-weight: 500'>Visualization for</span> <br> <span style='font-size:.8em; font-weight: 500'>Geographic Data Science</span>"
-subtitle: "<br><span style='color:#525252; font-size:1.0em;'>-- Spring/Summer 2024</span>"
+title: "<span style='font-size:1.2em; font-weight: 600'>Data</span> <br><span style='font-size:1.2em; font-weight: 600'> Visualization</span> <br> <span style='font-size:1.0em; font-weight: 400'>with R</span>"
+subtitle: "<br><span style='color:#525252; font-size:1.3em;'>-- July 2025</span>"
 format: 
    revealjs:
      transition: fade
@@ -24,8 +24,13 @@ format:
 
 ---
 
-> <span style='font-size:25pt;'>In modern data analysis, **graphics** and **computational statistics** are increasingly used together to explore and **identify complex patterns** in data and to make and **communicate claims under uncertainty**. This course will go beyond traditional ideas of charts, graphs, maps (and also statistics!) to equip you with the **analysis**, **design** and **technical skills** to analyse and communicate with social science datasets. </span>
+<br><br>
 
+::: {style="font-size: 90%;"}
+
+> In modern data analysis, **graphics** and **computational statistics** are increasingly used together to explore and **identify complex patterns** in data and to make and **communicate claims under uncertainty**. This course will go beyond traditional ideas of charts, graphs, maps (and also statistics!) to equip you with the **analysis**, **design** and **technical skills** to analyse and communicate with social science datasets. 
+
+:::
 
 ::: footer
 :::
@@ -37,10 +42,14 @@ So : this course is about demonstrating a "modern" approach to data analysis (wi
 
 ---
 
+<br>
 
-> <span style='font-size:25pt;'> The course emphasises real-world applications. You will work with both new, **large-scale behavioural datasets**, as well as more traditional, **administrative datasets** located within various social science domains: Political Science, Crime Science, Urban and Transport Planning.</span>
+::: {style="font-size: 90%;"}
+> The course emphasises real-world applications. You will work with both new, **large-scale behavioural datasets**, as well as more traditional, **administrative datasets** located within various social science domains: Political Science, Crime Science, Urban and Transport Planning.</span>
 
-> <span style='font-size:25pt;'>  As well as learning how to **use graphics and statistics to explore patterns in these data**, implementing recent ideas from **data journalism** you will learn how to **communicate research findings** – how to **tell stories with data**.</span>
+> As well as learning how to **use graphics and statistics to explore patterns in these data**, implementing recent ideas from **data journalism** you will learn how to **communicate research findings** – how to **tell stories with data**.</span>
+
+:::
 
 ::: footer
 :::
@@ -58,6 +67,9 @@ Not a how-to primer -- they exist.
 
 ---
 
+## Course Objectives
+
+
 ::: {.incremental}
 - **Describe, process and combine** social science datasets.
 - **Design statistical graphics** that expose structure in social science data and that are underpinned by established principles in information visualization and cartography.
@@ -65,16 +77,15 @@ Not a how-to primer -- they exist.
 - Apply modern **statistical techniques** for analysing, representing and communicating data and **model uncertainty**.
 :::
 
+::: footer
+:::
+
+
 ::: {.notes}
 Want to cover main components of modern data analysis -- they are here.
 But to do so by stealth : through real analysis scenarios.
 :::
 
----
-## Minerva
-
-::: footer
-:::
 
 ---
 
@@ -102,11 +113,16 @@ Examples revealing some of the sessions
 
 :::
 
+
+::: footer
+:::
+
+
 ---
 
 # Session 1: Introduction
 
-## Why *Visualization* for data science?
+# Why *Visualization* for data science?
 
 ::: footer
 :::
@@ -119,9 +135,13 @@ Modern Data Analysis : what and why?
 
 
 
+::: footer
+:::
+
+
 ---
 
-<span style="font-size:0.9em;">
+<span style="font-size:1.3em;">
 Donoho 2017's **six key facets** of **data science**:
 </span>
 
@@ -151,9 +171,11 @@ Donoho 2017's **six key facets** of **data science**:
 
 
 <br>
-<span style="font-size:0.5em;">
+
+
+::: {style="font-size: 50%;"}
 Donoho, D. 2017. “50 Years of Data Science”, *Journal of Computational and Graphical Statistics*, 26 (6): 745–66. doi: [10.1080/10618600.2017.1384734](https://www.tandfonline.com/doi/full/10.1080/10618600.2017.1384734)
-</span>
+:::
 
 
 ::: footer
@@ -162,7 +184,7 @@ Donoho, D. 2017. “50 Years of Data Science”, *Journal of Computational and G
 ---
 
 
-<span style="font-size:0.9em;">
+<span style="font-size:1.3em;">
 Donoho 2017's **six key facets** of **data science**:
 </span>
 
@@ -192,9 +214,10 @@ Donoho 2017's **six key facets** of **data science**:
 
 
 <br>
-<span style="font-size:0.5em;">
+
+::: {style="font-size: 50%;"}
 Donoho, D. 2017. “50 Years of Data Science”, *Journal of Computational and Graphical Statistics*, 26 (6): 745–66. doi: [10.1080/10618600.2017.1384734](https://www.tandfonline.com/doi/full/10.1080/10618600.2017.1384734)
-</span>
+:::
 
 
 ::: footer
@@ -203,7 +226,8 @@ Donoho, D. 2017. “50 Years of Data Science”, *Journal of Computational and G
 ---
 
 
-<span style="font-size:0.9em;">
+
+<span style="font-size:1.3em;">
 Donoho 2017's **six key facets** of **data science**:
 </span>
 
@@ -232,10 +256,12 @@ Donoho 2017's **six key facets** of **data science**:
 </span>
 
 
+
 <br>
-<span style="font-size:0.5em;">
+
+::: {style="font-size: 50%;"}
 Donoho, D. 2017. “50 Years of Data Science”, *Journal of Computational and Graphical Statistics*, 26 (6): 745–66. doi: [10.1080/10618600.2017.1384734](https://www.tandfonline.com/doi/full/10.1080/10618600.2017.1384734)
-</span>
+:::
 
 
 ::: footer
@@ -245,7 +271,7 @@ Donoho, D. 2017. “50 Years of Data Science”, *Journal of Computational and G
 
 
 
-<span style="font-size:0.9em;">
+<span style="font-size:1.3em;">
 Donoho 2017's **six key facets** of **data science**:
 </span>
 
@@ -275,9 +301,10 @@ Donoho 2017's **six key facets** of **data science**:
 
 
 <br>
-<span style="font-size:0.5em;">
+
+::: {style="font-size: 50%;"}
 Donoho, D. 2017. “50 Years of Data Science”, *Journal of Computational and Graphical Statistics*, 26 (6): 745–66. doi: [10.1080/10618600.2017.1384734](https://www.tandfonline.com/doi/full/10.1080/10618600.2017.1384734)
-</span>
+:::
 
 
 ::: footer
@@ -287,7 +314,8 @@ Donoho, D. 2017. “50 Years of Data Science”, *Journal of Computational and G
 
 
 
-<span style="font-size:0.9em;">
+
+<span style="font-size:1.3em;">
 Donoho 2017's **six key facets** of **data science**:
 </span>
 
@@ -312,15 +340,14 @@ Donoho 2017's **six key facets** of **data science**:
 </span>
 
 <span style="font-size:0.8em;">
-6.  **and a more introspective “science about data science” (All sessions)**
+6.  and a more introspective **“science about data science” (All sessions)**
 </span>
-
 
 <br>
-<span style="font-size:0.5em;">
-Donoho, D. 2017. “50 Years of Data Science”, *Journal of Computational and Graphical Statistics*, 26 (6): 745–66. doi: [10.1080/10618600.2017.1384734](https://www.tandfonline.com/doi/full/10.1080/10618600.2017.1384734)
-</span>
 
+::: {style="font-size: 50%;"}
+Donoho, D. 2017. “50 Years of Data Science”, *Journal of Computational and Graphical Statistics*, 26 (6): 745–66. doi: [10.1080/10618600.2017.1384734](https://www.tandfonline.com/doi/full/10.1080/10618600.2017.1384734)
+:::
 
 ::: footer
 :::
@@ -328,9 +355,10 @@ Donoho, D. 2017. “50 Years of Data Science”, *Journal of Computational and G
 ---
 
 
-<span style="font-size:0.8em;">
+<span style="font-size:1.3em;">
 Donoho 2017's **six key facets** of **data science**:
 </span>
+
 
 <span style="font-size:0.8em;">
 1.  data gathering, preparation, and exploration; 
@@ -358,9 +386,10 @@ Donoho 2017's **six key facets** of **data science**:
 
 
 <br>
-<span style="font-size:0.5em;">
+
+::: {style="font-size: 50%;"}
 Donoho, D. 2017. “50 Years of Data Science”, *Journal of Computational and Graphical Statistics*, 26 (6): 745–66. doi: [10.1080/10618600.2017.1384734](https://www.tandfonline.com/doi/full/10.1080/10618600.2017.1384734)
-</span>
+:::
 
 ::: footer
 :::
@@ -375,9 +404,67 @@ Donoho, D. 2017. “50 Years of Data Science”, *Journal of Computational and G
 ---
 
 
+::: {.columns}
+
+::: {.column width="20%"}
+
+<br>
+
+::: {style="font-size: 500%;"}
+1.
+:::
+
+:::
+
+::: {.column width="80%"}
+
+<br><br>
+
+::: {.fragment .fade-in style="font-size: 150%;"}
+
+> Data graphics <br>
+> reveal structure that initial statistical summaries miss.
+
+:::
+
+:::
+
+:::
+
+
+::: footer
+:::
+
+
+---
+
+
+
 ::: {.column width="80%"}
 ![](img/anscombe_data.png){fig-align="center"}
 :::
+
+
+::: footer
+:::
+
+
+---
+
+::: {.column width="80%"}
+![](img/anscombe_data_stat.png){fig-align="center"}
+:::
+
+::: footer
+:::
+
+
+---
+
+::: {.column width="90%"}
+![](img/anscombe_plot1.png){fig-align="center"}
+:::
+
 ::: footer
 :::
 
@@ -388,10 +475,26 @@ Donoho, D. 2017. “50 Years of Data Science”, *Journal of Computational and G
 ::: {.column width="90%"}
 ![](img/anscombe_plot.png){fig-align="center"}
 :::
+
 ::: footer
 :::
 
+
 ---
+
+
+::: {.column width="90%"}
+![](img/anscombe_plot2.png){fig-align="center"}
+:::
+
+
+::: footer
+:::
+
+
+---
+
+
 
 <br>
 
@@ -405,15 +508,55 @@ Donoho, D. 2017. “50 Years of Data Science”, *Journal of Computational and G
 :::
 
 
+---
+
+
+
+
+
+::: {.columns}
+
+::: {.column width="20%"}
+
+<br><br>
+
+::: {style="font-size: 500%;"}
+2.
+:::
+
+:::
+
+::: {.column width="80%"}
+
+<br><br>
+
+::: {.fragment .fade-in style="font-size: 140%;"}
+
+> Data graphics <br>
+> expose complex relations <br>
+> that cannot be easily captured<br>
+> by non-visual means.
+
+
+:::
+
+:::
+
+:::
+
+::: footer
+:::
+
 
 ---
 
 
-::: {.column width="65%"}
+
+::: {.column width="100%"}
 ![](img/bikeshare.png){fig-align="center"}
 :::
 
-::: {style="font-size: 70%;"}
+::: {style="font-size: 90%;"}
 
 ```{r}
 #| echo: true
@@ -429,20 +572,27 @@ memberID   oTime             dTime              oStation    dStation
 ```
 
 :::
-
-::: footer
-:::
-
 ---
 
 <br>
 
 ::: {.column width="90%"}
-![](img/schema.png){fig-align="center"}
+![](img/schema.png){.absolute top="20px" left="0px" width="90%"}
+:::
+
+---
+
+
+
+::: {.column width="80%"}
+
+
+![](img/flows.png){fig-align="center"}
 :::
 
 ::: footer
 :::
+
 
 ---
 
@@ -459,14 +609,47 @@ memberID   oTime             dTime              oStation    dStation
 
 ---
 
+::: {.columns}
+
+::: {.column width="20%"}
+
+<br>
+
+::: {style="font-size: 500%;"}
+2.
+:::
+
+:::
+
 ::: {.column width="80%"}
 
 <br><br>
 
-![](img/ranks.png){fig-align="center"}
+::: {style="font-size: 140%;"}
+
+> Data graphics <br>
+> expose complex relations <br>
+> that cannot be easily captured<br>
+> by non-visual means.
+
+
+:::
+
+:::
+
 :::
 
 ::: footer
+:::
+
+
+---
+
+::: {.column width="100%"}
+
+<br>
+
+![](img/ranks.png){.absolute top="40px" left="0px" width="95%"}
 :::
 
 ---
@@ -483,8 +666,6 @@ memberID   oTime             dTime              oStation    dStation
 ---
 
 
----
-
 
 <br>
 
@@ -499,7 +680,9 @@ memberID   oTime             dTime              oStation    dStation
 
 
 
-In Geographic Data Science research projects:
+<span style="font-size:1.3em;">In **Social** Data **Science** research projects</span>
+
+::: {.incremental}
 
 * <span style="font-size:0.9em;">Data are repurposed for social science research often **for the first time**; </span>
 
@@ -507,17 +690,20 @@ In Geographic Data Science research projects:
 
 * <span style="font-size:0.9em;"> Types of questions that can be asked and the techniques deployed **cannot be easily specified in advance** </span>
 
+:::
+
 ::: footer
 :::
 
 
 ---
 
-::: {.column width="65%"}
-![](img/dsm.png){fig-align="center"}
-:::
 
-<span style="font-size:0.5em;"> Sedlmair, M., Meyer, M., and Munzner, T. (2012) "Design Study Methodology: Reflections from the Trenches and the Stacks," *IEEE Transactions on Visualization and Computer Graphics*, 18(12): 2431-2440, doi: [10.1109/TVCG.2012.213](https://ieeexplore.ieee.org/document/6327248) </spans>
+![](img/dsm.png){.absolute top="150px" left="0px" width="60%"}
+
+::: {style="font-size: 60%;"}
+Sedlmair, M., Meyer, M., and Munzner, T. (2012) "Design Study Methodology: Reflections from the Trenches and the Stacks," *IEEE Transactions on Visualization and Computer Graphics*, 18(12): 2431-2440, doi: [10.1109/TVCG.2012.213](https://ieeexplore.ieee.org/document/6327248) 
+:::
 
 ::: footer
 :::
@@ -538,7 +724,22 @@ In Geographic Data Science research projects:
 
 ---
 
-## How: R + Tidyverse + Quarto?
+# How 
+
+---
+
+<br> 
+
+::: {style="font-size: 300%;"}
+
+**R** + <br> **Tidyverse** + <br> **Quarto**
+
+:::
+
+
+
+
+
 
 ---
 
@@ -554,19 +755,50 @@ In Geographic Data Science research projects:
 
 ---
 
-<br>
+::: {.columns}
 
-::: {.column width="60%"}
-![](img/science_broken.png){fig-align="center"}
+::: {.column width="30%"}
+
+::: {style="font-size: 110%"}
+
+
+<br> > explore <span style='font-size:.8em; '>**~ EDA** </span> <br> > pre-register <br> > test <span style='font-size:.8em; '>**~ CDA** </span>
+
+<!-- ![](img/forking.png){.absolute top=250 left=0 width="30%"} -->
+
 :::
 
+
+
+:::
+
+::: {.column width="70%"}
+
+
+![](img/science_broken.png){.absolute top=250 left=350 width="45%"}
+![](img/forking.png){.absolute top=20 left=350 width="50%"}
+
+
+:::
+
+::: {.column width="40%"}
+
+
+::: {style="font-size: 130%"}
+
+
+:::
+
+:::
+
+:::
 
 ::: footer
 :::
 
 ---
 
-<br>
+<br><br>
 
 > <span style="font-size:0.9em;"> **Reproducible research** is the idea that **data analyses**, and more generally, **scientific claims**, are published with their **data and software code** so that others may **verify** the **findings** and **build upon them**. </span>
 >
@@ -577,18 +809,56 @@ In Geographic Data Science research projects:
 
 ---
 
+
+::: {.columns}
+
+::: {.column width="35%"}
+
+<span style="font-size:.9em;">
+A reproducible research project should be accompanied with **code** and **data** that...
+</span>
 <br>
 
-A reproducible research project should be accompanied with code and data that:
+:::
 
-* <span style="font-size:0.9em;">Allow all published tables and figures to be regenerated </span> <br>
-* <span style="font-size:0.9em;">Does what it claims (the code works) </span> <br>
-* <span style="font-size:0.9em;">Can be justified and explained through proper documentation
+:::
+
+---
+
+::: {.columns}
+
+::: {.column width="35%"}
+
+<span style="font-size:.9em;">
+A reproducible research project should be accompanied with **code** and **data** that...
+</span>
+<br>
+
+:::
+
+
+::: {.column width="65%"}
+
+<br><br><br><br>
+
+::: {.incremental}
+
+* <span style="font-size:1.0em;">Allow all published **tables** and **figures** to be regenerated </span> <br>
+* <span style="font-size:1.0em;">Does what it claims (the **code works**) </span> <br>
+* <span style="font-size:1.0em;">Can be justified and explained through **proper documentation**
+
+:::
+
+:::
+
+:::
 
 ::: footer
 :::
 
 ---
+
+<br>
 
 ::: {.column width="85%"}
 ![](img/quarto.png){fig-align="center"}
@@ -600,7 +870,188 @@ A reproducible research project should be accompanied with code and data that:
 
 ---
 
-## Help: Questions (approach) + Slack 
+::: {.columns}
+
+::: {.column width="30%"}
+
+::: {style="font-size: 110%"}
+
+
+<br> > explore <span style='font-size:.8em; '>**~ EDA** </span> <br> > pre-register <br> > test <span style='font-size:.8em; '>**~ CDA** </span>
+
+<!-- ![](img/forking.png){.absolute top=250 left=0 width="30%"} -->
+
+:::
+
+
+
+:::
+
+::: {.column width="70%"}
+
+
+![](img/science_reform_paper.png){.absolute top=70 left=350 width="50%"}
+
+
+:::
+
+::: {.column width="40%"}
+
+
+::: {style="font-size: 130%"}
+
+
+:::
+
+:::
+
+:::
+
+::: {.notes}
+
+Science Reform response to reprdoducibility crisis in empirical science in 2010s
+
+Structural changes / standards in how science is conducted, reported, and rewarded.
+
+Aim to Establish empirical rigour, replicable and testable analysis  
+
+BUT : 
+
+Can lead to didactic and narrow set of practices 
+may not apply well to applied analysis :
+
+Explore > Pre-register > Test
+
+This paper questions whether tenets of science reform necessarily lead to defensible science.
+
+If exploratory analysis is limited and shallow, then can end up testing poorly specified null hypotheses. 
+
+:::
+
+
+---
+
+<br><br>
+
+::: {style="font-size: 110%"}
+
+> *Many of the human errors we point out in data analysis can be attributed to a **lack of ability to entertain multiple possibilities**. We like to **suppress and reduce  uncertainty**, not maintain it as we go.*
+>
+> Jessica Hullman, 2024
+
+:::
+
+---
+
+---
+
+::: {.columns}
+
+::: {.column width="60%"}
+
+::: {style="font-size: 85%"}
+
+<br><br>
+
+> Exploratory research **needs rigor** to serve its intended aim of **facilitating scientific discovery**. Whichever method is selected [...] it needs to be implemented rigorously to **maximize the probability of true discoveries while minimizing the probability of false discoveries**.
+> 
+> Devezer et al. 2021
+
+:::
+
+:::
+
+
+![](img/science_reform_paper.png){.absolute top=0 left=650 width="35%"}
+
+:::
+
+
+::: {.notes}
+
+Argue for expand role of exploratory research -- 
+
+:::
+
+---
+
+
+
+::: {.columns}
+
+
+::: {.column width="49%" style="background-color: #000000; color: #f0f0f0f0"}
+
+
+
+::: {.flushright}
+
+
+
+::: {style="font-size: 200%"}
+**Rigour**
+:::
+
+::: {style="font-size: 90%"}
+-- Repeatable analysis plans <br>
+-- Known inference protocols <br>
+-- Expectations for size and stability of effects 
+<br><br><br><br><br><br><br><br>
+:::
+
+:::
+
+:::
+
+::: {.column width="50%"}
+
+<br><br><br><br>
+
+::: {style="font-size: 200%"}
+**Richness**
+:::
+
+::: {style="font-size: 90%"}
+-- Evolving analysis plans <br>
+-- Informal inference (multiplicity) <br>
+-- Effects situated within descriptive context
+
+:::
+
+:::
+
+:::
+
+
+::: {.notes}
+
+When doing **good** data-driven research we need to consider these two things at the same time.
+
+Rigour :
+
+-- established, well-justified and thoroughly considered analysis plans
+
+
+Richness :
+
+-- descriptive detail that underpins the inferences we make necessary for generalising / transfer
+-- if context under which data / findings generated not properly detailed, should we be surprised about a replication crisis? 
+
+
+We ask:
+
+-- do the things/recipes we associate with rigour really lead to more defensible, better science?
+-- straightjacket, risk getting trapped in local minima + mechanics of pre-registration
+
+
+
+:::
+
+---
+
+
+## Help
+
 
 
 ::: footer

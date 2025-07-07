@@ -1,6 +1,6 @@
 ---
-title: "GEOG5009 <br> <span style='font-size:.8em; font-weight: 500'>Visualization for</span> <br> <span style='font-size:.8em; font-weight: 500'>Geographic Data Science</span>"
-subtitle: "<br><span style='color:#525252; font-size:1.0em;'>-- Spring/Summer 2024</span>"
+title: "<span style='font-size:1.2em; font-weight: 600'>Data</span> <br><span style='font-size:1.2em; font-weight: 600'> Visualization</span> <br> <span style='font-size:1.0em; font-weight: 400'>with R</span>"
+subtitle: "<br><span style='color:#525252; font-size:1.3em;'>-- July 2025</span>"
 format: 
    revealjs:
      transition: fade
@@ -163,12 +163,14 @@ kbl(data_types, protect_latex = TRUE, escape=FALSE) |>
 ---
 
 
-<div style="font-size:0.7em;">
+
+::: {style="font-size: 90%;"}
 
 * dataset: [Citibike OD trip data](https://www.citibikenyc.com/system-data) 
-* variables: `trip_distance` | `user_type` 
+* variables: <span style="font-size: 0.5em"><code>trip_distance </code></span>| `user_type` 
 * measurement: `ratio` | `nominal`
-</div>
+
+:::
 
 
 ::: {.fragment}
@@ -181,11 +183,13 @@ include_graphics("img/dist.png", error = FALSE)
 
 ---
 
-<div style="font-size:0.7em;">
+::: {style="font-size: 90%;"}
 
 * dataset: Citibike OD trip data
 * variable: `trip_speed` | `user_age_band` | `user_type` | `trip_distance` 
 * measurement: `ratio` | `ordinal` | `nominal` | `ordinal`
+
+:::
 
 ::: {.fragment}
 
@@ -200,12 +204,13 @@ include_graphics("img/speeds.png", error = FALSE)
 
 ---
 
-<div style="font-size:0.7em;">
+::: {style="font-size: 90%;"}
 
 * dataset: Citibike OD trip data </span> <br>
 * variable: `trip_count` | `hod` | `user_type` | `day_week`
 *  measurement: `ratio` | `interval|cyclic ratio` | `nominal` | `ordinal` 
-</div> 
+
+:::
 
 
 ::: {.fragment}
