@@ -1,6 +1,6 @@
 ---
-title: "GEOG5009 <br> <span style='font-size:.8em; font-weight: 500'>Visualization for</span> <br> <span style='font-size:.8em; font-weight: 500'>Geographic Data Science</span>"
-subtitle: "<br><span style='color:#525252; font-size:1.0em;'>-- Spring/Summer 2024</span>"
+title: "<span style='font-size:1.2em; font-weight: 600'>Data</span> <br><span style='font-size:1.2em; font-weight: 600'> Visualization</span> <br> <span style='font-size:1.0em; font-weight: 400'>with R</span>"
+subtitle: "<br><span style='color:#525252; font-size:1.3em;'>-- July 2025</span>"
 format: 
    revealjs:
      transition: fade
@@ -9,6 +9,7 @@ format:
      footer: '[Roger Beecham](https://roger-beecham.com)'
      mainfont: Avenir Book
 ---
+
 
 ```{r}
 #| echo: false
@@ -20,77 +21,64 @@ library(kableExtra)
 library(tidyverse)
 ```
 
-::: {.notes}
-
-:::
+---
 
 # Session 7 : Recap and consolidate  
 
+
+---
+
+
+::: {style="font-size: 140%;"}
+
+::: {.callout-important icon=false}
+
+## Schedule
+
+
+* 1415 -- 1515 : Concepts
+
+* 1515 -- 1530 : Break + set-up (tech)  
+
+* 1530 -- 1645 : Live coding explanation
+
+* 1645 -- 1700 : Break + prep questions
+
+* 1700 -- 1730 : Questions / independent reflection
+
+* 1730 -- 1745 : Recap + looking ahead
+
+
+:::
+
+:::
+
 ---
 
 <br>
 
-### Part 1 : Assignment 1 Brief
+Part 1 <br> 
+<span style='font-size:1.2em; font-weight: 600'>
+*Grammar of interactive data analysis*
+</span>
 
 <br>
 
-### Part 2 : Grammar of interactive data analysis
+Part 2 <br> 
+<span style='font-size:1.2em; font-weight: 600'>
+*Exploratory analysis as model-driven process*
+</span>
 
 <br>
 
-### Other Parts : Models and Inference
+Part 3 <br> 
+<span style='font-size:1.2em; font-weight: 600'>
+*Visual methods for discouraging false discovery*
+</span>
 
 ---
 
-# Part 1 : Assignment 1 brief
-
----
-
-## Citibike use in June 2020
-
-
-:::{.columns}
-
-::: {.column width="50%"}
-
-::: {style="font-size: 100%;"}
-
-Sat 13th June <br>~ 23600 trips
-
-:::
-
-
-```{r}
-#| echo: false
-#| out-width: 100%
-include_graphics("img/sat.png", error = FALSE)
-```
-
-:::
-
-::: {.column width="50%"}
-
-
-::: {style="font-size: 100%;"}
-Tue 16th June<br> ~ 17500 trips
-:::
-
-
-```{r}
-#| echo: false
-#| out-width: 100%
-include_graphics("img/tue.png", error = FALSE)
-```
-
-:::
-
-:::
-
-
-
----
-
-# Part 2 : Grammar of interactive data analysis 
+# Part 1 : *Grammar of interactive data analysis* 
 
 ---
 
@@ -108,41 +96,6 @@ include_graphics("img/hod_dow.png", error = FALSE)
 :::
 
 ---
-
-## RQ1 : Do different customer categories in the Citibike scheme cycle differently? 
-
-
----
-
-
-
-## RQ1 : Do different customer categories in the Citibike scheme cycle differently? 
-
-```{r}
-#| eval: false
-#| echo: false
-ny_month <- ny_trips |>
-  mutate(
-    day=wday(start_time, label=TRUE),
-    hour=hour(start_time)) |> 
-  group_by(user_type, day, hour) |>
-  summarise(count=n()) |>
-  ungroup()
-```
-
-
-
-:::{.fragment}
-```{r}
-#| echo: false
-#| out-width: 80%
-include_graphics("img/hod_dow.png", error = FALSE)
-```
-:::
-
----
-
-
 
 ## RQ1 
 
@@ -224,9 +177,15 @@ ny_temporal |>
   group_by(user_type) |>
   mutate(user_count=sum(count)) |>
   group_by(user_type, day) |>
-  summarise(count=sum(count), user_count=first(user_count), prop=count/user_count) |>
+  summarise(
+    count=sum(count), 
+    user_count=first(user_count), 
+    prop=count/user_count) |>
   select(user_type, day, prop) |>
-  pivot_wider(names_from=user_type, values_from=prop)
+  pivot_wider(
+    names_from=user_type, 
+    values_from=prop
+  )
 ```
 
 </div>
@@ -268,7 +227,7 @@ ny_temporal |>
 
 :::{.columns}
 
-::: {.column width="50%"}
+::: {.column width="40%"}
 
 <div style="font-size:0.5em;"> 
 
@@ -276,8 +235,11 @@ ny_temporal |>
 #| eval: false
 #| echo: true
 ny_temporal |>
-  ggplot(aes(x=hour, y=count, group=user_type)) +
-  geom_line(aes(colour=user_type), linewidth=1.1) +
+  ggplot(aes(
+    x=hour, y=count, 
+    group=user_type,
+    colour=user_type)) +
+  geom_line(linewidth=1.1) +
   scale_colour_manual(values=c("#e31a1c", "#1f78b4")) +
   facet_wrap(~day, nrow=1)+
   labs(x="", y="trip counts")
@@ -287,7 +249,7 @@ ny_temporal |>
 
 :::
 
-::: {.column width="50%"}
+::: {.column width="60%"}
 
 
 ```{r}
@@ -889,7 +851,7 @@ include_graphics("img/scatters_patchwork.png", error = FALSE)
 
 
 
-# Part 3 : Exploratory visual data analysis as model-driven process
+# Part 2 : *Exploratory visual data analysis as model-driven process*
 
 
 ---
@@ -1206,7 +1168,7 @@ include_graphics("img/jobs_type_bor.png", error = FALSE)
 
 ## RQ1 : 
 
-#### 51% of jobs are professional, so there is a distinctive geog
+#### 51% of jobs are professional, so there <u>must be</u> a distinctive geography
 
 ::: {.column width="80%"}
 
@@ -1225,7 +1187,7 @@ include_graphics("img/jobs_type_bor.png", error = FALSE)
 
 #### Our model 1
 
-##### Randomly select commute <br> *expect* 51% to be professional
+##### Randomly select commute <br> <u>expect</u> 51% to be professional
 
 <br>
 
@@ -1287,13 +1249,13 @@ edges |>
 
 #### Our model 1  
 
-##### Randomly select commute <br> *expect* 51% to be professional
+##### Randomly select commute <br> <u>expect</u> 51% to be <br>professional
 
 <br>
 
 :::{.columns}
 
-::: {.column width="50%"}
+::: {.column width="40%"}
 
 <div style="font-size:0.5em;"> 
 
@@ -1314,14 +1276,17 @@ edges |>
 
 :::
 
-::: {.column width="50%"}
+::: {.column width="60%"}
 
 ```{r}
 #| out.width: 100%
 #| echo: false
-
+#| include: false
 include_graphics("img/od_map_model.png", error = FALSE)
 ```
+
+
+![](img/od_map_model.png){.absolute top=100 left=450 width="60%"}
 
 :::
 
@@ -1334,14 +1299,15 @@ include_graphics("img/od_map_model.png", error = FALSE)
 
 #### Our model 2
 
-##### Randomly select commute <br> *expect* % professional ~ destination
+##### Randomly select commute <br> *expect* % professional <br> ~ destination
 
-<br>
 
 
 :::{.columns}
 
-::: {.column width="50%"}
+::: {.column width="40%"}
+
+<br>
 
 <div style="font-size:0.5em;"> 
 
@@ -1369,10 +1335,12 @@ edges |>
 ```{r}
 #| out.width: 100%
 #| echo: false
+#| include: false
 
 include_graphics("img/od_map_model2.png", error = FALSE)
 ```
 
+![](img/od_map_model2.png){.absolute top=100 left=450 width="60%"}
 :::
 
 :::
@@ -1384,7 +1352,7 @@ include_graphics("img/od_map_model2.png", error = FALSE)
 
 #### Our model 2
 
-##### Randomly select commute <br> *expect* % professional ~ destination
+##### Randomly select commute <br> <u>expect</u> % professional <br> ~ destination
 
 
 
@@ -1392,7 +1360,6 @@ include_graphics("img/od_map_model2.png", error = FALSE)
 
 ::: {.column width="50%"}
 
-<br>
 
 <div style="font-size:0.4em;"> 
 
@@ -1432,9 +1399,12 @@ plot_data |>
 ```{r}
 #| out.width: 100%
 #| echo: false
+#| include: false
 
 include_graphics("img/od_map_model2.png", error = FALSE)
 ```
+
+![](img/od_map_model2.png){.absolute top=180 left=530 width="54%"}
 
 :::
 
@@ -1447,9 +1417,8 @@ include_graphics("img/od_map_model2.png", error = FALSE)
 
 #### Our model 2
 
-##### Randomly select commute <br> *expect* % professional ~ destination
+##### Randomly select commute <br> <u>expect</u> % professional <br> ~ destination
 
-<br>
 
 
 :::{.columns}
@@ -1495,9 +1464,12 @@ plot_data |>
 ```{r}
 #| out.width: 100%
 #| echo: false
+#| include: false
 
 include_graphics("img/od_map_model2.png", error = FALSE)
 ```
+
+![](img/od_map_model2.png){.absolute top=180 left=530 width="54%"}
 
 :::
 
@@ -1511,9 +1483,8 @@ include_graphics("img/od_map_model2.png", error = FALSE)
 
 #### Our model 2
 
-##### Randomly select commute <br> *expect* % professional ~ destination
+##### Randomly select commute <br> <u>expect</u> % professional <br> ~ destination
 
-<br>
 
 
 :::{.columns}
@@ -1559,9 +1530,12 @@ plot_data |>
 ```{r}
 #| out.width: 100%
 #| echo: false
+#| include: false
 
 include_graphics("img/od_map_model2.png", error = FALSE)
 ```
+
+![](img/od_map_model2.png){.absolute top=180 left=530 width="54%"}
 
 :::
 
@@ -1574,9 +1548,7 @@ include_graphics("img/od_map_model2.png", error = FALSE)
 
 #### Our model 2
 
-##### Randomly select commute <br> *expect* % professional ~ destination
-
-<br>
+##### Randomly select commute <br> <u>expect</u> % professional <br> ~ destination
 
 
 :::{.columns}
@@ -1622,9 +1594,13 @@ plot_data |>
 ```{r}
 #| out.width: 100%
 #| echo: false
+#| include: false
 
 include_graphics("img/od_map_model2.png", error = FALSE)
 ```
+
+
+![](img/od_map_model2.png){.absolute top=180 left=530 width="54%"}
 
 :::
 
@@ -1637,9 +1613,7 @@ include_graphics("img/od_map_model2.png", error = FALSE)
 
 #### Our model 2
 
-##### Randomly select commute <br> *expect* % professional ~ destination
-
-<br>
+##### Randomly select commute <br> <u>expect</u> % professional <br> ~ destination
 
 
 :::{.columns}
@@ -1685,9 +1659,12 @@ plot_data |>
 ```{r}
 #| out.width: 100%
 #| echo: false
+#| include: false
 
 include_graphics("img/od_map_model2.png", error = FALSE)
 ```
+
+![](img/od_map_model2.png){.absolute top=180 left=530 width="54%"}
 
 :::
 
@@ -1700,9 +1677,9 @@ include_graphics("img/od_map_model2.png", error = FALSE)
 
 #### Our model 2
 
-##### Randomly select commute <br> *expect* % professional ~ destination
+##### Randomly select commute <br> <u>expect</u> % professional <br> ~ destination
 
-<br>
+
 
 
 :::{.columns}
@@ -1748,9 +1725,12 @@ plot_data |>
 ```{r}
 #| out.width: 100%
 #| echo: false
+#| include: false
 
 include_graphics("img/od_map_model2.png", error = FALSE)
 ```
+
+![](img/od_map_model2.png){.absolute top=180 left=530 width="54%"}
 
 :::
 
@@ -1760,7 +1740,7 @@ include_graphics("img/od_map_model2.png", error = FALSE)
 ---
 
 
-# Part 4 : Visual methods for discouraging false discovery
+# Part 3 : *Visual methods for discouraging false discovery*
 
 
 ---

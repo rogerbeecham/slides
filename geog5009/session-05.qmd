@@ -1,6 +1,6 @@
 ---
-title: "GEOG5009 <br> <span style='font-size:.8em; font-weight: 500'>Visualization for</span> <br> <span style='font-size:.8em; font-weight: 500'>Geographic Data Science</span>"
-subtitle: "<br><span style='color:#525252; font-size:1.0em;'>-- Spring/Summer 2024</span>"
+title: "<span style='font-size:1.2em; font-weight: 600'>Data</span> <br><span style='font-size:1.2em; font-weight: 600'> Visualization</span> <br> <span style='font-size:1.0em; font-weight: 400'>with R</span>"
+subtitle: "<br><span style='color:#525252; font-size:1.3em;'>-- July 2025</span>"
 format: 
    revealjs:
      transition: fade
@@ -33,6 +33,37 @@ Nodes -- entities -- bikeshare stations, airports, authors
 :::
 
 ---
+
+
+<br>
+
+::: {style="font-size: 140%;"}
+
+::: {.callout-important icon=false}
+
+## Schedule
+
+
+* 1415 -- 1515 : Concepts
+
+* 1515 -- 1530 : Break + set-up (tech)  
+
+* 1530 -- 1645 : Live coding explanation
+
+* 1645 -- 1700 : Break + prep questions
+
+* 1700 -- 1730 : Questions / independent reflection
+
+* 1730 -- 1745 : Recap + looking ahead
+
+
+:::
+
+:::
+
+---
+
+
 
 ### Network data : nodes
 
@@ -100,7 +131,7 @@ include_graphics("img/node-edge.png", error = FALSE)
 ### OD data : nodes
 
 
-::: {.column width="70%"}
+::: {.column width="85%"}
 ```{r}
 #| out.width: 100%
 #| echo: false
@@ -122,7 +153,7 @@ Origin-Destination network data:
 ### OD data : edges (flows)
 
 
-::: {.column width="70%"}
+::: {.column width="85%"}
 ```{r}
 #| out.width: 100%
 #| echo: false
@@ -136,7 +167,7 @@ include_graphics("img/node-spatial-map.png", error = FALSE)
 
 :::{columns}
 
-::: {.column width="60%"}
+::: {.column width="80%"}
 ```{r}
 #| out.width: 100%
 #| echo: false
@@ -146,6 +177,8 @@ include_graphics("img/node-edge-spatial-map-bezier.png", error = FALSE)
 
 
 ::: {.column width="20%"}
+
+<br>
 ```{r}
 #| out.width: 100%
 #| echo: false
@@ -183,7 +216,6 @@ include_graphics("img/flowlines.png", error = FALSE)
 
 ### OD matrix
 
-<br>
 
 ::: {.column width="100%"}
 ```{r}
@@ -197,9 +229,11 @@ include_graphics("img/matrices.png", error = FALSE)
 
 ### OD matrix : layout
 
-<br>
 
 ::: {.column width="100%"}
+
+<span style="font-size:0.05em;"> <br> </span>
+
 ```{r}
 #| out.width: 100%
 #| echo: false

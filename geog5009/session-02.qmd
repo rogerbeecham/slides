@@ -40,6 +40,33 @@ Review objectives --
 
 ---
 
+<br>
+
+::: {style="font-size: 140%;"}
+
+::: {.callout-important icon=false}
+
+## Schedule
+
+
+* 1415 -- 1515 : Concepts
+
+* 1515 -- 1545 : Break + set-up (tech)
+
+* 1545 -- 1645 : Live coding explanation
+
+* 1645 -- 1730 : Independent work through tasks
+
+* 1730 -- 1745 : Recap + looking ahead
+
+
+:::
+
+:::
+
+
+---
+
 ## Data structure
 
 
@@ -167,8 +194,8 @@ kbl(data_types, protect_latex = TRUE, escape=FALSE) |>
 ::: {style="font-size: 90%;"}
 
 * dataset: [Citibike OD trip data](https://www.citibikenyc.com/system-data) 
-* variables: <span style="font-size: 0.5em"><code>trip_distance </code></span>| `user_type` 
-* measurement: `ratio` | `nominal`
+* variables: <span style="font-size: 0.8em"><code>trip_distance </code></span>| <span style="font-size: 0.8em"><code>user_type </code></span>
+* measurement: <span style="font-size: 0.8em"><code>ratio </code></span> | <span style="font-size: 0.8em"><code>nominal </code></span>
 
 :::
 
@@ -186,8 +213,8 @@ include_graphics("img/dist.png", error = FALSE)
 ::: {style="font-size: 90%;"}
 
 * dataset: Citibike OD trip data
-* variable: `trip_speed` | `user_age_band` | `user_type` | `trip_distance` 
-* measurement: `ratio` | `ordinal` | `nominal` | `ordinal`
+* variable: <span style="font-size: 0.8em"><code>trip_speed </code></span> | <span style="font-size: 0.8em"><code>user_age_band </code></span> | <span style="font-size: 0.8em"><code>user_type </code></span> | <span style="font-size: 0.8em"><code>trip_distance </code></span> 
+* measurement: <span style="font-size: 0.8em"><code>ratio </code></span> | <span style="font-size: 0.8em"><code>ordinal </code></span> | <span style="font-size: 0.8em"><code>nominal </code></span> | <span style="font-size: 0.8em"><code>ordinal </code></span>
 
 :::
 
@@ -207,8 +234,8 @@ include_graphics("img/speeds.png", error = FALSE)
 ::: {style="font-size: 90%;"}
 
 * dataset: Citibike OD trip data </span> <br>
-* variable: `trip_count` | `hod` | `user_type` | `day_week`
-*  measurement: `ratio` | `interval|cyclic ratio` | `nominal` | `ordinal` 
+* variable: <span style="font-size: 0.8em"><code>trip_count </code></span> | <span style="font-size: 0.8em"><code>hod</code></span> | <span style="font-size: 0.8em"><code>user_type</code></span> | <span style="font-size: 0.8em"><code>day_week</code></span>
+*  measurement: <span style="font-size: 0.8em"><code>ratio</code></span> | <span style="font-size: 0.8em"><code>interval|cyclic ratio</code></span> | <span style="font-size: 0.8em"><code>nominal</code></span> | <span style="font-size: 0.8em"><code>ordinal</code></span> 
 
 :::
 
@@ -496,7 +523,6 @@ code.sourceCode {
 
 ::: {.column width="50%"}
 
-<br>
 
 ```{r}
 #| echo: true

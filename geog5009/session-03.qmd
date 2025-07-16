@@ -1,6 +1,6 @@
 ---
-title: "GEOG5009 <br> <span style='font-size:.8em; font-weight: 500'>Visualization for</span> <br> <span style='font-size:.8em; font-weight: 500'>Geographic Data Science</span>"
-subtitle: "<br><span style='color:#525252; font-size:1.0em;'>-- Spring/Summer 2024</span>"
+title: "<span style='font-size:1.2em; font-weight: 600'>Data</span> <br><span style='font-size:1.2em; font-weight: 600'> Visualization</span> <br> <span style='font-size:1.0em; font-weight: 400'>with R</span>"
+subtitle: "<br><span style='color:#525252; font-size:1.3em;'>-- July 2025</span>"
 format: 
    revealjs:
      transition: fade
@@ -32,6 +32,33 @@ Objectives | Datasets -- Contituency-level Leave voting
 :::
 
 ---
+
+<br>
+
+::: {style="font-size: 140%;"}
+
+::: {.callout-important icon=false}
+
+## Schedule
+
+
+* 1415 -- 1515 : Concepts
+
+* 1515 -- 1545 : Break + set-up (tech)  
+
+* 1545 -- 1645 : Live coding explanation
+
+* 1645 -- 1730 : Independent work through tasks
+
+* 1730 -- 1745 : Recap + looking ahead
+
+
+:::
+
+:::
+
+---
+
 
 ## Introducing Fundamentals
 
@@ -141,7 +168,22 @@ include_graphics("img/wp_long.png", error = FALSE)
 
 ---
 
+## Effective data graphics
 
+<br>
+
+> Data graphics visually display measured quantities by means of the **combined use of points, lines, a coordinate system, numbers, symbols, words, shading, and color**.
+>
+  > Tufte 1983
+
+  
+::: {.notes}
+Data vis is a careful thinking through of data you have -- its type -- how it ican be represented using the visual system -- and to support particular analysis tasks.
+
+Data - Visuals -- Tasks
+:::
+
+---
 
 ## Grammar of Graphics
 
@@ -233,14 +275,18 @@ include_graphics("img/gog_demo_3.png", error = FALSE)
 
 ## Marks and visual channels
 
-<br>
 
-```{r}
-#| out.width: 80%
-#| echo: false
 
-include_graphics("img/munzner.png", error = FALSE)
-```
+::: columns
+
+
+::: {.column width="60%"}
+
+![](img/munzner_effect_trans.png){fig-align="center"}
+:::
+
+:::
+
 
 
 ::: {.notes}
@@ -401,10 +447,16 @@ $R=kS^n$
 ```{r}
 #| label: perception
 #| fig-cap: ""
-#| out.width: 80%
+#| out.width: 65%
 #| echo: false
 knitr::include_graphics("img/perception.svg", error = FALSE)
 ```
+:::
+
+::: {.fragment}
+
+![](img/scaled-circles.png){.absolute top=300 left=700 width="30%"}
+
 :::
 
 ::: {.notes}
@@ -423,33 +475,49 @@ Experimental findings vary and so these models of human perception are also subj
 
 ---
 
-## Perceiving statistical features 
-
-<br>
+## perceived effect != statistical effect
 
 ::: columns
 
+<br>
+
 ::: {.column width="35%"}
   
-```{r}
-#| out.width: 100%
-#| echo: false
-knitr::include_graphics("img/guess_correl1.png", error = FALSE)
-```
+![](img/guess_correl1.png)
+
 :::
 
 ::: {.column width="65%"}
-  
-```{r}
-#| out.width: 100%
-#| echo: false
-knitr::include_graphics("img/guess_correl2.png", error = FALSE)
-```
+
+![](img/guess_correl2.png)
 :::
 
 :::
 
 ---
+
+## perceived effect != statistical effect
+
+
+![](img/kay_heer.png){.absolute top=150 left=50 width="90%"}
+
+
+
+---
+
+## perceived effect != statistical effect
+
+
+
+![](img/maplineup.png){.absolute top=120 left=10 width="100%"}
+<br><br><br><br><br><br><br><br><br>
+
+::: {style="font-size: 80%;"}
+Beecham et al. (2017) "Map LineUps: Effects of spatial structure on graphical inference", *IEEE TVCG*.
+:::
+
+---
+
 
 ## Colour 
 
@@ -469,6 +537,40 @@ https://blog.datawrapper.de/which-color-scale-to-use-in-data-vis/
 
 
 ---
+
+::: {.columns}
+
+
+::: {.column width="30%"}
+
+<br><br><br>
+
+::: {style="font-size: 160%; color:#525252;"}
+Theory + **Heuristics**
+:::
+
+:::
+
+::: {.column width="70%"}
+
+<br>
+
+::: {style="font-size: 120%;"}
+
+> Good data visualization design is about **visual encoding trade-offs**. <br>
+
+::: {.fragment}
+> It is often necesary to **relax theory** to support particular data analysis **tasks** and **communication** needs.
+:::
+
+:::
+
+:::
+
+:::
+
+---
+
 
 ## Techniques
 

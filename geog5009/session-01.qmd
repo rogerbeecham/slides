@@ -118,6 +118,29 @@ Examples revealing some of the sessions
 :::
 
 
+## Course Schedule
+
+::: {style="font-size: 70%;"}
+
+* 7th Jul: Introduction
+* 8th Jul: Data Fundamentals
+* 9th Jul: Visualization Fundamentals
+* 10th Jul: Exploratory Data Analysis
+* 11th Jul: Exploring Spatial Networks
+
+--- Weekend ---
+
+* 14th Jul: Model Building
+* 15th Jul: Uncertainty Analysis
+* 16th Jul: Consolidate / recap
+* 17th Jul: Data Storytelling
+* 18th Jul: TBC
+
+:::
+
+::: footer
+:::
+
 ---
 
 # Session 1: Introduction

@@ -1,6 +1,6 @@
 ---
-title: "GEOG5009 <br> <span style='font-size:.8em; font-weight: 500'>Visualization for</span> <br> <span style='font-size:.8em; font-weight: 500'>Geographic Data Science</span>"
-subtitle: "<br><span style='color:#525252; font-size:1.0em;'>-- Spring/Summer 2024</span>"
+title: "<span style='font-size:1.2em; font-weight: 600'>Data</span> <br><span style='font-size:1.2em; font-weight: 600'> Visualization</span> <br> <span style='font-size:1.0em; font-weight: 400'>with R</span>"
+subtitle: "<br><span style='color:#525252; font-size:1.3em;'>-- July 2025</span>"
 format: 
    revealjs:
      transition: fade
@@ -38,6 +38,35 @@ Do so with Stats19 -- how detailed comparison across many categorical variables 
 :::
 
 ---
+
+<br>
+
+::: {style="font-size: 140%;"}
+
+::: {.callout-important icon=false}
+
+## Schedule
+
+
+* 1415 -- 1515 : Concepts
+
+* 1515 -- 1530 : Break + set-up (tech)  
+
+* 1530 -- 1645 : Live coding explanation
+
+* 1645 -- 1700 : Break + prep questions
+
+* 1700 -- 1730 : Questions / independent reflection
+
+* 1730 -- 1745 : Recap + looking ahead
+
+
+:::
+
+:::
+
+---
+
 
 ### EDA and statistical graphics
 
@@ -83,7 +112,7 @@ Exploring structure and relationships
 
 ### EDA and statistical graphics
 
-<br>
+<br><br>
 
 <div style="font-size:0.5em;"> 
 
@@ -127,6 +156,9 @@ kbl(variable_types, protect_latex = TRUE, escape=FALSE) |>
 
 ### Variation within continuous variables
 
+
+<br>
+
 ::: {.column width="80%"}
 ```{r}
 #| out.width: 100%
@@ -147,7 +179,7 @@ Pedestrians younger than the drivers hitting them, except for bikes. But notice 
 
 ### Variation within categorical variables
 
-<br>
+<br><br>
 
 ::: {.column width="100%"}
 ```{r}
@@ -177,7 +209,7 @@ include_graphics("img/borough-freqs.png", error = FALSE)
 
 ### Variation within + between variables
 
-<br>
+<br><br>
 
 ::: {.column width="100%"}
 ```{r}
@@ -255,11 +287,12 @@ doi: `10.1162/99608f92.3ab8a587`
 
 ### EDA workflow
 
-::: {.column width="65%"}
+<span style="font-size:0.6em;"> <br> doi: `10.1111/gean.12338` </span>
+
+::: {.column width="50%"}
 ![](img/ga_twitter.png){fig-align="center"}
 :::
 
-<span style="font-size:0.6em;"> doi: `10.1111/gean.12338` </span>
 ---
 
 ### Comparison
@@ -276,25 +309,27 @@ EDA should invite comparison -- we can achieve this with out vis design.
 
 ---
 
-<br>
+<br><br>
 
-::: {.column width="80%"}
+::: {.column width="90%"}
 
 ![](img/freqs_imd.png){fig-align="center"}
 :::
 
 ----
 
-::: {.column width="66%"}
+::: {.column width="90%"}
 
-<br>
+<br><br>
 
 ![](img/imd_driver_cas.png){fig-align="center"}
 :::
 
 ---
 
+
 ::: {.column width="80%"}
+
 
 ![](img/model_imd_location.png){fig-align="center"}
 :::

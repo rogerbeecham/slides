@@ -1,6 +1,6 @@
 ---
-title: "GEOG5009 <br> <span style='font-size:.8em; font-weight: 500'>Visualization for</span> <br> <span style='font-size:.8em; font-weight: 500'>Geographic Data Science</span>"
-subtitle: "<br><span style='color:#525252; font-size:1.0em;'>-- Spring/Summer 2024</span>"
+title: "<span style='font-size:1.2em; font-weight: 600'>Data</span> <br><span style='font-size:1.2em; font-weight: 600'> Visualization</span> <br> <span style='font-size:1.0em; font-weight: 400'>with R</span>"
+subtitle: "<br><span style='color:#525252; font-size:1.3em;'>-- July 2025</span>"
 format: 
    revealjs:
      transition: fade
@@ -25,6 +25,36 @@ library(tidyverse)
 # Session 6 : Models
 
 ---
+
+
+<br>
+
+::: {style="font-size: 140%;"}
+
+::: {.callout-important icon=false}
+
+## Schedule
+
+
+* 1415 -- 1515 : Concepts
+
+* 1515 -- 1530 : Break + set-up (tech)  
+
+* 1530 -- 1645 : Live coding explanation
+
+* 1645 -- 1700 : Break + prep questions
+
+* 1700 -- 1730 : Questions / independent reflection
+
+* 1730 -- 1745 : Recap + looking ahead
+
+
+:::
+
+:::
+
+---
+
 
 <br>
 
