@@ -1,2 +1,2 @@
-# ess2023
-Slides for course 3D at Essex Summer School 
+# GEOG5009
+Slides for GEOG5009 module
